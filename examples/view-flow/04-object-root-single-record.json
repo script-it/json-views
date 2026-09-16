@@ -1,0 +1,646 @@
+{
+  "id": "ORG-0001",
+  "name": "Lighthouse Analytics",
+  "website": "https://example.com/lighthouse",
+  "primaryContact": {
+    "id": "person-001",
+    "name": "Ada 1",
+    "email": "person1@example.com",
+    "team": "Platform",
+    "active": false,
+    "location": {
+      "city": "New York",
+      "region": "North America"
+    },
+    "skills": [
+      "Atlas",
+      "Delta"
+    ]
+  },
+  "plan": "Enterprise",
+  "active": true,
+  "annualValue": 185000,
+  "renewalDate": "2027-03-15",
+  "health": {
+    "score": 82,
+    "trend": "Up",
+    "lastReviewed": "2026-09-08"
+  },
+  "products": [
+    "Atlas",
+    "Beacon",
+    "Forge"
+  ],
+  "locations": [
+    {
+      "region": "North America",
+      "employees": 20,
+      "office": true
+    },
+    {
+      "region": "Europe",
+      "employees": 37,
+      "office": false
+    },
+    {
+      "region": "Asia Pacific",
+      "employees": 54,
+      "office": true
+    },
+    {
+      "region": "Middle East",
+      "employees": 71,
+      "office": false
+    },
+    {
+      "region": "Latin America",
+      "employees": 88,
+      "office": true
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-1",
+      "date": "2026-01-01",
+      "author": "Ada 1",
+      "text": "Account note 1",
+      "private": true
+    },
+    {
+      "id": "note-2",
+      "date": "2026-01-04",
+      "author": "Grace 2",
+      "text": "Account note 2",
+      "private": false
+    },
+    {
+      "id": "note-3",
+      "date": "2026-01-07",
+      "author": "Linus 3",
+      "text": "Account note 3",
+      "private": false
+    },
+    {
+      "id": "note-4",
+      "date": "2026-01-10",
+      "author": "Margaret 4",
+      "text": "Account note 4",
+      "private": false
+    },
+    {
+      "id": "note-5",
+      "date": "2026-01-13",
+      "author": "Alan 5",
+      "text": "Account note 5",
+      "private": false
+    },
+    {
+      "id": "note-6",
+      "date": "2026-01-16",
+      "author": "Katherine 6",
+      "text": "Account note 6",
+      "private": false
+    },
+    {
+      "id": "note-7",
+      "date": "2026-01-19",
+      "author": "Edsger 7",
+      "text": "Account note 7",
+      "private": false
+    },
+    {
+      "id": "note-8",
+      "date": "2026-01-22",
+      "author": "Radia 8",
+      "text": "Account note 8",
+      "private": false
+    },
+    {
+      "id": "note-9",
+      "date": "2026-01-25",
+      "author": "Barbara 9",
+      "text": "Account note 9",
+      "private": true
+    },
+    {
+      "id": "note-10",
+      "date": "2026-01-28",
+      "author": "Donald 10",
+      "text": "Account note 10",
+      "private": false
+    },
+    {
+      "id": "note-11",
+      "date": "2026-01-31",
+      "author": "Ada 11",
+      "text": "Account note 11",
+      "private": false
+    },
+    {
+      "id": "note-12",
+      "date": "2026-02-03",
+      "author": "Grace 12",
+      "text": "Account note 12",
+      "private": false
+    },
+    {
+      "id": "note-13",
+      "date": "2026-02-06",
+      "author": "Linus 13",
+      "text": "Account note 13",
+      "private": false
+    },
+    {
+      "id": "note-14",
+      "date": "2026-02-09",
+      "author": "Margaret 14",
+      "text": "Account note 14",
+      "private": false
+    },
+    {
+      "id": "note-15",
+      "date": "2026-02-12",
+      "author": "Alan 15",
+      "text": "Account note 15",
+      "private": false
+    },
+    {
+      "id": "note-16",
+      "date": "2026-02-15",
+      "author": "Katherine 16",
+      "text": "Account note 16",
+      "private": false
+    },
+    {
+      "id": "note-17",
+      "date": "2026-02-18",
+      "author": "Edsger 17",
+      "text": "Account note 17",
+      "private": true
+    },
+    {
+      "id": "note-18",
+      "date": "2026-02-21",
+      "author": "Radia 18",
+      "text": "Account note 18",
+      "private": false
+    },
+    {
+      "id": "note-19",
+      "date": "2026-02-24",
+      "author": "Barbara 19",
+      "text": "Account note 19",
+      "private": false
+    },
+    {
+      "id": "note-20",
+      "date": "2026-02-27",
+      "author": "Donald 20",
+      "text": "Account note 20",
+      "private": false
+    },
+    {
+      "id": "note-21",
+      "date": "2026-03-02",
+      "author": "Ada 21",
+      "text": "Account note 21",
+      "private": false
+    },
+    {
+      "id": "note-22",
+      "date": "2026-03-05",
+      "author": "Grace 22",
+      "text": "Account note 22",
+      "private": false
+    },
+    {
+      "id": "note-23",
+      "date": "2026-03-08",
+      "author": "Linus 23",
+      "text": "Account note 23",
+      "private": false
+    },
+    {
+      "id": "note-24",
+      "date": "2026-03-11",
+      "author": "Margaret 24",
+      "text": "Account note 24",
+      "private": false
+    },
+    {
+      "id": "note-25",
+      "date": "2026-03-14",
+      "author": "Alan 25",
+      "text": "Account note 25",
+      "private": true
+    },
+    {
+      "id": "note-26",
+      "date": "2026-03-17",
+      "author": "Katherine 26",
+      "text": "Account note 26",
+      "private": false
+    },
+    {
+      "id": "note-27",
+      "date": "2026-03-20",
+      "author": "Edsger 27",
+      "text": "Account note 27",
+      "private": false
+    },
+    {
+      "id": "note-28",
+      "date": "2026-03-23",
+      "author": "Radia 28",
+      "text": "Account note 28",
+      "private": false
+    },
+    {
+      "id": "note-29",
+      "date": "2026-03-26",
+      "author": "Barbara 29",
+      "text": "Account note 29",
+      "private": false
+    },
+    {
+      "id": "note-30",
+      "date": "2026-03-29",
+      "author": "Donald 30",
+      "text": "Account note 30",
+      "private": false
+    },
+    {
+      "id": "note-31",
+      "date": "2026-04-01",
+      "author": "Ada 1",
+      "text": "Account note 31",
+      "private": false
+    },
+    {
+      "id": "note-32",
+      "date": "2026-04-04",
+      "author": "Grace 2",
+      "text": "Account note 32",
+      "private": false
+    },
+    {
+      "id": "note-33",
+      "date": "2026-04-07",
+      "author": "Linus 3",
+      "text": "Account note 33",
+      "private": true
+    },
+    {
+      "id": "note-34",
+      "date": "2026-04-10",
+      "author": "Margaret 4",
+      "text": "Account note 34",
+      "private": false
+    },
+    {
+      "id": "note-35",
+      "date": "2026-04-13",
+      "author": "Alan 5",
+      "text": "Account note 35",
+      "private": false
+    }
+  ],
+  "invoices": [
+    {
+      "number": "INV-0001",
+      "issued": "2025-11-02",
+      "due": "2025-12-02",
+      "amount": 287.5,
+      "paid": false
+    },
+    {
+      "number": "INV-0002",
+      "issued": "2025-11-05",
+      "due": "2025-12-05",
+      "amount": 18501.2,
+      "paid": true
+    },
+    {
+      "number": "INV-0003",
+      "issued": "2025-11-08",
+      "due": "2025-12-08",
+      "amount": 36714.9,
+      "paid": true
+    },
+    {
+      "number": "INV-0004",
+      "issued": "2025-11-11",
+      "due": "2025-12-11",
+      "amount": 54928.6,
+      "paid": true
+    },
+    {
+      "number": "INV-0005",
+      "issued": "2025-11-14",
+      "due": "2025-12-14",
+      "amount": 17942.3,
+      "paid": true
+    },
+    {
+      "number": "INV-0006",
+      "issued": "2025-11-17",
+      "due": "2025-12-17",
+      "amount": 36156,
+      "paid": true
+    },
+    {
+      "number": "INV-0007",
+      "issued": "2025-11-20",
+      "due": "2025-12-20",
+      "amount": 54369.7,
+      "paid": true
+    },
+    {
+      "number": "INV-0008",
+      "issued": "2025-11-23",
+      "due": "2025-12-23",
+      "amount": 17383.4,
+      "paid": false
+    },
+    {
+      "number": "INV-0009",
+      "issued": "2025-11-26",
+      "due": "2025-12-26",
+      "amount": 35597.1,
+      "paid": true
+    },
+    {
+      "number": "INV-0010",
+      "issued": "2025-11-29",
+      "due": "2025-12-29",
+      "amount": 53810.8,
+      "paid": true
+    },
+    {
+      "number": "INV-0011",
+      "issued": "2025-12-02",
+      "due": "2026-01-01",
+      "amount": 16824.5,
+      "paid": true
+    },
+    {
+      "number": "INV-0012",
+      "issued": "2025-12-05",
+      "due": "2026-01-04",
+      "amount": 35038.2,
+      "paid": true
+    },
+    {
+      "number": "INV-0013",
+      "issued": "2025-12-08",
+      "due": "2026-01-07",
+      "amount": 53251.9,
+      "paid": true
+    },
+    {
+      "number": "INV-0014",
+      "issued": "2025-12-11",
+      "due": "2026-01-10",
+      "amount": 16265.6,
+      "paid": true
+    },
+    {
+      "number": "INV-0015",
+      "issued": "2025-12-14",
+      "due": "2026-01-13",
+      "amount": 34479.3,
+      "paid": false
+    },
+    {
+      "number": "INV-0016",
+      "issued": "2025-12-17",
+      "due": "2026-01-16",
+      "amount": 52693,
+      "paid": true
+    },
+    {
+      "number": "INV-0017",
+      "issued": "2025-12-20",
+      "due": "2026-01-19",
+      "amount": 15706.7,
+      "paid": true
+    },
+    {
+      "number": "INV-0018",
+      "issued": "2025-12-23",
+      "due": "2026-01-22",
+      "amount": 33920.4,
+      "paid": true
+    },
+    {
+      "number": "INV-0019",
+      "issued": "2025-12-26",
+      "due": "2026-01-25",
+      "amount": 52134.1,
+      "paid": true
+    },
+    {
+      "number": "INV-0020",
+      "issued": "2025-12-29",
+      "due": "2026-01-28",
+      "amount": 15147.8,
+      "paid": true
+    },
+    {
+      "number": "INV-0021",
+      "issued": "2026-01-01",
+      "due": "2026-01-31",
+      "amount": 33361.5,
+      "paid": true
+    },
+    {
+      "number": "INV-0022",
+      "issued": "2026-01-04",
+      "due": "2026-02-03",
+      "amount": 51575.2,
+      "paid": false
+    },
+    {
+      "number": "INV-0023",
+      "issued": "2026-01-07",
+      "due": "2026-02-06",
+      "amount": 14588.9,
+      "paid": true
+    },
+    {
+      "number": "INV-0024",
+      "issued": "2026-01-10",
+      "due": "2026-02-09",
+      "amount": 32802.6,
+      "paid": true
+    },
+    {
+      "number": "INV-0025",
+      "issued": "2026-01-13",
+      "due": "2026-02-12",
+      "amount": 51016.3,
+      "paid": true
+    },
+    {
+      "number": "INV-0026",
+      "issued": "2026-01-16",
+      "due": "2026-02-15",
+      "amount": 14030,
+      "paid": true
+    },
+    {
+      "number": "INV-0027",
+      "issued": "2026-01-19",
+      "due": "2026-02-18",
+      "amount": 32243.7,
+      "paid": true
+    },
+    {
+      "number": "INV-0028",
+      "issued": "2026-01-22",
+      "due": "2026-02-21",
+      "amount": 50457.4,
+      "paid": true
+    },
+    {
+      "number": "INV-0029",
+      "issued": "2026-01-25",
+      "due": "2026-02-24",
+      "amount": 13471.1,
+      "paid": false
+    },
+    {
+      "number": "INV-0030",
+      "issued": "2026-01-28",
+      "due": "2026-02-27",
+      "amount": 31684.8,
+      "paid": true
+    },
+    {
+      "number": "INV-0031",
+      "issued": "2026-01-31",
+      "due": "2026-03-02",
+      "amount": 49898.5,
+      "paid": true
+    },
+    {
+      "number": "INV-0032",
+      "issued": "2026-02-03",
+      "due": "2026-03-05",
+      "amount": 12912.2,
+      "paid": true
+    },
+    {
+      "number": "INV-0033",
+      "issued": "2026-02-06",
+      "due": "2026-03-08",
+      "amount": 31125.9,
+      "paid": true
+    },
+    {
+      "number": "INV-0034",
+      "issued": "2026-02-09",
+      "due": "2026-03-11",
+      "amount": 49339.6,
+      "paid": true
+    },
+    {
+      "number": "INV-0035",
+      "issued": "2026-02-12",
+      "due": "2026-03-14",
+      "amount": 12353.3,
+      "paid": true
+    },
+    {
+      "number": "INV-0036",
+      "issued": "2026-02-15",
+      "due": "2026-03-17",
+      "amount": 30567,
+      "paid": false
+    },
+    {
+      "number": "INV-0037",
+      "issued": "2026-02-18",
+      "due": "2026-03-20",
+      "amount": 48780.7,
+      "paid": true
+    },
+    {
+      "number": "INV-0038",
+      "issued": "2026-02-21",
+      "due": "2026-03-23",
+      "amount": 11794.4,
+      "paid": true
+    },
+    {
+      "number": "INV-0039",
+      "issued": "2026-02-24",
+      "due": "2026-03-26",
+      "amount": 30008.1,
+      "paid": true
+    },
+    {
+      "number": "INV-0040",
+      "issued": "2026-02-27",
+      "due": "2026-03-29",
+      "amount": 48221.8,
+      "paid": true
+    },
+    {
+      "number": "INV-0041",
+      "issued": "2026-03-02",
+      "due": "2026-04-01",
+      "amount": 11235.5,
+      "paid": true
+    },
+    {
+      "number": "INV-0042",
+      "issued": "2026-03-05",
+      "due": "2026-04-04",
+      "amount": 29449.2,
+      "paid": true
+    },
+    {
+      "number": "INV-0043",
+      "issued": "2026-03-08",
+      "due": "2026-04-07",
+      "amount": 47662.9,
+      "paid": false
+    },
+    {
+      "number": "INV-0044",
+      "issued": "2026-03-11",
+      "due": "2026-04-10",
+      "amount": 10676.6,
+      "paid": true
+    },
+    {
+      "number": "INV-0045",
+      "issued": "2026-03-14",
+      "due": "2026-04-13",
+      "amount": 28890.3,
+      "paid": true
+    },
+    {
+      "number": "INV-0046",
+      "issued": "2026-03-17",
+      "due": "2026-04-16",
+      "amount": 47104,
+      "paid": true
+    },
+    {
+      "number": "INV-0047",
+      "issued": "2026-03-20",
+      "due": "2026-04-19",
+      "amount": 10117.7,
+      "paid": true
+    },
+    {
+      "number": "INV-0048",
+      "issued": "2026-03-23",
+      "due": "2026-04-22",
+      "amount": 28331.4,
+      "paid": true
+    }
+  ]
+}

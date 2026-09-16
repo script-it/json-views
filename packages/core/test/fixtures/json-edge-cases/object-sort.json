@@ -1,0 +1,4 @@
+[
+  {"name":"A","payload":{"toString":"alpha"}},
+  {"name":"B","payload":{"toString":"beta"}}
+]

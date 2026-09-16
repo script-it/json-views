@@ -1,0 +1,44 @@
+{
+  "name": "@script-it/json-views",
+  "version": "0.1.0-beta.1",
+  "description": "Open and edit a local JSON file in a browser",
+  "type": "module",
+  "bin": {
+    "json-views": "./bin/json-views.js"
+  },
+  "files": [
+    "bin",
+    "public",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.txt"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/copy-web.mjs",
+    "test": "node --test test/*.test.js",
+    "prepack": "node ../../scripts/prepare-package.mjs"
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  },
+  "keywords": [
+    "json",
+    "viewer",
+    "editor",
+    "local",
+    "browser"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/script-it/json-views.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/script-it/json-views#readme",
+  "bugs": {
+    "url": "https://github.com/script-it/json-views/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

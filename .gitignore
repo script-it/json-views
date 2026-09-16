@@ -1,0 +1,47 @@
+# dependencies
+node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# build output
+**/dist/
+/packages/cli/public/
+/.next/
+/.vinext/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local environment
+.env*
+!.env.example
+!**/.env.example
+
+# deployment and generated files
+.vercel
+next-env.d.ts
+/.wrangler/
+/outputs/
+/work/
+
+# local extraction reference
+/upstream/
+
+# Generated dependency notices are rebuilt from the installed dependency graph.
+/apps/web/public/THIRD_PARTY_NOTICES.txt
+/packages/*/THIRD_PARTY_NOTICES.txt

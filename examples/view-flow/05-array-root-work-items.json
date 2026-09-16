@@ -1,0 +1,6602 @@
+[
+  {
+    "id": "AR-0001",
+    "name": "Atlas initiative 1",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 0,
+    "estimate": 1,
+    "budget": 562.5,
+    "active": false,
+    "startDate": "2025-12-12",
+    "dueDate": "2026-02-15",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0001",
+      "name": "Acme SaaS 1",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/1",
+      "dashboard": "https://example.com/dashboard/1"
+    },
+    "description": "A detailed description for array-root work item 1."
+  },
+  {
+    "id": "AR-0002",
+    "name": "Beacon initiative 2",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 23,
+    "estimate": 8,
+    "budget": 36198,
+    "active": true,
+    "startDate": "2025-12-15",
+    "dueDate": "2026-02-18",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0002",
+      "name": "Globex Fintech 2",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/2",
+      "dashboard": "https://example.com/dashboard/2"
+    },
+    "description": "A detailed description for array-root work item 2."
+  },
+  {
+    "id": "AR-0003",
+    "name": "Canvas initiative 3",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 46,
+    "estimate": 15,
+    "budget": 71833.5,
+    "active": true,
+    "startDate": "2025-12-18",
+    "dueDate": "2026-02-21",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0003",
+      "name": "Initech Retail 3",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/3",
+      "dashboard": "https://example.com/dashboard/3"
+    },
+    "description": "A detailed description for array-root work item 3."
+  },
+  {
+    "id": "AR-0004",
+    "name": "Delta initiative 4",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 69,
+    "estimate": 22,
+    "budget": 107469,
+    "active": true,
+    "startDate": "2025-12-21",
+    "dueDate": "2026-02-24",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0004",
+      "name": "Umbrella Healthcare 4",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/4",
+      "dashboard": "https://example.com/dashboard/4"
+    },
+    "description": "A detailed description for array-root work item 4."
+  },
+  {
+    "id": "AR-0005",
+    "name": "Echo initiative 5",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 92,
+    "estimate": 29,
+    "budget": 35104.5,
+    "active": true,
+    "startDate": "2025-12-24",
+    "dueDate": "2026-02-27",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0005",
+      "name": "Stark Media 5",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/5",
+      "dashboard": "https://example.com/dashboard/5"
+    },
+    "description": "A detailed description for array-root work item 5."
+  },
+  {
+    "id": "AR-0006",
+    "name": "Forge initiative 6",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 14,
+    "estimate": 2,
+    "budget": 70740,
+    "active": true,
+    "startDate": "2025-12-27",
+    "dueDate": "2026-03-02",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0006",
+      "name": "Wayne Logistics 6",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/6",
+      "dashboard": "https://example.com/dashboard/6"
+    },
+    "description": "A detailed description for array-root work item 6."
+  },
+  {
+    "id": "AR-0007",
+    "name": "Helix initiative 7",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 37,
+    "estimate": 9,
+    "budget": 106375.5,
+    "active": true,
+    "startDate": "2025-12-30",
+    "dueDate": "2026-03-05",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0007",
+      "name": "Wonka SaaS 7",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/7",
+      "dashboard": "https://example.com/dashboard/7"
+    },
+    "description": "A detailed description for array-root work item 7."
+  },
+  {
+    "id": "AR-0008",
+    "name": "Ion initiative 8",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 60,
+    "estimate": 16,
+    "budget": 34011,
+    "active": true,
+    "startDate": "2026-01-02",
+    "dueDate": "2026-03-08",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0008",
+      "name": "Acme Fintech 8",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/8",
+      "dashboard": "https://example.com/dashboard/8"
+    },
+    "description": "A detailed description for array-root work item 8."
+  },
+  {
+    "id": "AR-0009",
+    "name": "Atlas initiative 9",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 83,
+    "estimate": 23,
+    "budget": 69646.5,
+    "active": true,
+    "startDate": "2026-01-05",
+    "dueDate": "2026-03-11",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0009",
+      "name": "Globex Retail 9",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/9",
+      "dashboard": "https://example.com/dashboard/9"
+    },
+    "description": "A detailed description for array-root work item 9."
+  },
+  {
+    "id": "AR-0010",
+    "name": "Beacon initiative 10",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 5,
+    "estimate": 30,
+    "budget": 105282,
+    "active": false,
+    "startDate": "2026-01-08",
+    "dueDate": "2026-03-14",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0010",
+      "name": "Initech Healthcare 10",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/10",
+      "dashboard": "https://example.com/dashboard/10"
+    },
+    "description": "A detailed description for array-root work item 10."
+  },
+  {
+    "id": "AR-0011",
+    "name": "Canvas initiative 11",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 28,
+    "estimate": 3,
+    "budget": 32917.5,
+    "active": true,
+    "startDate": "2026-01-11",
+    "dueDate": "2026-03-17",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0011",
+      "name": "Umbrella Media 11",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/11",
+      "dashboard": "https://example.com/dashboard/11"
+    },
+    "description": "A detailed description for array-root work item 11."
+  },
+  {
+    "id": "AR-0012",
+    "name": "Delta initiative 12",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 51,
+    "estimate": 10,
+    "budget": 68553,
+    "active": true,
+    "startDate": "2026-01-14",
+    "dueDate": "2026-03-20",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0012",
+      "name": "Stark Logistics 12",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/12",
+      "dashboard": "https://example.com/dashboard/12"
+    },
+    "description": "A detailed description for array-root work item 12."
+  },
+  {
+    "id": "AR-0013",
+    "name": "Echo initiative 13",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 74,
+    "estimate": 17,
+    "budget": 104188.5,
+    "active": true,
+    "startDate": "2026-01-17",
+    "dueDate": "2026-03-23",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0013",
+      "name": "Wayne SaaS 13",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/13",
+      "dashboard": "https://example.com/dashboard/13"
+    },
+    "description": "A detailed description for array-root work item 13."
+  },
+  {
+    "id": "AR-0014",
+    "name": "Forge initiative 14",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 97,
+    "estimate": 24,
+    "budget": 31824,
+    "active": true,
+    "startDate": "2026-01-20",
+    "dueDate": "2026-03-26",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0014",
+      "name": "Wonka Fintech 14",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/14",
+      "dashboard": "https://example.com/dashboard/14"
+    },
+    "description": "A detailed description for array-root work item 14."
+  },
+  {
+    "id": "AR-0015",
+    "name": "Helix initiative 15",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 19,
+    "estimate": 31,
+    "budget": 67459.5,
+    "active": true,
+    "startDate": "2026-01-23",
+    "dueDate": "2026-03-29",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0015",
+      "name": "Acme Retail 15",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/15",
+      "dashboard": "https://example.com/dashboard/15"
+    },
+    "description": "A detailed description for array-root work item 15."
+  },
+  {
+    "id": "AR-0016",
+    "name": "Ion initiative 16",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 42,
+    "estimate": 4,
+    "budget": 103095,
+    "active": true,
+    "startDate": "2026-01-26",
+    "dueDate": "2026-04-01",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0016",
+      "name": "Globex Healthcare 16",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/16",
+      "dashboard": "https://example.com/dashboard/16"
+    },
+    "description": "A detailed description for array-root work item 16."
+  },
+  {
+    "id": "AR-0017",
+    "name": "Atlas initiative 17",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 65,
+    "estimate": 11,
+    "budget": 30730.5,
+    "active": true,
+    "startDate": "2026-01-29",
+    "dueDate": "2026-04-04",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0017",
+      "name": "Initech Media 17",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/17",
+      "dashboard": "https://example.com/dashboard/17"
+    },
+    "description": "A detailed description for array-root work item 17."
+  },
+  {
+    "id": "AR-0018",
+    "name": "Beacon initiative 18",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 88,
+    "estimate": 18,
+    "budget": 66366,
+    "active": true,
+    "startDate": "2026-02-01",
+    "dueDate": "2026-04-07",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0018",
+      "name": "Umbrella Logistics 18",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/18",
+      "dashboard": "https://example.com/dashboard/18"
+    },
+    "description": "A detailed description for array-root work item 18."
+  },
+  {
+    "id": "AR-0019",
+    "name": "Canvas initiative 19",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 10,
+    "estimate": 25,
+    "budget": 102001.5,
+    "active": false,
+    "startDate": "2026-02-04",
+    "dueDate": "2026-04-10",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0019",
+      "name": "Stark SaaS 19",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/19",
+      "dashboard": "https://example.com/dashboard/19"
+    },
+    "description": "A detailed description for array-root work item 19."
+  },
+  {
+    "id": "AR-0020",
+    "name": "Delta initiative 20",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 33,
+    "estimate": 32,
+    "budget": 29637,
+    "active": true,
+    "startDate": "2026-02-07",
+    "dueDate": "2026-04-13",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0020",
+      "name": "Wayne Fintech 20",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/20",
+      "dashboard": "https://example.com/dashboard/20"
+    },
+    "description": "A detailed description for array-root work item 20."
+  },
+  {
+    "id": "AR-0021",
+    "name": "Echo initiative 21",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 56,
+    "estimate": 5,
+    "budget": 65272.5,
+    "active": true,
+    "startDate": "2026-02-10",
+    "dueDate": "2026-04-16",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0021",
+      "name": "Wonka Retail 21",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/21",
+      "dashboard": "https://example.com/dashboard/21"
+    },
+    "description": "A detailed description for array-root work item 21."
+  },
+  {
+    "id": "AR-0022",
+    "name": "Forge initiative 22",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 79,
+    "estimate": 12,
+    "budget": 100908,
+    "active": true,
+    "startDate": "2026-02-13",
+    "dueDate": "2026-04-19",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0022",
+      "name": "Acme Healthcare 22",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/22",
+      "dashboard": "https://example.com/dashboard/22"
+    },
+    "description": "A detailed description for array-root work item 22."
+  },
+  {
+    "id": "AR-0023",
+    "name": "Helix initiative 23",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 1,
+    "estimate": 19,
+    "budget": 28543.5,
+    "active": true,
+    "startDate": "2026-02-16",
+    "dueDate": "2026-04-22",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0023",
+      "name": "Globex Media 23",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/23",
+      "dashboard": "https://example.com/dashboard/23"
+    },
+    "description": "A detailed description for array-root work item 23."
+  },
+  {
+    "id": "AR-0024",
+    "name": "Ion initiative 24",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 24,
+    "estimate": 26,
+    "budget": 64179,
+    "active": true,
+    "startDate": "2026-02-19",
+    "dueDate": "2026-04-25",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0024",
+      "name": "Initech Logistics 24",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/24",
+      "dashboard": "https://example.com/dashboard/24"
+    },
+    "description": "A detailed description for array-root work item 24."
+  },
+  {
+    "id": "AR-0025",
+    "name": "Atlas initiative 25",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 47,
+    "estimate": 33,
+    "budget": 99814.5,
+    "active": true,
+    "startDate": "2026-02-22",
+    "dueDate": "2026-04-28",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0025",
+      "name": "Umbrella SaaS 25",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/25",
+      "dashboard": "https://example.com/dashboard/25"
+    },
+    "description": "A detailed description for array-root work item 25."
+  },
+  {
+    "id": "AR-0026",
+    "name": "Beacon initiative 26",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 70,
+    "estimate": 6,
+    "budget": 27450,
+    "active": true,
+    "startDate": "2026-02-25",
+    "dueDate": "2026-05-01",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0026",
+      "name": "Stark Fintech 26",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/26",
+      "dashboard": "https://example.com/dashboard/26"
+    },
+    "description": "A detailed description for array-root work item 26."
+  },
+  {
+    "id": "AR-0027",
+    "name": "Canvas initiative 27",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 93,
+    "estimate": 13,
+    "budget": 63085.5,
+    "active": true,
+    "startDate": "2026-02-28",
+    "dueDate": "2026-05-04",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0027",
+      "name": "Wayne Retail 27",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/27",
+      "dashboard": "https://example.com/dashboard/27"
+    },
+    "description": "A detailed description for array-root work item 27."
+  },
+  {
+    "id": "AR-0028",
+    "name": "Delta initiative 28",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 15,
+    "estimate": 20,
+    "budget": 98721,
+    "active": false,
+    "startDate": "2026-03-03",
+    "dueDate": "2026-05-07",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0028",
+      "name": "Wonka Healthcare 28",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/28",
+      "dashboard": "https://example.com/dashboard/28"
+    },
+    "description": "A detailed description for array-root work item 28."
+  },
+  {
+    "id": "AR-0029",
+    "name": "Echo initiative 29",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 38,
+    "estimate": 27,
+    "budget": 26356.5,
+    "active": true,
+    "startDate": "2026-03-06",
+    "dueDate": "2026-05-10",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0029",
+      "name": "Acme Media 29",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/29",
+      "dashboard": "https://example.com/dashboard/29"
+    },
+    "description": "A detailed description for array-root work item 29."
+  },
+  {
+    "id": "AR-0030",
+    "name": "Forge initiative 30",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 61,
+    "estimate": 34,
+    "budget": 61992,
+    "active": true,
+    "startDate": "2026-03-09",
+    "dueDate": "2026-05-13",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0030",
+      "name": "Globex Logistics 30",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/30",
+      "dashboard": "https://example.com/dashboard/30"
+    },
+    "description": "A detailed description for array-root work item 30."
+  },
+  {
+    "id": "AR-0031",
+    "name": "Helix initiative 31",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 84,
+    "estimate": 7,
+    "budget": 97627.5,
+    "active": true,
+    "startDate": "2026-03-12",
+    "dueDate": "2026-05-16",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0031",
+      "name": "Initech SaaS 31",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/31",
+      "dashboard": "https://example.com/dashboard/31"
+    },
+    "description": "A detailed description for array-root work item 31."
+  },
+  {
+    "id": "AR-0032",
+    "name": "Ion initiative 32",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 6,
+    "estimate": 14,
+    "budget": 25263,
+    "active": true,
+    "startDate": "2026-03-15",
+    "dueDate": "2026-05-19",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0032",
+      "name": "Umbrella Fintech 32",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/32",
+      "dashboard": "https://example.com/dashboard/32"
+    },
+    "description": "A detailed description for array-root work item 32."
+  },
+  {
+    "id": "AR-0033",
+    "name": "Atlas initiative 33",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 29,
+    "estimate": 21,
+    "budget": 60898.5,
+    "active": true,
+    "startDate": "2026-03-18",
+    "dueDate": "2026-05-22",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0033",
+      "name": "Stark Retail 33",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/33",
+      "dashboard": "https://example.com/dashboard/33"
+    },
+    "description": "A detailed description for array-root work item 33."
+  },
+  {
+    "id": "AR-0034",
+    "name": "Beacon initiative 34",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 52,
+    "estimate": 28,
+    "budget": 96534,
+    "active": true,
+    "startDate": "2026-03-21",
+    "dueDate": "2026-05-25",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0034",
+      "name": "Wayne Healthcare 34",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/34",
+      "dashboard": "https://example.com/dashboard/34"
+    },
+    "description": "A detailed description for array-root work item 34."
+  },
+  {
+    "id": "AR-0035",
+    "name": "Canvas initiative 35",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 75,
+    "estimate": 1,
+    "budget": 24169.5,
+    "active": true,
+    "startDate": "2026-03-24",
+    "dueDate": "2026-05-28",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0035",
+      "name": "Wonka Media 35",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/35",
+      "dashboard": "https://example.com/dashboard/35"
+    },
+    "description": "A detailed description for array-root work item 35."
+  },
+  {
+    "id": "AR-0036",
+    "name": "Delta initiative 36",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 98,
+    "estimate": 8,
+    "budget": 59805,
+    "active": true,
+    "startDate": "2026-03-27",
+    "dueDate": "2026-05-31",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0036",
+      "name": "Acme Logistics 36",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/36",
+      "dashboard": "https://example.com/dashboard/36"
+    },
+    "description": "A detailed description for array-root work item 36."
+  },
+  {
+    "id": "AR-0037",
+    "name": "Echo initiative 37",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 20,
+    "estimate": 15,
+    "budget": 95440.5,
+    "active": false,
+    "startDate": "2026-03-30",
+    "dueDate": "2026-06-03",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0037",
+      "name": "Globex SaaS 37",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/37",
+      "dashboard": "https://example.com/dashboard/37"
+    },
+    "description": "A detailed description for array-root work item 37."
+  },
+  {
+    "id": "AR-0038",
+    "name": "Forge initiative 38",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 43,
+    "estimate": 22,
+    "budget": 23076,
+    "active": true,
+    "startDate": "2026-04-02",
+    "dueDate": "2026-06-06",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0038",
+      "name": "Initech Fintech 38",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/38",
+      "dashboard": "https://example.com/dashboard/38"
+    },
+    "description": "A detailed description for array-root work item 38."
+  },
+  {
+    "id": "AR-0039",
+    "name": "Helix initiative 39",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 66,
+    "estimate": 29,
+    "budget": 58711.5,
+    "active": true,
+    "startDate": "2026-04-05",
+    "dueDate": "2026-06-09",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0039",
+      "name": "Umbrella Retail 39",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/39",
+      "dashboard": "https://example.com/dashboard/39"
+    },
+    "description": "A detailed description for array-root work item 39."
+  },
+  {
+    "id": "AR-0040",
+    "name": "Ion initiative 40",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 89,
+    "estimate": 2,
+    "budget": 94347,
+    "active": true,
+    "startDate": "2026-04-08",
+    "dueDate": "2026-06-12",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0040",
+      "name": "Stark Healthcare 40",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/40",
+      "dashboard": "https://example.com/dashboard/40"
+    },
+    "description": "A detailed description for array-root work item 40."
+  },
+  {
+    "id": "AR-0041",
+    "name": "Atlas initiative 41",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 11,
+    "estimate": 9,
+    "budget": 21982.5,
+    "active": true,
+    "startDate": "2026-04-11",
+    "dueDate": "2026-06-15",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0041",
+      "name": "Wayne Media 41",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/41",
+      "dashboard": "https://example.com/dashboard/41"
+    },
+    "description": "A detailed description for array-root work item 41."
+  },
+  {
+    "id": "AR-0042",
+    "name": "Beacon initiative 42",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 34,
+    "estimate": 16,
+    "budget": 57618,
+    "active": true,
+    "startDate": "2026-04-14",
+    "dueDate": "2026-06-18",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0042",
+      "name": "Wonka Logistics 42",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/42",
+      "dashboard": "https://example.com/dashboard/42"
+    },
+    "description": "A detailed description for array-root work item 42."
+  },
+  {
+    "id": "AR-0043",
+    "name": "Canvas initiative 43",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 57,
+    "estimate": 23,
+    "budget": 93253.5,
+    "active": true,
+    "startDate": "2026-04-17",
+    "dueDate": "2026-06-21",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0043",
+      "name": "Acme SaaS 43",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/43",
+      "dashboard": "https://example.com/dashboard/43"
+    },
+    "description": "A detailed description for array-root work item 43."
+  },
+  {
+    "id": "AR-0044",
+    "name": "Delta initiative 44",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 80,
+    "estimate": 30,
+    "budget": 20889,
+    "active": true,
+    "startDate": "2026-04-20",
+    "dueDate": "2026-06-24",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0044",
+      "name": "Globex Fintech 44",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/44",
+      "dashboard": "https://example.com/dashboard/44"
+    },
+    "description": "A detailed description for array-root work item 44."
+  },
+  {
+    "id": "AR-0045",
+    "name": "Echo initiative 45",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 2,
+    "estimate": 3,
+    "budget": 56524.5,
+    "active": true,
+    "startDate": "2026-04-23",
+    "dueDate": "2026-06-27",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0045",
+      "name": "Initech Retail 45",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/45",
+      "dashboard": "https://example.com/dashboard/45"
+    },
+    "description": "A detailed description for array-root work item 45."
+  },
+  {
+    "id": "AR-0046",
+    "name": "Forge initiative 46",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 25,
+    "estimate": 10,
+    "budget": 92160,
+    "active": false,
+    "startDate": "2026-04-26",
+    "dueDate": "2026-06-30",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0046",
+      "name": "Umbrella Healthcare 46",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/46",
+      "dashboard": "https://example.com/dashboard/46"
+    },
+    "description": "A detailed description for array-root work item 46."
+  },
+  {
+    "id": "AR-0047",
+    "name": "Helix initiative 47",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 48,
+    "estimate": 17,
+    "budget": 19795.5,
+    "active": true,
+    "startDate": "2026-04-29",
+    "dueDate": "2026-07-03",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0047",
+      "name": "Stark Media 47",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/47",
+      "dashboard": "https://example.com/dashboard/47"
+    },
+    "description": "A detailed description for array-root work item 47."
+  },
+  {
+    "id": "AR-0048",
+    "name": "Ion initiative 48",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 71,
+    "estimate": 24,
+    "budget": 55431,
+    "active": true,
+    "startDate": "2026-05-02",
+    "dueDate": "2026-07-06",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0048",
+      "name": "Wayne Logistics 48",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/48",
+      "dashboard": "https://example.com/dashboard/48"
+    },
+    "description": "A detailed description for array-root work item 48."
+  },
+  {
+    "id": "AR-0049",
+    "name": "Atlas initiative 49",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 94,
+    "estimate": 31,
+    "budget": 91066.5,
+    "active": true,
+    "startDate": "2026-05-05",
+    "dueDate": "2026-07-09",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0049",
+      "name": "Wonka SaaS 49",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/49",
+      "dashboard": "https://example.com/dashboard/49"
+    },
+    "description": "A detailed description for array-root work item 49."
+  },
+  {
+    "id": "AR-0050",
+    "name": "Beacon initiative 50",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 16,
+    "estimate": 4,
+    "budget": 18702,
+    "active": true,
+    "startDate": "2026-05-08",
+    "dueDate": "2026-07-12",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0050",
+      "name": "Acme Fintech 50",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/50",
+      "dashboard": "https://example.com/dashboard/50"
+    },
+    "description": "A detailed description for array-root work item 50."
+  },
+  {
+    "id": "AR-0051",
+    "name": "Canvas initiative 51",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 39,
+    "estimate": 11,
+    "budget": 54337.5,
+    "active": true,
+    "startDate": "2026-05-11",
+    "dueDate": "2026-07-15",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0051",
+      "name": "Globex Retail 51",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/51",
+      "dashboard": "https://example.com/dashboard/51"
+    },
+    "description": "A detailed description for array-root work item 51."
+  },
+  {
+    "id": "AR-0052",
+    "name": "Delta initiative 52",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 62,
+    "estimate": 18,
+    "budget": 89973,
+    "active": true,
+    "startDate": "2026-05-14",
+    "dueDate": "2026-07-18",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0052",
+      "name": "Initech Healthcare 52",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/52",
+      "dashboard": "https://example.com/dashboard/52"
+    },
+    "description": "A detailed description for array-root work item 52."
+  },
+  {
+    "id": "AR-0053",
+    "name": "Echo initiative 53",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 85,
+    "estimate": 25,
+    "budget": 17608.5,
+    "active": true,
+    "startDate": "2026-05-17",
+    "dueDate": "2026-07-21",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0053",
+      "name": "Umbrella Media 53",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/53",
+      "dashboard": "https://example.com/dashboard/53"
+    },
+    "description": "A detailed description for array-root work item 53."
+  },
+  {
+    "id": "AR-0054",
+    "name": "Forge initiative 54",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 7,
+    "estimate": 32,
+    "budget": 53244,
+    "active": true,
+    "startDate": "2026-05-20",
+    "dueDate": "2026-07-24",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0054",
+      "name": "Stark Logistics 54",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/54",
+      "dashboard": "https://example.com/dashboard/54"
+    },
+    "description": "A detailed description for array-root work item 54."
+  },
+  {
+    "id": "AR-0055",
+    "name": "Helix initiative 55",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 30,
+    "estimate": 5,
+    "budget": 88879.5,
+    "active": false,
+    "startDate": "2026-05-23",
+    "dueDate": "2026-07-27",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0055",
+      "name": "Wayne SaaS 55",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/55",
+      "dashboard": "https://example.com/dashboard/55"
+    },
+    "description": "A detailed description for array-root work item 55."
+  },
+  {
+    "id": "AR-0056",
+    "name": "Ion initiative 56",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 53,
+    "estimate": 12,
+    "budget": 16515,
+    "active": true,
+    "startDate": "2026-05-26",
+    "dueDate": "2026-07-30",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0056",
+      "name": "Wonka Fintech 56",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/56",
+      "dashboard": "https://example.com/dashboard/56"
+    },
+    "description": "A detailed description for array-root work item 56."
+  },
+  {
+    "id": "AR-0057",
+    "name": "Atlas initiative 57",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 76,
+    "estimate": 19,
+    "budget": 52150.5,
+    "active": true,
+    "startDate": "2026-05-29",
+    "dueDate": "2026-08-02",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0057",
+      "name": "Acme Retail 57",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/57",
+      "dashboard": "https://example.com/dashboard/57"
+    },
+    "description": "A detailed description for array-root work item 57."
+  },
+  {
+    "id": "AR-0058",
+    "name": "Beacon initiative 58",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 99,
+    "estimate": 26,
+    "budget": 87786,
+    "active": true,
+    "startDate": "2026-06-01",
+    "dueDate": "2026-08-05",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0058",
+      "name": "Globex Healthcare 58",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/58",
+      "dashboard": "https://example.com/dashboard/58"
+    },
+    "description": "A detailed description for array-root work item 58."
+  },
+  {
+    "id": "AR-0059",
+    "name": "Canvas initiative 59",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 21,
+    "estimate": 33,
+    "budget": 15421.5,
+    "active": true,
+    "startDate": "2026-06-04",
+    "dueDate": "2026-08-08",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0059",
+      "name": "Initech Media 59",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/59",
+      "dashboard": "https://example.com/dashboard/59"
+    },
+    "description": "A detailed description for array-root work item 59."
+  },
+  {
+    "id": "AR-0060",
+    "name": "Delta initiative 60",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 44,
+    "estimate": 6,
+    "budget": 51057,
+    "active": true,
+    "startDate": "2026-06-07",
+    "dueDate": "2026-08-11",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0060",
+      "name": "Umbrella Logistics 60",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/60",
+      "dashboard": "https://example.com/dashboard/60"
+    },
+    "description": "A detailed description for array-root work item 60."
+  },
+  {
+    "id": "AR-0061",
+    "name": "Echo initiative 61",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 67,
+    "estimate": 13,
+    "budget": 86692.5,
+    "active": true,
+    "startDate": "2026-06-10",
+    "dueDate": "2026-08-14",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0061",
+      "name": "Stark SaaS 61",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/61",
+      "dashboard": "https://example.com/dashboard/61"
+    },
+    "description": "A detailed description for array-root work item 61."
+  },
+  {
+    "id": "AR-0062",
+    "name": "Forge initiative 62",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 90,
+    "estimate": 20,
+    "budget": 14328,
+    "active": true,
+    "startDate": "2026-06-13",
+    "dueDate": "2026-08-17",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0062",
+      "name": "Wayne Fintech 62",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/62",
+      "dashboard": "https://example.com/dashboard/62"
+    },
+    "description": "A detailed description for array-root work item 62."
+  },
+  {
+    "id": "AR-0063",
+    "name": "Helix initiative 63",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 12,
+    "estimate": 27,
+    "budget": 49963.5,
+    "active": true,
+    "startDate": "2026-06-16",
+    "dueDate": "2026-08-20",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0063",
+      "name": "Wonka Retail 63",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/63",
+      "dashboard": "https://example.com/dashboard/63"
+    },
+    "description": "A detailed description for array-root work item 63."
+  },
+  {
+    "id": "AR-0064",
+    "name": "Ion initiative 64",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 35,
+    "estimate": 34,
+    "budget": 85599,
+    "active": false,
+    "startDate": "2026-06-19",
+    "dueDate": "2026-08-23",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0064",
+      "name": "Acme Healthcare 64",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/64",
+      "dashboard": "https://example.com/dashboard/64"
+    },
+    "description": "A detailed description for array-root work item 64."
+  },
+  {
+    "id": "AR-0065",
+    "name": "Atlas initiative 65",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 58,
+    "estimate": 7,
+    "budget": 13234.5,
+    "active": true,
+    "startDate": "2026-06-22",
+    "dueDate": "2026-08-26",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0065",
+      "name": "Globex Media 65",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/65",
+      "dashboard": "https://example.com/dashboard/65"
+    },
+    "description": "A detailed description for array-root work item 65."
+  },
+  {
+    "id": "AR-0066",
+    "name": "Beacon initiative 66",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 81,
+    "estimate": 14,
+    "budget": 48870,
+    "active": true,
+    "startDate": "2026-06-25",
+    "dueDate": "2026-08-29",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0066",
+      "name": "Initech Logistics 66",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/66",
+      "dashboard": "https://example.com/dashboard/66"
+    },
+    "description": "A detailed description for array-root work item 66."
+  },
+  {
+    "id": "AR-0067",
+    "name": "Canvas initiative 67",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 3,
+    "estimate": 21,
+    "budget": 84505.5,
+    "active": true,
+    "startDate": "2026-06-28",
+    "dueDate": "2026-09-01",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0067",
+      "name": "Umbrella SaaS 67",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/67",
+      "dashboard": "https://example.com/dashboard/67"
+    },
+    "description": "A detailed description for array-root work item 67."
+  },
+  {
+    "id": "AR-0068",
+    "name": "Delta initiative 68",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 26,
+    "estimate": 28,
+    "budget": 12141,
+    "active": true,
+    "startDate": "2026-07-01",
+    "dueDate": "2026-09-04",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0068",
+      "name": "Stark Fintech 68",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/68",
+      "dashboard": "https://example.com/dashboard/68"
+    },
+    "description": "A detailed description for array-root work item 68."
+  },
+  {
+    "id": "AR-0069",
+    "name": "Echo initiative 69",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 49,
+    "estimate": 1,
+    "budget": 47776.5,
+    "active": true,
+    "startDate": "2026-07-04",
+    "dueDate": "2026-09-07",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0069",
+      "name": "Wayne Retail 69",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/69",
+      "dashboard": "https://example.com/dashboard/69"
+    },
+    "description": "A detailed description for array-root work item 69."
+  },
+  {
+    "id": "AR-0070",
+    "name": "Forge initiative 70",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 72,
+    "estimate": 8,
+    "budget": 83412,
+    "active": true,
+    "startDate": "2026-07-07",
+    "dueDate": "2026-09-10",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0070",
+      "name": "Wonka Healthcare 70",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/70",
+      "dashboard": "https://example.com/dashboard/70"
+    },
+    "description": "A detailed description for array-root work item 70."
+  },
+  {
+    "id": "AR-0071",
+    "name": "Helix initiative 71",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 95,
+    "estimate": 15,
+    "budget": 11047.5,
+    "active": true,
+    "startDate": "2026-07-10",
+    "dueDate": "2026-09-13",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0001",
+      "name": "Acme SaaS 1",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/71",
+      "dashboard": "https://example.com/dashboard/71"
+    },
+    "description": "A detailed description for array-root work item 71."
+  },
+  {
+    "id": "AR-0072",
+    "name": "Ion initiative 72",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 17,
+    "estimate": 22,
+    "budget": 46683,
+    "active": true,
+    "startDate": "2026-07-13",
+    "dueDate": "2026-09-16",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0002",
+      "name": "Globex Fintech 2",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/72",
+      "dashboard": "https://example.com/dashboard/72"
+    },
+    "description": "A detailed description for array-root work item 72."
+  },
+  {
+    "id": "AR-0073",
+    "name": "Atlas initiative 73",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 40,
+    "estimate": 29,
+    "budget": 82318.5,
+    "active": false,
+    "startDate": "2026-07-16",
+    "dueDate": "2026-09-19",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0003",
+      "name": "Initech Retail 3",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/73",
+      "dashboard": "https://example.com/dashboard/73"
+    },
+    "description": "A detailed description for array-root work item 73."
+  },
+  {
+    "id": "AR-0074",
+    "name": "Beacon initiative 74",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 63,
+    "estimate": 2,
+    "budget": 9954,
+    "active": true,
+    "startDate": "2026-07-19",
+    "dueDate": "2026-09-22",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0004",
+      "name": "Umbrella Healthcare 4",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/74",
+      "dashboard": "https://example.com/dashboard/74"
+    },
+    "description": "A detailed description for array-root work item 74."
+  },
+  {
+    "id": "AR-0075",
+    "name": "Canvas initiative 75",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 86,
+    "estimate": 9,
+    "budget": 45589.5,
+    "active": true,
+    "startDate": "2026-07-22",
+    "dueDate": "2026-09-25",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0005",
+      "name": "Stark Media 5",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/75",
+      "dashboard": "https://example.com/dashboard/75"
+    },
+    "description": "A detailed description for array-root work item 75."
+  },
+  {
+    "id": "AR-0076",
+    "name": "Delta initiative 76",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 8,
+    "estimate": 16,
+    "budget": 81225,
+    "active": true,
+    "startDate": "2026-07-25",
+    "dueDate": "2026-09-28",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0006",
+      "name": "Wayne Logistics 6",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/76",
+      "dashboard": "https://example.com/dashboard/76"
+    },
+    "description": "A detailed description for array-root work item 76."
+  },
+  {
+    "id": "AR-0077",
+    "name": "Echo initiative 77",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 31,
+    "estimate": 23,
+    "budget": 8860.5,
+    "active": true,
+    "startDate": "2026-07-28",
+    "dueDate": "2026-10-01",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0007",
+      "name": "Wonka SaaS 7",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/77",
+      "dashboard": "https://example.com/dashboard/77"
+    },
+    "description": "A detailed description for array-root work item 77."
+  },
+  {
+    "id": "AR-0078",
+    "name": "Forge initiative 78",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 54,
+    "estimate": 30,
+    "budget": 44496,
+    "active": true,
+    "startDate": "2026-07-31",
+    "dueDate": "2026-10-04",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0008",
+      "name": "Acme Fintech 8",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/78",
+      "dashboard": "https://example.com/dashboard/78"
+    },
+    "description": "A detailed description for array-root work item 78."
+  },
+  {
+    "id": "AR-0079",
+    "name": "Helix initiative 79",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 77,
+    "estimate": 3,
+    "budget": 80131.5,
+    "active": true,
+    "startDate": "2026-08-03",
+    "dueDate": "2026-10-07",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0009",
+      "name": "Globex Retail 9",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/79",
+      "dashboard": "https://example.com/dashboard/79"
+    },
+    "description": "A detailed description for array-root work item 79."
+  },
+  {
+    "id": "AR-0080",
+    "name": "Ion initiative 80",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 100,
+    "estimate": 10,
+    "budget": 7767,
+    "active": true,
+    "startDate": "2026-08-06",
+    "dueDate": "2026-10-10",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0010",
+      "name": "Initech Healthcare 10",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/80",
+      "dashboard": "https://example.com/dashboard/80"
+    },
+    "description": "A detailed description for array-root work item 80."
+  },
+  {
+    "id": "AR-0081",
+    "name": "Atlas initiative 81",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 22,
+    "estimate": 17,
+    "budget": 43402.5,
+    "active": true,
+    "startDate": "2026-08-09",
+    "dueDate": "2026-10-13",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0011",
+      "name": "Umbrella Media 11",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/81",
+      "dashboard": "https://example.com/dashboard/81"
+    },
+    "description": "A detailed description for array-root work item 81."
+  },
+  {
+    "id": "AR-0082",
+    "name": "Beacon initiative 82",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 45,
+    "estimate": 24,
+    "budget": 79038,
+    "active": false,
+    "startDate": "2026-08-12",
+    "dueDate": "2026-10-16",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0012",
+      "name": "Stark Logistics 12",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/82",
+      "dashboard": "https://example.com/dashboard/82"
+    },
+    "description": "A detailed description for array-root work item 82."
+  },
+  {
+    "id": "AR-0083",
+    "name": "Canvas initiative 83",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 68,
+    "estimate": 31,
+    "budget": 6673.5,
+    "active": true,
+    "startDate": "2026-08-15",
+    "dueDate": "2026-10-19",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0013",
+      "name": "Wayne SaaS 13",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/83",
+      "dashboard": "https://example.com/dashboard/83"
+    },
+    "description": "A detailed description for array-root work item 83."
+  },
+  {
+    "id": "AR-0084",
+    "name": "Delta initiative 84",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 91,
+    "estimate": 4,
+    "budget": 42309,
+    "active": true,
+    "startDate": "2026-08-18",
+    "dueDate": "2026-10-22",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0014",
+      "name": "Wonka Fintech 14",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/84",
+      "dashboard": "https://example.com/dashboard/84"
+    },
+    "description": "A detailed description for array-root work item 84."
+  },
+  {
+    "id": "AR-0085",
+    "name": "Echo initiative 85",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 13,
+    "estimate": 11,
+    "budget": 77944.5,
+    "active": true,
+    "startDate": "2026-08-21",
+    "dueDate": "2026-10-25",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0015",
+      "name": "Acme Retail 15",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/85",
+      "dashboard": "https://example.com/dashboard/85"
+    },
+    "description": "A detailed description for array-root work item 85."
+  },
+  {
+    "id": "AR-0086",
+    "name": "Forge initiative 86",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 36,
+    "estimate": 18,
+    "budget": 5580,
+    "active": true,
+    "startDate": "2026-08-24",
+    "dueDate": "2026-10-28",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0016",
+      "name": "Globex Healthcare 16",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/86",
+      "dashboard": "https://example.com/dashboard/86"
+    },
+    "description": "A detailed description for array-root work item 86."
+  },
+  {
+    "id": "AR-0087",
+    "name": "Helix initiative 87",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 59,
+    "estimate": 25,
+    "budget": 41215.5,
+    "active": true,
+    "startDate": "2026-08-27",
+    "dueDate": "2026-10-31",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0017",
+      "name": "Initech Media 17",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/87",
+      "dashboard": "https://example.com/dashboard/87"
+    },
+    "description": "A detailed description for array-root work item 87."
+  },
+  {
+    "id": "AR-0088",
+    "name": "Ion initiative 88",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 82,
+    "estimate": 32,
+    "budget": 76851,
+    "active": true,
+    "startDate": "2026-08-30",
+    "dueDate": "2026-11-03",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0018",
+      "name": "Umbrella Logistics 18",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/88",
+      "dashboard": "https://example.com/dashboard/88"
+    },
+    "description": "A detailed description for array-root work item 88."
+  },
+  {
+    "id": "AR-0089",
+    "name": "Atlas initiative 89",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 4,
+    "estimate": 5,
+    "budget": 4486.5,
+    "active": true,
+    "startDate": "2026-09-02",
+    "dueDate": "2026-11-06",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0019",
+      "name": "Stark SaaS 19",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/89",
+      "dashboard": "https://example.com/dashboard/89"
+    },
+    "description": "A detailed description for array-root work item 89."
+  },
+  {
+    "id": "AR-0090",
+    "name": "Beacon initiative 90",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 27,
+    "estimate": 12,
+    "budget": 40122,
+    "active": true,
+    "startDate": "2026-09-05",
+    "dueDate": "2026-11-09",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0020",
+      "name": "Wayne Fintech 20",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/90",
+      "dashboard": "https://example.com/dashboard/90"
+    },
+    "description": "A detailed description for array-root work item 90."
+  },
+  {
+    "id": "AR-0091",
+    "name": "Canvas initiative 91",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 50,
+    "estimate": 19,
+    "budget": 75757.5,
+    "active": false,
+    "startDate": "2026-09-08",
+    "dueDate": "2026-11-12",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0021",
+      "name": "Wonka Retail 21",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/91",
+      "dashboard": "https://example.com/dashboard/91"
+    },
+    "description": "A detailed description for array-root work item 91."
+  },
+  {
+    "id": "AR-0092",
+    "name": "Delta initiative 92",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 73,
+    "estimate": 26,
+    "budget": 3393,
+    "active": true,
+    "startDate": "2026-09-11",
+    "dueDate": "2026-11-15",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0022",
+      "name": "Acme Healthcare 22",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/92",
+      "dashboard": "https://example.com/dashboard/92"
+    },
+    "description": "A detailed description for array-root work item 92."
+  },
+  {
+    "id": "AR-0093",
+    "name": "Echo initiative 93",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 96,
+    "estimate": 33,
+    "budget": 39028.5,
+    "active": true,
+    "startDate": "2026-09-14",
+    "dueDate": "2026-11-18",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0023",
+      "name": "Globex Media 23",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/93",
+      "dashboard": "https://example.com/dashboard/93"
+    },
+    "description": "A detailed description for array-root work item 93."
+  },
+  {
+    "id": "AR-0094",
+    "name": "Forge initiative 94",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 18,
+    "estimate": 6,
+    "budget": 74664,
+    "active": true,
+    "startDate": "2026-09-17",
+    "dueDate": "2026-11-21",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0024",
+      "name": "Initech Logistics 24",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/94",
+      "dashboard": "https://example.com/dashboard/94"
+    },
+    "description": "A detailed description for array-root work item 94."
+  },
+  {
+    "id": "AR-0095",
+    "name": "Helix initiative 95",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 41,
+    "estimate": 13,
+    "budget": 2299.5,
+    "active": true,
+    "startDate": "2026-09-20",
+    "dueDate": "2026-11-24",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0025",
+      "name": "Umbrella SaaS 25",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/95",
+      "dashboard": "https://example.com/dashboard/95"
+    },
+    "description": "A detailed description for array-root work item 95."
+  },
+  {
+    "id": "AR-0096",
+    "name": "Ion initiative 96",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 64,
+    "estimate": 20,
+    "budget": 37935,
+    "active": true,
+    "startDate": "2026-09-23",
+    "dueDate": "2026-01-01",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0026",
+      "name": "Stark Fintech 26",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/96",
+      "dashboard": "https://example.com/dashboard/96"
+    },
+    "description": "A detailed description for array-root work item 96."
+  },
+  {
+    "id": "AR-0097",
+    "name": "Atlas initiative 97",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 87,
+    "estimate": 27,
+    "budget": 73570.5,
+    "active": true,
+    "startDate": "2026-09-26",
+    "dueDate": "2026-01-04",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0027",
+      "name": "Wayne Retail 27",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/97",
+      "dashboard": "https://example.com/dashboard/97"
+    },
+    "description": "A detailed description for array-root work item 97."
+  },
+  {
+    "id": "AR-0098",
+    "name": "Beacon initiative 98",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 9,
+    "estimate": 34,
+    "budget": 1206,
+    "active": true,
+    "startDate": "2026-09-29",
+    "dueDate": "2026-01-07",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0028",
+      "name": "Wonka Healthcare 28",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/98",
+      "dashboard": "https://example.com/dashboard/98"
+    },
+    "description": "A detailed description for array-root work item 98."
+  },
+  {
+    "id": "AR-0099",
+    "name": "Canvas initiative 99",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 32,
+    "estimate": 7,
+    "budget": 36841.5,
+    "active": true,
+    "startDate": "2026-10-02",
+    "dueDate": "2026-01-10",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0029",
+      "name": "Acme Media 29",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/99",
+      "dashboard": "https://example.com/dashboard/99"
+    },
+    "description": "A detailed description for array-root work item 99."
+  },
+  {
+    "id": "AR-0100",
+    "name": "Delta initiative 100",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 55,
+    "estimate": 14,
+    "budget": 72477,
+    "active": false,
+    "startDate": "2026-10-05",
+    "dueDate": "2026-01-13",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0030",
+      "name": "Globex Logistics 30",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/100",
+      "dashboard": "https://example.com/dashboard/100"
+    },
+    "description": "A detailed description for array-root work item 100."
+  },
+  {
+    "id": "AR-0101",
+    "name": "Echo initiative 101",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 78,
+    "estimate": 21,
+    "budget": 108112.5,
+    "active": true,
+    "startDate": "2026-10-08",
+    "dueDate": "2026-01-16",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0031",
+      "name": "Initech SaaS 31",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/101",
+      "dashboard": "https://example.com/dashboard/101"
+    },
+    "description": "A detailed description for array-root work item 101."
+  },
+  {
+    "id": "AR-0102",
+    "name": "Forge initiative 102",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 0,
+    "estimate": 28,
+    "budget": 35748,
+    "active": true,
+    "startDate": "2026-10-11",
+    "dueDate": "2026-01-19",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0032",
+      "name": "Umbrella Fintech 32",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/102",
+      "dashboard": "https://example.com/dashboard/102"
+    },
+    "description": "A detailed description for array-root work item 102."
+  },
+  {
+    "id": "AR-0103",
+    "name": "Helix initiative 103",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 23,
+    "estimate": 1,
+    "budget": 71383.5,
+    "active": true,
+    "startDate": "2026-10-14",
+    "dueDate": "2026-01-22",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0033",
+      "name": "Stark Retail 33",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/103",
+      "dashboard": "https://example.com/dashboard/103"
+    },
+    "description": "A detailed description for array-root work item 103."
+  },
+  {
+    "id": "AR-0104",
+    "name": "Ion initiative 104",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 46,
+    "estimate": 8,
+    "budget": 107019,
+    "active": true,
+    "startDate": "2026-10-17",
+    "dueDate": "2026-01-25",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0034",
+      "name": "Wayne Healthcare 34",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/104",
+      "dashboard": "https://example.com/dashboard/104"
+    },
+    "description": "A detailed description for array-root work item 104."
+  },
+  {
+    "id": "AR-0105",
+    "name": "Atlas initiative 105",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 69,
+    "estimate": 15,
+    "budget": 34654.5,
+    "active": true,
+    "startDate": "2026-10-20",
+    "dueDate": "2026-01-28",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0035",
+      "name": "Wonka Media 35",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/105",
+      "dashboard": "https://example.com/dashboard/105"
+    },
+    "description": "A detailed description for array-root work item 105."
+  },
+  {
+    "id": "AR-0106",
+    "name": "Beacon initiative 106",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 92,
+    "estimate": 22,
+    "budget": 70290,
+    "active": true,
+    "startDate": "2026-10-23",
+    "dueDate": "2026-01-31",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0036",
+      "name": "Acme Logistics 36",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/106",
+      "dashboard": "https://example.com/dashboard/106"
+    },
+    "description": "A detailed description for array-root work item 106."
+  },
+  {
+    "id": "AR-0107",
+    "name": "Canvas initiative 107",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 14,
+    "estimate": 29,
+    "budget": 105925.5,
+    "active": true,
+    "startDate": "2026-10-26",
+    "dueDate": "2026-02-03",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0037",
+      "name": "Globex SaaS 37",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/107",
+      "dashboard": "https://example.com/dashboard/107"
+    },
+    "description": "A detailed description for array-root work item 107."
+  },
+  {
+    "id": "AR-0108",
+    "name": "Delta initiative 108",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 37,
+    "estimate": 2,
+    "budget": 33561,
+    "active": true,
+    "startDate": "2026-10-29",
+    "dueDate": "2026-02-06",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0038",
+      "name": "Initech Fintech 38",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/108",
+      "dashboard": "https://example.com/dashboard/108"
+    },
+    "description": "A detailed description for array-root work item 108."
+  },
+  {
+    "id": "AR-0109",
+    "name": "Echo initiative 109",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 60,
+    "estimate": 9,
+    "budget": 69196.5,
+    "active": false,
+    "startDate": "2026-11-01",
+    "dueDate": "2026-02-09",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0039",
+      "name": "Umbrella Retail 39",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/109",
+      "dashboard": "https://example.com/dashboard/109"
+    },
+    "description": "A detailed description for array-root work item 109."
+  },
+  {
+    "id": "AR-0110",
+    "name": "Forge initiative 110",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 83,
+    "estimate": 16,
+    "budget": 104832,
+    "active": true,
+    "startDate": "2026-11-04",
+    "dueDate": "2026-02-12",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0040",
+      "name": "Stark Healthcare 40",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/110",
+      "dashboard": "https://example.com/dashboard/110"
+    },
+    "description": "A detailed description for array-root work item 110."
+  },
+  {
+    "id": "AR-0111",
+    "name": "Helix initiative 111",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 5,
+    "estimate": 23,
+    "budget": 32467.5,
+    "active": true,
+    "startDate": "2026-11-07",
+    "dueDate": "2026-02-15",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0041",
+      "name": "Wayne Media 41",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/111",
+      "dashboard": "https://example.com/dashboard/111"
+    },
+    "description": "A detailed description for array-root work item 111."
+  },
+  {
+    "id": "AR-0112",
+    "name": "Ion initiative 112",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 28,
+    "estimate": 30,
+    "budget": 68103,
+    "active": true,
+    "startDate": "2026-11-10",
+    "dueDate": "2026-02-18",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0042",
+      "name": "Wonka Logistics 42",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/112",
+      "dashboard": "https://example.com/dashboard/112"
+    },
+    "description": "A detailed description for array-root work item 112."
+  },
+  {
+    "id": "AR-0113",
+    "name": "Atlas initiative 113",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 51,
+    "estimate": 3,
+    "budget": 103738.5,
+    "active": true,
+    "startDate": "2026-11-13",
+    "dueDate": "2026-02-21",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0043",
+      "name": "Acme SaaS 43",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/113",
+      "dashboard": "https://example.com/dashboard/113"
+    },
+    "description": "A detailed description for array-root work item 113."
+  },
+  {
+    "id": "AR-0114",
+    "name": "Beacon initiative 114",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 74,
+    "estimate": 10,
+    "budget": 31374,
+    "active": true,
+    "startDate": "2026-11-16",
+    "dueDate": "2026-02-24",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0044",
+      "name": "Globex Fintech 44",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/114",
+      "dashboard": "https://example.com/dashboard/114"
+    },
+    "description": "A detailed description for array-root work item 114."
+  },
+  {
+    "id": "AR-0115",
+    "name": "Canvas initiative 115",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 97,
+    "estimate": 17,
+    "budget": 67009.5,
+    "active": true,
+    "startDate": "2026-11-19",
+    "dueDate": "2026-02-27",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0045",
+      "name": "Initech Retail 45",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/115",
+      "dashboard": "https://example.com/dashboard/115"
+    },
+    "description": "A detailed description for array-root work item 115."
+  },
+  {
+    "id": "AR-0116",
+    "name": "Delta initiative 116",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 19,
+    "estimate": 24,
+    "budget": 102645,
+    "active": true,
+    "startDate": "2026-11-22",
+    "dueDate": "2026-03-02",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0046",
+      "name": "Umbrella Healthcare 46",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/116",
+      "dashboard": "https://example.com/dashboard/116"
+    },
+    "description": "A detailed description for array-root work item 116."
+  },
+  {
+    "id": "AR-0117",
+    "name": "Echo initiative 117",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 42,
+    "estimate": 31,
+    "budget": 30280.5,
+    "active": true,
+    "startDate": "2026-11-25",
+    "dueDate": "2026-03-05",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0047",
+      "name": "Stark Media 47",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/117",
+      "dashboard": "https://example.com/dashboard/117"
+    },
+    "description": "A detailed description for array-root work item 117."
+  },
+  {
+    "id": "AR-0118",
+    "name": "Forge initiative 118",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 65,
+    "estimate": 4,
+    "budget": 65916,
+    "active": false,
+    "startDate": "2026-01-02",
+    "dueDate": "2026-03-08",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0048",
+      "name": "Wayne Logistics 48",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/118",
+      "dashboard": "https://example.com/dashboard/118"
+    },
+    "description": "A detailed description for array-root work item 118."
+  },
+  {
+    "id": "AR-0119",
+    "name": "Helix initiative 119",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 88,
+    "estimate": 11,
+    "budget": 101551.5,
+    "active": true,
+    "startDate": "2026-01-05",
+    "dueDate": "2026-03-11",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0049",
+      "name": "Wonka SaaS 49",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/119",
+      "dashboard": "https://example.com/dashboard/119"
+    },
+    "description": "A detailed description for array-root work item 119."
+  },
+  {
+    "id": "AR-0120",
+    "name": "Ion initiative 120",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 10,
+    "estimate": 18,
+    "budget": 29187,
+    "active": true,
+    "startDate": "2026-01-08",
+    "dueDate": "2026-03-14",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0050",
+      "name": "Acme Fintech 50",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/120",
+      "dashboard": "https://example.com/dashboard/120"
+    },
+    "description": "A detailed description for array-root work item 120."
+  },
+  {
+    "id": "AR-0121",
+    "name": "Atlas initiative 121",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 33,
+    "estimate": 25,
+    "budget": 64822.5,
+    "active": true,
+    "startDate": "2026-01-11",
+    "dueDate": "2026-03-17",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0051",
+      "name": "Globex Retail 51",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/121",
+      "dashboard": "https://example.com/dashboard/121"
+    },
+    "description": "A detailed description for array-root work item 121."
+  },
+  {
+    "id": "AR-0122",
+    "name": "Beacon initiative 122",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 56,
+    "estimate": 32,
+    "budget": 100458,
+    "active": true,
+    "startDate": "2026-01-14",
+    "dueDate": "2026-03-20",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0052",
+      "name": "Initech Healthcare 52",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/122",
+      "dashboard": "https://example.com/dashboard/122"
+    },
+    "description": "A detailed description for array-root work item 122."
+  },
+  {
+    "id": "AR-0123",
+    "name": "Canvas initiative 123",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 79,
+    "estimate": 5,
+    "budget": 28093.5,
+    "active": true,
+    "startDate": "2026-01-17",
+    "dueDate": "2026-03-23",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0053",
+      "name": "Umbrella Media 53",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/123",
+      "dashboard": "https://example.com/dashboard/123"
+    },
+    "description": "A detailed description for array-root work item 123."
+  },
+  {
+    "id": "AR-0124",
+    "name": "Delta initiative 124",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 1,
+    "estimate": 12,
+    "budget": 63729,
+    "active": true,
+    "startDate": "2026-01-20",
+    "dueDate": "2026-03-26",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0054",
+      "name": "Stark Logistics 54",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/124",
+      "dashboard": "https://example.com/dashboard/124"
+    },
+    "description": "A detailed description for array-root work item 124."
+  },
+  {
+    "id": "AR-0125",
+    "name": "Echo initiative 125",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 24,
+    "estimate": 19,
+    "budget": 99364.5,
+    "active": true,
+    "startDate": "2026-01-23",
+    "dueDate": "2026-03-29",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0055",
+      "name": "Wayne SaaS 55",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/125",
+      "dashboard": "https://example.com/dashboard/125"
+    },
+    "description": "A detailed description for array-root work item 125."
+  },
+  {
+    "id": "AR-0126",
+    "name": "Forge initiative 126",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 47,
+    "estimate": 26,
+    "budget": 27000,
+    "active": true,
+    "startDate": "2026-01-26",
+    "dueDate": "2026-04-01",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0056",
+      "name": "Wonka Fintech 56",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/126",
+      "dashboard": "https://example.com/dashboard/126"
+    },
+    "description": "A detailed description for array-root work item 126."
+  },
+  {
+    "id": "AR-0127",
+    "name": "Helix initiative 127",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 70,
+    "estimate": 33,
+    "budget": 62635.5,
+    "active": false,
+    "startDate": "2026-01-29",
+    "dueDate": "2026-04-04",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0057",
+      "name": "Acme Retail 57",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/127",
+      "dashboard": "https://example.com/dashboard/127"
+    },
+    "description": "A detailed description for array-root work item 127."
+  },
+  {
+    "id": "AR-0128",
+    "name": "Ion initiative 128",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 93,
+    "estimate": 6,
+    "budget": 98271,
+    "active": true,
+    "startDate": "2026-02-01",
+    "dueDate": "2026-04-07",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0058",
+      "name": "Globex Healthcare 58",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/128",
+      "dashboard": "https://example.com/dashboard/128"
+    },
+    "description": "A detailed description for array-root work item 128."
+  },
+  {
+    "id": "AR-0129",
+    "name": "Atlas initiative 129",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 15,
+    "estimate": 13,
+    "budget": 25906.5,
+    "active": true,
+    "startDate": "2026-02-04",
+    "dueDate": "2026-04-10",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0059",
+      "name": "Initech Media 59",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/129",
+      "dashboard": "https://example.com/dashboard/129"
+    },
+    "description": "A detailed description for array-root work item 129."
+  },
+  {
+    "id": "AR-0130",
+    "name": "Beacon initiative 130",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 38,
+    "estimate": 20,
+    "budget": 61542,
+    "active": true,
+    "startDate": "2026-02-07",
+    "dueDate": "2026-04-13",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0060",
+      "name": "Umbrella Logistics 60",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/130",
+      "dashboard": "https://example.com/dashboard/130"
+    },
+    "description": "A detailed description for array-root work item 130."
+  },
+  {
+    "id": "AR-0131",
+    "name": "Canvas initiative 131",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 61,
+    "estimate": 27,
+    "budget": 97177.5,
+    "active": true,
+    "startDate": "2026-02-10",
+    "dueDate": "2026-04-16",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0061",
+      "name": "Stark SaaS 61",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/131",
+      "dashboard": "https://example.com/dashboard/131"
+    },
+    "description": "A detailed description for array-root work item 131."
+  },
+  {
+    "id": "AR-0132",
+    "name": "Delta initiative 132",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 84,
+    "estimate": 34,
+    "budget": 24813,
+    "active": true,
+    "startDate": "2026-02-13",
+    "dueDate": "2026-04-19",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0062",
+      "name": "Wayne Fintech 62",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/132",
+      "dashboard": "https://example.com/dashboard/132"
+    },
+    "description": "A detailed description for array-root work item 132."
+  },
+  {
+    "id": "AR-0133",
+    "name": "Echo initiative 133",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 6,
+    "estimate": 7,
+    "budget": 60448.5,
+    "active": true,
+    "startDate": "2026-02-16",
+    "dueDate": "2026-04-22",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0063",
+      "name": "Wonka Retail 63",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/133",
+      "dashboard": "https://example.com/dashboard/133"
+    },
+    "description": "A detailed description for array-root work item 133."
+  },
+  {
+    "id": "AR-0134",
+    "name": "Forge initiative 134",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 29,
+    "estimate": 14,
+    "budget": 96084,
+    "active": true,
+    "startDate": "2026-02-19",
+    "dueDate": "2026-04-25",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0064",
+      "name": "Acme Healthcare 64",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/134",
+      "dashboard": "https://example.com/dashboard/134"
+    },
+    "description": "A detailed description for array-root work item 134."
+  },
+  {
+    "id": "AR-0135",
+    "name": "Helix initiative 135",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 52,
+    "estimate": 21,
+    "budget": 23719.5,
+    "active": true,
+    "startDate": "2026-02-22",
+    "dueDate": "2026-04-28",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0065",
+      "name": "Globex Media 65",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/135",
+      "dashboard": "https://example.com/dashboard/135"
+    },
+    "description": "A detailed description for array-root work item 135."
+  },
+  {
+    "id": "AR-0136",
+    "name": "Ion initiative 136",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 75,
+    "estimate": 28,
+    "budget": 59355,
+    "active": false,
+    "startDate": "2026-02-25",
+    "dueDate": "2026-05-01",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0066",
+      "name": "Initech Logistics 66",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/136",
+      "dashboard": "https://example.com/dashboard/136"
+    },
+    "description": "A detailed description for array-root work item 136."
+  },
+  {
+    "id": "AR-0137",
+    "name": "Atlas initiative 137",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 98,
+    "estimate": 1,
+    "budget": 94990.5,
+    "active": true,
+    "startDate": "2026-02-28",
+    "dueDate": "2026-05-04",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0067",
+      "name": "Umbrella SaaS 67",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/137",
+      "dashboard": "https://example.com/dashboard/137"
+    },
+    "description": "A detailed description for array-root work item 137."
+  },
+  {
+    "id": "AR-0138",
+    "name": "Beacon initiative 138",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 20,
+    "estimate": 8,
+    "budget": 22626,
+    "active": true,
+    "startDate": "2026-03-03",
+    "dueDate": "2026-05-07",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0068",
+      "name": "Stark Fintech 68",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/138",
+      "dashboard": "https://example.com/dashboard/138"
+    },
+    "description": "A detailed description for array-root work item 138."
+  },
+  {
+    "id": "AR-0139",
+    "name": "Canvas initiative 139",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 43,
+    "estimate": 15,
+    "budget": 58261.5,
+    "active": true,
+    "startDate": "2026-03-06",
+    "dueDate": "2026-05-10",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0069",
+      "name": "Wayne Retail 69",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/139",
+      "dashboard": "https://example.com/dashboard/139"
+    },
+    "description": "A detailed description for array-root work item 139."
+  },
+  {
+    "id": "AR-0140",
+    "name": "Delta initiative 140",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 66,
+    "estimate": 22,
+    "budget": 93897,
+    "active": true,
+    "startDate": "2026-03-09",
+    "dueDate": "2026-05-13",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0070",
+      "name": "Wonka Healthcare 70",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/140",
+      "dashboard": "https://example.com/dashboard/140"
+    },
+    "description": "A detailed description for array-root work item 140."
+  },
+  {
+    "id": "AR-0141",
+    "name": "Echo initiative 141",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 89,
+    "estimate": 29,
+    "budget": 21532.5,
+    "active": true,
+    "startDate": "2026-03-12",
+    "dueDate": "2026-05-16",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0001",
+      "name": "Acme SaaS 1",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/141",
+      "dashboard": "https://example.com/dashboard/141"
+    },
+    "description": "A detailed description for array-root work item 141."
+  },
+  {
+    "id": "AR-0142",
+    "name": "Forge initiative 142",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 11,
+    "estimate": 2,
+    "budget": 57168,
+    "active": true,
+    "startDate": "2026-03-15",
+    "dueDate": "2026-05-19",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0002",
+      "name": "Globex Fintech 2",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/142",
+      "dashboard": "https://example.com/dashboard/142"
+    },
+    "description": "A detailed description for array-root work item 142."
+  },
+  {
+    "id": "AR-0143",
+    "name": "Helix initiative 143",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 34,
+    "estimate": 9,
+    "budget": 92803.5,
+    "active": true,
+    "startDate": "2026-03-18",
+    "dueDate": "2026-05-22",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0003",
+      "name": "Initech Retail 3",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/143",
+      "dashboard": "https://example.com/dashboard/143"
+    },
+    "description": "A detailed description for array-root work item 143."
+  },
+  {
+    "id": "AR-0144",
+    "name": "Ion initiative 144",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 57,
+    "estimate": 16,
+    "budget": 20439,
+    "active": true,
+    "startDate": "2026-03-21",
+    "dueDate": "2026-05-25",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0004",
+      "name": "Umbrella Healthcare 4",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/144",
+      "dashboard": "https://example.com/dashboard/144"
+    },
+    "description": "A detailed description for array-root work item 144."
+  },
+  {
+    "id": "AR-0145",
+    "name": "Atlas initiative 145",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 80,
+    "estimate": 23,
+    "budget": 56074.5,
+    "active": false,
+    "startDate": "2026-03-24",
+    "dueDate": "2026-05-28",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0005",
+      "name": "Stark Media 5",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/145",
+      "dashboard": "https://example.com/dashboard/145"
+    },
+    "description": "A detailed description for array-root work item 145."
+  },
+  {
+    "id": "AR-0146",
+    "name": "Beacon initiative 146",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 2,
+    "estimate": 30,
+    "budget": 91710,
+    "active": true,
+    "startDate": "2026-03-27",
+    "dueDate": "2026-05-31",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0006",
+      "name": "Wayne Logistics 6",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/146",
+      "dashboard": "https://example.com/dashboard/146"
+    },
+    "description": "A detailed description for array-root work item 146."
+  },
+  {
+    "id": "AR-0147",
+    "name": "Canvas initiative 147",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 25,
+    "estimate": 3,
+    "budget": 19345.5,
+    "active": true,
+    "startDate": "2026-03-30",
+    "dueDate": "2026-06-03",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0007",
+      "name": "Wonka SaaS 7",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/147",
+      "dashboard": "https://example.com/dashboard/147"
+    },
+    "description": "A detailed description for array-root work item 147."
+  },
+  {
+    "id": "AR-0148",
+    "name": "Delta initiative 148",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 48,
+    "estimate": 10,
+    "budget": 54981,
+    "active": true,
+    "startDate": "2026-04-02",
+    "dueDate": "2026-06-06",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0008",
+      "name": "Acme Fintech 8",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/148",
+      "dashboard": "https://example.com/dashboard/148"
+    },
+    "description": "A detailed description for array-root work item 148."
+  },
+  {
+    "id": "AR-0149",
+    "name": "Echo initiative 149",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 71,
+    "estimate": 17,
+    "budget": 90616.5,
+    "active": true,
+    "startDate": "2026-04-05",
+    "dueDate": "2026-06-09",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0009",
+      "name": "Globex Retail 9",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/149",
+      "dashboard": "https://example.com/dashboard/149"
+    },
+    "description": "A detailed description for array-root work item 149."
+  },
+  {
+    "id": "AR-0150",
+    "name": "Forge initiative 150",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 94,
+    "estimate": 24,
+    "budget": 18252,
+    "active": true,
+    "startDate": "2026-04-08",
+    "dueDate": "2026-06-12",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0010",
+      "name": "Initech Healthcare 10",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/150",
+      "dashboard": "https://example.com/dashboard/150"
+    },
+    "description": "A detailed description for array-root work item 150."
+  },
+  {
+    "id": "AR-0151",
+    "name": "Helix initiative 151",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 16,
+    "estimate": 31,
+    "budget": 53887.5,
+    "active": true,
+    "startDate": "2026-04-11",
+    "dueDate": "2026-06-15",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0011",
+      "name": "Umbrella Media 11",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/151",
+      "dashboard": "https://example.com/dashboard/151"
+    },
+    "description": "A detailed description for array-root work item 151."
+  },
+  {
+    "id": "AR-0152",
+    "name": "Ion initiative 152",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 39,
+    "estimate": 4,
+    "budget": 89523,
+    "active": true,
+    "startDate": "2026-04-14",
+    "dueDate": "2026-06-18",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0012",
+      "name": "Stark Logistics 12",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/152",
+      "dashboard": "https://example.com/dashboard/152"
+    },
+    "description": "A detailed description for array-root work item 152."
+  },
+  {
+    "id": "AR-0153",
+    "name": "Atlas initiative 153",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 62,
+    "estimate": 11,
+    "budget": 17158.5,
+    "active": true,
+    "startDate": "2026-04-17",
+    "dueDate": "2026-06-21",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0013",
+      "name": "Wayne SaaS 13",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/153",
+      "dashboard": "https://example.com/dashboard/153"
+    },
+    "description": "A detailed description for array-root work item 153."
+  },
+  {
+    "id": "AR-0154",
+    "name": "Beacon initiative 154",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 85,
+    "estimate": 18,
+    "budget": 52794,
+    "active": false,
+    "startDate": "2026-04-20",
+    "dueDate": "2026-06-24",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0014",
+      "name": "Wonka Fintech 14",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/154",
+      "dashboard": "https://example.com/dashboard/154"
+    },
+    "description": "A detailed description for array-root work item 154."
+  },
+  {
+    "id": "AR-0155",
+    "name": "Canvas initiative 155",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 7,
+    "estimate": 25,
+    "budget": 88429.5,
+    "active": true,
+    "startDate": "2026-04-23",
+    "dueDate": "2026-06-27",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0015",
+      "name": "Acme Retail 15",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/155",
+      "dashboard": "https://example.com/dashboard/155"
+    },
+    "description": "A detailed description for array-root work item 155."
+  },
+  {
+    "id": "AR-0156",
+    "name": "Delta initiative 156",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 30,
+    "estimate": 32,
+    "budget": 16065,
+    "active": true,
+    "startDate": "2026-04-26",
+    "dueDate": "2026-06-30",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0016",
+      "name": "Globex Healthcare 16",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/156",
+      "dashboard": "https://example.com/dashboard/156"
+    },
+    "description": "A detailed description for array-root work item 156."
+  },
+  {
+    "id": "AR-0157",
+    "name": "Echo initiative 157",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 53,
+    "estimate": 5,
+    "budget": 51700.5,
+    "active": true,
+    "startDate": "2026-04-29",
+    "dueDate": "2026-07-03",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0017",
+      "name": "Initech Media 17",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/157",
+      "dashboard": "https://example.com/dashboard/157"
+    },
+    "description": "A detailed description for array-root work item 157."
+  },
+  {
+    "id": "AR-0158",
+    "name": "Forge initiative 158",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 76,
+    "estimate": 12,
+    "budget": 87336,
+    "active": true,
+    "startDate": "2026-05-02",
+    "dueDate": "2026-07-06",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0018",
+      "name": "Umbrella Logistics 18",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/158",
+      "dashboard": "https://example.com/dashboard/158"
+    },
+    "description": "A detailed description for array-root work item 158."
+  },
+  {
+    "id": "AR-0159",
+    "name": "Helix initiative 159",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 99,
+    "estimate": 19,
+    "budget": 14971.5,
+    "active": true,
+    "startDate": "2026-05-05",
+    "dueDate": "2026-07-09",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0019",
+      "name": "Stark SaaS 19",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/159",
+      "dashboard": "https://example.com/dashboard/159"
+    },
+    "description": "A detailed description for array-root work item 159."
+  },
+  {
+    "id": "AR-0160",
+    "name": "Ion initiative 160",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 21,
+    "estimate": 26,
+    "budget": 50607,
+    "active": true,
+    "startDate": "2026-05-08",
+    "dueDate": "2026-07-12",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0020",
+      "name": "Wayne Fintech 20",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/160",
+      "dashboard": "https://example.com/dashboard/160"
+    },
+    "description": "A detailed description for array-root work item 160."
+  },
+  {
+    "id": "AR-0161",
+    "name": "Atlas initiative 161",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 44,
+    "estimate": 33,
+    "budget": 86242.5,
+    "active": true,
+    "startDate": "2026-05-11",
+    "dueDate": "2026-07-15",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0021",
+      "name": "Wonka Retail 21",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/161",
+      "dashboard": "https://example.com/dashboard/161"
+    },
+    "description": "A detailed description for array-root work item 161."
+  },
+  {
+    "id": "AR-0162",
+    "name": "Beacon initiative 162",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 67,
+    "estimate": 6,
+    "budget": 13878,
+    "active": true,
+    "startDate": "2026-05-14",
+    "dueDate": "2026-07-18",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0022",
+      "name": "Acme Healthcare 22",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/162",
+      "dashboard": "https://example.com/dashboard/162"
+    },
+    "description": "A detailed description for array-root work item 162."
+  },
+  {
+    "id": "AR-0163",
+    "name": "Canvas initiative 163",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 90,
+    "estimate": 13,
+    "budget": 49513.5,
+    "active": false,
+    "startDate": "2026-05-17",
+    "dueDate": "2026-07-21",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0023",
+      "name": "Globex Media 23",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/163",
+      "dashboard": "https://example.com/dashboard/163"
+    },
+    "description": "A detailed description for array-root work item 163."
+  },
+  {
+    "id": "AR-0164",
+    "name": "Delta initiative 164",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 12,
+    "estimate": 20,
+    "budget": 85149,
+    "active": true,
+    "startDate": "2026-05-20",
+    "dueDate": "2026-07-24",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0024",
+      "name": "Initech Logistics 24",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/164",
+      "dashboard": "https://example.com/dashboard/164"
+    },
+    "description": "A detailed description for array-root work item 164."
+  },
+  {
+    "id": "AR-0165",
+    "name": "Echo initiative 165",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 35,
+    "estimate": 27,
+    "budget": 12784.5,
+    "active": true,
+    "startDate": "2026-05-23",
+    "dueDate": "2026-07-27",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0025",
+      "name": "Umbrella SaaS 25",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/165",
+      "dashboard": "https://example.com/dashboard/165"
+    },
+    "description": "A detailed description for array-root work item 165."
+  },
+  {
+    "id": "AR-0166",
+    "name": "Forge initiative 166",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 58,
+    "estimate": 34,
+    "budget": 48420,
+    "active": true,
+    "startDate": "2026-05-26",
+    "dueDate": "2026-07-30",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0026",
+      "name": "Stark Fintech 26",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/166",
+      "dashboard": "https://example.com/dashboard/166"
+    },
+    "description": "A detailed description for array-root work item 166."
+  },
+  {
+    "id": "AR-0167",
+    "name": "Helix initiative 167",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 81,
+    "estimate": 7,
+    "budget": 84055.5,
+    "active": true,
+    "startDate": "2026-05-29",
+    "dueDate": "2026-08-02",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0027",
+      "name": "Wayne Retail 27",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/167",
+      "dashboard": "https://example.com/dashboard/167"
+    },
+    "description": "A detailed description for array-root work item 167."
+  },
+  {
+    "id": "AR-0168",
+    "name": "Ion initiative 168",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 3,
+    "estimate": 14,
+    "budget": 11691,
+    "active": true,
+    "startDate": "2026-06-01",
+    "dueDate": "2026-08-05",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0028",
+      "name": "Wonka Healthcare 28",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/168",
+      "dashboard": "https://example.com/dashboard/168"
+    },
+    "description": "A detailed description for array-root work item 168."
+  },
+  {
+    "id": "AR-0169",
+    "name": "Atlas initiative 169",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 26,
+    "estimate": 21,
+    "budget": 47326.5,
+    "active": true,
+    "startDate": "2026-06-04",
+    "dueDate": "2026-08-08",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0029",
+      "name": "Acme Media 29",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/169",
+      "dashboard": "https://example.com/dashboard/169"
+    },
+    "description": "A detailed description for array-root work item 169."
+  },
+  {
+    "id": "AR-0170",
+    "name": "Beacon initiative 170",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 49,
+    "estimate": 28,
+    "budget": 82962,
+    "active": true,
+    "startDate": "2026-06-07",
+    "dueDate": "2026-08-11",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0030",
+      "name": "Globex Logistics 30",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/170",
+      "dashboard": "https://example.com/dashboard/170"
+    },
+    "description": "A detailed description for array-root work item 170."
+  },
+  {
+    "id": "AR-0171",
+    "name": "Canvas initiative 171",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 72,
+    "estimate": 1,
+    "budget": 10597.5,
+    "active": true,
+    "startDate": "2026-06-10",
+    "dueDate": "2026-08-14",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0031",
+      "name": "Initech SaaS 31",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/171",
+      "dashboard": "https://example.com/dashboard/171"
+    },
+    "description": "A detailed description for array-root work item 171."
+  },
+  {
+    "id": "AR-0172",
+    "name": "Delta initiative 172",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 95,
+    "estimate": 8,
+    "budget": 46233,
+    "active": false,
+    "startDate": "2026-06-13",
+    "dueDate": "2026-08-17",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0032",
+      "name": "Umbrella Fintech 32",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/172",
+      "dashboard": "https://example.com/dashboard/172"
+    },
+    "description": "A detailed description for array-root work item 172."
+  },
+  {
+    "id": "AR-0173",
+    "name": "Echo initiative 173",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 17,
+    "estimate": 15,
+    "budget": 81868.5,
+    "active": true,
+    "startDate": "2026-06-16",
+    "dueDate": "2026-08-20",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0033",
+      "name": "Stark Retail 33",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/173",
+      "dashboard": "https://example.com/dashboard/173"
+    },
+    "description": "A detailed description for array-root work item 173."
+  },
+  {
+    "id": "AR-0174",
+    "name": "Forge initiative 174",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 40,
+    "estimate": 22,
+    "budget": 9504,
+    "active": true,
+    "startDate": "2026-06-19",
+    "dueDate": "2026-08-23",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0034",
+      "name": "Wayne Healthcare 34",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/174",
+      "dashboard": "https://example.com/dashboard/174"
+    },
+    "description": "A detailed description for array-root work item 174."
+  },
+  {
+    "id": "AR-0175",
+    "name": "Helix initiative 175",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 63,
+    "estimate": 29,
+    "budget": 45139.5,
+    "active": true,
+    "startDate": "2026-06-22",
+    "dueDate": "2026-08-26",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0035",
+      "name": "Wonka Media 35",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/175",
+      "dashboard": "https://example.com/dashboard/175"
+    },
+    "description": "A detailed description for array-root work item 175."
+  },
+  {
+    "id": "AR-0176",
+    "name": "Ion initiative 176",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 86,
+    "estimate": 2,
+    "budget": 80775,
+    "active": true,
+    "startDate": "2026-06-25",
+    "dueDate": "2026-08-29",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0036",
+      "name": "Acme Logistics 36",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/176",
+      "dashboard": "https://example.com/dashboard/176"
+    },
+    "description": "A detailed description for array-root work item 176."
+  },
+  {
+    "id": "AR-0177",
+    "name": "Atlas initiative 177",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 8,
+    "estimate": 9,
+    "budget": 8410.5,
+    "active": true,
+    "startDate": "2026-06-28",
+    "dueDate": "2026-09-01",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0037",
+      "name": "Globex SaaS 37",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/177",
+      "dashboard": "https://example.com/dashboard/177"
+    },
+    "description": "A detailed description for array-root work item 177."
+  },
+  {
+    "id": "AR-0178",
+    "name": "Beacon initiative 178",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 31,
+    "estimate": 16,
+    "budget": 44046,
+    "active": true,
+    "startDate": "2026-07-01",
+    "dueDate": "2026-09-04",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0038",
+      "name": "Initech Fintech 38",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/178",
+      "dashboard": "https://example.com/dashboard/178"
+    },
+    "description": "A detailed description for array-root work item 178."
+  },
+  {
+    "id": "AR-0179",
+    "name": "Canvas initiative 179",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 54,
+    "estimate": 23,
+    "budget": 79681.5,
+    "active": true,
+    "startDate": "2026-07-04",
+    "dueDate": "2026-09-07",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0039",
+      "name": "Umbrella Retail 39",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/179",
+      "dashboard": "https://example.com/dashboard/179"
+    },
+    "description": "A detailed description for array-root work item 179."
+  },
+  {
+    "id": "AR-0180",
+    "name": "Delta initiative 180",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 77,
+    "estimate": 30,
+    "budget": 7317,
+    "active": true,
+    "startDate": "2026-07-07",
+    "dueDate": "2026-09-10",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0040",
+      "name": "Stark Healthcare 40",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/180",
+      "dashboard": "https://example.com/dashboard/180"
+    },
+    "description": "A detailed description for array-root work item 180."
+  },
+  {
+    "id": "AR-0181",
+    "name": "Echo initiative 181",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 100,
+    "estimate": 3,
+    "budget": 42952.5,
+    "active": false,
+    "startDate": "2026-07-10",
+    "dueDate": "2026-09-13",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0041",
+      "name": "Wayne Media 41",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/181",
+      "dashboard": "https://example.com/dashboard/181"
+    },
+    "description": "A detailed description for array-root work item 181."
+  },
+  {
+    "id": "AR-0182",
+    "name": "Forge initiative 182",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 22,
+    "estimate": 10,
+    "budget": 78588,
+    "active": true,
+    "startDate": "2026-07-13",
+    "dueDate": "2026-09-16",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0042",
+      "name": "Wonka Logistics 42",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/182",
+      "dashboard": "https://example.com/dashboard/182"
+    },
+    "description": "A detailed description for array-root work item 182."
+  },
+  {
+    "id": "AR-0183",
+    "name": "Helix initiative 183",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 45,
+    "estimate": 17,
+    "budget": 6223.5,
+    "active": true,
+    "startDate": "2026-07-16",
+    "dueDate": "2026-09-19",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0043",
+      "name": "Acme SaaS 43",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/183",
+      "dashboard": "https://example.com/dashboard/183"
+    },
+    "description": "A detailed description for array-root work item 183."
+  },
+  {
+    "id": "AR-0184",
+    "name": "Ion initiative 184",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 68,
+    "estimate": 24,
+    "budget": 41859,
+    "active": true,
+    "startDate": "2026-07-19",
+    "dueDate": "2026-09-22",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0044",
+      "name": "Globex Fintech 44",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/184",
+      "dashboard": "https://example.com/dashboard/184"
+    },
+    "description": "A detailed description for array-root work item 184."
+  },
+  {
+    "id": "AR-0185",
+    "name": "Atlas initiative 185",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 91,
+    "estimate": 31,
+    "budget": 77494.5,
+    "active": true,
+    "startDate": "2026-07-22",
+    "dueDate": "2026-09-25",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0045",
+      "name": "Initech Retail 45",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/185",
+      "dashboard": "https://example.com/dashboard/185"
+    },
+    "description": "A detailed description for array-root work item 185."
+  },
+  {
+    "id": "AR-0186",
+    "name": "Beacon initiative 186",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 13,
+    "estimate": 4,
+    "budget": 5130,
+    "active": true,
+    "startDate": "2026-07-25",
+    "dueDate": "2026-09-28",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0046",
+      "name": "Umbrella Healthcare 46",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/186",
+      "dashboard": "https://example.com/dashboard/186"
+    },
+    "description": "A detailed description for array-root work item 186."
+  },
+  {
+    "id": "AR-0187",
+    "name": "Canvas initiative 187",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 36,
+    "estimate": 11,
+    "budget": 40765.5,
+    "active": true,
+    "startDate": "2026-07-28",
+    "dueDate": "2026-10-01",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0047",
+      "name": "Stark Media 47",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/187",
+      "dashboard": "https://example.com/dashboard/187"
+    },
+    "description": "A detailed description for array-root work item 187."
+  },
+  {
+    "id": "AR-0188",
+    "name": "Delta initiative 188",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 59,
+    "estimate": 18,
+    "budget": 76401,
+    "active": true,
+    "startDate": "2026-07-31",
+    "dueDate": "2026-10-04",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0048",
+      "name": "Wayne Logistics 48",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/188",
+      "dashboard": "https://example.com/dashboard/188"
+    },
+    "description": "A detailed description for array-root work item 188."
+  },
+  {
+    "id": "AR-0189",
+    "name": "Echo initiative 189",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 82,
+    "estimate": 25,
+    "budget": 4036.5,
+    "active": true,
+    "startDate": "2026-08-03",
+    "dueDate": "2026-10-07",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0049",
+      "name": "Wonka SaaS 49",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/189",
+      "dashboard": "https://example.com/dashboard/189"
+    },
+    "description": "A detailed description for array-root work item 189."
+  },
+  {
+    "id": "AR-0190",
+    "name": "Forge initiative 190",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 4,
+    "estimate": 32,
+    "budget": 39672,
+    "active": false,
+    "startDate": "2026-08-06",
+    "dueDate": "2026-10-10",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0050",
+      "name": "Acme Fintech 50",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/190",
+      "dashboard": "https://example.com/dashboard/190"
+    },
+    "description": "A detailed description for array-root work item 190."
+  },
+  {
+    "id": "AR-0191",
+    "name": "Helix initiative 191",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Ada 11",
+    "ownerEmail": "person11@example.com",
+    "region": "North America",
+    "score": 27,
+    "estimate": 5,
+    "budget": 75307.5,
+    "active": true,
+    "startDate": "2026-08-09",
+    "dueDate": "2026-10-13",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0051",
+      "name": "Globex Retail 51",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/191",
+      "dashboard": "https://example.com/dashboard/191"
+    },
+    "description": "A detailed description for array-root work item 191."
+  },
+  {
+    "id": "AR-0192",
+    "name": "Ion initiative 192",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Grace 12",
+    "ownerEmail": "person12@example.com",
+    "region": "Europe",
+    "score": 50,
+    "estimate": 12,
+    "budget": 2943,
+    "active": true,
+    "startDate": "2026-08-12",
+    "dueDate": "2026-10-16",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0052",
+      "name": "Initech Healthcare 52",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/192",
+      "dashboard": "https://example.com/dashboard/192"
+    },
+    "description": "A detailed description for array-root work item 192."
+  },
+  {
+    "id": "AR-0193",
+    "name": "Atlas initiative 193",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Linus 13",
+    "ownerEmail": "person13@example.com",
+    "region": "Asia Pacific",
+    "score": 73,
+    "estimate": 19,
+    "budget": 38578.5,
+    "active": true,
+    "startDate": "2026-08-15",
+    "dueDate": "2026-10-19",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0053",
+      "name": "Umbrella Media 53",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/193",
+      "dashboard": "https://example.com/dashboard/193"
+    },
+    "description": "A detailed description for array-root work item 193."
+  },
+  {
+    "id": "AR-0194",
+    "name": "Beacon initiative 194",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Margaret 14",
+    "ownerEmail": "person14@example.com",
+    "region": "Middle East",
+    "score": 96,
+    "estimate": 26,
+    "budget": 74214,
+    "active": true,
+    "startDate": "2026-08-18",
+    "dueDate": "2026-10-22",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0054",
+      "name": "Stark Logistics 54",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/194",
+      "dashboard": "https://example.com/dashboard/194"
+    },
+    "description": "A detailed description for array-root work item 194."
+  },
+  {
+    "id": "AR-0195",
+    "name": "Canvas initiative 195",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Alan 15",
+    "ownerEmail": "person15@example.com",
+    "region": "Latin America",
+    "score": 18,
+    "estimate": 33,
+    "budget": 1849.5,
+    "active": true,
+    "startDate": "2026-08-21",
+    "dueDate": "2026-10-25",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0055",
+      "name": "Wayne SaaS 55",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/195",
+      "dashboard": "https://example.com/dashboard/195"
+    },
+    "description": "A detailed description for array-root work item 195."
+  },
+  {
+    "id": "AR-0196",
+    "name": "Delta initiative 196",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Katherine 16",
+    "ownerEmail": "person16@example.com",
+    "region": "North America",
+    "score": 41,
+    "estimate": 6,
+    "budget": 37485,
+    "active": true,
+    "startDate": "2026-08-24",
+    "dueDate": "2026-10-28",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0056",
+      "name": "Wonka Fintech 56",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/196",
+      "dashboard": "https://example.com/dashboard/196"
+    },
+    "description": "A detailed description for array-root work item 196."
+  },
+  {
+    "id": "AR-0197",
+    "name": "Echo initiative 197",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Edsger 17",
+    "ownerEmail": "person17@example.com",
+    "region": "Europe",
+    "score": 64,
+    "estimate": 13,
+    "budget": 73120.5,
+    "active": true,
+    "startDate": "2026-08-27",
+    "dueDate": "2026-10-31",
+    "tags": [
+      "Security",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0057",
+      "name": "Acme Retail 57",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/197",
+      "dashboard": "https://example.com/dashboard/197"
+    },
+    "description": "A detailed description for array-root work item 197."
+  },
+  {
+    "id": "AR-0198",
+    "name": "Forge initiative 198",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Radia 18",
+    "ownerEmail": "person18@example.com",
+    "region": "Asia Pacific",
+    "score": 87,
+    "estimate": 20,
+    "budget": 756,
+    "active": true,
+    "startDate": "2026-08-30",
+    "dueDate": "2026-11-03",
+    "tags": [
+      "Support",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0058",
+      "name": "Globex Healthcare 58",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/198",
+      "dashboard": "https://example.com/dashboard/198"
+    },
+    "description": "A detailed description for array-root work item 198."
+  },
+  {
+    "id": "AR-0199",
+    "name": "Helix initiative 199",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Barbara 19",
+    "ownerEmail": "person19@example.com",
+    "region": "Middle East",
+    "score": 9,
+    "estimate": 27,
+    "budget": 36391.5,
+    "active": false,
+    "startDate": "2026-09-02",
+    "dueDate": "2026-11-06",
+    "tags": [
+      "Platform",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0059",
+      "name": "Initech Media 59",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/199",
+      "dashboard": "https://example.com/dashboard/199"
+    },
+    "description": "A detailed description for array-root work item 199."
+  },
+  {
+    "id": "AR-0200",
+    "name": "Ion initiative 200",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Donald 20",
+    "ownerEmail": "person20@example.com",
+    "region": "Latin America",
+    "score": 32,
+    "estimate": 34,
+    "budget": 72027,
+    "active": true,
+    "startDate": "2026-09-05",
+    "dueDate": "2026-11-09",
+    "tags": [
+      "Growth",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0060",
+      "name": "Umbrella Logistics 60",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/200",
+      "dashboard": "https://example.com/dashboard/200"
+    },
+    "description": "A detailed description for array-root work item 200."
+  },
+  {
+    "id": "AR-0201",
+    "name": "Atlas initiative 201",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Ada 21",
+    "ownerEmail": "person21@example.com",
+    "region": "North America",
+    "score": 55,
+    "estimate": 7,
+    "budget": 107662.5,
+    "active": true,
+    "startDate": "2026-09-08",
+    "dueDate": "2026-11-12",
+    "tags": [
+      "Design",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0061",
+      "name": "Stark SaaS 61",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/201",
+      "dashboard": "https://example.com/dashboard/201"
+    },
+    "description": "A detailed description for array-root work item 201."
+  },
+  {
+    "id": "AR-0202",
+    "name": "Beacon initiative 202",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Grace 22",
+    "ownerEmail": "person22@example.com",
+    "region": "Europe",
+    "score": 78,
+    "estimate": 14,
+    "budget": 35298,
+    "active": true,
+    "startDate": "2026-09-11",
+    "dueDate": "2026-11-15",
+    "tags": [
+      "Data",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0062",
+      "name": "Wayne Fintech 62",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/202",
+      "dashboard": "https://example.com/dashboard/202"
+    },
+    "description": "A detailed description for array-root work item 202."
+  },
+  {
+    "id": "AR-0203",
+    "name": "Canvas initiative 203",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Linus 23",
+    "ownerEmail": "person23@example.com",
+    "region": "Asia Pacific",
+    "score": 0,
+    "estimate": 21,
+    "budget": 70933.5,
+    "active": true,
+    "startDate": "2026-09-14",
+    "dueDate": "2026-11-18",
+    "tags": [
+      "Security",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0063",
+      "name": "Wonka Retail 63",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/203",
+      "dashboard": "https://example.com/dashboard/203"
+    },
+    "description": "A detailed description for array-root work item 203."
+  },
+  {
+    "id": "AR-0204",
+    "name": "Delta initiative 204",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Margaret 24",
+    "ownerEmail": "person24@example.com",
+    "region": "Middle East",
+    "score": 23,
+    "estimate": 28,
+    "budget": 106569,
+    "active": true,
+    "startDate": "2026-09-17",
+    "dueDate": "2026-11-21",
+    "tags": [
+      "Support",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0064",
+      "name": "Acme Healthcare 64",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/204",
+      "dashboard": "https://example.com/dashboard/204"
+    },
+    "description": "A detailed description for array-root work item 204."
+  },
+  {
+    "id": "AR-0205",
+    "name": "Echo initiative 205",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Alan 25",
+    "ownerEmail": "person25@example.com",
+    "region": "Latin America",
+    "score": 46,
+    "estimate": 1,
+    "budget": 34204.5,
+    "active": true,
+    "startDate": "2026-09-20",
+    "dueDate": "2026-11-24",
+    "tags": [
+      "Platform",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0065",
+      "name": "Globex Media 65",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/205",
+      "dashboard": "https://example.com/dashboard/205"
+    },
+    "description": "A detailed description for array-root work item 205."
+  },
+  {
+    "id": "AR-0206",
+    "name": "Forge initiative 206",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Katherine 26",
+    "ownerEmail": "person26@example.com",
+    "region": "North America",
+    "score": 69,
+    "estimate": 8,
+    "budget": 69840,
+    "active": true,
+    "startDate": "2026-09-23",
+    "dueDate": "2026-01-01",
+    "tags": [
+      "Growth",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0066",
+      "name": "Initech Logistics 66",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/206",
+      "dashboard": "https://example.com/dashboard/206"
+    },
+    "description": "A detailed description for array-root work item 206."
+  },
+  {
+    "id": "AR-0207",
+    "name": "Helix initiative 207",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Edsger 27",
+    "ownerEmail": "person27@example.com",
+    "region": "Europe",
+    "score": 92,
+    "estimate": 15,
+    "budget": 105475.5,
+    "active": true,
+    "startDate": "2026-09-26",
+    "dueDate": "2026-01-04",
+    "tags": [
+      "Design",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0067",
+      "name": "Umbrella SaaS 67",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/207",
+      "dashboard": "https://example.com/dashboard/207"
+    },
+    "description": "A detailed description for array-root work item 207."
+  },
+  {
+    "id": "AR-0208",
+    "name": "Ion initiative 208",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Radia 28",
+    "ownerEmail": "person28@example.com",
+    "region": "Asia Pacific",
+    "score": 14,
+    "estimate": 22,
+    "budget": 33111,
+    "active": false,
+    "startDate": "2026-09-29",
+    "dueDate": "2026-01-07",
+    "tags": [
+      "Data",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0068",
+      "name": "Stark Fintech 68",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/208",
+      "dashboard": "https://example.com/dashboard/208"
+    },
+    "description": "A detailed description for array-root work item 208."
+  },
+  {
+    "id": "AR-0209",
+    "name": "Atlas initiative 209",
+    "status": "Review",
+    "priority": "Low",
+    "team": "Security",
+    "owner": "Barbara 29",
+    "ownerEmail": "person29@example.com",
+    "region": "Middle East",
+    "score": 37,
+    "estimate": 29,
+    "budget": 68746.5,
+    "active": true,
+    "startDate": "2026-10-02",
+    "dueDate": "2026-01-10",
+    "tags": [
+      "Security",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0069",
+      "name": "Wayne Retail 69",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/209",
+      "dashboard": "https://example.com/dashboard/209"
+    },
+    "description": "A detailed description for array-root work item 209."
+  },
+  {
+    "id": "AR-0210",
+    "name": "Beacon initiative 210",
+    "status": "Done",
+    "priority": "Medium",
+    "team": "Support",
+    "owner": "Donald 30",
+    "ownerEmail": "person30@example.com",
+    "region": "Latin America",
+    "score": 60,
+    "estimate": 2,
+    "budget": 104382,
+    "active": true,
+    "startDate": "2026-10-05",
+    "dueDate": "2026-01-13",
+    "tags": [
+      "Support",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0070",
+      "name": "Wonka Healthcare 70",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/210",
+      "dashboard": "https://example.com/dashboard/210"
+    },
+    "description": "A detailed description for array-root work item 210."
+  },
+  {
+    "id": "AR-0211",
+    "name": "Canvas initiative 211",
+    "status": "Backlog",
+    "priority": "High",
+    "team": "Platform",
+    "owner": "Ada 1",
+    "ownerEmail": "person1@example.com",
+    "region": "North America",
+    "score": 83,
+    "estimate": 9,
+    "budget": 32017.5,
+    "active": true,
+    "startDate": "2026-10-08",
+    "dueDate": "2026-01-16",
+    "tags": [
+      "Platform",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0001",
+      "name": "Acme SaaS 1",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/211",
+      "dashboard": "https://example.com/dashboard/211"
+    },
+    "description": "A detailed description for array-root work item 211."
+  },
+  {
+    "id": "AR-0212",
+    "name": "Delta initiative 212",
+    "status": "Ready",
+    "priority": "Urgent",
+    "team": "Growth",
+    "owner": "Grace 2",
+    "ownerEmail": "person2@example.com",
+    "region": "Europe",
+    "score": 5,
+    "estimate": 16,
+    "budget": 67653,
+    "active": true,
+    "startDate": "2026-10-11",
+    "dueDate": "2026-01-19",
+    "tags": [
+      "Growth",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0002",
+      "name": "Globex Fintech 2",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/212",
+      "dashboard": "https://example.com/dashboard/212"
+    },
+    "description": "A detailed description for array-root work item 212."
+  },
+  {
+    "id": "AR-0213",
+    "name": "Echo initiative 213",
+    "status": "In progress",
+    "priority": "Low",
+    "team": "Design",
+    "owner": "Linus 3",
+    "ownerEmail": "person3@example.com",
+    "region": "Asia Pacific",
+    "score": 28,
+    "estimate": 23,
+    "budget": 103288.5,
+    "active": true,
+    "startDate": "2026-10-14",
+    "dueDate": "2026-01-22",
+    "tags": [
+      "Design",
+      "Echo"
+    ],
+    "customer": {
+      "id": "CUS-0003",
+      "name": "Initech Retail 3",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/213",
+      "dashboard": "https://example.com/dashboard/213"
+    },
+    "description": "A detailed description for array-root work item 213."
+  },
+  {
+    "id": "AR-0214",
+    "name": "Forge initiative 214",
+    "status": "Blocked",
+    "priority": "Medium",
+    "team": "Data",
+    "owner": "Margaret 4",
+    "ownerEmail": "person4@example.com",
+    "region": "Middle East",
+    "score": 51,
+    "estimate": 30,
+    "budget": 30924,
+    "active": true,
+    "startDate": "2026-10-17",
+    "dueDate": "2026-01-25",
+    "tags": [
+      "Data",
+      "Forge"
+    ],
+    "customer": {
+      "id": "CUS-0004",
+      "name": "Umbrella Healthcare 4",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/214",
+      "dashboard": "https://example.com/dashboard/214"
+    },
+    "description": "A detailed description for array-root work item 214."
+  },
+  {
+    "id": "AR-0215",
+    "name": "Helix initiative 215",
+    "status": "Review",
+    "priority": "High",
+    "team": "Security",
+    "owner": "Alan 5",
+    "ownerEmail": "person5@example.com",
+    "region": "Latin America",
+    "score": 74,
+    "estimate": 3,
+    "budget": 66559.5,
+    "active": true,
+    "startDate": "2026-10-20",
+    "dueDate": "2026-01-28",
+    "tags": [
+      "Security",
+      "Helix"
+    ],
+    "customer": {
+      "id": "CUS-0005",
+      "name": "Stark Media 5",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/215",
+      "dashboard": "https://example.com/dashboard/215"
+    },
+    "description": "A detailed description for array-root work item 215."
+  },
+  {
+    "id": "AR-0216",
+    "name": "Ion initiative 216",
+    "status": "Done",
+    "priority": "Urgent",
+    "team": "Support",
+    "owner": "Katherine 6",
+    "ownerEmail": "person6@example.com",
+    "region": "North America",
+    "score": 97,
+    "estimate": 10,
+    "budget": 102195,
+    "active": true,
+    "startDate": "2026-10-23",
+    "dueDate": "2026-01-31",
+    "tags": [
+      "Support",
+      "Ion"
+    ],
+    "customer": {
+      "id": "CUS-0006",
+      "name": "Wayne Logistics 6",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/216",
+      "dashboard": "https://example.com/dashboard/216"
+    },
+    "description": "A detailed description for array-root work item 216."
+  },
+  {
+    "id": "AR-0217",
+    "name": "Atlas initiative 217",
+    "status": "Backlog",
+    "priority": "Low",
+    "team": "Platform",
+    "owner": "Edsger 7",
+    "ownerEmail": "person7@example.com",
+    "region": "Europe",
+    "score": 19,
+    "estimate": 17,
+    "budget": 29830.5,
+    "active": false,
+    "startDate": "2026-10-26",
+    "dueDate": "2026-02-03",
+    "tags": [
+      "Platform",
+      "Atlas"
+    ],
+    "customer": {
+      "id": "CUS-0007",
+      "name": "Wonka SaaS 7",
+      "tier": "Business"
+    },
+    "links": {
+      "brief": "https://example.com/brief/217",
+      "dashboard": "https://example.com/dashboard/217"
+    },
+    "description": "A detailed description for array-root work item 217."
+  },
+  {
+    "id": "AR-0218",
+    "name": "Beacon initiative 218",
+    "status": "Ready",
+    "priority": "Medium",
+    "team": "Growth",
+    "owner": "Radia 8",
+    "ownerEmail": "person8@example.com",
+    "region": "Asia Pacific",
+    "score": 42,
+    "estimate": 24,
+    "budget": 65466,
+    "active": true,
+    "startDate": "2026-10-29",
+    "dueDate": "2026-02-06",
+    "tags": [
+      "Growth",
+      "Beacon"
+    ],
+    "customer": {
+      "id": "CUS-0008",
+      "name": "Acme Fintech 8",
+      "tier": "Enterprise"
+    },
+    "links": {
+      "brief": "https://example.com/brief/218",
+      "dashboard": "https://example.com/dashboard/218"
+    },
+    "description": "A detailed description for array-root work item 218."
+  },
+  {
+    "id": "AR-0219",
+    "name": "Canvas initiative 219",
+    "status": "In progress",
+    "priority": "High",
+    "team": "Design",
+    "owner": "Barbara 9",
+    "ownerEmail": "person9@example.com",
+    "region": "Middle East",
+    "score": 65,
+    "estimate": 31,
+    "budget": 101101.5,
+    "active": true,
+    "startDate": "2026-11-01",
+    "dueDate": "2026-02-09",
+    "tags": [
+      "Design",
+      "Canvas"
+    ],
+    "customer": {
+      "id": "CUS-0009",
+      "name": "Globex Retail 9",
+      "tier": "Free"
+    },
+    "links": {
+      "brief": "https://example.com/brief/219",
+      "dashboard": "https://example.com/dashboard/219"
+    },
+    "description": "A detailed description for array-root work item 219."
+  },
+  {
+    "id": "AR-0220",
+    "name": "Delta initiative 220",
+    "status": "Blocked",
+    "priority": "Urgent",
+    "team": "Data",
+    "owner": "Donald 10",
+    "ownerEmail": "person10@example.com",
+    "region": "Latin America",
+    "score": 88,
+    "estimate": 4,
+    "budget": 28737,
+    "active": true,
+    "startDate": "2026-11-04",
+    "dueDate": "2026-02-12",
+    "tags": [
+      "Data",
+      "Delta"
+    ],
+    "customer": {
+      "id": "CUS-0010",
+      "name": "Initech Healthcare 10",
+      "tier": "Pro"
+    },
+    "links": {
+      "brief": "https://example.com/brief/220",
+      "dashboard": "https://example.com/dashboard/220"
+    },
+    "description": "A detailed description for array-root work item 220."
+  }
+]

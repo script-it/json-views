@@ -1,0 +1,66 @@
+{
+  "model": "your-chat-model",
+  "temperature": 0.2,
+  "messages": [
+    {
+      "role": "system",
+      "name": "product_analyst",
+      "content": "You are a careful product analyst. Use only the supplied context, state uncertainty clearly, and return concise Markdown."
+    },
+    {
+      "role": "user",
+      "name": null,
+      "content": "Compare the three onboarding approaches in the attached notes. Focus on time to first value, implementation effort, and likely support burden.",
+      "attachments": [
+        {
+          "id": "file_onboarding_notes",
+          "file_name": "onboarding-notes.md",
+          "media_type": "text/markdown",
+          "purpose": "context",
+          "size_bytes": 8421
+        },
+        {
+          "id": "file_support_data",
+          "file_name": "support-volume.csv",
+          "media_type": "text/csv",
+          "purpose": "analysis",
+          "size_bytes": 12604
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "name": null,
+      "content": "I’ll inspect both files before comparing the approaches.",
+      "tool_calls": [
+        {
+          "id": "call_read_notes",
+          "name": "read_file",
+          "status": "completed",
+          "arguments": "{\"file_id\":\"file_onboarding_notes\"}",
+          "result_summary": "Read three onboarding approaches and their implementation notes.",
+          "duration_ms": 184
+        },
+        {
+          "id": "call_analyze_support",
+          "name": "analyze_csv",
+          "status": "completed",
+          "arguments": "{\"file_id\":\"file_support_data\",\"group_by\":\"onboarding_path\"}",
+          "result_summary": "Calculated median first-week support contacts for each path.",
+          "duration_ms": 463
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "name": "analyze_csv",
+      "tool_call_id": "call_analyze_support",
+      "content": "Guided setup: 1.4 contacts; checklist: 2.1 contacts; blank workspace: 4.8 contacts."
+    },
+    {
+      "role": "assistant",
+      "name": null,
+      "content": "Recommendation: use guided setup for the first session, then hand users a checklist they can revisit. It reaches value fastest and produces the lowest support burden; the checklist keeps the flow flexible after activation."
+    }
+  ]
+}

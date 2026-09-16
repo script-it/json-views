@@ -1,0 +1,333 @@
+@import "tailwindcss";
+@source "./";
+@custom-variant dark (&:where(.json-views-root[data-json-views-theme="dark"] *));
+
+.json-views-root {
+  --background: var(--json-views-background, oklch(0.988 0.003 280));
+  --foreground: var(--json-views-foreground, oklch(0.27 0.018 280));
+  --card: var(--json-views-card, oklch(1 0 0));
+  --card-foreground: var(--json-views-card-foreground, oklch(0.27 0.018 280));
+  --muted: var(--json-views-muted, oklch(0.957 0.008 280));
+  --muted-foreground: var(--json-views-muted-foreground, oklch(0.49 0.022 280));
+  --accent: var(--json-views-accent, oklch(0.94 0.019 285));
+  --accent-foreground: var(--json-views-accent-foreground, oklch(0.36 0.065 285));
+  --primary: var(--json-views-primary, oklch(0.49 0.15 285));
+  --primary-foreground: var(--json-views-primary-foreground, oklch(0.99 0.003 285));
+  --border: var(--json-views-border, oklch(0.901 0.009 280));
+  --input: var(--json-views-input, oklch(0.901 0.009 280));
+  --ring: var(--json-views-ring, oklch(0.55 0.15 285));
+  --link: var(--json-views-link, oklch(0.48 0.14 250));
+  --warning: var(--json-views-warning, oklch(0.48 0.09 70));
+  --destructive: var(--json-views-destructive, oklch(0.49 0.16 25));
+  --destructive-border: var(--json-views-destructive-border, oklch(0.86 0.055 25));
+  --destructive-surface: var(--json-views-destructive-surface, oklch(0.965 0.015 25));
+  --destructive-foreground: var(--json-views-destructive-foreground, oklch(0.43 0.12 25));
+  --source-key: var(--json-views-source-key, oklch(0.46 0.11 250));
+  --source-string: var(--json-views-source-string, oklch(0.43 0.09 165));
+  --source-number: var(--json-views-source-number, oklch(0.46 0.13 295));
+  --source-literal: var(--json-views-source-literal, oklch(0.46 0.09 60));
+  --option-column-lightness: 0.965;
+  --option-border-lightness: 0.872;
+  --option-tag-lightness: 0.916;
+  --option-ink-lightness: 0.395;
+  --option-solid-lightness: 0.59;
+}
+
+.json-views-root[data-json-views-theme="dark"] {
+  --background: var(--json-views-background, oklch(0.205 0.012 280));
+  --foreground: var(--json-views-foreground, oklch(0.93 0.01 280));
+  --card: var(--json-views-card, oklch(0.245 0.015 280));
+  --card-foreground: var(--json-views-card-foreground, oklch(0.93 0.01 280));
+  --muted: var(--json-views-muted, oklch(0.27 0.014 280));
+  --muted-foreground: var(--json-views-muted-foreground, oklch(0.71 0.025 280));
+  --accent: var(--json-views-accent, oklch(0.31 0.035 285));
+  --accent-foreground: var(--json-views-accent-foreground, oklch(0.87 0.035 285));
+  --primary: var(--json-views-primary, oklch(0.79 0.105 285));
+  --primary-foreground: var(--json-views-primary-foreground, oklch(0.23 0.04 285));
+  --border: var(--json-views-border, oklch(0.355 0.019 280));
+  --input: var(--json-views-input, oklch(0.355 0.019 280));
+  --ring: var(--json-views-ring, oklch(0.73 0.12 285));
+  --link: var(--json-views-link, oklch(0.77 0.1 250));
+  --warning: var(--json-views-warning, oklch(0.81 0.11 80));
+  --destructive: var(--json-views-destructive, oklch(0.77 0.13 25));
+  --destructive-border: var(--json-views-destructive-border, oklch(0.46 0.08 25));
+  --destructive-surface: var(--json-views-destructive-surface, oklch(0.28 0.03 25));
+  --destructive-foreground: var(--json-views-destructive-foreground, oklch(0.86 0.07 25));
+  --source-key: var(--json-views-source-key, oklch(0.81 0.09 250));
+  --source-string: var(--json-views-source-string, oklch(0.81 0.09 165));
+  --source-number: var(--json-views-source-number, oklch(0.81 0.09 295));
+  --source-literal: var(--json-views-source-literal, oklch(0.81 0.09 60));
+  --option-column-lightness: 0.255;
+  --option-border-lightness: 0.385;
+  --option-tag-lightness: 0.34;
+  --option-ink-lightness: 0.855;
+  --option-solid-lightness: 0.74;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-source-number: var(--source-number);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-destructive-border: var(--destructive-border);
+  --color-destructive-surface: var(--destructive-surface);
+  --color-destructive-foreground: var(--destructive-foreground);
+}
+
+:is([data-option-color], [data-group-color]) {
+  --option-hue: 270;
+  --option-column-chroma: 0.014;
+  --option-border-chroma: 0.035;
+  --option-tag-chroma: 0.045;
+  --option-ink-chroma: 0.088;
+  --option-solid-chroma: 0.14;
+}
+:is([data-option-color="gray"], [data-group-color="gray"]) {
+  --option-hue: 270;
+  --option-column-chroma: 0.003;
+  --option-border-chroma: 0.008;
+  --option-tag-chroma: 0.009;
+  --option-ink-chroma: 0.018;
+  --option-solid-chroma: 0.018;
+}
+:is([data-option-color="blue"], [data-group-color="blue"]) { --option-hue: 250; }
+:is([data-option-color="purple"], [data-group-color="purple"]) { --option-hue: 295; }
+:is([data-option-color="pink"], [data-group-color="pink"]) { --option-hue: 345; }
+:is([data-option-color="red"], [data-group-color="red"]) { --option-hue: 25; }
+:is([data-option-color="orange"], [data-group-color="orange"]) { --option-hue: 60; }
+:is([data-option-color="yellow"], [data-group-color="yellow"]) { --option-hue: 90; }
+:is([data-option-color="green"], [data-group-color="green"]) { --option-hue: 165; }
+
+[data-id="option-pill"] {
+  background-color: oklch(var(--option-tag-lightness) var(--option-tag-chroma) var(--option-hue));
+  color: oklch(var(--option-ink-lightness) var(--option-ink-chroma) var(--option-hue));
+}
+
+[data-id="jsonView-kanban-column"]:not([data-drop-active="true"]) {
+  background-color: oklch(var(--option-column-lightness) var(--option-column-chroma) var(--option-hue));
+  border-color: oklch(var(--option-border-lightness) var(--option-border-chroma) var(--option-hue));
+}
+
+[data-id="option-color-palette"] [data-option-color] {
+  background-color: oklch(var(--option-solid-lightness) var(--option-solid-chroma) var(--option-hue));
+}
+
+.tabular-data-cell {
+  /* A table-cell height is a minimum: content still determines row height.
+     An explicit value lets 100%-height children fill the tallest cell's row. */
+  height: 1px;
+}
+
+.tabular-selection-checkbox {
+  /* Keep the icon slot focusable and tappable even before selection starts. */
+  opacity: 0;
+}
+
+/* A column drag has one stable hit surface across headers, cards and gaps. */
+[data-id="jsonView-kanban"][data-column-reordering="true"] [data-id="jsonView-kanban-cards"] {
+  pointer-events: none;
+}
+
+/* Preserve the native drag source while making nested editors inert to hit tests. */
+[data-id="jsonView-kanban"][data-card-reordering="true"] [data-id="jsonView-kanban-card"] > * {
+  pointer-events: none;
+}
+
+[data-id="jsonView-kanban"][data-card-reordering="true"] [data-id="jsonView-kanban-card"] {
+  transition: transform 150ms cubic-bezier(.2, .8, .2, 1);
+  will-change: transform;
+}
+
+[data-id="jsonView-kanban-card-preview"] {
+  pointer-events: none;
+  opacity: .45;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-id="jsonView-kanban"][data-card-reordering="true"] [data-id="jsonView-kanban-card"] {
+    transition: none;
+  }
+}
+
+/* Mouse focus alone must not keep selection controls visible after pointer exit. */
+.tabular-data-table > thead > tr:hover .tabular-selection-checkbox,
+.tabular-data-table > tbody > tr:is(:hover, :has(:focus-visible)) .tabular-selection-checkbox,
+.tabular-selection-checkbox:focus-visible,
+.tabular-data-table[data-selection-active="true"] .tabular-selection-checkbox {
+  opacity: 1;
+}
+
+.tabular-data-table > tbody > tr:is(:hover, :has(:focus-visible)) .tabular-selection-icon,
+.tabular-data-table[data-selection-active="true"] .tabular-selection-icon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.json-views-inline-feedback-action {
+  display: inline-flex;
+  width: auto;
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: .375rem;
+  color: var(--muted-foreground);
+  background: transparent;
+  font-family: inherit;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: normal;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: max-width 220ms cubic-bezier(.2, .8, .2, 1), padding 220ms ease, gap 220ms ease, color 150ms ease, background-color 150ms ease;
+}
+.json-views-inline-feedback-action:hover,
+.json-views-inline-feedback-action.is-feedback {
+  color: var(--foreground);
+  background: var(--accent);
+}
+.json-views-inline-feedback-action.is-strong { color: var(--foreground); }
+.json-views-inline-feedback-action.is-destructive { color: var(--destructive); }
+.json-views-inline-feedback-action.is-feedback {
+  max-width: 10rem;
+  gap: .375rem;
+  padding-inline: .5rem;
+}
+.json-views-inline-feedback-action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--ring);
+}
+.json-views-inline-feedback-action:disabled { pointer-events: none; opacity: .5; }
+.json-views-inline-feedback-action > svg { flex-shrink: 0; }
+.json-views-inline-feedback-action.is-feedback > svg { animation: json-views-action-confirm 220ms cubic-bezier(.2, .8, .2, 1); }
+.json-views-inline-feedback-label {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-.25rem);
+  transition: max-width 220ms cubic-bezier(.2, .8, .2, 1), opacity 150ms ease 50ms, transform 220ms ease;
+}
+.json-views-inline-feedback-action.is-feedback .json-views-inline-feedback-label {
+  max-width: 8rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+@keyframes json-views-action-confirm {
+  from { opacity: .4; transform: scale(.72); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.json-views-root { color: var(--foreground); font-family: var(--json-views-font-family, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); min-width: 0; min-height: 0; height: 100%; }
+.json-source-token-key { color: var(--source-key); }
+.json-source-token-string { color: var(--source-string); }
+.json-source-token-number { color: var(--source-number); }
+.json-source-token-literal { color: var(--source-literal); }
+.json-views-portals { height: 0; min-height: 0; }
+@media (prefers-reduced-motion: reduce) { .json-views-root *, .json-views-root *::before, .json-views-root *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+/* One device-aware surface for JSON, CSV, and embedded consumers. */
+.json-views-root:not(.json-views-portals) { container: json-views / inline-size; }
+.json-views-table-hint { margin: 0; padding: 4px 0 10px; color: var(--muted-foreground); font-size: 12px; }
+[data-id="tabular-scroll-area"]:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+
+[data-id="jsonView-view-controls"] { order: -1; }
+
+.json-views-root[data-json-views-device="mobile"] {
+  [data-id="json-viewer-content"] { padding: 8px 12px 12px; }
+  [data-id="json-viewer-toolbar"] { flex-wrap: wrap; gap: 4px 8px; }
+  [data-id="jsonView-view-controls"] { flex-basis: 100%; order: 0; }
+  [data-id="jsonView-json-tabs"] { height: 44px; }
+  [data-id="jsonView-json-tabs"] [role="tab"] { height: 44px; padding-inline: 12px; font-size: 14px; }
+  [data-id="jsonView-toolbar-actions"] { width: 100%; height: 44px; }
+  [data-id="jsonView-toolbar-actions"] > :first-child { margin-right: auto; }
+  [data-id="jsonView-search-control"] { flex: 1; width: auto; height: 44px; background: var(--muted); }
+  [data-id="jsonView-search-button"] { width: auto; gap: 8px; display: flex; padding-inline: 12px; background: var(--muted); }
+  [data-id="jsonView-search-button"]::after { content: 'Search'; font-size: 14px; }
+  [data-id="jsonView-toolbar-actions"] button:not([role="checkbox"]), [data-id="jsonView-toolbar-actions"] > [role="checkbox"], [data-id="jsonView-add-view"] { min-width: 44px; min-height: 44px; }
+  [data-id="jsonView-toolbar-actions"] > .relative, [data-id="jsonView-view-controls"] > .relative { position: static; }
+  [data-id="view-settings"], [data-id="jsonView-add-view-menu"] { top: 100%; left: 0; right: 0; width: 100%; max-height: min(65dvh, 36rem); overflow-y: auto; padding: 12px; overscroll-behavior: contain; }
+  [data-id="view-settings"] footer, [data-id="jsonView-add-view-menu"] footer { position: sticky; bottom: -12px; padding-block: 12px; background: var(--card); }
+  [data-id="view-settings"] button:not([role="checkbox"]), [data-id="jsonView-add-view-menu"] button:not([role="checkbox"]) { min-height: 44px; }
+
+  /* Keep checkbox visuals compact while padding their touch target. */
+  [data-id="jsonView-property-option"] [role="checkbox"] { position: relative; }
+  [data-id="jsonView-property-option"] [role="checkbox"]::before { content: ''; position: absolute; inset: -6px; }
+
+  /* Preserve tabular comparison and every field, with stable row identity. */
+  .tabular-data-table th[data-pinned="true"] { left: 0; z-index: 25; box-shadow: 3px 0 6px rgb(0 0 0 / .08); }
+  .tabular-data-table td[data-pinned="true"] { position: sticky; left: 0; z-index: 10; background: var(--background); box-shadow: 3px 0 6px rgb(0 0 0 / .08); }
+  .tabular-data-table [data-id="structured-value-cell"] { min-height: 60px; align-items: center; padding-block: 8px; }
+  .tabular-data-table [data-id="atomic-edit-value"] { min-height: 44px; font-size: 14px; }
+  .tabular-data-table [data-id="tabular-column-header"] button:not([role="checkbox"]) { min-height: 48px; font-size: 13px; }
+  .tabular-data-table [data-pinned="true"] [data-id="atomic-edit-value"] > span { white-space: normal; }
+  .tabular-data-table [data-pinned="true"] [data-id="atomic-edit-value"] :is(.truncate, .whitespace-nowrap) { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .tabular-selection-checkbox { opacity: 1; }
+  .tabular-selection-icon { opacity: 0; pointer-events: none; }
+  .tabular-row-icon:has(.tabular-selection-checkbox), [data-id="tabular-select-all-slot"] { width: 16px; height: 44px; }
+  .tabular-selection-checkbox { width: 16px; height: 16px; top: 14px; }
+  .tabular-selection-checkbox::before { content: ''; position: absolute; inset: -6px; }
+  [data-id="tabular-select-all-slot"] .tabular-selection-checkbox { position: relative; top: 0; }
+  [data-id="tabular-footer"] { flex-wrap: wrap; min-height: 48px; font-size: 12px; }
+  [data-id="tabular-footer"] button { min-height: 44px; }
+  [data-id="tabular-footer"] .json-views-inline-feedback-action { min-width: 44px; max-width: 44px; }
+  [data-id="tabular-footer"] .json-views-inline-feedback-action.is-feedback { max-width: 12rem; }
+
+  [data-id="jsonView-kanban"] { scroll-snap-type: x mandatory; scroll-padding-inline: 0; }
+  [data-id="jsonView-kanban"] > div { padding-top: 4px; padding-right: 12cqw; }
+  [data-id="jsonView-kanban-column"] { width: 82cqw; scroll-snap-align: start; }
+  [data-id="jsonView-kanban-column"] > header { height: 40px; }
+  [data-id="jsonView-kanban-card"] { padding: 12px; }
+  [data-id="jsonView-kanban-card"] button { min-height: 44px; }
+  [data-id="jsonView-kanban-card"] button.text-left { font-size: 15px; line-height: 1.5; }
+  [data-id="jsonView-kanban-move"] { min-width: 32px; }
+  [data-id="jsonView-kanban-card"] [data-id="atomic-edit-value"] { min-height: 40px; }
+
+  [data-id="jsonView-record-back"] { min-height: 44px; margin: 0 0 8px; font-size: 14px; }
+  [data-id="jsonView-record-view"] article { padding-inline: 0; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  [data-id="jsonView-record-view"] dl { grid-template-columns: minmax(5rem, 30%) minmax(0, 1fr); gap: 0 12px; align-items: center; font-size: 14px; }
+  [data-id="jsonView-record-view"] dt { padding: 8px 0; font-size: 12px; }
+  [data-id="jsonView-record-view"] dd { padding-block: 4px; }
+  [data-id="jsonView-record-view"] [data-id="atomic-edit-value"], [data-id="jsonView-record-view"] button { min-height: 44px; }
+  [data-id="jsonView-record-title"] { font-size: 24px; line-height: 1.3; }
+  [data-id="jsonView-record-view"] :is(.truncate, .whitespace-nowrap) { white-space: normal; overflow-wrap: anywhere; }
+  [data-id="jsonView-record-view"] .json-views-inline-feedback-action { min-width: 44px; max-width: 44px; }
+  [data-id="jsonView-record-view"] .json-views-inline-feedback-action.is-feedback { max-width: 12rem; }
+  [data-id="jsonView-source-view"] [data-id="json-viewer-toolbar"] > button { min-width: 44px; min-height: 44px; }
+  /* Readable controls also prevent automatic focus zoom in iOS Safari. */
+  input:not([type="checkbox"]), textarea, select { font-size: 16px; min-height: 44px; }
+}
+
+/* Portaled controls use the same browser identity as their surface. */
+.json-views-root[data-json-views-device="mobile"] {
+  [role="menu"] { max-width: calc(100vw - 24px); max-height: min(70dvh, var(--radix-dropdown-menu-content-available-height, 70dvh)); overflow-y: auto; }
+  [role="menuitem"], [data-id="pill-select-option"], [data-id="multi-select-option"] { min-height: 44px; }
+  [role="menu"] input, [role="menu"] textarea { font-size: 16px; min-height: 44px; }
+  [role="dialog"] { max-height: calc(100dvh - 24px); overflow-y: auto; }
+}
+
+/* Paint the whole header, including its selection control, as one hit area. */
+.json-views-root [data-id="tabular-column-header"]:is(:hover, :has([data-id="tabular-column-menu"][aria-expanded="true"])) {
+  background: var(--accent);
+}

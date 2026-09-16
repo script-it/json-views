@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile experiment · JSON Views</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #efefed; color: #252525; font: 14px/1.5 system-ui, sans-serif; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 24px; border-bottom: 1px solid #ddd; background: #fafaf8; flex-wrap: wrap; }
+    strong { display: block; font-size: 16px; }
+    p { margin: 2px 0 0; color: #646464; font-size: 12px; }
+    nav { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    button, a, select { display: inline-flex; min-height: 40px; align-items: center; padding: 8px 12px; border: 1px solid #d0d0d0; border-radius: 8px; background: transparent; color: inherit; font: inherit; text-decoration: none; cursor: pointer; }
+    button[aria-pressed="true"] { background: #252525; border-color: #252525; color: white; }
+    button:focus-visible, a:focus-visible { outline: 2px solid #7351ca; outline-offset: 3px; }
+    main { padding: 20px; overflow: auto; }
+    .device { width: 390px; max-width: 100%; margin: 0 auto; }
+    .size { margin-bottom: 8px; color: #666; text-align: center; font-size: 12px; }
+    iframe { display: block; width: 100%; height: min(844px, calc(100dvh - 160px)); min-height: 420px; border: 1px solid #d0d0d0; border-radius: 12px; background: white; box-shadow: 0 10px 40px #00000010; }
+    @media (max-width: 600px) { header { padding: 12px; } main { padding: 12px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>JSON Views · mobile experiment</strong><p>Device identity selects the layout. Width only resizes the preview.</p></div>
+    <nav aria-label="Preview size">
+      <select id="preview-device" aria-label="Browser device"><option value="mobile">Mobile browser</option><option value="desktop">Desktop browser</option></select>
+      <button data-width="320" aria-pressed="false">Small phone</button>
+      <button data-width="390" aria-pressed="true">Phone</button>
+      <button data-width="768" aria-pressed="false">Tablet</button>
+      <button data-width="1120" aria-pressed="false">Desktop</button>
+      <a href="./" target="_blank" rel="noopener">Open full app ↗</a>
+    </nav>
+  </header>
+  <main><div class="device"><div class="size" role="status">390 px wide</div><iframe src="./?previewDevice=mobile" title="Interactive JSON Views preview"></iframe></div></main>
+  <script type="module">
+    const device = document.querySelector('.device');
+    const size = document.querySelector('.size');
+    document.querySelector('#preview-device').addEventListener('change', (event) => {
+      document.querySelector('iframe').src = `./?previewDevice=${event.target.value}`;
+    });
+    for (const button of document.querySelectorAll('button[data-width]')) {
+      button.addEventListener('click', () => {
+        device.style.width = `${button.dataset.width}px`;
+        for (const item of document.querySelectorAll('button[data-width]')) item.setAttribute('aria-pressed', String(item === button));
+      });
+    }
+    new ResizeObserver(() => { size.textContent = `${Math.round(device.getBoundingClientRect().width)} px wide`; }).observe(device);
+  </script>
+</body>
+</html>

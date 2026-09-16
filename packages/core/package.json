@@ -1,0 +1,52 @@
+{
+  "name": "@script-it/json-views-core",
+  "version": "0.1.0-beta.1",
+  "description": "JSON Views metadata, path, validation, and source-preserving editing core",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schema.json": "./schema/jsonviews.schema.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "schema",
+    "THIRD_PARTY_NOTICES.txt"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/clean-dist.mjs && tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "prepack": "node ../../scripts/prepare-package.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "typescript": "^5.9.3",
+    "vitest": "3.2.7"
+  },
+  "dependencies": {
+    "re2js": "^2.8.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/script-it/json-views.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/script-it/json-views#readme",
+  "bugs": {
+    "url": "https://github.com/script-it/json-views/issues"
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

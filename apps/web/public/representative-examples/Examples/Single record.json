@@ -1,0 +1,6 @@
+{
+  "title": "A small launch",
+  "status": "In progress",
+  "owner": "Ada",
+  "body": "A single record can read like a page. This body and these field types are inferred from ordinary JSON."
+}

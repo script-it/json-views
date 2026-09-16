@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": false,
+    "noEmit": true,
+    "types": [
+      "vite/client"
+    ],
+    "allowJs": true,
+    "checkJs": true
+  },
+  "include": [
+    "src"
+  ]
+}

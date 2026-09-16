@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/script-it/json-views/main/packages/core/schema/jsonviews.schema.json",
+  "title": "JSON Views annotation metadata, version 1",
+  "description": "Validates the annotation object passed externally or stored under $jsonviews. This is not a JSON Schema for the annotated document. JSONPath resolution, registered types, RE2 patterns, date validity, and view compatibility are checked by the compiler.",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "version": { "const": 1 },
+    "schema": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/path" },
+      "additionalProperties": { "$ref": "#/definitions/descriptor" }
+    },
+    "views": { "type": "array", "items": { "$ref": "#/definitions/view" } }
+  },
+  "additionalProperties": true,
+  "definitions": {
+    "path": { "type": "string", "pattern": "^\\$", "description": "Absolute JSON Views path; the compiler checks the supported JSONPath subset and wildcard placement." },
+    "label": { "type": "string", "pattern": "\\S" },
+    "descriptor": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "$ref": "#/definitions/label" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "required": { "type": "boolean" },
+        "nullable": false,
+        "minimum": { "type": ["number", "string", "null"] },
+        "maximum": { "type": ["number", "string", "null"] },
+        "defaultIncludeTime": { "type": "boolean" },
+        "pattern": { "type": "string", "maxLength": 4096, "description": "RE2 syntax, tested as an unanchored search; unsupported constructs are compiler diagnostics." },
+        "options": { "type": "array", "items": { "type": "string" } },
+        "optionColors": {
+          "type": "object",
+          "additionalProperties": { "enum": ["gray", "blue", "green", "yellow", "orange", "red", "purple", "pink"] },
+          "description": "Optional palette color for each select or multi-select option."
+        },
+        "placeholder": { "type": "string" },
+        "multiline": { "type": "boolean" },
+        "step": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "if": { "properties": { "type": { "const": "date" } }, "required": ["type"] },
+      "then": { "properties": { "minimum": { "type": ["string", "null"] }, "maximum": { "type": ["string", "null"] } } },
+      "else": { "properties": { "minimum": { "type": "number" }, "maximum": { "type": "number" } } },
+      "additionalProperties": true
+    },
+    "column": {
+      "type": "object",
+      "required": ["label", "path"],
+      "properties": { "label": { "$ref": "#/definitions/label" }, "path": { "$ref": "#/definitions/path" } },
+      "additionalProperties": true
+    },
+    "filterRule": {
+      "type": "object",
+      "required": ["path", "operator"],
+      "properties": { "path": { "$ref": "#/definitions/path" }, "operator": { "$ref": "#/definitions/label" }, "value": {} },
+      "allOf": [
+        {
+          "if": { "properties": { "operator": { "enum": ["isEmpty", "isNotEmpty"] } }, "required": ["operator"] },
+          "else": { "required": ["value"] }
+        },
+        {
+          "if": { "properties": { "operator": { "enum": ["in", "notIn"] } }, "required": ["operator"] },
+          "then": { "properties": { "value": { "type": "array" } } }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "filter": {
+      "type": "object",
+      "required": ["rules"],
+      "properties": { "match": { "enum": ["all", "any"] }, "rules": { "type": "array", "items": { "$ref": "#/definitions/filterRule" } } },
+      "additionalProperties": true
+    },
+    "sort": {
+      "type": "object",
+      "required": ["path", "direction"],
+      "properties": { "path": { "$ref": "#/definitions/path" }, "direction": { "enum": ["asc", "desc"] } },
+      "additionalProperties": true
+    },
+    "view": {
+      "type": "object",
+      "required": ["name", "path"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "$ref": "#/definitions/label" },
+        "path": { "$ref": "#/definitions/path" },
+        "display": { "enum": ["kanban", "html"], "description": "Omit for automatic record/collection layout." },
+        "title": false,
+        "groupBy": { "$ref": "#/definitions/path" },
+        "groupOrder": { "type": "array", "items": { "type": ["string", "number", "boolean", "null"] }, "uniqueItems": true },
+        "orderPath": { "$ref": "#/definitions/path" },
+        "columns": { "type": "array", "items": { "$ref": "#/definitions/column" } },
+        "filter": { "$ref": "#/definitions/filter" },
+        "sort": { "type": "array", "items": { "$ref": "#/definitions/sort" } }
+      },
+      "additionalProperties": true
+    }
+  }
+}

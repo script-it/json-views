@@ -1,0 +1,1997 @@
+{
+  "queue": {
+    "name": "Global support",
+    "timezone": "UTC",
+    "slaHours": 24
+  },
+  "ticketsById": {
+    "TKT-0001": {
+      "id": "TKT-0001",
+      "subject": "Login issue for account 1",
+      "status": "New",
+      "severity": "Low",
+      "account": "Acme SaaS 1",
+      "requester": "person1@example.com",
+      "assignee": "Grace 12",
+      "createdAt": "2026-01-01T00:00:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Platform",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0001",
+        "internal": true
+      }
+    },
+    "TKT-0002": {
+      "id": "TKT-0002",
+      "subject": "Billing issue for account 2",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Globex Fintech 2",
+      "requester": "person2@example.com",
+      "assignee": "Linus 13",
+      "createdAt": "2026-01-04T07:13:00Z",
+      "firstResponseMinutes": 22,
+      "satisfaction": 2,
+      "labels": [
+        "Growth",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0002",
+        "internal": false
+      }
+    },
+    "TKT-0003": {
+      "id": "TKT-0003",
+      "subject": "Export issue for account 3",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Initech Retail 3",
+      "requester": "person3@example.com",
+      "assignee": "Margaret 14",
+      "createdAt": "2026-01-07T14:26:00Z",
+      "firstResponseMinutes": 41,
+      "satisfaction": 3,
+      "labels": [
+        "Design",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0003",
+        "internal": false
+      }
+    },
+    "TKT-0004": {
+      "id": "TKT-0004",
+      "subject": "Performance issue for account 4",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Umbrella Healthcare 4",
+      "requester": "person4@example.com",
+      "assignee": "Alan 15",
+      "createdAt": "2026-01-10T21:39:00Z",
+      "firstResponseMinutes": 60,
+      "satisfaction": 4,
+      "labels": [
+        "Data",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0004",
+        "internal": false
+      }
+    },
+    "TKT-0005": {
+      "id": "TKT-0005",
+      "subject": "Permissions issue for account 5",
+      "status": "New",
+      "severity": "Low",
+      "account": "Stark Media 5",
+      "requester": "person5@example.com",
+      "assignee": "Katherine 16",
+      "createdAt": "2026-01-13T04:52:00Z",
+      "firstResponseMinutes": 79,
+      "satisfaction": 5,
+      "labels": [
+        "Security",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0005",
+        "internal": false
+      }
+    },
+    "TKT-0006": {
+      "id": "TKT-0006",
+      "subject": "Integration issue for account 6",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Wayne Logistics 6",
+      "requester": "person6@example.com",
+      "assignee": "Edsger 17",
+      "createdAt": "2026-01-16T11:05:00Z",
+      "firstResponseMinutes": 98,
+      "satisfaction": null,
+      "labels": [
+        "Support",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0006",
+        "internal": false
+      }
+    },
+    "TKT-0007": {
+      "id": "TKT-0007",
+      "subject": "Login issue for account 7",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Wonka SaaS 7",
+      "requester": "person7@example.com",
+      "assignee": "Radia 18",
+      "createdAt": "2026-01-19T18:18:00Z",
+      "firstResponseMinutes": 117,
+      "satisfaction": 2,
+      "labels": [
+        "Platform",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0007",
+        "internal": false
+      }
+    },
+    "TKT-0008": {
+      "id": "TKT-0008",
+      "subject": "Billing issue for account 8",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Acme Fintech 8",
+      "requester": "person8@example.com",
+      "assignee": "Barbara 19",
+      "createdAt": "2026-01-22T01:31:00Z",
+      "firstResponseMinutes": 136,
+      "satisfaction": 3,
+      "labels": [
+        "Growth",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0008",
+        "internal": true
+      }
+    },
+    "TKT-0009": {
+      "id": "TKT-0009",
+      "subject": "Export issue for account 9",
+      "status": "New",
+      "severity": "Low",
+      "account": "Globex Retail 9",
+      "requester": "person9@example.com",
+      "assignee": "Donald 20",
+      "createdAt": "2026-01-25T08:44:00Z",
+      "firstResponseMinutes": 155,
+      "satisfaction": 4,
+      "labels": [
+        "Design",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0009",
+        "internal": false
+      }
+    },
+    "TKT-0010": {
+      "id": "TKT-0010",
+      "subject": "Performance issue for account 10",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Initech Healthcare 10",
+      "requester": "person10@example.com",
+      "assignee": "Ada 21",
+      "createdAt": "2026-01-28T15:57:00Z",
+      "firstResponseMinutes": 174,
+      "satisfaction": 5,
+      "labels": [
+        "Data",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0010",
+        "internal": false
+      }
+    },
+    "TKT-0011": {
+      "id": "TKT-0011",
+      "subject": "Permissions issue for account 11",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Umbrella Media 11",
+      "requester": "person11@example.com",
+      "assignee": "Grace 22",
+      "createdAt": "2026-01-31T22:10:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Security",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0011",
+        "internal": false
+      }
+    },
+    "TKT-0012": {
+      "id": "TKT-0012",
+      "subject": "Integration issue for account 12",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Stark Logistics 12",
+      "requester": "person12@example.com",
+      "assignee": "Linus 23",
+      "createdAt": "2026-02-03T05:23:00Z",
+      "firstResponseMinutes": 212,
+      "satisfaction": 2,
+      "labels": [
+        "Support",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0012",
+        "internal": false
+      }
+    },
+    "TKT-0013": {
+      "id": "TKT-0013",
+      "subject": "Login issue for account 13",
+      "status": "New",
+      "severity": "Low",
+      "account": "Wayne SaaS 13",
+      "requester": "person13@example.com",
+      "assignee": "Margaret 24",
+      "createdAt": "2026-02-06T12:36:00Z",
+      "firstResponseMinutes": 231,
+      "satisfaction": 3,
+      "labels": [
+        "Platform",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0013",
+        "internal": false
+      }
+    },
+    "TKT-0014": {
+      "id": "TKT-0014",
+      "subject": "Billing issue for account 14",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Wonka Fintech 14",
+      "requester": "person14@example.com",
+      "assignee": "Alan 25",
+      "createdAt": "2026-02-09T19:49:00Z",
+      "firstResponseMinutes": 10,
+      "satisfaction": 4,
+      "labels": [
+        "Growth",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0014",
+        "internal": false
+      }
+    },
+    "TKT-0015": {
+      "id": "TKT-0015",
+      "subject": "Export issue for account 15",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Acme Retail 15",
+      "requester": "person15@example.com",
+      "assignee": "Katherine 26",
+      "createdAt": "2026-02-12T02:02:00Z",
+      "firstResponseMinutes": 29,
+      "satisfaction": 5,
+      "labels": [
+        "Design",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0015",
+        "internal": true
+      }
+    },
+    "TKT-0016": {
+      "id": "TKT-0016",
+      "subject": "Performance issue for account 16",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Globex Healthcare 16",
+      "requester": "person16@example.com",
+      "assignee": "Edsger 27",
+      "createdAt": "2026-02-15T09:15:00Z",
+      "firstResponseMinutes": 48,
+      "satisfaction": null,
+      "labels": [
+        "Data",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0016",
+        "internal": false
+      }
+    },
+    "TKT-0017": {
+      "id": "TKT-0017",
+      "subject": "Permissions issue for account 17",
+      "status": "New",
+      "severity": "Low",
+      "account": "Initech Media 17",
+      "requester": "person17@example.com",
+      "assignee": "Radia 28",
+      "createdAt": "2026-02-18T16:28:00Z",
+      "firstResponseMinutes": 67,
+      "satisfaction": 2,
+      "labels": [
+        "Security",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0017",
+        "internal": false
+      }
+    },
+    "TKT-0018": {
+      "id": "TKT-0018",
+      "subject": "Integration issue for account 18",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Umbrella Logistics 18",
+      "requester": "person18@example.com",
+      "assignee": "Barbara 29",
+      "createdAt": "2026-02-21T23:41:00Z",
+      "firstResponseMinutes": 86,
+      "satisfaction": 3,
+      "labels": [
+        "Support",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0018",
+        "internal": false
+      }
+    },
+    "TKT-0019": {
+      "id": "TKT-0019",
+      "subject": "Login issue for account 19",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Stark SaaS 19",
+      "requester": "person19@example.com",
+      "assignee": "Donald 30",
+      "createdAt": "2026-02-24T06:54:00Z",
+      "firstResponseMinutes": 105,
+      "satisfaction": 4,
+      "labels": [
+        "Platform",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0019",
+        "internal": false
+      }
+    },
+    "TKT-0020": {
+      "id": "TKT-0020",
+      "subject": "Billing issue for account 20",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Wayne Fintech 20",
+      "requester": "person20@example.com",
+      "assignee": "Ada 1",
+      "createdAt": "2026-02-27T13:07:00Z",
+      "firstResponseMinutes": 124,
+      "satisfaction": 5,
+      "labels": [
+        "Growth",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0020",
+        "internal": false
+      }
+    },
+    "TKT-0021": {
+      "id": "TKT-0021",
+      "subject": "Export issue for account 21",
+      "status": "New",
+      "severity": "Low",
+      "account": "Wonka Retail 21",
+      "requester": "person21@example.com",
+      "assignee": "Grace 2",
+      "createdAt": "2026-03-02T20:20:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Design",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0021",
+        "internal": false
+      }
+    },
+    "TKT-0022": {
+      "id": "TKT-0022",
+      "subject": "Performance issue for account 22",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Acme Healthcare 22",
+      "requester": "person22@example.com",
+      "assignee": "Linus 3",
+      "createdAt": "2026-03-05T03:33:00Z",
+      "firstResponseMinutes": 162,
+      "satisfaction": 2,
+      "labels": [
+        "Data",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0022",
+        "internal": true
+      }
+    },
+    "TKT-0023": {
+      "id": "TKT-0023",
+      "subject": "Permissions issue for account 23",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Globex Media 23",
+      "requester": "person23@example.com",
+      "assignee": "Margaret 4",
+      "createdAt": "2026-03-08T10:46:00Z",
+      "firstResponseMinutes": 181,
+      "satisfaction": 3,
+      "labels": [
+        "Security",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0023",
+        "internal": false
+      }
+    },
+    "TKT-0024": {
+      "id": "TKT-0024",
+      "subject": "Integration issue for account 24",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Initech Logistics 24",
+      "requester": "person24@example.com",
+      "assignee": "Alan 5",
+      "createdAt": "2026-03-11T17:59:00Z",
+      "firstResponseMinutes": 200,
+      "satisfaction": 4,
+      "labels": [
+        "Support",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0024",
+        "internal": false
+      }
+    },
+    "TKT-0025": {
+      "id": "TKT-0025",
+      "subject": "Login issue for account 25",
+      "status": "New",
+      "severity": "Low",
+      "account": "Umbrella SaaS 25",
+      "requester": "person25@example.com",
+      "assignee": "Katherine 6",
+      "createdAt": "2026-03-14T00:12:00Z",
+      "firstResponseMinutes": 219,
+      "satisfaction": 5,
+      "labels": [
+        "Platform",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0025",
+        "internal": false
+      }
+    },
+    "TKT-0026": {
+      "id": "TKT-0026",
+      "subject": "Billing issue for account 26",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Stark Fintech 26",
+      "requester": "person26@example.com",
+      "assignee": "Edsger 7",
+      "createdAt": "2026-03-17T07:25:00Z",
+      "firstResponseMinutes": 238,
+      "satisfaction": null,
+      "labels": [
+        "Growth",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0026",
+        "internal": false
+      }
+    },
+    "TKT-0027": {
+      "id": "TKT-0027",
+      "subject": "Export issue for account 27",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Wayne Retail 27",
+      "requester": "person27@example.com",
+      "assignee": "Radia 8",
+      "createdAt": "2026-03-20T14:38:00Z",
+      "firstResponseMinutes": 17,
+      "satisfaction": 2,
+      "labels": [
+        "Design",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0027",
+        "internal": false
+      }
+    },
+    "TKT-0028": {
+      "id": "TKT-0028",
+      "subject": "Performance issue for account 28",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Wonka Healthcare 28",
+      "requester": "person28@example.com",
+      "assignee": "Barbara 9",
+      "createdAt": "2026-03-23T21:51:00Z",
+      "firstResponseMinutes": 36,
+      "satisfaction": 3,
+      "labels": [
+        "Data",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0028",
+        "internal": false
+      }
+    },
+    "TKT-0029": {
+      "id": "TKT-0029",
+      "subject": "Permissions issue for account 29",
+      "status": "New",
+      "severity": "Low",
+      "account": "Acme Media 29",
+      "requester": "person29@example.com",
+      "assignee": "Donald 10",
+      "createdAt": "2026-03-26T04:04:00Z",
+      "firstResponseMinutes": 55,
+      "satisfaction": 4,
+      "labels": [
+        "Security",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0029",
+        "internal": true
+      }
+    },
+    "TKT-0030": {
+      "id": "TKT-0030",
+      "subject": "Integration issue for account 30",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Globex Logistics 30",
+      "requester": "person30@example.com",
+      "assignee": "Ada 11",
+      "createdAt": "2026-03-29T11:17:00Z",
+      "firstResponseMinutes": 74,
+      "satisfaction": 5,
+      "labels": [
+        "Support",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0030",
+        "internal": false
+      }
+    },
+    "TKT-0031": {
+      "id": "TKT-0031",
+      "subject": "Login issue for account 31",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Initech SaaS 31",
+      "requester": "person1@example.com",
+      "assignee": "Grace 12",
+      "createdAt": "2026-04-01T18:30:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Platform",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0031",
+        "internal": false
+      }
+    },
+    "TKT-0032": {
+      "id": "TKT-0032",
+      "subject": "Billing issue for account 32",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Umbrella Fintech 32",
+      "requester": "person2@example.com",
+      "assignee": "Linus 13",
+      "createdAt": "2026-04-04T01:43:00Z",
+      "firstResponseMinutes": 112,
+      "satisfaction": 2,
+      "labels": [
+        "Growth",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0032",
+        "internal": false
+      }
+    },
+    "TKT-0033": {
+      "id": "TKT-0033",
+      "subject": "Export issue for account 33",
+      "status": "New",
+      "severity": "Low",
+      "account": "Stark Retail 33",
+      "requester": "person3@example.com",
+      "assignee": "Margaret 14",
+      "createdAt": "2026-04-07T08:56:00Z",
+      "firstResponseMinutes": 131,
+      "satisfaction": 3,
+      "labels": [
+        "Design",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0033",
+        "internal": false
+      }
+    },
+    "TKT-0034": {
+      "id": "TKT-0034",
+      "subject": "Performance issue for account 34",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Wayne Healthcare 34",
+      "requester": "person4@example.com",
+      "assignee": "Alan 15",
+      "createdAt": "2026-04-10T15:09:00Z",
+      "firstResponseMinutes": 150,
+      "satisfaction": 4,
+      "labels": [
+        "Data",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0034",
+        "internal": false
+      }
+    },
+    "TKT-0035": {
+      "id": "TKT-0035",
+      "subject": "Permissions issue for account 35",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Wonka Media 35",
+      "requester": "person5@example.com",
+      "assignee": "Katherine 16",
+      "createdAt": "2026-04-13T22:22:00Z",
+      "firstResponseMinutes": 169,
+      "satisfaction": 5,
+      "labels": [
+        "Security",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0035",
+        "internal": false
+      }
+    },
+    "TKT-0036": {
+      "id": "TKT-0036",
+      "subject": "Integration issue for account 36",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Acme Logistics 36",
+      "requester": "person6@example.com",
+      "assignee": "Edsger 17",
+      "createdAt": "2026-04-16T05:35:00Z",
+      "firstResponseMinutes": 188,
+      "satisfaction": null,
+      "labels": [
+        "Support",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0036",
+        "internal": true
+      }
+    },
+    "TKT-0037": {
+      "id": "TKT-0037",
+      "subject": "Login issue for account 37",
+      "status": "New",
+      "severity": "Low",
+      "account": "Globex SaaS 37",
+      "requester": "person7@example.com",
+      "assignee": "Radia 18",
+      "createdAt": "2026-04-19T12:48:00Z",
+      "firstResponseMinutes": 207,
+      "satisfaction": 2,
+      "labels": [
+        "Platform",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0037",
+        "internal": false
+      }
+    },
+    "TKT-0038": {
+      "id": "TKT-0038",
+      "subject": "Billing issue for account 38",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Initech Fintech 38",
+      "requester": "person8@example.com",
+      "assignee": "Barbara 19",
+      "createdAt": "2026-04-22T19:01:00Z",
+      "firstResponseMinutes": 226,
+      "satisfaction": 3,
+      "labels": [
+        "Growth",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0038",
+        "internal": false
+      }
+    },
+    "TKT-0039": {
+      "id": "TKT-0039",
+      "subject": "Export issue for account 39",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Umbrella Retail 39",
+      "requester": "person9@example.com",
+      "assignee": "Donald 20",
+      "createdAt": "2026-04-25T02:14:00Z",
+      "firstResponseMinutes": 5,
+      "satisfaction": 4,
+      "labels": [
+        "Design",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0039",
+        "internal": false
+      }
+    },
+    "TKT-0040": {
+      "id": "TKT-0040",
+      "subject": "Performance issue for account 40",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Stark Healthcare 40",
+      "requester": "person10@example.com",
+      "assignee": "Ada 21",
+      "createdAt": "2026-04-28T09:27:00Z",
+      "firstResponseMinutes": 24,
+      "satisfaction": 5,
+      "labels": [
+        "Data",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0040",
+        "internal": false
+      }
+    },
+    "TKT-0041": {
+      "id": "TKT-0041",
+      "subject": "Permissions issue for account 41",
+      "status": "New",
+      "severity": "Low",
+      "account": "Wayne Media 41",
+      "requester": "person11@example.com",
+      "assignee": "Grace 22",
+      "createdAt": "2026-05-01T16:40:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Security",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0041",
+        "internal": false
+      }
+    },
+    "TKT-0042": {
+      "id": "TKT-0042",
+      "subject": "Integration issue for account 42",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Wonka Logistics 42",
+      "requester": "person12@example.com",
+      "assignee": "Linus 23",
+      "createdAt": "2026-05-04T23:53:00Z",
+      "firstResponseMinutes": 62,
+      "satisfaction": 2,
+      "labels": [
+        "Support",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0042",
+        "internal": false
+      }
+    },
+    "TKT-0043": {
+      "id": "TKT-0043",
+      "subject": "Login issue for account 43",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Acme SaaS 43",
+      "requester": "person13@example.com",
+      "assignee": "Margaret 24",
+      "createdAt": "2026-05-07T06:06:00Z",
+      "firstResponseMinutes": 81,
+      "satisfaction": 3,
+      "labels": [
+        "Platform",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0043",
+        "internal": true
+      }
+    },
+    "TKT-0044": {
+      "id": "TKT-0044",
+      "subject": "Billing issue for account 44",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Globex Fintech 44",
+      "requester": "person14@example.com",
+      "assignee": "Alan 25",
+      "createdAt": "2026-05-10T13:19:00Z",
+      "firstResponseMinutes": 100,
+      "satisfaction": 4,
+      "labels": [
+        "Growth",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0044",
+        "internal": false
+      }
+    },
+    "TKT-0045": {
+      "id": "TKT-0045",
+      "subject": "Export issue for account 45",
+      "status": "New",
+      "severity": "Low",
+      "account": "Initech Retail 45",
+      "requester": "person15@example.com",
+      "assignee": "Katherine 26",
+      "createdAt": "2026-05-13T20:32:00Z",
+      "firstResponseMinutes": 119,
+      "satisfaction": 5,
+      "labels": [
+        "Design",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0045",
+        "internal": false
+      }
+    },
+    "TKT-0046": {
+      "id": "TKT-0046",
+      "subject": "Performance issue for account 46",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Umbrella Healthcare 46",
+      "requester": "person16@example.com",
+      "assignee": "Edsger 27",
+      "createdAt": "2026-05-16T03:45:00Z",
+      "firstResponseMinutes": 138,
+      "satisfaction": null,
+      "labels": [
+        "Data",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0046",
+        "internal": false
+      }
+    },
+    "TKT-0047": {
+      "id": "TKT-0047",
+      "subject": "Permissions issue for account 47",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Stark Media 47",
+      "requester": "person17@example.com",
+      "assignee": "Radia 28",
+      "createdAt": "2026-05-19T10:58:00Z",
+      "firstResponseMinutes": 157,
+      "satisfaction": 2,
+      "labels": [
+        "Security",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0047",
+        "internal": false
+      }
+    },
+    "TKT-0048": {
+      "id": "TKT-0048",
+      "subject": "Integration issue for account 48",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Wayne Logistics 48",
+      "requester": "person18@example.com",
+      "assignee": "Barbara 29",
+      "createdAt": "2026-05-22T17:11:00Z",
+      "firstResponseMinutes": 176,
+      "satisfaction": 3,
+      "labels": [
+        "Support",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0048",
+        "internal": false
+      }
+    },
+    "TKT-0049": {
+      "id": "TKT-0049",
+      "subject": "Login issue for account 49",
+      "status": "New",
+      "severity": "Low",
+      "account": "Wonka SaaS 49",
+      "requester": "person19@example.com",
+      "assignee": "Donald 30",
+      "createdAt": "2026-05-25T00:24:00Z",
+      "firstResponseMinutes": 195,
+      "satisfaction": 4,
+      "labels": [
+        "Platform",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0049",
+        "internal": false
+      }
+    },
+    "TKT-0050": {
+      "id": "TKT-0050",
+      "subject": "Billing issue for account 50",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Acme Fintech 50",
+      "requester": "person20@example.com",
+      "assignee": "Ada 1",
+      "createdAt": "2026-05-28T07:37:00Z",
+      "firstResponseMinutes": 214,
+      "satisfaction": 5,
+      "labels": [
+        "Growth",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0050",
+        "internal": true
+      }
+    },
+    "TKT-0051": {
+      "id": "TKT-0051",
+      "subject": "Export issue for account 51",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Globex Retail 51",
+      "requester": "person21@example.com",
+      "assignee": "Grace 2",
+      "createdAt": "2026-05-31T14:50:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Design",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0051",
+        "internal": false
+      }
+    },
+    "TKT-0052": {
+      "id": "TKT-0052",
+      "subject": "Performance issue for account 52",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Initech Healthcare 52",
+      "requester": "person22@example.com",
+      "assignee": "Linus 3",
+      "createdAt": "2026-06-03T21:03:00Z",
+      "firstResponseMinutes": 12,
+      "satisfaction": 2,
+      "labels": [
+        "Data",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0052",
+        "internal": false
+      }
+    },
+    "TKT-0053": {
+      "id": "TKT-0053",
+      "subject": "Permissions issue for account 53",
+      "status": "New",
+      "severity": "Low",
+      "account": "Umbrella Media 53",
+      "requester": "person23@example.com",
+      "assignee": "Margaret 4",
+      "createdAt": "2026-06-06T04:16:00Z",
+      "firstResponseMinutes": 31,
+      "satisfaction": 3,
+      "labels": [
+        "Security",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0053",
+        "internal": false
+      }
+    },
+    "TKT-0054": {
+      "id": "TKT-0054",
+      "subject": "Integration issue for account 54",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Stark Logistics 54",
+      "requester": "person24@example.com",
+      "assignee": "Alan 5",
+      "createdAt": "2026-06-09T11:29:00Z",
+      "firstResponseMinutes": 50,
+      "satisfaction": 4,
+      "labels": [
+        "Support",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0054",
+        "internal": false
+      }
+    },
+    "TKT-0055": {
+      "id": "TKT-0055",
+      "subject": "Login issue for account 55",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Wayne SaaS 55",
+      "requester": "person25@example.com",
+      "assignee": "Katherine 6",
+      "createdAt": "2026-06-12T18:42:00Z",
+      "firstResponseMinutes": 69,
+      "satisfaction": 5,
+      "labels": [
+        "Platform",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0055",
+        "internal": false
+      }
+    },
+    "TKT-0056": {
+      "id": "TKT-0056",
+      "subject": "Billing issue for account 56",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Wonka Fintech 56",
+      "requester": "person26@example.com",
+      "assignee": "Edsger 7",
+      "createdAt": "2026-06-15T01:55:00Z",
+      "firstResponseMinutes": 88,
+      "satisfaction": null,
+      "labels": [
+        "Growth",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0056",
+        "internal": false
+      }
+    },
+    "TKT-0057": {
+      "id": "TKT-0057",
+      "subject": "Export issue for account 57",
+      "status": "New",
+      "severity": "Low",
+      "account": "Acme Retail 57",
+      "requester": "person27@example.com",
+      "assignee": "Radia 8",
+      "createdAt": "2026-06-18T08:08:00Z",
+      "firstResponseMinutes": 107,
+      "satisfaction": 2,
+      "labels": [
+        "Design",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0057",
+        "internal": true
+      }
+    },
+    "TKT-0058": {
+      "id": "TKT-0058",
+      "subject": "Performance issue for account 58",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Globex Healthcare 58",
+      "requester": "person28@example.com",
+      "assignee": "Barbara 9",
+      "createdAt": "2026-06-21T15:21:00Z",
+      "firstResponseMinutes": 126,
+      "satisfaction": 3,
+      "labels": [
+        "Data",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0058",
+        "internal": false
+      }
+    },
+    "TKT-0059": {
+      "id": "TKT-0059",
+      "subject": "Permissions issue for account 59",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Initech Media 59",
+      "requester": "person29@example.com",
+      "assignee": "Donald 10",
+      "createdAt": "2026-06-24T22:34:00Z",
+      "firstResponseMinutes": 145,
+      "satisfaction": 4,
+      "labels": [
+        "Security",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0059",
+        "internal": false
+      }
+    },
+    "TKT-0060": {
+      "id": "TKT-0060",
+      "subject": "Integration issue for account 60",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Umbrella Logistics 60",
+      "requester": "person30@example.com",
+      "assignee": "Ada 11",
+      "createdAt": "2026-06-27T05:47:00Z",
+      "firstResponseMinutes": 164,
+      "satisfaction": 5,
+      "labels": [
+        "Support",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0060",
+        "internal": false
+      }
+    },
+    "TKT-0061": {
+      "id": "TKT-0061",
+      "subject": "Login issue for account 61",
+      "status": "New",
+      "severity": "Low",
+      "account": "Stark SaaS 61",
+      "requester": "person1@example.com",
+      "assignee": "Grace 12",
+      "createdAt": "2026-06-30T12:00:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Platform",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0061",
+        "internal": false
+      }
+    },
+    "TKT-0062": {
+      "id": "TKT-0062",
+      "subject": "Billing issue for account 62",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Wayne Fintech 62",
+      "requester": "person2@example.com",
+      "assignee": "Linus 13",
+      "createdAt": "2026-07-03T19:13:00Z",
+      "firstResponseMinutes": 202,
+      "satisfaction": 2,
+      "labels": [
+        "Growth",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0062",
+        "internal": false
+      }
+    },
+    "TKT-0063": {
+      "id": "TKT-0063",
+      "subject": "Export issue for account 63",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Wonka Retail 63",
+      "requester": "person3@example.com",
+      "assignee": "Margaret 14",
+      "createdAt": "2026-07-06T02:26:00Z",
+      "firstResponseMinutes": 221,
+      "satisfaction": 3,
+      "labels": [
+        "Design",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0063",
+        "internal": false
+      }
+    },
+    "TKT-0064": {
+      "id": "TKT-0064",
+      "subject": "Performance issue for account 64",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Acme Healthcare 64",
+      "requester": "person4@example.com",
+      "assignee": "Alan 15",
+      "createdAt": "2026-07-09T09:39:00Z",
+      "firstResponseMinutes": 240,
+      "satisfaction": 4,
+      "labels": [
+        "Data",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0064",
+        "internal": true
+      }
+    },
+    "TKT-0065": {
+      "id": "TKT-0065",
+      "subject": "Permissions issue for account 65",
+      "status": "New",
+      "severity": "Low",
+      "account": "Globex Media 65",
+      "requester": "person5@example.com",
+      "assignee": "Katherine 16",
+      "createdAt": "2026-07-12T16:52:00Z",
+      "firstResponseMinutes": 19,
+      "satisfaction": 5,
+      "labels": [
+        "Security",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0065",
+        "internal": false
+      }
+    },
+    "TKT-0066": {
+      "id": "TKT-0066",
+      "subject": "Integration issue for account 66",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Initech Logistics 66",
+      "requester": "person6@example.com",
+      "assignee": "Edsger 17",
+      "createdAt": "2026-07-15T23:05:00Z",
+      "firstResponseMinutes": 38,
+      "satisfaction": null,
+      "labels": [
+        "Support",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0066",
+        "internal": false
+      }
+    },
+    "TKT-0067": {
+      "id": "TKT-0067",
+      "subject": "Login issue for account 67",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Umbrella SaaS 67",
+      "requester": "person7@example.com",
+      "assignee": "Radia 18",
+      "createdAt": "2026-07-18T06:18:00Z",
+      "firstResponseMinutes": 57,
+      "satisfaction": 2,
+      "labels": [
+        "Platform",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0067",
+        "internal": false
+      }
+    },
+    "TKT-0068": {
+      "id": "TKT-0068",
+      "subject": "Billing issue for account 68",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Stark Fintech 68",
+      "requester": "person8@example.com",
+      "assignee": "Barbara 19",
+      "createdAt": "2026-07-21T13:31:00Z",
+      "firstResponseMinutes": 76,
+      "satisfaction": 3,
+      "labels": [
+        "Growth",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0068",
+        "internal": false
+      }
+    },
+    "TKT-0069": {
+      "id": "TKT-0069",
+      "subject": "Export issue for account 69",
+      "status": "New",
+      "severity": "Low",
+      "account": "Wayne Retail 69",
+      "requester": "person9@example.com",
+      "assignee": "Donald 20",
+      "createdAt": "2026-07-24T20:44:00Z",
+      "firstResponseMinutes": 95,
+      "satisfaction": 4,
+      "labels": [
+        "Design",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0069",
+        "internal": false
+      }
+    },
+    "TKT-0070": {
+      "id": "TKT-0070",
+      "subject": "Performance issue for account 70",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Wonka Healthcare 70",
+      "requester": "person10@example.com",
+      "assignee": "Ada 21",
+      "createdAt": "2026-07-27T03:57:00Z",
+      "firstResponseMinutes": 114,
+      "satisfaction": 5,
+      "labels": [
+        "Data",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0070",
+        "internal": false
+      }
+    },
+    "TKT-0071": {
+      "id": "TKT-0071",
+      "subject": "Permissions issue for account 71",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Acme SaaS 1",
+      "requester": "person11@example.com",
+      "assignee": "Grace 22",
+      "createdAt": "2026-07-30T10:10:00Z",
+      "firstResponseMinutes": null,
+      "satisfaction": null,
+      "labels": [
+        "Security",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0071",
+        "internal": true
+      }
+    },
+    "TKT-0072": {
+      "id": "TKT-0072",
+      "subject": "Integration issue for account 72",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Globex Fintech 2",
+      "requester": "person12@example.com",
+      "assignee": "Linus 23",
+      "createdAt": "2026-08-02T17:23:00Z",
+      "firstResponseMinutes": 152,
+      "satisfaction": 2,
+      "labels": [
+        "Support",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0072",
+        "internal": false
+      }
+    },
+    "TKT-0073": {
+      "id": "TKT-0073",
+      "subject": "Login issue for account 73",
+      "status": "New",
+      "severity": "Low",
+      "account": "Initech Retail 3",
+      "requester": "person13@example.com",
+      "assignee": "Margaret 24",
+      "createdAt": "2026-08-05T00:36:00Z",
+      "firstResponseMinutes": 171,
+      "satisfaction": 3,
+      "labels": [
+        "Platform",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0073",
+        "internal": false
+      }
+    },
+    "TKT-0074": {
+      "id": "TKT-0074",
+      "subject": "Billing issue for account 74",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Umbrella Healthcare 4",
+      "requester": "person14@example.com",
+      "assignee": "Alan 25",
+      "createdAt": "2026-08-08T07:49:00Z",
+      "firstResponseMinutes": 190,
+      "satisfaction": 4,
+      "labels": [
+        "Growth",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0074",
+        "internal": false
+      }
+    },
+    "TKT-0075": {
+      "id": "TKT-0075",
+      "subject": "Export issue for account 75",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Stark Media 5",
+      "requester": "person15@example.com",
+      "assignee": "Katherine 26",
+      "createdAt": "2026-08-11T14:02:00Z",
+      "firstResponseMinutes": 209,
+      "satisfaction": 5,
+      "labels": [
+        "Design",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0075",
+        "internal": false
+      }
+    },
+    "TKT-0076": {
+      "id": "TKT-0076",
+      "subject": "Performance issue for account 76",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Wayne Logistics 6",
+      "requester": "person16@example.com",
+      "assignee": "Edsger 27",
+      "createdAt": "2026-08-14T21:15:00Z",
+      "firstResponseMinutes": 228,
+      "satisfaction": null,
+      "labels": [
+        "Data",
+        "Email"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0076",
+        "internal": false
+      }
+    },
+    "TKT-0077": {
+      "id": "TKT-0077",
+      "subject": "Permissions issue for account 77",
+      "status": "New",
+      "severity": "Low",
+      "account": "Wonka SaaS 7",
+      "requester": "person17@example.com",
+      "assignee": "Radia 28",
+      "createdAt": "2026-08-17T04:28:00Z",
+      "firstResponseMinutes": 7,
+      "satisfaction": 2,
+      "labels": [
+        "Security",
+        "Chat"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0077",
+        "internal": false
+      }
+    },
+    "TKT-0078": {
+      "id": "TKT-0078",
+      "subject": "Integration issue for account 78",
+      "status": "Open",
+      "severity": "Medium",
+      "account": "Acme Fintech 8",
+      "requester": "person18@example.com",
+      "assignee": "Barbara 29",
+      "createdAt": "2026-08-20T11:41:00Z",
+      "firstResponseMinutes": 26,
+      "satisfaction": 3,
+      "labels": [
+        "Support",
+        "Phone"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0078",
+        "internal": true
+      }
+    },
+    "TKT-0079": {
+      "id": "TKT-0079",
+      "subject": "Login issue for account 79",
+      "status": "Waiting",
+      "severity": "High",
+      "account": "Globex Retail 9",
+      "requester": "person19@example.com",
+      "assignee": "Donald 30",
+      "createdAt": "2026-08-23T18:54:00Z",
+      "firstResponseMinutes": 45,
+      "satisfaction": 4,
+      "labels": [
+        "Platform",
+        "Web"
+      ],
+      "latestMessage": {
+        "author": "agent",
+        "body": "Latest update for TKT-0079",
+        "internal": false
+      }
+    },
+    "TKT-0080": {
+      "id": "TKT-0080",
+      "subject": "Billing issue for account 80",
+      "status": "Resolved",
+      "severity": "Urgent",
+      "account": "Initech Healthcare 10",
+      "requester": "person20@example.com",
+      "assignee": "Ada 1",
+      "createdAt": "2026-08-26T01:07:00Z",
+      "firstResponseMinutes": 64,
+      "satisfaction": 5,
+      "labels": [
+        "Growth",
+        "Partner"
+      ],
+      "latestMessage": {
+        "author": "customer",
+        "body": "Latest update for TKT-0080",
+        "internal": false
+      }
+    }
+  },
+  "agentsByEmail": {
+    "person1@example.com": {
+      "id": "person-001",
+      "name": "Ada 1",
+      "email": "person1@example.com",
+      "team": "Platform",
+      "active": false,
+      "location": {
+        "city": "New York",
+        "region": "North America"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ],
+      "capacity": 3,
+      "onCall": true
+    },
+    "person2@example.com": {
+      "id": "person-002",
+      "name": "Grace 2",
+      "email": "person2@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Europe"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ],
+      "capacity": 4,
+      "onCall": false
+    },
+    "person3@example.com": {
+      "id": "person-003",
+      "name": "Linus 3",
+      "email": "person3@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Canvas",
+        "Forge"
+      ],
+      "capacity": 5,
+      "onCall": false
+    },
+    "person4@example.com": {
+      "id": "person-004",
+      "name": "Margaret 4",
+      "email": "person4@example.com",
+      "team": "Data",
+      "active": true,
+      "location": {
+        "city": "Tokyo",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Delta",
+        "Helix"
+      ],
+      "capacity": 6,
+      "onCall": false
+    },
+    "person5@example.com": {
+      "id": "person-005",
+      "name": "Alan 5",
+      "email": "person5@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Echo",
+        "Ion"
+      ],
+      "capacity": 7,
+      "onCall": false
+    },
+    "person6@example.com": {
+      "id": "person-006",
+      "name": "Katherine 6",
+      "email": "person6@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "North America"
+      },
+      "skills": [
+        "Forge",
+        "Atlas"
+      ],
+      "capacity": 8,
+      "onCall": false
+    },
+    "person7@example.com": {
+      "id": "person-007",
+      "name": "Edsger 7",
+      "email": "person7@example.com",
+      "team": "Platform",
+      "active": true,
+      "location": {
+        "city": "New York",
+        "region": "Europe"
+      },
+      "skills": [
+        "Helix",
+        "Beacon"
+      ],
+      "capacity": 9,
+      "onCall": true
+    },
+    "person8@example.com": {
+      "id": "person-008",
+      "name": "Radia 8",
+      "email": "person8@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Ion",
+        "Canvas"
+      ],
+      "capacity": 10,
+      "onCall": false
+    },
+    "person9@example.com": {
+      "id": "person-009",
+      "name": "Barbara 9",
+      "email": "person9@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ],
+      "capacity": 3,
+      "onCall": false
+    },
+    "person10@example.com": {
+      "id": "person-010",
+      "name": "Donald 10",
+      "email": "person10@example.com",
+      "team": "Data",
+      "active": false,
+      "location": {
+        "city": "Tokyo",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ],
+      "capacity": 4,
+      "onCall": false
+    },
+    "person11@example.com": {
+      "id": "person-011",
+      "name": "Ada 11",
+      "email": "person11@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "North America"
+      },
+      "skills": [
+        "Canvas",
+        "Forge"
+      ],
+      "capacity": 5,
+      "onCall": false
+    },
+    "person12@example.com": {
+      "id": "person-012",
+      "name": "Grace 12",
+      "email": "person12@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "Europe"
+      },
+      "skills": [
+        "Delta",
+        "Helix"
+      ],
+      "capacity": 6,
+      "onCall": false
+    },
+    "person13@example.com": {
+      "id": "person-013",
+      "name": "Linus 13",
+      "email": "person13@example.com",
+      "team": "Platform",
+      "active": true,
+      "location": {
+        "city": "New York",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Echo",
+        "Ion"
+      ],
+      "capacity": 7,
+      "onCall": true
+    },
+    "person14@example.com": {
+      "id": "person-014",
+      "name": "Margaret 14",
+      "email": "person14@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Forge",
+        "Atlas"
+      ],
+      "capacity": 8,
+      "onCall": false
+    },
+    "person15@example.com": {
+      "id": "person-015",
+      "name": "Alan 15",
+      "email": "person15@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Helix",
+        "Beacon"
+      ],
+      "capacity": 9,
+      "onCall": false
+    },
+    "person16@example.com": {
+      "id": "person-016",
+      "name": "Katherine 16",
+      "email": "person16@example.com",
+      "team": "Data",
+      "active": true,
+      "location": {
+        "city": "Tokyo",
+        "region": "North America"
+      },
+      "skills": [
+        "Ion",
+        "Canvas"
+      ],
+      "capacity": 10,
+      "onCall": false
+    },
+    "person17@example.com": {
+      "id": "person-017",
+      "name": "Edsger 17",
+      "email": "person17@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "Europe"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ],
+      "capacity": 3,
+      "onCall": false
+    },
+    "person18@example.com": {
+      "id": "person-018",
+      "name": "Radia 18",
+      "email": "person18@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ],
+      "capacity": 4,
+      "onCall": false
+    }
+  }
+}

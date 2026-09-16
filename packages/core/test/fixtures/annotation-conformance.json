@@ -1,0 +1,79 @@
+[
+  {
+    "name": "removed view title",
+    "metadata": { "version": 1, "views": [{ "name": "Rows", "path": "$.rows", "title": "$.rows[*].name" }] },
+    "source": { "rows": [{ "name": "Ada" }] },
+    "valid": false,
+    "code": "removed-view-title"
+  },
+  {
+    "name": "removed page display",
+    "metadata": { "version": 1, "views": [{ "name": "Record", "path": "$", "display": "page" }] },
+    "source": { "name": "Ada" },
+    "valid": false,
+    "code": "invalid-display"
+  },
+  {
+    "name": "empty versioned annotations",
+    "metadata": { "version": 1 },
+    "source": {},
+    "valid": true
+  },
+  {
+    "name": "typed record collection",
+    "metadata": {
+      "version": 1,
+      "schema": { "$.rows[*].score": { "type": "number", "minimum": 0, "maximum": 10, "required": true } },
+      "views": [{ "name": "Scores", "path": "$.rows", "columns": [{ "label": "Score", "path": "$.rows[*].score" }], "sort": [{ "path": "$.rows[*].score", "direction": "asc" }], "filter": { "rules": [{ "path": "$.rows[*].score", "operator": "gte", "value": 1 }] } }]
+    },
+    "source": { "rows": [{ "score": 2 }] },
+    "valid": true
+  },
+  {
+    "name": "RE2 pattern and date bounds",
+    "metadata": { "version": 1, "schema": { "$.name": { "type": "text", "pattern": "^[A-Z]", "placeholder": "Name", "multiline": false }, "$.due": { "type": "date", "minimum": "2026-01-01", "maximum": "2026-12-31", "defaultIncludeTime": true } } },
+    "source": { "name": "Ada", "due": "2026-09-06" },
+    "valid": true
+  },
+  {
+    "name": "custom descriptor and operator",
+    "metadata": { "version": 1, "schema": { "$.rows[*].score": { "type": "rating", "maxStars": 5 } }, "views": [{ "name": "Nearby", "path": "$.rows", "filter": { "rules": [{ "path": "$.rows[*].score", "operator": "near", "value": 4 }] } }] },
+    "source": { "rows": [{ "score": 3 }] },
+    "valid": true
+  },
+  {
+    "name": "invalid option container",
+    "metadata": { "version": 1, "schema": { "$.x": { "type": "select", "options": {} } } },
+    "source": { "x": "present" },
+    "valid": false,
+    "code": "invalid-options"
+  },
+  {
+    "name": "invalid required flag",
+    "metadata": { "version": 1, "schema": { "$.x": { "type": "text", "required": "false" } } },
+    "source": {},
+    "valid": false,
+    "code": "invalid-required"
+  },
+  {
+    "name": "missing comparison value",
+    "metadata": { "version": 1, "views": [{ "name": "Rows", "path": "$.rows", "filter": { "rules": [{ "path": "$.rows[*].x", "operator": "eq" }] } }] },
+    "source": { "rows": [{ "x": 1 }] },
+    "valid": false,
+    "code": "invalid-filter-value"
+  },
+  {
+    "name": "membership requires an array",
+    "metadata": { "version": 1, "views": [{ "name": "Rows", "path": "$.rows", "filter": { "rules": [{ "path": "$.rows[*].x", "operator": "in", "value": 1 }] } }] },
+    "source": { "rows": [{ "x": 1 }] },
+    "valid": false,
+    "code": "invalid-filter-value"
+  },
+  {
+    "name": "unsupported version",
+    "metadata": { "version": 2, "future": true },
+    "source": {},
+    "valid": false,
+    "code": "unsupported-metadata-version"
+  }
+]

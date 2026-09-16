@@ -1,0 +1,13 @@
+[
+  "A note",
+  42,
+  true,
+  null,
+  {
+    "name": "A nested record"
+  },
+  [
+    "one",
+    "two"
+  ]
+]

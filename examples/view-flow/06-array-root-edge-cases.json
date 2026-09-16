@@ -1,0 +1,3407 @@
+[
+  {
+    "id": 1,
+    "label": "Quoted \"record\" 1",
+    "category": null,
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [],
+    "measurements": [
+      0,
+      0.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": null
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 1. This intentionally long value checks wrapping and truncation behavior for record 1. This intentionally long value checks wrapping and truncation behavior for record 1. This intentionally long value checks wrapping and truncation behavior for record 1. ",
+    "weirdKeyObject": {
+      "display name": "Display 1",
+      "cost.usd": 25
+    }
+  },
+  {
+    "id": 2,
+    "label": "Record 2",
+    "category": "Fintech",
+    "optionalOwner": "Grace 2",
+    "emptyText": "Value 1",
+    "zeroOrNumber": 1.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Growth"
+    ],
+    "measurements": [
+      1,
+      1.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 1"
+    },
+    "longText": "Short note 2",
+    "weirdKeyObject": {
+      "display name": "Display 2",
+      "cost.usd": 1608.8
+    }
+  },
+  {
+    "id": 3,
+    "label": "Record 3",
+    "category": "Retail",
+    "optionalOwner": "Linus 3",
+    "emptyText": "Value 2",
+    "zeroOrNumber": 2.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Design"
+    ],
+    "measurements": [
+      2,
+      2.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 2"
+    },
+    "longText": "Short note 3",
+    "weirdKeyObject": {
+      "display name": "Display 3",
+      "cost.usd": 3192.6
+    }
+  },
+  {
+    "id": 4,
+    "label": "Record 4",
+    "category": "Healthcare",
+    "optionalOwner": "Margaret 4",
+    "emptyText": "",
+    "zeroOrNumber": 3.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Data"
+    ],
+    "measurements": [
+      3,
+      3.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 3"
+    },
+    "longText": "Short note 4",
+    "weirdKeyObject": {
+      "display name": "Display 4",
+      "cost.usd": 4776.4
+    }
+  },
+  {
+    "id": 5,
+    "label": "Record 5",
+    "category": "Media",
+    "emptyText": "Value 4",
+    "zeroOrNumber": 5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Security"
+    ],
+    "measurements": [
+      4,
+      4.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 4"
+    },
+    "longText": "Short note 5",
+    "weirdKeyObject": {
+      "display name": "Display 5",
+      "cost.usd": 1560.2
+    }
+  },
+  {
+    "id": 6,
+    "label": "Record 6",
+    "category": "Logistics",
+    "optionalOwner": "Katherine 6",
+    "emptyText": "Value 5",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Support"
+    ],
+    "measurements": [
+      5,
+      5.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 5"
+    },
+    "longText": "Short note 6",
+    "weirdKeyObject": {
+      "display name": "Display 6",
+      "cost.usd": 3144
+    }
+  },
+  {
+    "id": 7,
+    "label": "Record 7",
+    "category": "SaaS",
+    "optionalOwner": "Edsger 7",
+    "emptyText": "",
+    "zeroOrNumber": 7.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Helix",
+      "Platform"
+    ],
+    "measurements": [
+      6,
+      6.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 6"
+    },
+    "longText": "Short note 7",
+    "weirdKeyObject": {
+      "display name": "Display 7",
+      "cost.usd": 4727.8
+    }
+  },
+  {
+    "id": 8,
+    "label": "Record 8",
+    "category": null,
+    "optionalOwner": "Radia 8",
+    "emptyText": "Value 7",
+    "zeroOrNumber": 8.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Growth"
+    ],
+    "measurements": [
+      7,
+      7.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 7"
+    },
+    "longText": "Short note 8",
+    "weirdKeyObject": {
+      "display name": "Display 8",
+      "cost.usd": 1511.6
+    }
+  },
+  {
+    "id": 9,
+    "label": "Record 9",
+    "category": "Retail",
+    "emptyText": "Value 8",
+    "zeroOrNumber": 10,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      8,
+      8.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 8"
+    },
+    "longText": "Short note 9",
+    "weirdKeyObject": {
+      "display name": "Display 9",
+      "cost.usd": 3095.4
+    }
+  },
+  {
+    "id": 10,
+    "label": "Quoted \"record\" 10",
+    "category": "Healthcare",
+    "optionalOwner": "Donald 10",
+    "emptyText": "",
+    "zeroOrNumber": 11.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Data"
+    ],
+    "measurements": [
+      9,
+      9.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 9"
+    },
+    "longText": "Short note 10",
+    "weirdKeyObject": {
+      "display name": "Display 10",
+      "cost.usd": 4679.2
+    }
+  },
+  {
+    "id": 11,
+    "label": "Record 11",
+    "category": "Media",
+    "optionalOwner": "Ada 11",
+    "emptyText": "Value 10",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Security"
+    ],
+    "measurements": [
+      10,
+      10.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 11",
+    "weirdKeyObject": {
+      "display name": "Display 11",
+      "cost.usd": 1463
+    }
+  },
+  {
+    "id": 12,
+    "label": "Record 12",
+    "category": "Logistics",
+    "optionalOwner": "Grace 12",
+    "emptyText": "Value 11",
+    "zeroOrNumber": 13.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Support"
+    ],
+    "measurements": [
+      11,
+      11.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 11"
+    },
+    "longText": "Short note 12",
+    "weirdKeyObject": {
+      "display name": "Display 12",
+      "cost.usd": 3046.8
+    }
+  },
+  {
+    "id": 13,
+    "label": "Record 13",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 15,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Echo",
+      "Platform"
+    ],
+    "measurements": [
+      12,
+      12.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 12"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 13. This intentionally long value checks wrapping and truncation behavior for record 13. This intentionally long value checks wrapping and truncation behavior for record 13. This intentionally long value checks wrapping and truncation behavior for record 13. ",
+    "weirdKeyObject": {
+      "display name": "Display 13",
+      "cost.usd": 4630.6
+    }
+  },
+  {
+    "id": 14,
+    "label": "Record 14",
+    "category": "Fintech",
+    "optionalOwner": "Margaret 14",
+    "emptyText": "Value 13",
+    "zeroOrNumber": 16.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Growth"
+    ],
+    "measurements": [
+      13,
+      13.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 13"
+    },
+    "longText": "Short note 14",
+    "weirdKeyObject": {
+      "display name": "Display 14",
+      "cost.usd": 1414.4
+    }
+  },
+  {
+    "id": 15,
+    "label": "Record 15",
+    "category": null,
+    "optionalOwner": "Alan 15",
+    "emptyText": "Value 14",
+    "zeroOrNumber": 17.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Design"
+    ],
+    "measurements": [
+      14,
+      14.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 14"
+    },
+    "longText": "Short note 15",
+    "weirdKeyObject": {
+      "display name": "Display 15",
+      "cost.usd": 2998.2
+    }
+  },
+  {
+    "id": 16,
+    "label": "Record 16",
+    "category": "Healthcare",
+    "optionalOwner": "Katherine 16",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Data"
+    ],
+    "measurements": [
+      15,
+      15.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": "Nested 15"
+    },
+    "longText": "Short note 16",
+    "weirdKeyObject": {
+      "display name": "Display 16",
+      "cost.usd": 4582
+    }
+  },
+  {
+    "id": 17,
+    "label": "Record 17",
+    "category": "Media",
+    "emptyText": "Value 16",
+    "zeroOrNumber": 20,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      16,
+      16.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 16"
+    },
+    "longText": "Short note 17",
+    "weirdKeyObject": {
+      "display name": "Display 17",
+      "cost.usd": 1365.8
+    }
+  },
+  {
+    "id": 18,
+    "label": "Record 18",
+    "category": "Logistics",
+    "optionalOwner": "Radia 18",
+    "emptyText": "Value 17",
+    "zeroOrNumber": 21.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Support"
+    ],
+    "measurements": [
+      17,
+      17.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 17"
+    },
+    "longText": "Short note 18",
+    "weirdKeyObject": {
+      "display name": "Display 18",
+      "cost.usd": 2949.6
+    }
+  },
+  {
+    "id": 19,
+    "label": "Quoted \"record\" 19",
+    "category": "SaaS",
+    "optionalOwner": "Barbara 19",
+    "emptyText": "",
+    "zeroOrNumber": 22.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Canvas",
+      "Platform"
+    ],
+    "measurements": [
+      18,
+      18.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 18"
+    },
+    "longText": "Short note 19",
+    "weirdKeyObject": {
+      "display name": "Display 19",
+      "cost.usd": 4533.4
+    }
+  },
+  {
+    "id": 20,
+    "label": "Record 20",
+    "category": "Fintech",
+    "optionalOwner": "Donald 20",
+    "emptyText": "Value 19",
+    "zeroOrNumber": 23.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Growth"
+    ],
+    "measurements": [
+      19,
+      19.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 19"
+    },
+    "longText": "Short note 20",
+    "weirdKeyObject": {
+      "display name": "Display 20",
+      "cost.usd": 1317.2
+    }
+  },
+  {
+    "id": 21,
+    "label": "Record 21",
+    "category": "Retail",
+    "emptyText": "Value 20",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Design"
+    ],
+    "measurements": [
+      20,
+      20.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 21",
+    "weirdKeyObject": {
+      "display name": "Display 21",
+      "cost.usd": 2901
+    }
+  },
+  {
+    "id": 22,
+    "label": "Record 22",
+    "category": null,
+    "optionalOwner": "Grace 22",
+    "emptyText": "",
+    "zeroOrNumber": 26.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Data"
+    ],
+    "measurements": [
+      21,
+      21.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 21"
+    },
+    "longText": "Short note 22",
+    "weirdKeyObject": {
+      "display name": "Display 22",
+      "cost.usd": 4484.8
+    }
+  },
+  {
+    "id": 23,
+    "label": "Record 23",
+    "category": "Media",
+    "optionalOwner": "Linus 23",
+    "emptyText": "Value 22",
+    "zeroOrNumber": 27.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Security"
+    ],
+    "measurements": [
+      22,
+      22.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 22"
+    },
+    "longText": "Short note 23",
+    "weirdKeyObject": {
+      "display name": "Display 23",
+      "cost.usd": 1268.6
+    }
+  },
+  {
+    "id": 24,
+    "label": "Record 24",
+    "category": "Logistics",
+    "optionalOwner": "Margaret 24",
+    "emptyText": "Value 23",
+    "zeroOrNumber": 28.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Support"
+    ],
+    "measurements": [
+      23,
+      23.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 23"
+    },
+    "longText": "Short note 24",
+    "weirdKeyObject": {
+      "display name": "Display 24",
+      "cost.usd": 2852.4
+    }
+  },
+  {
+    "id": 25,
+    "label": "Record 25",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 30,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [],
+    "measurements": [
+      24,
+      24.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 24"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 25. This intentionally long value checks wrapping and truncation behavior for record 25. This intentionally long value checks wrapping and truncation behavior for record 25. This intentionally long value checks wrapping and truncation behavior for record 25. ",
+    "weirdKeyObject": {
+      "display name": "Display 25",
+      "cost.usd": 4436.2
+    }
+  },
+  {
+    "id": 26,
+    "label": "Record 26",
+    "category": "Fintech",
+    "optionalOwner": "Katherine 26",
+    "emptyText": "Value 25",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Growth"
+    ],
+    "measurements": [
+      25,
+      25.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 25"
+    },
+    "longText": "Short note 26",
+    "weirdKeyObject": {
+      "display name": "Display 26",
+      "cost.usd": 1220
+    }
+  },
+  {
+    "id": 27,
+    "label": "Record 27",
+    "category": "Retail",
+    "optionalOwner": "Edsger 27",
+    "emptyText": "Value 26",
+    "zeroOrNumber": 32.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Design"
+    ],
+    "measurements": [
+      26,
+      26.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 26"
+    },
+    "longText": "Short note 27",
+    "weirdKeyObject": {
+      "display name": "Display 27",
+      "cost.usd": 2803.8
+    }
+  },
+  {
+    "id": 28,
+    "label": "Quoted \"record\" 28",
+    "category": "Healthcare",
+    "optionalOwner": "Radia 28",
+    "emptyText": "",
+    "zeroOrNumber": 33.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Data"
+    ],
+    "measurements": [
+      27,
+      27.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 27"
+    },
+    "longText": "Short note 28",
+    "weirdKeyObject": {
+      "display name": "Display 28",
+      "cost.usd": 4387.6
+    }
+  },
+  {
+    "id": 29,
+    "label": "Record 29",
+    "category": null,
+    "emptyText": "Value 28",
+    "zeroOrNumber": 35,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Security"
+    ],
+    "measurements": [
+      28,
+      28.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 28"
+    },
+    "longText": "Short note 29",
+    "weirdKeyObject": {
+      "display name": "Display 29",
+      "cost.usd": 1171.4
+    }
+  },
+  {
+    "id": 30,
+    "label": "Record 30",
+    "category": "Logistics",
+    "optionalOwner": "Donald 30",
+    "emptyText": "Value 29",
+    "zeroOrNumber": 36.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Support"
+    ],
+    "measurements": [
+      29,
+      29.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 29"
+    },
+    "longText": "Short note 30",
+    "weirdKeyObject": {
+      "display name": "Display 30",
+      "cost.usd": 2755.2
+    }
+  },
+  {
+    "id": 31,
+    "label": "Record 31",
+    "category": "SaaS",
+    "optionalOwner": "Ada 1",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Helix",
+      "Platform"
+    ],
+    "measurements": [
+      30,
+      30.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": null
+    },
+    "longText": "Short note 31",
+    "weirdKeyObject": {
+      "display name": "Display 31",
+      "cost.usd": 4339
+    }
+  },
+  {
+    "id": 32,
+    "label": "Record 32",
+    "category": "Fintech",
+    "optionalOwner": "Grace 2",
+    "emptyText": "Value 31",
+    "zeroOrNumber": 38.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Growth"
+    ],
+    "measurements": [
+      31,
+      31.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 31"
+    },
+    "longText": "Short note 32",
+    "weirdKeyObject": {
+      "display name": "Display 32",
+      "cost.usd": 1122.8
+    }
+  },
+  {
+    "id": 33,
+    "label": "Record 33",
+    "category": "Retail",
+    "emptyText": "Value 32",
+    "zeroOrNumber": 40,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      32,
+      32.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 32"
+    },
+    "longText": "Short note 33",
+    "weirdKeyObject": {
+      "display name": "Display 33",
+      "cost.usd": 2706.6
+    }
+  },
+  {
+    "id": 34,
+    "label": "Record 34",
+    "category": "Healthcare",
+    "optionalOwner": "Margaret 4",
+    "emptyText": "",
+    "zeroOrNumber": 41.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Data"
+    ],
+    "measurements": [
+      33,
+      33.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 33"
+    },
+    "longText": "Short note 34",
+    "weirdKeyObject": {
+      "display name": "Display 34",
+      "cost.usd": 4290.4
+    }
+  },
+  {
+    "id": 35,
+    "label": "Record 35",
+    "category": "Media",
+    "optionalOwner": "Alan 5",
+    "emptyText": "Value 34",
+    "zeroOrNumber": 42.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Security"
+    ],
+    "measurements": [
+      34,
+      34.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 34"
+    },
+    "longText": "Short note 35",
+    "weirdKeyObject": {
+      "display name": "Display 35",
+      "cost.usd": 1074.2
+    }
+  },
+  {
+    "id": 36,
+    "label": "Record 36",
+    "category": null,
+    "optionalOwner": "Katherine 6",
+    "emptyText": "Value 35",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Support"
+    ],
+    "measurements": [
+      35,
+      35.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 35"
+    },
+    "longText": "Short note 36",
+    "weirdKeyObject": {
+      "display name": "Display 36",
+      "cost.usd": 2658
+    }
+  },
+  {
+    "id": 37,
+    "label": "Quoted \"record\" 37",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 45,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Echo",
+      "Platform"
+    ],
+    "measurements": [
+      36,
+      36.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 36"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 37. This intentionally long value checks wrapping and truncation behavior for record 37. This intentionally long value checks wrapping and truncation behavior for record 37. This intentionally long value checks wrapping and truncation behavior for record 37. ",
+    "weirdKeyObject": {
+      "display name": "Display 37",
+      "cost.usd": 4241.8
+    }
+  },
+  {
+    "id": 38,
+    "label": "Record 38",
+    "category": "Fintech",
+    "optionalOwner": "Radia 8",
+    "emptyText": "Value 37",
+    "zeroOrNumber": 46.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Growth"
+    ],
+    "measurements": [
+      37,
+      37.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 37"
+    },
+    "longText": "Short note 38",
+    "weirdKeyObject": {
+      "display name": "Display 38",
+      "cost.usd": 1025.6
+    }
+  },
+  {
+    "id": 39,
+    "label": "Record 39",
+    "category": "Retail",
+    "optionalOwner": "Barbara 9",
+    "emptyText": "Value 38",
+    "zeroOrNumber": 47.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Design"
+    ],
+    "measurements": [
+      38,
+      38.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 38"
+    },
+    "longText": "Short note 39",
+    "weirdKeyObject": {
+      "display name": "Display 39",
+      "cost.usd": 2609.4
+    }
+  },
+  {
+    "id": 40,
+    "label": "Record 40",
+    "category": "Healthcare",
+    "optionalOwner": "Donald 10",
+    "emptyText": "",
+    "zeroOrNumber": 48.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Data"
+    ],
+    "measurements": [
+      39,
+      39.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 39"
+    },
+    "longText": "Short note 40",
+    "weirdKeyObject": {
+      "display name": "Display 40",
+      "cost.usd": 4193.2
+    }
+  },
+  {
+    "id": 41,
+    "label": "Record 41",
+    "category": "Media",
+    "emptyText": "Value 40",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      40,
+      40.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 41",
+    "weirdKeyObject": {
+      "display name": "Display 41",
+      "cost.usd": 977
+    }
+  },
+  {
+    "id": 42,
+    "label": "Record 42",
+    "category": "Logistics",
+    "optionalOwner": "Grace 12",
+    "emptyText": "Value 41",
+    "zeroOrNumber": 51.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Support"
+    ],
+    "measurements": [
+      41,
+      41.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 41"
+    },
+    "longText": "Short note 42",
+    "weirdKeyObject": {
+      "display name": "Display 42",
+      "cost.usd": 2560.8
+    }
+  },
+  {
+    "id": 43,
+    "label": "Record 43",
+    "category": null,
+    "optionalOwner": "Linus 13",
+    "emptyText": "",
+    "zeroOrNumber": 52.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Canvas",
+      "Platform"
+    ],
+    "measurements": [
+      42,
+      42.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 42"
+    },
+    "longText": "Short note 43",
+    "weirdKeyObject": {
+      "display name": "Display 43",
+      "cost.usd": 4144.6
+    }
+  },
+  {
+    "id": 44,
+    "label": "Record 44",
+    "category": "Fintech",
+    "optionalOwner": "Margaret 14",
+    "emptyText": "Value 43",
+    "zeroOrNumber": 53.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Growth"
+    ],
+    "measurements": [
+      43,
+      43.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 43"
+    },
+    "longText": "Short note 44",
+    "weirdKeyObject": {
+      "display name": "Display 44",
+      "cost.usd": 928.4
+    }
+  },
+  {
+    "id": 45,
+    "label": "Record 45",
+    "category": "Retail",
+    "emptyText": "Value 44",
+    "zeroOrNumber": 55,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Design"
+    ],
+    "measurements": [
+      44,
+      44.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 44"
+    },
+    "longText": "Short note 45",
+    "weirdKeyObject": {
+      "display name": "Display 45",
+      "cost.usd": 2512.2
+    }
+  },
+  {
+    "id": 46,
+    "label": "Quoted \"record\" 46",
+    "category": "Healthcare",
+    "optionalOwner": "Katherine 16",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Data"
+    ],
+    "measurements": [
+      45,
+      45.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": "Nested 45"
+    },
+    "longText": "Short note 46",
+    "weirdKeyObject": {
+      "display name": "Display 46",
+      "cost.usd": 4096
+    }
+  },
+  {
+    "id": 47,
+    "label": "Record 47",
+    "category": "Media",
+    "optionalOwner": "Edsger 17",
+    "emptyText": "Value 46",
+    "zeroOrNumber": 57.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Security"
+    ],
+    "measurements": [
+      46,
+      46.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 46"
+    },
+    "longText": "Short note 47",
+    "weirdKeyObject": {
+      "display name": "Display 47",
+      "cost.usd": 879.8
+    }
+  },
+  {
+    "id": 48,
+    "label": "Record 48",
+    "category": "Logistics",
+    "optionalOwner": "Radia 18",
+    "emptyText": "Value 47",
+    "zeroOrNumber": 58.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Support"
+    ],
+    "measurements": [
+      47,
+      47.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 47"
+    },
+    "longText": "Short note 48",
+    "weirdKeyObject": {
+      "display name": "Display 48",
+      "cost.usd": 2463.6
+    }
+  },
+  {
+    "id": 49,
+    "label": "Record 49",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 60,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [],
+    "measurements": [
+      48,
+      48.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 48"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 49. This intentionally long value checks wrapping and truncation behavior for record 49. This intentionally long value checks wrapping and truncation behavior for record 49. This intentionally long value checks wrapping and truncation behavior for record 49. ",
+    "weirdKeyObject": {
+      "display name": "Display 49",
+      "cost.usd": 4047.4
+    }
+  },
+  {
+    "id": 50,
+    "label": "Record 50",
+    "category": null,
+    "optionalOwner": "Donald 20",
+    "emptyText": "Value 49",
+    "zeroOrNumber": 61.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Growth"
+    ],
+    "measurements": [
+      49,
+      49.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 49"
+    },
+    "longText": "Short note 50",
+    "weirdKeyObject": {
+      "display name": "Display 50",
+      "cost.usd": 831.2
+    }
+  },
+  {
+    "id": 51,
+    "label": "Record 51",
+    "category": "Retail",
+    "optionalOwner": "Ada 21",
+    "emptyText": "Value 50",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Design"
+    ],
+    "measurements": [
+      50,
+      50.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 51",
+    "weirdKeyObject": {
+      "display name": "Display 51",
+      "cost.usd": 2415
+    }
+  },
+  {
+    "id": 52,
+    "label": "Record 52",
+    "category": "Healthcare",
+    "optionalOwner": "Grace 22",
+    "emptyText": "",
+    "zeroOrNumber": 63.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Data"
+    ],
+    "measurements": [
+      51,
+      51.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 51"
+    },
+    "longText": "Short note 52",
+    "weirdKeyObject": {
+      "display name": "Display 52",
+      "cost.usd": 3998.8
+    }
+  },
+  {
+    "id": 53,
+    "label": "Record 53",
+    "category": "Media",
+    "emptyText": "Value 52",
+    "zeroOrNumber": 65,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Security"
+    ],
+    "measurements": [
+      52,
+      52.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 52"
+    },
+    "longText": "Short note 53",
+    "weirdKeyObject": {
+      "display name": "Display 53",
+      "cost.usd": 782.6
+    }
+  },
+  {
+    "id": 54,
+    "label": "Record 54",
+    "category": "Logistics",
+    "optionalOwner": "Margaret 24",
+    "emptyText": "Value 53",
+    "zeroOrNumber": 66.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Support"
+    ],
+    "measurements": [
+      53,
+      53.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 53"
+    },
+    "longText": "Short note 54",
+    "weirdKeyObject": {
+      "display name": "Display 54",
+      "cost.usd": 2366.4
+    }
+  },
+  {
+    "id": 55,
+    "label": "Quoted \"record\" 55",
+    "category": "SaaS",
+    "optionalOwner": "Alan 25",
+    "emptyText": "",
+    "zeroOrNumber": 67.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Helix",
+      "Platform"
+    ],
+    "measurements": [
+      54,
+      54.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 54"
+    },
+    "longText": "Short note 55",
+    "weirdKeyObject": {
+      "display name": "Display 55",
+      "cost.usd": 3950.2
+    }
+  },
+  {
+    "id": 56,
+    "label": "Record 56",
+    "category": "Fintech",
+    "optionalOwner": "Katherine 26",
+    "emptyText": "Value 55",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Growth"
+    ],
+    "measurements": [
+      55,
+      55.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 55"
+    },
+    "longText": "Short note 56",
+    "weirdKeyObject": {
+      "display name": "Display 56",
+      "cost.usd": 734
+    }
+  },
+  {
+    "id": 57,
+    "label": "Record 57",
+    "category": null,
+    "emptyText": "Value 56",
+    "zeroOrNumber": 70,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      56,
+      56.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 56"
+    },
+    "longText": "Short note 57",
+    "weirdKeyObject": {
+      "display name": "Display 57",
+      "cost.usd": 2317.8
+    }
+  },
+  {
+    "id": 58,
+    "label": "Record 58",
+    "category": "Healthcare",
+    "optionalOwner": "Radia 28",
+    "emptyText": "",
+    "zeroOrNumber": 71.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Data"
+    ],
+    "measurements": [
+      57,
+      57.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 57"
+    },
+    "longText": "Short note 58",
+    "weirdKeyObject": {
+      "display name": "Display 58",
+      "cost.usd": 3901.6
+    }
+  },
+  {
+    "id": 59,
+    "label": "Record 59",
+    "category": "Media",
+    "optionalOwner": "Barbara 29",
+    "emptyText": "Value 58",
+    "zeroOrNumber": 72.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Security"
+    ],
+    "measurements": [
+      58,
+      58.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 58"
+    },
+    "longText": "Short note 59",
+    "weirdKeyObject": {
+      "display name": "Display 59",
+      "cost.usd": 685.4
+    }
+  },
+  {
+    "id": 60,
+    "label": "Record 60",
+    "category": "Logistics",
+    "optionalOwner": "Donald 30",
+    "emptyText": "Value 59",
+    "zeroOrNumber": 73.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Support"
+    ],
+    "measurements": [
+      59,
+      59.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 59"
+    },
+    "longText": "Short note 60",
+    "weirdKeyObject": {
+      "display name": "Display 60",
+      "cost.usd": 2269.2
+    }
+  },
+  {
+    "id": 61,
+    "label": "Record 61",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Echo",
+      "Platform"
+    ],
+    "measurements": [
+      60,
+      60.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": null
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 61. This intentionally long value checks wrapping and truncation behavior for record 61. This intentionally long value checks wrapping and truncation behavior for record 61. This intentionally long value checks wrapping and truncation behavior for record 61. ",
+    "weirdKeyObject": {
+      "display name": "Display 61",
+      "cost.usd": 3853
+    }
+  },
+  {
+    "id": 62,
+    "label": "Record 62",
+    "category": "Fintech",
+    "optionalOwner": "Grace 2",
+    "emptyText": "Value 61",
+    "zeroOrNumber": 76.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Growth"
+    ],
+    "measurements": [
+      61,
+      61.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 61"
+    },
+    "longText": "Short note 62",
+    "weirdKeyObject": {
+      "display name": "Display 62",
+      "cost.usd": 636.8
+    }
+  },
+  {
+    "id": 63,
+    "label": "Record 63",
+    "category": "Retail",
+    "optionalOwner": "Linus 3",
+    "emptyText": "Value 62",
+    "zeroOrNumber": 77.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Design"
+    ],
+    "measurements": [
+      62,
+      62.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 62"
+    },
+    "longText": "Short note 63",
+    "weirdKeyObject": {
+      "display name": "Display 63",
+      "cost.usd": 2220.6
+    }
+  },
+  {
+    "id": 64,
+    "label": "Quoted \"record\" 64",
+    "category": null,
+    "optionalOwner": "Margaret 4",
+    "emptyText": "",
+    "zeroOrNumber": 78.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Data"
+    ],
+    "measurements": [
+      63,
+      63.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 63"
+    },
+    "longText": "Short note 64",
+    "weirdKeyObject": {
+      "display name": "Display 64",
+      "cost.usd": 3804.4
+    }
+  },
+  {
+    "id": 65,
+    "label": "Record 65",
+    "category": "Media",
+    "emptyText": "Value 64",
+    "zeroOrNumber": 80,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      64,
+      64.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 64"
+    },
+    "longText": "Short note 65",
+    "weirdKeyObject": {
+      "display name": "Display 65",
+      "cost.usd": 588.2
+    }
+  },
+  {
+    "id": 66,
+    "label": "Record 66",
+    "category": "Logistics",
+    "optionalOwner": "Katherine 6",
+    "emptyText": "Value 65",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Support"
+    ],
+    "measurements": [
+      65,
+      65.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 65"
+    },
+    "longText": "Short note 66",
+    "weirdKeyObject": {
+      "display name": "Display 66",
+      "cost.usd": 2172
+    }
+  },
+  {
+    "id": 67,
+    "label": "Record 67",
+    "category": "SaaS",
+    "optionalOwner": "Edsger 7",
+    "emptyText": "",
+    "zeroOrNumber": 82.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Canvas",
+      "Platform"
+    ],
+    "measurements": [
+      66,
+      66.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 66"
+    },
+    "longText": "Short note 67",
+    "weirdKeyObject": {
+      "display name": "Display 67",
+      "cost.usd": 3755.8
+    }
+  },
+  {
+    "id": 68,
+    "label": "Record 68",
+    "category": "Fintech",
+    "optionalOwner": "Radia 8",
+    "emptyText": "Value 67",
+    "zeroOrNumber": 83.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Growth"
+    ],
+    "measurements": [
+      67,
+      67.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 67"
+    },
+    "longText": "Short note 68",
+    "weirdKeyObject": {
+      "display name": "Display 68",
+      "cost.usd": 539.6
+    }
+  },
+  {
+    "id": 69,
+    "label": "Record 69",
+    "category": "Retail",
+    "emptyText": "Value 68",
+    "zeroOrNumber": 85,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Design"
+    ],
+    "measurements": [
+      68,
+      68.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 68"
+    },
+    "longText": "Short note 69",
+    "weirdKeyObject": {
+      "display name": "Display 69",
+      "cost.usd": 2123.4
+    }
+  },
+  {
+    "id": 70,
+    "label": "Record 70",
+    "category": "Healthcare",
+    "optionalOwner": "Donald 10",
+    "emptyText": "",
+    "zeroOrNumber": 86.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Data"
+    ],
+    "measurements": [
+      69,
+      69.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 69"
+    },
+    "longText": "Short note 70",
+    "weirdKeyObject": {
+      "display name": "Display 70",
+      "cost.usd": 3707.2
+    }
+  },
+  {
+    "id": 71,
+    "label": "Record 71",
+    "category": null,
+    "optionalOwner": "Ada 11",
+    "emptyText": "Value 70",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Security"
+    ],
+    "measurements": [
+      70,
+      70.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 71",
+    "weirdKeyObject": {
+      "display name": "Display 71",
+      "cost.usd": 491
+    }
+  },
+  {
+    "id": 72,
+    "label": "Record 72",
+    "category": "Logistics",
+    "optionalOwner": "Grace 12",
+    "emptyText": "Value 71",
+    "zeroOrNumber": 88.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Support"
+    ],
+    "measurements": [
+      71,
+      71.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 71"
+    },
+    "longText": "Short note 72",
+    "weirdKeyObject": {
+      "display name": "Display 72",
+      "cost.usd": 2074.8
+    }
+  },
+  {
+    "id": 73,
+    "label": "Quoted \"record\" 73",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 90,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [],
+    "measurements": [
+      72,
+      72.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 72"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 73. This intentionally long value checks wrapping and truncation behavior for record 73. This intentionally long value checks wrapping and truncation behavior for record 73. This intentionally long value checks wrapping and truncation behavior for record 73. ",
+    "weirdKeyObject": {
+      "display name": "Display 73",
+      "cost.usd": 3658.6
+    }
+  },
+  {
+    "id": 74,
+    "label": "Record 74",
+    "category": "Fintech",
+    "optionalOwner": "Margaret 14",
+    "emptyText": "Value 73",
+    "zeroOrNumber": 91.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Growth"
+    ],
+    "measurements": [
+      73,
+      73.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 73"
+    },
+    "longText": "Short note 74",
+    "weirdKeyObject": {
+      "display name": "Display 74",
+      "cost.usd": 442.4
+    }
+  },
+  {
+    "id": 75,
+    "label": "Record 75",
+    "category": "Retail",
+    "optionalOwner": "Alan 15",
+    "emptyText": "Value 74",
+    "zeroOrNumber": 92.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Design"
+    ],
+    "measurements": [
+      74,
+      74.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 74"
+    },
+    "longText": "Short note 75",
+    "weirdKeyObject": {
+      "display name": "Display 75",
+      "cost.usd": 2026.2
+    }
+  },
+  {
+    "id": 76,
+    "label": "Record 76",
+    "category": "Healthcare",
+    "optionalOwner": "Katherine 16",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Data"
+    ],
+    "measurements": [
+      75,
+      75.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": "Nested 75"
+    },
+    "longText": "Short note 76",
+    "weirdKeyObject": {
+      "display name": "Display 76",
+      "cost.usd": 3610
+    }
+  },
+  {
+    "id": 77,
+    "label": "Record 77",
+    "category": "Media",
+    "emptyText": "Value 76",
+    "zeroOrNumber": 95,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Security"
+    ],
+    "measurements": [
+      76,
+      76.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 76"
+    },
+    "longText": "Short note 77",
+    "weirdKeyObject": {
+      "display name": "Display 77",
+      "cost.usd": 393.8
+    }
+  },
+  {
+    "id": 78,
+    "label": "Record 78",
+    "category": null,
+    "optionalOwner": "Radia 18",
+    "emptyText": "Value 77",
+    "zeroOrNumber": 96.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Support"
+    ],
+    "measurements": [
+      77,
+      77.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 77"
+    },
+    "longText": "Short note 78",
+    "weirdKeyObject": {
+      "display name": "Display 78",
+      "cost.usd": 1977.6
+    }
+  },
+  {
+    "id": 79,
+    "label": "Record 79",
+    "category": "SaaS",
+    "optionalOwner": "Barbara 19",
+    "emptyText": "",
+    "zeroOrNumber": 97.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Helix",
+      "Platform"
+    ],
+    "measurements": [
+      78,
+      78.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 78"
+    },
+    "longText": "Short note 79",
+    "weirdKeyObject": {
+      "display name": "Display 79",
+      "cost.usd": 3561.4
+    }
+  },
+  {
+    "id": 80,
+    "label": "Record 80",
+    "category": "Fintech",
+    "optionalOwner": "Donald 20",
+    "emptyText": "Value 79",
+    "zeroOrNumber": 98.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Growth"
+    ],
+    "measurements": [
+      79,
+      79.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 79"
+    },
+    "longText": "Short note 80",
+    "weirdKeyObject": {
+      "display name": "Display 80",
+      "cost.usd": 345.2
+    }
+  },
+  {
+    "id": 81,
+    "label": "Record 81",
+    "category": "Retail",
+    "emptyText": "Value 80",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      80,
+      80.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 81",
+    "weirdKeyObject": {
+      "display name": "Display 81",
+      "cost.usd": 1929
+    }
+  },
+  {
+    "id": 82,
+    "label": "Quoted \"record\" 82",
+    "category": "Healthcare",
+    "optionalOwner": "Grace 22",
+    "emptyText": "",
+    "zeroOrNumber": 101.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Data"
+    ],
+    "measurements": [
+      81,
+      81.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 81"
+    },
+    "longText": "Short note 82",
+    "weirdKeyObject": {
+      "display name": "Display 82",
+      "cost.usd": 3512.8
+    }
+  },
+  {
+    "id": 83,
+    "label": "Record 83",
+    "category": "Media",
+    "optionalOwner": "Linus 23",
+    "emptyText": "Value 82",
+    "zeroOrNumber": 102.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Security"
+    ],
+    "measurements": [
+      82,
+      82.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 82"
+    },
+    "longText": "Short note 83",
+    "weirdKeyObject": {
+      "display name": "Display 83",
+      "cost.usd": 296.6
+    }
+  },
+  {
+    "id": 84,
+    "label": "Record 84",
+    "category": "Logistics",
+    "optionalOwner": "Margaret 24",
+    "emptyText": "Value 83",
+    "zeroOrNumber": 103.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Support"
+    ],
+    "measurements": [
+      83,
+      83.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 83"
+    },
+    "longText": "Short note 84",
+    "weirdKeyObject": {
+      "display name": "Display 84",
+      "cost.usd": 1880.4
+    }
+  },
+  {
+    "id": 85,
+    "label": "Record 85",
+    "category": null,
+    "emptyText": "",
+    "zeroOrNumber": 105,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Echo",
+      "Platform"
+    ],
+    "measurements": [
+      84,
+      84.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 84"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 85. This intentionally long value checks wrapping and truncation behavior for record 85. This intentionally long value checks wrapping and truncation behavior for record 85. This intentionally long value checks wrapping and truncation behavior for record 85. ",
+    "weirdKeyObject": {
+      "display name": "Display 85",
+      "cost.usd": 3464.2
+    }
+  },
+  {
+    "id": 86,
+    "label": "Record 86",
+    "category": "Fintech",
+    "optionalOwner": "Katherine 26",
+    "emptyText": "Value 85",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Growth"
+    ],
+    "measurements": [
+      85,
+      85.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 85"
+    },
+    "longText": "Short note 86",
+    "weirdKeyObject": {
+      "display name": "Display 86",
+      "cost.usd": 248
+    }
+  },
+  {
+    "id": 87,
+    "label": "Record 87",
+    "category": "Retail",
+    "optionalOwner": "Edsger 27",
+    "emptyText": "Value 86",
+    "zeroOrNumber": 107.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Design"
+    ],
+    "measurements": [
+      86,
+      86.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 86"
+    },
+    "longText": "Short note 87",
+    "weirdKeyObject": {
+      "display name": "Display 87",
+      "cost.usd": 1831.8
+    }
+  },
+  {
+    "id": 88,
+    "label": "Record 88",
+    "category": "Healthcare",
+    "optionalOwner": "Radia 28",
+    "emptyText": "",
+    "zeroOrNumber": 108.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Data"
+    ],
+    "measurements": [
+      87,
+      87.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 87"
+    },
+    "longText": "Short note 88",
+    "weirdKeyObject": {
+      "display name": "Display 88",
+      "cost.usd": 3415.6
+    }
+  },
+  {
+    "id": 89,
+    "label": "Record 89",
+    "category": "Media",
+    "emptyText": "Value 88",
+    "zeroOrNumber": 110,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      88,
+      88.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 88"
+    },
+    "longText": "Short note 89",
+    "weirdKeyObject": {
+      "display name": "Display 89",
+      "cost.usd": 199.4
+    }
+  },
+  {
+    "id": 90,
+    "label": "Record 90",
+    "category": "Logistics",
+    "optionalOwner": "Donald 30",
+    "emptyText": "Value 89",
+    "zeroOrNumber": 111.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Support"
+    ],
+    "measurements": [
+      89,
+      89.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 89"
+    },
+    "longText": "Short note 90",
+    "weirdKeyObject": {
+      "display name": "Display 90",
+      "cost.usd": 1783.2
+    }
+  },
+  {
+    "id": 91,
+    "label": "Quoted \"record\" 91",
+    "category": "SaaS",
+    "optionalOwner": "Ada 1",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Canvas",
+      "Platform"
+    ],
+    "measurements": [
+      90,
+      90.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": null
+    },
+    "longText": "Short note 91",
+    "weirdKeyObject": {
+      "display name": "Display 91",
+      "cost.usd": 3367
+    }
+  },
+  {
+    "id": 92,
+    "label": "Record 92",
+    "category": null,
+    "optionalOwner": "Grace 2",
+    "emptyText": "Value 91",
+    "zeroOrNumber": 113.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Growth"
+    ],
+    "measurements": [
+      91,
+      91.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 91"
+    },
+    "longText": "Short note 92",
+    "weirdKeyObject": {
+      "display name": "Display 92",
+      "cost.usd": 150.8
+    }
+  },
+  {
+    "id": 93,
+    "label": "Record 93",
+    "category": "Retail",
+    "emptyText": "Value 92",
+    "zeroOrNumber": 115,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Design"
+    ],
+    "measurements": [
+      92,
+      92.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 92"
+    },
+    "longText": "Short note 93",
+    "weirdKeyObject": {
+      "display name": "Display 93",
+      "cost.usd": 1734.6
+    }
+  },
+  {
+    "id": 94,
+    "label": "Record 94",
+    "category": "Healthcare",
+    "optionalOwner": "Margaret 4",
+    "emptyText": "",
+    "zeroOrNumber": 116.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Data"
+    ],
+    "measurements": [
+      93,
+      93.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 93"
+    },
+    "longText": "Short note 94",
+    "weirdKeyObject": {
+      "display name": "Display 94",
+      "cost.usd": 3318.4
+    }
+  },
+  {
+    "id": 95,
+    "label": "Record 95",
+    "category": "Media",
+    "optionalOwner": "Alan 5",
+    "emptyText": "Value 94",
+    "zeroOrNumber": 117.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Security"
+    ],
+    "measurements": [
+      94,
+      94.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 94"
+    },
+    "longText": "Short note 95",
+    "weirdKeyObject": {
+      "display name": "Display 95",
+      "cost.usd": 102.2
+    }
+  },
+  {
+    "id": 96,
+    "label": "Record 96",
+    "category": "Logistics",
+    "optionalOwner": "Katherine 6",
+    "emptyText": "Value 95",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Support"
+    ],
+    "measurements": [
+      95,
+      95.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 95"
+    },
+    "longText": "Short note 96",
+    "weirdKeyObject": {
+      "display name": "Display 96",
+      "cost.usd": 1686
+    }
+  },
+  {
+    "id": 97,
+    "label": "Record 97",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 120,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [],
+    "measurements": [
+      96,
+      96.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 96"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 97. This intentionally long value checks wrapping and truncation behavior for record 97. This intentionally long value checks wrapping and truncation behavior for record 97. This intentionally long value checks wrapping and truncation behavior for record 97. ",
+    "weirdKeyObject": {
+      "display name": "Display 97",
+      "cost.usd": 3269.8
+    }
+  },
+  {
+    "id": 98,
+    "label": "Record 98",
+    "category": "Fintech",
+    "optionalOwner": "Radia 8",
+    "emptyText": "Value 97",
+    "zeroOrNumber": 121.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Growth"
+    ],
+    "measurements": [
+      97,
+      97.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 97"
+    },
+    "longText": "Short note 98",
+    "weirdKeyObject": {
+      "display name": "Display 98",
+      "cost.usd": 53.6
+    }
+  },
+  {
+    "id": 99,
+    "label": "Record 99",
+    "category": null,
+    "optionalOwner": "Barbara 9",
+    "emptyText": "Value 98",
+    "zeroOrNumber": 122.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Design"
+    ],
+    "measurements": [
+      98,
+      98.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 98"
+    },
+    "longText": "Short note 99",
+    "weirdKeyObject": {
+      "display name": "Display 99",
+      "cost.usd": 1637.4
+    }
+  },
+  {
+    "id": 100,
+    "label": "Quoted \"record\" 100",
+    "category": "Healthcare",
+    "optionalOwner": "Donald 10",
+    "emptyText": "",
+    "zeroOrNumber": 123.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Data"
+    ],
+    "measurements": [
+      99,
+      99.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 99"
+    },
+    "longText": "Short note 100",
+    "weirdKeyObject": {
+      "display name": "Display 100",
+      "cost.usd": 3221.2
+    }
+  },
+  {
+    "id": 101,
+    "label": "Record 101",
+    "category": "Media",
+    "emptyText": "Value 100",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Security"
+    ],
+    "measurements": [
+      100,
+      100.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 101",
+    "weirdKeyObject": {
+      "display name": "Display 101",
+      "cost.usd": 4805
+    }
+  },
+  {
+    "id": 102,
+    "label": "Record 102",
+    "category": "Logistics",
+    "optionalOwner": "Grace 12",
+    "emptyText": "Value 101",
+    "zeroOrNumber": 126.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Support"
+    ],
+    "measurements": [
+      101,
+      101.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 101"
+    },
+    "longText": "Short note 102",
+    "weirdKeyObject": {
+      "display name": "Display 102",
+      "cost.usd": 1588.8
+    }
+  },
+  {
+    "id": 103,
+    "label": "Record 103",
+    "category": "SaaS",
+    "optionalOwner": "Linus 13",
+    "emptyText": "",
+    "zeroOrNumber": 127.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Helix",
+      "Platform"
+    ],
+    "measurements": [
+      102,
+      102.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 102"
+    },
+    "longText": "Short note 103",
+    "weirdKeyObject": {
+      "display name": "Display 103",
+      "cost.usd": 3172.6
+    }
+  },
+  {
+    "id": 104,
+    "label": "Record 104",
+    "category": "Fintech",
+    "optionalOwner": "Margaret 14",
+    "emptyText": "Value 103",
+    "zeroOrNumber": 128.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Growth"
+    ],
+    "measurements": [
+      103,
+      103.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 103"
+    },
+    "longText": "Short note 104",
+    "weirdKeyObject": {
+      "display name": "Display 104",
+      "cost.usd": 4756.4
+    }
+  },
+  {
+    "id": 105,
+    "label": "Record 105",
+    "category": "Retail",
+    "emptyText": "Value 104",
+    "zeroOrNumber": 130,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      104,
+      104.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 104"
+    },
+    "longText": "Short note 105",
+    "weirdKeyObject": {
+      "display name": "Display 105",
+      "cost.usd": 1540.2
+    }
+  },
+  {
+    "id": 106,
+    "label": "Record 106",
+    "category": null,
+    "optionalOwner": "Katherine 16",
+    "emptyText": "",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Data"
+    ],
+    "measurements": [
+      105,
+      105.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": true,
+      "note": "Nested 105"
+    },
+    "longText": "Short note 106",
+    "weirdKeyObject": {
+      "display name": "Display 106",
+      "cost.usd": 3124
+    }
+  },
+  {
+    "id": 107,
+    "label": "Record 107",
+    "category": "Media",
+    "optionalOwner": "Edsger 17",
+    "emptyText": "Value 106",
+    "zeroOrNumber": 132.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Canvas",
+      "Security"
+    ],
+    "measurements": [
+      106,
+      106.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 106"
+    },
+    "longText": "Short note 107",
+    "weirdKeyObject": {
+      "display name": "Display 107",
+      "cost.usd": 4707.8
+    }
+  },
+  {
+    "id": 108,
+    "label": "Record 108",
+    "category": "Logistics",
+    "optionalOwner": "Radia 18",
+    "emptyText": "Value 107",
+    "zeroOrNumber": 133.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Support"
+    ],
+    "measurements": [
+      107,
+      107.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 107"
+    },
+    "longText": "Short note 108",
+    "weirdKeyObject": {
+      "display name": "Display 108",
+      "cost.usd": 1491.6
+    }
+  },
+  {
+    "id": 109,
+    "label": "Quoted \"record\" 109",
+    "category": "SaaS",
+    "emptyText": "",
+    "zeroOrNumber": 135,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Echo",
+      "Platform"
+    ],
+    "measurements": [
+      108,
+      108.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": true,
+      "note": "Nested 108"
+    },
+    "longText": "This intentionally long value checks wrapping and truncation behavior for record 109. This intentionally long value checks wrapping and truncation behavior for record 109. This intentionally long value checks wrapping and truncation behavior for record 109. This intentionally long value checks wrapping and truncation behavior for record 109. ",
+    "weirdKeyObject": {
+      "display name": "Display 109",
+      "cost.usd": 3075.4
+    }
+  },
+  {
+    "id": 110,
+    "label": "Record 110",
+    "category": "Fintech",
+    "optionalOwner": "Donald 20",
+    "emptyText": "Value 109",
+    "zeroOrNumber": 136.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Growth"
+    ],
+    "measurements": [
+      109,
+      109.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 109"
+    },
+    "longText": "Short note 110",
+    "weirdKeyObject": {
+      "display name": "Display 110",
+      "cost.usd": 4659.2
+    }
+  },
+  {
+    "id": 111,
+    "label": "Record 111",
+    "category": "Retail",
+    "optionalOwner": "Ada 21",
+    "emptyText": "Value 110",
+    "zeroOrNumber": 0,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Design"
+    ],
+    "measurements": [
+      110,
+      110.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": null
+    },
+    "longText": "Short note 111",
+    "weirdKeyObject": {
+      "display name": "Display 111",
+      "cost.usd": 1443
+    }
+  },
+  {
+    "id": 112,
+    "label": "Record 112",
+    "category": "Healthcare",
+    "optionalOwner": "Grace 22",
+    "emptyText": "",
+    "zeroOrNumber": 138.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Data"
+    ],
+    "measurements": [
+      111,
+      111.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": true,
+      "note": "Nested 111"
+    },
+    "longText": "Short note 112",
+    "weirdKeyObject": {
+      "display name": "Display 112",
+      "cost.usd": 3026.8
+    }
+  },
+  {
+    "id": 113,
+    "label": "Record 113",
+    "category": null,
+    "emptyText": "Value 112",
+    "zeroOrNumber": 140,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [],
+    "measurements": [
+      112,
+      112.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": false,
+      "note": "Nested 112"
+    },
+    "longText": "Short note 113",
+    "weirdKeyObject": {
+      "display name": "Display 113",
+      "cost.usd": 4610.6
+    }
+  },
+  {
+    "id": 114,
+    "label": "Record 114",
+    "category": "Logistics",
+    "optionalOwner": "Margaret 24",
+    "emptyText": "Value 113",
+    "zeroOrNumber": 141.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Beacon",
+      "Support"
+    ],
+    "measurements": [
+      113,
+      113.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 113"
+    },
+    "longText": "Short note 114",
+    "weirdKeyObject": {
+      "display name": "Display 114",
+      "cost.usd": 1394.4
+    }
+  },
+  {
+    "id": 115,
+    "label": "Record 115",
+    "category": "SaaS",
+    "optionalOwner": "Alan 25",
+    "emptyText": "",
+    "zeroOrNumber": 142.5,
+    "enabled": true,
+    "nullableBoolean": null,
+    "tags": [
+      "Canvas",
+      "Platform"
+    ],
+    "measurements": [
+      114,
+      114.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": true,
+      "note": "Nested 114"
+    },
+    "longText": "Short note 115",
+    "weirdKeyObject": {
+      "display name": "Display 115",
+      "cost.usd": 2978.2
+    }
+  },
+  {
+    "id": 116,
+    "label": "Record 116",
+    "category": "Fintech",
+    "optionalOwner": "Katherine 26",
+    "emptyText": "Value 115",
+    "zeroOrNumber": 0,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Delta",
+      "Growth"
+    ],
+    "measurements": [
+      115,
+      115.5,
+      null
+    ],
+    "nested": {
+      "level": 0,
+      "flag": false,
+      "note": "Nested 115"
+    },
+    "longText": "Short note 116",
+    "weirdKeyObject": {
+      "display name": "Display 116",
+      "cost.usd": 4562
+    }
+  },
+  {
+    "id": 117,
+    "label": "Record 117",
+    "category": "Retail",
+    "emptyText": "Value 116",
+    "zeroOrNumber": 145,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Echo",
+      "Design"
+    ],
+    "measurements": [
+      116,
+      116.5,
+      null
+    ],
+    "nested": {
+      "level": 1,
+      "flag": false,
+      "note": "Nested 116"
+    },
+    "longText": "Short note 117",
+    "weirdKeyObject": {
+      "display name": "Display 117",
+      "cost.usd": 1345.8
+    }
+  },
+  {
+    "id": 118,
+    "label": "Quoted \"record\" 118",
+    "category": "Healthcare",
+    "optionalOwner": "Radia 28",
+    "emptyText": "",
+    "zeroOrNumber": 146.25,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Forge",
+      "Data"
+    ],
+    "measurements": [
+      117,
+      117.5,
+      null
+    ],
+    "nested": {
+      "level": 2,
+      "flag": true,
+      "note": "Nested 117"
+    },
+    "longText": "Short note 118",
+    "weirdKeyObject": {
+      "display name": "Display 118",
+      "cost.usd": 2929.6
+    }
+  },
+  {
+    "id": 119,
+    "label": "Record 119",
+    "category": "Media",
+    "optionalOwner": "Barbara 29",
+    "emptyText": "Value 118",
+    "zeroOrNumber": 147.5,
+    "enabled": true,
+    "nullableBoolean": true,
+    "tags": [
+      "Helix",
+      "Security"
+    ],
+    "measurements": [
+      118,
+      118.5,
+      null
+    ],
+    "nested": {
+      "level": 3,
+      "flag": false,
+      "note": "Nested 118"
+    },
+    "longText": "Short note 119",
+    "weirdKeyObject": {
+      "display name": "Display 119",
+      "cost.usd": 4513.4
+    }
+  },
+  {
+    "id": 120,
+    "label": "Record 120",
+    "category": null,
+    "optionalOwner": "Donald 30",
+    "emptyText": "Value 119",
+    "zeroOrNumber": 148.75,
+    "enabled": false,
+    "nullableBoolean": false,
+    "tags": [
+      "Ion",
+      "Support"
+    ],
+    "measurements": [
+      119,
+      119.5,
+      null
+    ],
+    "nested": {
+      "level": 4,
+      "flag": false,
+      "note": "Nested 119"
+    },
+    "longText": "Short note 120",
+    "weirdKeyObject": {
+      "display name": "Display 120",
+      "cost.usd": 1297.2
+    }
+  }
+]

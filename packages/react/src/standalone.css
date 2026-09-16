@@ -1,0 +1,113 @@
+.json-views-app {
+  --background: var(--json-views-background, oklch(0.988 0.003 280));
+  --foreground: var(--json-views-foreground, oklch(0.27 0.018 280));
+  --card: var(--json-views-card, oklch(1 0 0));
+  --card-foreground: var(--json-views-card-foreground, oklch(0.27 0.018 280));
+  --muted: var(--json-views-muted, oklch(0.957 0.008 280));
+  --muted-foreground: var(--json-views-muted-foreground, oklch(0.49 0.022 280));
+  --accent: var(--json-views-accent, oklch(0.94 0.019 285));
+  --accent-foreground: var(--json-views-accent-foreground, oklch(0.36 0.065 285));
+  --primary: var(--json-views-primary, oklch(0.49 0.15 285));
+  --primary-foreground: var(--json-views-primary-foreground, oklch(0.99 0.003 285));
+  --border: var(--json-views-border, oklch(0.901 0.009 280));
+  --input: var(--json-views-input, oklch(0.901 0.009 280));
+  --ring: var(--json-views-ring, oklch(0.55 0.15 285));
+  --link: var(--json-views-link, oklch(0.48 0.14 250));
+  --warning: var(--json-views-warning, oklch(0.48 0.09 70));
+  --destructive: var(--json-views-destructive, oklch(0.49 0.16 25));
+  --destructive-border: var(--json-views-destructive-border, oklch(0.86 0.055 25));
+  --destructive-surface: var(--json-views-destructive-surface, oklch(0.965 0.015 25));
+  --destructive-foreground: var(--json-views-destructive-foreground, oklch(0.43 0.12 25));
+}
+
+.json-views-app[data-json-views-theme="dark"] {
+  --background: var(--json-views-background, oklch(0.205 0.012 280));
+  --foreground: var(--json-views-foreground, oklch(0.93 0.01 280));
+  --card: var(--json-views-card, oklch(0.245 0.015 280));
+  --card-foreground: var(--json-views-card-foreground, oklch(0.93 0.01 280));
+  --muted: var(--json-views-muted, oklch(0.27 0.014 280));
+  --muted-foreground: var(--json-views-muted-foreground, oklch(0.71 0.025 280));
+  --accent: var(--json-views-accent, oklch(0.31 0.035 285));
+  --accent-foreground: var(--json-views-accent-foreground, oklch(0.87 0.035 285));
+  --primary: var(--json-views-primary, oklch(0.79 0.105 285));
+  --primary-foreground: var(--json-views-primary-foreground, oklch(0.23 0.04 285));
+  --border: var(--json-views-border, oklch(0.355 0.019 280));
+  --input: var(--json-views-input, oklch(0.355 0.019 280));
+  --ring: var(--json-views-ring, oklch(0.73 0.12 285));
+  --link: var(--json-views-link, oklch(0.77 0.1 250));
+  --warning: var(--json-views-warning, oklch(0.81 0.11 80));
+  --destructive: var(--json-views-destructive, oklch(0.77 0.13 25));
+  --destructive-border: var(--json-views-destructive-border, oklch(0.46 0.08 25));
+  --destructive-surface: var(--json-views-destructive-surface, oklch(0.28 0.03 25));
+  --destructive-foreground: var(--json-views-destructive-foreground, oklch(0.86 0.07 25));
+}
+
+.json-views-app .json-views-inline-feedback-action {
+  display: inline-flex;
+  width: auto;
+  min-width: 24px;
+  max-width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  color: var(--muted-foreground);
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: normal;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: max-width 220ms cubic-bezier(.2, .8, .2, 1), padding 220ms ease, gap 220ms ease, color 150ms ease, background-color 150ms ease;
+}
+.json-views-app .json-views-inline-feedback-action:hover,
+.json-views-app .json-views-inline-feedback-action.is-feedback {
+  color: var(--foreground);
+  background: var(--accent);
+}
+.json-views-app .json-views-inline-feedback-action.is-strong { color: var(--foreground); }
+.json-views-app .json-views-inline-feedback-action.is-destructive { color: var(--destructive); }
+.json-views-app .json-views-inline-feedback-action.is-feedback {
+  max-width: 150px;
+  gap: 5px;
+  padding-inline: 7px;
+}
+.json-views-app .json-views-inline-feedback-action:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.json-views-app .json-views-inline-feedback-action:disabled { cursor: default; opacity: .5; }
+.json-views-app .json-views-inline-feedback-action > svg { flex-shrink: 0; }
+.json-views-app .json-views-inline-feedback-action.is-feedback > svg { animation: json-views-action-confirm 220ms cubic-bezier(.2, .8, .2, 1); }
+.json-views-app .json-views-inline-feedback-label {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: max-width 220ms cubic-bezier(.2, .8, .2, 1), opacity 150ms ease 50ms, transform 220ms ease;
+}
+.json-views-app .json-views-inline-feedback-action.is-feedback .json-views-inline-feedback-label {
+  max-width: 120px;
+  opacity: 1;
+  transform: translateX(0);
+}
+@keyframes json-views-action-confirm {
+  from { opacity: .4; transform: scale(.72); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .json-views-app .json-views-inline-feedback-action,
+  .json-views-app .json-views-inline-feedback-label { transition: none; }
+  .json-views-app .json-views-inline-feedback-action.is-feedback > svg { animation: none; }
+}
+
+
+.json-views-app {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--json-views-font-family, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}

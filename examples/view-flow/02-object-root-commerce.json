@@ -1,0 +1,8256 @@
+{
+  "store": {
+    "name": "Meridian Market",
+    "defaultCurrency": "USD",
+    "regions": [
+      "North America",
+      "Europe",
+      "Asia Pacific",
+      "Middle East",
+      "Latin America"
+    ],
+    "launched": "2024-05-10"
+  },
+  "orders": [
+    {
+      "orderId": "ORD-00001",
+      "customerId": "CUS-0001",
+      "company": "Acme SaaS 1",
+      "status": "Draft",
+      "channel": "Email",
+      "placedAt": "2026-01-01T00:00:00Z",
+      "currency": "USD",
+      "subtotal": 100,
+      "tax": 10,
+      "discount": 3.75,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0001",
+          "quantity": 1,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00002",
+      "customerId": "CUS-0002",
+      "company": "Globex Fintech 2",
+      "status": "Pending",
+      "channel": "Chat",
+      "placedAt": "2026-01-04T07:13:00Z",
+      "currency": "EUR",
+      "subtotal": 6435.2,
+      "tax": 643.52,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0002",
+          "quantity": 2,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 3,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00003",
+      "customerId": "CUS-0003",
+      "company": "Initech Retail 3",
+      "status": "Paid",
+      "channel": "Phone",
+      "placedAt": "2026-01-07T14:26:00Z",
+      "currency": "GBP",
+      "subtotal": 12770.4,
+      "tax": 1277.04,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0003",
+          "quantity": 3,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 4,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 5,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00004",
+      "customerId": "CUS-0004",
+      "company": "Umbrella Healthcare 4",
+      "status": "Packed",
+      "channel": "Web",
+      "placedAt": "2026-01-10T21:39:00Z",
+      "currency": "ILS",
+      "subtotal": 19105.6,
+      "tax": 1910.56,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0004",
+          "quantity": 4,
+          "unitPrice": 2865.84
+        },
+        {
+          "sku": "SKU-0011",
+          "quantity": 5,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 1,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 2,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00005",
+      "customerId": "CUS-0005",
+      "company": "Stark Media 5",
+      "status": "Shipped",
+      "channel": "Partner",
+      "placedAt": "2026-01-13T04:52:00Z",
+      "currency": "JPY",
+      "subtotal": 6240.8,
+      "tax": 624.08,
+      "discount": 234.03,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0005",
+          "quantity": 5,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00006",
+      "customerId": "CUS-0006",
+      "company": "Wayne Logistics 6",
+      "status": "Delivered",
+      "channel": "Email",
+      "placedAt": "2026-01-16T11:05:00Z",
+      "currency": "USD",
+      "subtotal": 12576,
+      "tax": 1257.6,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0006",
+          "quantity": 1,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 2,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00007",
+      "customerId": "CUS-0007",
+      "company": "Wonka SaaS 7",
+      "status": "Refunded",
+      "channel": "Chat",
+      "placedAt": "2026-01-19T18:18:00Z",
+      "currency": "EUR",
+      "subtotal": 18911.2,
+      "tax": 1891.12,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0007",
+          "quantity": 2,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 3,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 4,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00008",
+      "customerId": "CUS-0008",
+      "company": "Acme Fintech 8",
+      "status": "Draft",
+      "channel": "Phone",
+      "placedAt": "2026-01-22T01:31:00Z",
+      "currency": "GBP",
+      "subtotal": 6046.4,
+      "tax": 604.64,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0008",
+          "quantity": 3,
+          "unitPrice": 906.96
+        },
+        {
+          "sku": "SKU-0015",
+          "quantity": 4,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 5,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 1,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00009",
+      "customerId": "CUS-0009",
+      "company": "Globex Retail 9",
+      "status": "Pending",
+      "channel": "Web",
+      "placedAt": "2026-01-25T08:44:00Z",
+      "currency": "ILS",
+      "subtotal": 12381.6,
+      "tax": 1238.16,
+      "discount": 464.31,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0009",
+          "quantity": 4,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00010",
+      "customerId": "CUS-0010",
+      "company": "Initech Healthcare 10",
+      "status": "Paid",
+      "channel": "Partner",
+      "placedAt": "2026-01-28T15:57:00Z",
+      "currency": "JPY",
+      "subtotal": 18716.8,
+      "tax": 1871.68,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0010",
+          "quantity": 5,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 1,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00011",
+      "customerId": "CUS-0011",
+      "company": "Umbrella Media 11",
+      "status": "Packed",
+      "channel": "Email",
+      "placedAt": "2026-01-31T22:10:00Z",
+      "currency": "USD",
+      "subtotal": 5852,
+      "tax": 585.2,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0011",
+          "quantity": 1,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 2,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 3,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00012",
+      "customerId": "CUS-0012",
+      "company": "Stark Logistics 12",
+      "status": "Shipped",
+      "channel": "Chat",
+      "placedAt": "2026-02-03T05:23:00Z",
+      "currency": "EUR",
+      "subtotal": 12187.2,
+      "tax": 1218.72,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0012",
+          "quantity": 2,
+          "unitPrice": 1828.08
+        },
+        {
+          "sku": "SKU-0019",
+          "quantity": 3,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 4,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 5,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00013",
+      "customerId": "CUS-0013",
+      "company": "Wayne SaaS 13",
+      "status": "Delivered",
+      "channel": "Phone",
+      "placedAt": "2026-02-06T12:36:00Z",
+      "currency": "GBP",
+      "subtotal": 18522.4,
+      "tax": 1852.24,
+      "discount": 694.59,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0013",
+          "quantity": 3,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00014",
+      "customerId": "CUS-0014",
+      "company": "Wonka Fintech 14",
+      "status": "Refunded",
+      "channel": "Web",
+      "placedAt": "2026-02-09T19:49:00Z",
+      "currency": "ILS",
+      "subtotal": 5657.6,
+      "tax": 565.76,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0014",
+          "quantity": 4,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 5,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00015",
+      "customerId": "CUS-0015",
+      "company": "Acme Retail 15",
+      "status": "Draft",
+      "channel": "Partner",
+      "placedAt": "2026-02-12T02:02:00Z",
+      "currency": "JPY",
+      "subtotal": 11992.8,
+      "tax": 1199.28,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0015",
+          "quantity": 5,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 1,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 2,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00016",
+      "customerId": "CUS-0016",
+      "company": "Globex Healthcare 16",
+      "status": "Pending",
+      "channel": "Email",
+      "placedAt": "2026-02-15T09:15:00Z",
+      "currency": "USD",
+      "subtotal": 18328,
+      "tax": 1832.8,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0016",
+          "quantity": 1,
+          "unitPrice": 2749.2
+        },
+        {
+          "sku": "SKU-0023",
+          "quantity": 2,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 3,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 4,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00017",
+      "customerId": "CUS-0017",
+      "company": "Initech Media 17",
+      "status": "Paid",
+      "channel": "Chat",
+      "placedAt": "2026-02-18T16:28:00Z",
+      "currency": "EUR",
+      "subtotal": 5463.2,
+      "tax": 546.32,
+      "discount": 204.87,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0017",
+          "quantity": 2,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00018",
+      "customerId": "CUS-0018",
+      "company": "Umbrella Logistics 18",
+      "status": "Packed",
+      "channel": "Phone",
+      "placedAt": "2026-02-21T23:41:00Z",
+      "currency": "GBP",
+      "subtotal": 11798.4,
+      "tax": 1179.84,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0018",
+          "quantity": 3,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 4,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00019",
+      "customerId": "CUS-0019",
+      "company": "Stark SaaS 19",
+      "status": "Shipped",
+      "channel": "Web",
+      "placedAt": "2026-02-24T06:54:00Z",
+      "currency": "ILS",
+      "subtotal": 18133.6,
+      "tax": 1813.36,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0019",
+          "quantity": 4,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 5,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 1,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00020",
+      "customerId": "CUS-0020",
+      "company": "Wayne Fintech 20",
+      "status": "Delivered",
+      "channel": "Partner",
+      "placedAt": "2026-02-27T13:07:00Z",
+      "currency": "JPY",
+      "subtotal": 5268.8,
+      "tax": 526.88,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0020",
+          "quantity": 5,
+          "unitPrice": 790.32
+        },
+        {
+          "sku": "SKU-0027",
+          "quantity": 1,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 2,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 3,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00021",
+      "customerId": "CUS-0021",
+      "company": "Wonka Retail 21",
+      "status": "Refunded",
+      "channel": "Email",
+      "placedAt": "2026-03-02T20:20:00Z",
+      "currency": "USD",
+      "subtotal": 11604,
+      "tax": 1160.4,
+      "discount": 435.15,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0021",
+          "quantity": 1,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00022",
+      "customerId": "CUS-0022",
+      "company": "Acme Healthcare 22",
+      "status": "Draft",
+      "channel": "Chat",
+      "placedAt": "2026-03-05T03:33:00Z",
+      "currency": "EUR",
+      "subtotal": 17939.2,
+      "tax": 1793.92,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0022",
+          "quantity": 2,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 3,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00023",
+      "customerId": "CUS-0023",
+      "company": "Globex Media 23",
+      "status": "Pending",
+      "channel": "Phone",
+      "placedAt": "2026-03-08T10:46:00Z",
+      "currency": "GBP",
+      "subtotal": 5074.4,
+      "tax": 507.44,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0023",
+          "quantity": 3,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 4,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 5,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00024",
+      "customerId": "CUS-0024",
+      "company": "Initech Logistics 24",
+      "status": "Paid",
+      "channel": "Web",
+      "placedAt": "2026-03-11T17:59:00Z",
+      "currency": "ILS",
+      "subtotal": 11409.6,
+      "tax": 1140.96,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0024",
+          "quantity": 4,
+          "unitPrice": 1711.44
+        },
+        {
+          "sku": "SKU-0031",
+          "quantity": 5,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 1,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 2,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00025",
+      "customerId": "CUS-0025",
+      "company": "Umbrella SaaS 25",
+      "status": "Packed",
+      "channel": "Partner",
+      "placedAt": "2026-03-14T00:12:00Z",
+      "currency": "JPY",
+      "subtotal": 17744.8,
+      "tax": 1774.48,
+      "discount": 665.43,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0025",
+          "quantity": 5,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00026",
+      "customerId": "CUS-0026",
+      "company": "Stark Fintech 26",
+      "status": "Shipped",
+      "channel": "Email",
+      "placedAt": "2026-03-17T07:25:00Z",
+      "currency": "USD",
+      "subtotal": 4880,
+      "tax": 488,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0026",
+          "quantity": 1,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 2,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00027",
+      "customerId": "CUS-0027",
+      "company": "Wayne Retail 27",
+      "status": "Delivered",
+      "channel": "Chat",
+      "placedAt": "2026-03-20T14:38:00Z",
+      "currency": "EUR",
+      "subtotal": 11215.2,
+      "tax": 1121.52,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0027",
+          "quantity": 2,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 3,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 4,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00028",
+      "customerId": "CUS-0028",
+      "company": "Wonka Healthcare 28",
+      "status": "Refunded",
+      "channel": "Phone",
+      "placedAt": "2026-03-23T21:51:00Z",
+      "currency": "GBP",
+      "subtotal": 17550.4,
+      "tax": 1755.04,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0028",
+          "quantity": 3,
+          "unitPrice": 2632.56
+        },
+        {
+          "sku": "SKU-0035",
+          "quantity": 4,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 5,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 1,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00029",
+      "customerId": "CUS-0029",
+      "company": "Acme Media 29",
+      "status": "Draft",
+      "channel": "Web",
+      "placedAt": "2026-03-26T04:04:00Z",
+      "currency": "ILS",
+      "subtotal": 4685.6,
+      "tax": 468.56,
+      "discount": 175.71,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0029",
+          "quantity": 4,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00030",
+      "customerId": "CUS-0030",
+      "company": "Globex Logistics 30",
+      "status": "Pending",
+      "channel": "Partner",
+      "placedAt": "2026-03-29T11:17:00Z",
+      "currency": "JPY",
+      "subtotal": 11020.8,
+      "tax": 1102.08,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0030",
+          "quantity": 5,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 1,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00031",
+      "customerId": "CUS-0031",
+      "company": "Initech SaaS 31",
+      "status": "Paid",
+      "channel": "Email",
+      "placedAt": "2026-04-01T18:30:00Z",
+      "currency": "USD",
+      "subtotal": 17356,
+      "tax": 1735.6,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0031",
+          "quantity": 1,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 2,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 3,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00032",
+      "customerId": "CUS-0032",
+      "company": "Umbrella Fintech 32",
+      "status": "Packed",
+      "channel": "Chat",
+      "placedAt": "2026-04-04T01:43:00Z",
+      "currency": "EUR",
+      "subtotal": 4491.2,
+      "tax": 449.12,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0032",
+          "quantity": 2,
+          "unitPrice": 673.68
+        },
+        {
+          "sku": "SKU-0039",
+          "quantity": 3,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 4,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 5,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00033",
+      "customerId": "CUS-0033",
+      "company": "Stark Retail 33",
+      "status": "Shipped",
+      "channel": "Phone",
+      "placedAt": "2026-04-07T08:56:00Z",
+      "currency": "GBP",
+      "subtotal": 10826.4,
+      "tax": 1082.64,
+      "discount": 405.99,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0033",
+          "quantity": 3,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00034",
+      "customerId": "CUS-0034",
+      "company": "Wayne Healthcare 34",
+      "status": "Delivered",
+      "channel": "Web",
+      "placedAt": "2026-04-10T15:09:00Z",
+      "currency": "ILS",
+      "subtotal": 17161.6,
+      "tax": 1716.16,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0034",
+          "quantity": 4,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 5,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00035",
+      "customerId": "CUS-0035",
+      "company": "Wonka Media 35",
+      "status": "Refunded",
+      "channel": "Partner",
+      "placedAt": "2026-04-13T22:22:00Z",
+      "currency": "JPY",
+      "subtotal": 4296.8,
+      "tax": 429.68,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0035",
+          "quantity": 5,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 1,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 2,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00036",
+      "customerId": "CUS-0036",
+      "company": "Acme Logistics 36",
+      "status": "Draft",
+      "channel": "Email",
+      "placedAt": "2026-04-16T05:35:00Z",
+      "currency": "USD",
+      "subtotal": 10632,
+      "tax": 1063.2,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0036",
+          "quantity": 1,
+          "unitPrice": 1594.8
+        },
+        {
+          "sku": "SKU-0043",
+          "quantity": 2,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 3,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 4,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00037",
+      "customerId": "CUS-0037",
+      "company": "Globex SaaS 37",
+      "status": "Pending",
+      "channel": "Chat",
+      "placedAt": "2026-04-19T12:48:00Z",
+      "currency": "EUR",
+      "subtotal": 16967.2,
+      "tax": 1696.72,
+      "discount": 636.27,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0037",
+          "quantity": 2,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00038",
+      "customerId": "CUS-0038",
+      "company": "Initech Fintech 38",
+      "status": "Paid",
+      "channel": "Phone",
+      "placedAt": "2026-04-22T19:01:00Z",
+      "currency": "GBP",
+      "subtotal": 4102.4,
+      "tax": 410.24,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0038",
+          "quantity": 3,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 4,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00039",
+      "customerId": "CUS-0039",
+      "company": "Umbrella Retail 39",
+      "status": "Packed",
+      "channel": "Web",
+      "placedAt": "2026-04-25T02:14:00Z",
+      "currency": "ILS",
+      "subtotal": 10437.6,
+      "tax": 1043.76,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0039",
+          "quantity": 4,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 5,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 1,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00040",
+      "customerId": "CUS-0040",
+      "company": "Stark Healthcare 40",
+      "status": "Shipped",
+      "channel": "Partner",
+      "placedAt": "2026-04-28T09:27:00Z",
+      "currency": "JPY",
+      "subtotal": 16772.8,
+      "tax": 1677.28,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0040",
+          "quantity": 5,
+          "unitPrice": 2515.92
+        },
+        {
+          "sku": "SKU-0047",
+          "quantity": 1,
+          "unitPrice": 527.88
+        },
+        {
+          "sku": "SKU-0006",
+          "quantity": 2,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 3,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00041",
+      "customerId": "CUS-0041",
+      "company": "Wayne Media 41",
+      "status": "Delivered",
+      "channel": "Email",
+      "placedAt": "2026-05-01T16:40:00Z",
+      "currency": "USD",
+      "subtotal": 3908,
+      "tax": 390.8,
+      "discount": 146.55,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0041",
+          "quantity": 1,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00042",
+      "customerId": "CUS-0042",
+      "company": "Wonka Logistics 42",
+      "status": "Refunded",
+      "channel": "Chat",
+      "placedAt": "2026-05-04T23:53:00Z",
+      "currency": "EUR",
+      "subtotal": 10243.2,
+      "tax": 1024.32,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0042",
+          "quantity": 2,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 3,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00043",
+      "customerId": "CUS-0043",
+      "company": "Acme SaaS 43",
+      "status": "Draft",
+      "channel": "Phone",
+      "placedAt": "2026-05-07T06:06:00Z",
+      "currency": "GBP",
+      "subtotal": 16578.4,
+      "tax": 1657.84,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0043",
+          "quantity": 3,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 4,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 5,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00044",
+      "customerId": "CUS-0044",
+      "company": "Globex Fintech 44",
+      "status": "Pending",
+      "channel": "Web",
+      "placedAt": "2026-05-10T13:19:00Z",
+      "currency": "ILS",
+      "subtotal": 3713.6,
+      "tax": 371.36,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0044",
+          "quantity": 4,
+          "unitPrice": 557.04
+        },
+        {
+          "sku": "SKU-0003",
+          "quantity": 5,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 1,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 2,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00045",
+      "customerId": "CUS-0045",
+      "company": "Initech Retail 45",
+      "status": "Paid",
+      "channel": "Partner",
+      "placedAt": "2026-05-13T20:32:00Z",
+      "currency": "JPY",
+      "subtotal": 10048.8,
+      "tax": 1004.88,
+      "discount": 376.83,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0045",
+          "quantity": 5,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00046",
+      "customerId": "CUS-0046",
+      "company": "Umbrella Healthcare 46",
+      "status": "Packed",
+      "channel": "Email",
+      "placedAt": "2026-05-16T03:45:00Z",
+      "currency": "USD",
+      "subtotal": 16384,
+      "tax": 1638.4,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0046",
+          "quantity": 1,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 2,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00047",
+      "customerId": "CUS-0047",
+      "company": "Stark Media 47",
+      "status": "Shipped",
+      "channel": "Chat",
+      "placedAt": "2026-05-19T10:58:00Z",
+      "currency": "EUR",
+      "subtotal": 3519.2,
+      "tax": 351.92,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0047",
+          "quantity": 2,
+          "unitPrice": 527.88
+        },
+        {
+          "sku": "SKU-0006",
+          "quantity": 3,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 4,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00048",
+      "customerId": "CUS-0048",
+      "company": "Wayne Logistics 48",
+      "status": "Delivered",
+      "channel": "Phone",
+      "placedAt": "2026-05-22T17:11:00Z",
+      "currency": "GBP",
+      "subtotal": 9854.4,
+      "tax": 985.44,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0048",
+          "quantity": 3,
+          "unitPrice": 1478.16
+        },
+        {
+          "sku": "SKU-0007",
+          "quantity": 4,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 5,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 1,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00049",
+      "customerId": "CUS-0049",
+      "company": "Wonka SaaS 49",
+      "status": "Refunded",
+      "channel": "Web",
+      "placedAt": "2026-05-25T00:24:00Z",
+      "currency": "ILS",
+      "subtotal": 16189.6,
+      "tax": 1618.96,
+      "discount": 607.11,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0001",
+          "quantity": 4,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00050",
+      "customerId": "CUS-0050",
+      "company": "Acme Fintech 50",
+      "status": "Draft",
+      "channel": "Partner",
+      "placedAt": "2026-05-28T07:37:00Z",
+      "currency": "JPY",
+      "subtotal": 3324.8,
+      "tax": 332.48,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0002",
+          "quantity": 5,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 1,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00051",
+      "customerId": "CUS-0051",
+      "company": "Globex Retail 51",
+      "status": "Pending",
+      "channel": "Email",
+      "placedAt": "2026-05-31T14:50:00Z",
+      "currency": "USD",
+      "subtotal": 9660,
+      "tax": 966,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0003",
+          "quantity": 1,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 2,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 3,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00052",
+      "customerId": "CUS-0052",
+      "company": "Initech Healthcare 52",
+      "status": "Paid",
+      "channel": "Chat",
+      "placedAt": "2026-06-03T21:03:00Z",
+      "currency": "EUR",
+      "subtotal": 15995.2,
+      "tax": 1599.52,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0004",
+          "quantity": 2,
+          "unitPrice": 2865.84
+        },
+        {
+          "sku": "SKU-0011",
+          "quantity": 3,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 4,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 5,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00053",
+      "customerId": "CUS-0053",
+      "company": "Umbrella Media 53",
+      "status": "Packed",
+      "channel": "Phone",
+      "placedAt": "2026-06-06T04:16:00Z",
+      "currency": "GBP",
+      "subtotal": 3130.4,
+      "tax": 313.04,
+      "discount": 117.39,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0005",
+          "quantity": 3,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00054",
+      "customerId": "CUS-0054",
+      "company": "Stark Logistics 54",
+      "status": "Shipped",
+      "channel": "Web",
+      "placedAt": "2026-06-09T11:29:00Z",
+      "currency": "ILS",
+      "subtotal": 9465.6,
+      "tax": 946.56,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0006",
+          "quantity": 4,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 5,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00055",
+      "customerId": "CUS-0055",
+      "company": "Wayne SaaS 55",
+      "status": "Delivered",
+      "channel": "Partner",
+      "placedAt": "2026-06-12T18:42:00Z",
+      "currency": "JPY",
+      "subtotal": 15800.8,
+      "tax": 1580.08,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0007",
+          "quantity": 5,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 1,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 2,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00056",
+      "customerId": "CUS-0056",
+      "company": "Wonka Fintech 56",
+      "status": "Refunded",
+      "channel": "Email",
+      "placedAt": "2026-06-15T01:55:00Z",
+      "currency": "USD",
+      "subtotal": 2936,
+      "tax": 293.6,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0008",
+          "quantity": 1,
+          "unitPrice": 906.96
+        },
+        {
+          "sku": "SKU-0015",
+          "quantity": 2,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 3,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 4,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00057",
+      "customerId": "CUS-0057",
+      "company": "Acme Retail 57",
+      "status": "Draft",
+      "channel": "Chat",
+      "placedAt": "2026-06-18T08:08:00Z",
+      "currency": "EUR",
+      "subtotal": 9271.2,
+      "tax": 927.12,
+      "discount": 347.67,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0009",
+          "quantity": 2,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00058",
+      "customerId": "CUS-0058",
+      "company": "Globex Healthcare 58",
+      "status": "Pending",
+      "channel": "Phone",
+      "placedAt": "2026-06-21T15:21:00Z",
+      "currency": "GBP",
+      "subtotal": 15606.4,
+      "tax": 1560.64,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0010",
+          "quantity": 3,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 4,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00059",
+      "customerId": "CUS-0059",
+      "company": "Initech Media 59",
+      "status": "Paid",
+      "channel": "Web",
+      "placedAt": "2026-06-24T22:34:00Z",
+      "currency": "ILS",
+      "subtotal": 2741.6,
+      "tax": 274.16,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0011",
+          "quantity": 4,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 5,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 1,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00060",
+      "customerId": "CUS-0060",
+      "company": "Umbrella Logistics 60",
+      "status": "Packed",
+      "channel": "Partner",
+      "placedAt": "2026-06-27T05:47:00Z",
+      "currency": "JPY",
+      "subtotal": 9076.8,
+      "tax": 907.68,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0012",
+          "quantity": 5,
+          "unitPrice": 1828.08
+        },
+        {
+          "sku": "SKU-0019",
+          "quantity": 1,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 2,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 3,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00061",
+      "customerId": "CUS-0061",
+      "company": "Stark SaaS 61",
+      "status": "Shipped",
+      "channel": "Email",
+      "placedAt": "2026-06-30T12:00:00Z",
+      "currency": "USD",
+      "subtotal": 15412,
+      "tax": 1541.2,
+      "discount": 577.95,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0013",
+          "quantity": 1,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00062",
+      "customerId": "CUS-0062",
+      "company": "Wayne Fintech 62",
+      "status": "Delivered",
+      "channel": "Chat",
+      "placedAt": "2026-07-03T19:13:00Z",
+      "currency": "EUR",
+      "subtotal": 2547.2,
+      "tax": 254.72,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0014",
+          "quantity": 2,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 3,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00063",
+      "customerId": "CUS-0063",
+      "company": "Wonka Retail 63",
+      "status": "Refunded",
+      "channel": "Phone",
+      "placedAt": "2026-07-06T02:26:00Z",
+      "currency": "GBP",
+      "subtotal": 8882.4,
+      "tax": 888.24,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0015",
+          "quantity": 3,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 4,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 5,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00064",
+      "customerId": "CUS-0064",
+      "company": "Acme Healthcare 64",
+      "status": "Draft",
+      "channel": "Web",
+      "placedAt": "2026-07-09T09:39:00Z",
+      "currency": "ILS",
+      "subtotal": 15217.6,
+      "tax": 1521.76,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0016",
+          "quantity": 4,
+          "unitPrice": 2749.2
+        },
+        {
+          "sku": "SKU-0023",
+          "quantity": 5,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 1,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 2,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00065",
+      "customerId": "CUS-0065",
+      "company": "Globex Media 65",
+      "status": "Pending",
+      "channel": "Partner",
+      "placedAt": "2026-07-12T16:52:00Z",
+      "currency": "JPY",
+      "subtotal": 2352.8,
+      "tax": 235.28,
+      "discount": 88.23,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0017",
+          "quantity": 5,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00066",
+      "customerId": "CUS-0066",
+      "company": "Initech Logistics 66",
+      "status": "Paid",
+      "channel": "Email",
+      "placedAt": "2026-07-15T23:05:00Z",
+      "currency": "USD",
+      "subtotal": 8688,
+      "tax": 868.8,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0018",
+          "quantity": 1,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 2,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00067",
+      "customerId": "CUS-0067",
+      "company": "Umbrella SaaS 67",
+      "status": "Packed",
+      "channel": "Chat",
+      "placedAt": "2026-07-18T06:18:00Z",
+      "currency": "EUR",
+      "subtotal": 15023.2,
+      "tax": 1502.32,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0019",
+          "quantity": 2,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 3,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 4,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00068",
+      "customerId": "CUS-0068",
+      "company": "Stark Fintech 68",
+      "status": "Shipped",
+      "channel": "Phone",
+      "placedAt": "2026-07-21T13:31:00Z",
+      "currency": "GBP",
+      "subtotal": 2158.4,
+      "tax": 215.84,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0020",
+          "quantity": 3,
+          "unitPrice": 790.32
+        },
+        {
+          "sku": "SKU-0027",
+          "quantity": 4,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 5,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 1,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00069",
+      "customerId": "CUS-0069",
+      "company": "Wayne Retail 69",
+      "status": "Delivered",
+      "channel": "Web",
+      "placedAt": "2026-07-24T20:44:00Z",
+      "currency": "ILS",
+      "subtotal": 8493.6,
+      "tax": 849.36,
+      "discount": 318.51,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0021",
+          "quantity": 4,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00070",
+      "customerId": "CUS-0070",
+      "company": "Wonka Healthcare 70",
+      "status": "Refunded",
+      "channel": "Partner",
+      "placedAt": "2026-07-27T03:57:00Z",
+      "currency": "JPY",
+      "subtotal": 14828.8,
+      "tax": 1482.88,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0022",
+          "quantity": 5,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 1,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00071",
+      "customerId": "CUS-0001",
+      "company": "Acme SaaS 1",
+      "status": "Draft",
+      "channel": "Email",
+      "placedAt": "2026-07-30T10:10:00Z",
+      "currency": "USD",
+      "subtotal": 1964,
+      "tax": 196.4,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0023",
+          "quantity": 1,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 2,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 3,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00072",
+      "customerId": "CUS-0002",
+      "company": "Globex Fintech 2",
+      "status": "Pending",
+      "channel": "Chat",
+      "placedAt": "2026-08-02T17:23:00Z",
+      "currency": "EUR",
+      "subtotal": 8299.2,
+      "tax": 829.92,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0024",
+          "quantity": 2,
+          "unitPrice": 1711.44
+        },
+        {
+          "sku": "SKU-0031",
+          "quantity": 3,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 4,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 5,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00073",
+      "customerId": "CUS-0003",
+      "company": "Initech Retail 3",
+      "status": "Paid",
+      "channel": "Phone",
+      "placedAt": "2026-08-05T00:36:00Z",
+      "currency": "GBP",
+      "subtotal": 14634.4,
+      "tax": 1463.44,
+      "discount": 548.79,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0025",
+          "quantity": 3,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00074",
+      "customerId": "CUS-0004",
+      "company": "Umbrella Healthcare 4",
+      "status": "Packed",
+      "channel": "Web",
+      "placedAt": "2026-08-08T07:49:00Z",
+      "currency": "ILS",
+      "subtotal": 1769.6,
+      "tax": 176.96,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0026",
+          "quantity": 4,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 5,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00075",
+      "customerId": "CUS-0005",
+      "company": "Stark Media 5",
+      "status": "Shipped",
+      "channel": "Partner",
+      "placedAt": "2026-08-11T14:02:00Z",
+      "currency": "JPY",
+      "subtotal": 8104.8,
+      "tax": 810.48,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0027",
+          "quantity": 5,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 1,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 2,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00076",
+      "customerId": "CUS-0006",
+      "company": "Wayne Logistics 6",
+      "status": "Delivered",
+      "channel": "Email",
+      "placedAt": "2026-08-14T21:15:00Z",
+      "currency": "USD",
+      "subtotal": 14440,
+      "tax": 1444,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0028",
+          "quantity": 1,
+          "unitPrice": 2632.56
+        },
+        {
+          "sku": "SKU-0035",
+          "quantity": 2,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 3,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 4,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00077",
+      "customerId": "CUS-0007",
+      "company": "Wonka SaaS 7",
+      "status": "Refunded",
+      "channel": "Chat",
+      "placedAt": "2026-08-17T04:28:00Z",
+      "currency": "EUR",
+      "subtotal": 1575.2,
+      "tax": 157.52,
+      "discount": 59.07,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0029",
+          "quantity": 2,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00078",
+      "customerId": "CUS-0008",
+      "company": "Acme Fintech 8",
+      "status": "Draft",
+      "channel": "Phone",
+      "placedAt": "2026-08-20T11:41:00Z",
+      "currency": "GBP",
+      "subtotal": 7910.4,
+      "tax": 791.04,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0030",
+          "quantity": 3,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 4,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00079",
+      "customerId": "CUS-0009",
+      "company": "Globex Retail 9",
+      "status": "Pending",
+      "channel": "Web",
+      "placedAt": "2026-08-23T18:54:00Z",
+      "currency": "ILS",
+      "subtotal": 14245.6,
+      "tax": 1424.56,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0031",
+          "quantity": 4,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 5,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 1,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00080",
+      "customerId": "CUS-0010",
+      "company": "Initech Healthcare 10",
+      "status": "Paid",
+      "channel": "Partner",
+      "placedAt": "2026-08-26T01:07:00Z",
+      "currency": "JPY",
+      "subtotal": 1380.8,
+      "tax": 138.08,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0032",
+          "quantity": 5,
+          "unitPrice": 673.68
+        },
+        {
+          "sku": "SKU-0039",
+          "quantity": 1,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 2,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 3,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00081",
+      "customerId": "CUS-0011",
+      "company": "Umbrella Media 11",
+      "status": "Packed",
+      "channel": "Email",
+      "placedAt": "2026-08-29T08:20:00Z",
+      "currency": "USD",
+      "subtotal": 7716,
+      "tax": 771.6,
+      "discount": 289.35,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0033",
+          "quantity": 1,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00082",
+      "customerId": "CUS-0012",
+      "company": "Stark Logistics 12",
+      "status": "Shipped",
+      "channel": "Chat",
+      "placedAt": "2026-09-01T15:33:00Z",
+      "currency": "EUR",
+      "subtotal": 14051.2,
+      "tax": 1405.12,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0034",
+          "quantity": 2,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 3,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00083",
+      "customerId": "CUS-0013",
+      "company": "Wayne SaaS 13",
+      "status": "Delivered",
+      "channel": "Phone",
+      "placedAt": "2026-09-04T22:46:00Z",
+      "currency": "GBP",
+      "subtotal": 1186.4,
+      "tax": 118.64,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0035",
+          "quantity": 3,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 4,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 5,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00084",
+      "customerId": "CUS-0014",
+      "company": "Wonka Fintech 14",
+      "status": "Refunded",
+      "channel": "Web",
+      "placedAt": "2026-09-07T05:59:00Z",
+      "currency": "ILS",
+      "subtotal": 7521.6,
+      "tax": 752.16,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0036",
+          "quantity": 4,
+          "unitPrice": 1594.8
+        },
+        {
+          "sku": "SKU-0043",
+          "quantity": 5,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 1,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 2,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00085",
+      "customerId": "CUS-0015",
+      "company": "Acme Retail 15",
+      "status": "Draft",
+      "channel": "Partner",
+      "placedAt": "2026-09-10T12:12:00Z",
+      "currency": "JPY",
+      "subtotal": 13856.8,
+      "tax": 1385.68,
+      "discount": 519.63,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0037",
+          "quantity": 5,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00086",
+      "customerId": "CUS-0016",
+      "company": "Globex Healthcare 16",
+      "status": "Pending",
+      "channel": "Email",
+      "placedAt": "2026-09-13T19:25:00Z",
+      "currency": "USD",
+      "subtotal": 992,
+      "tax": 99.2,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0038",
+          "quantity": 1,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 2,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00087",
+      "customerId": "CUS-0017",
+      "company": "Initech Media 17",
+      "status": "Paid",
+      "channel": "Chat",
+      "placedAt": "2026-09-16T02:38:00Z",
+      "currency": "EUR",
+      "subtotal": 7327.2,
+      "tax": 732.72,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0039",
+          "quantity": 2,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 3,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 4,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00088",
+      "customerId": "CUS-0018",
+      "company": "Umbrella Logistics 18",
+      "status": "Packed",
+      "channel": "Phone",
+      "placedAt": "2026-09-19T09:51:00Z",
+      "currency": "GBP",
+      "subtotal": 13662.4,
+      "tax": 1366.24,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0040",
+          "quantity": 3,
+          "unitPrice": 2515.92
+        },
+        {
+          "sku": "SKU-0047",
+          "quantity": 4,
+          "unitPrice": 527.88
+        },
+        {
+          "sku": "SKU-0006",
+          "quantity": 5,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 1,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00089",
+      "customerId": "CUS-0019",
+      "company": "Stark SaaS 19",
+      "status": "Shipped",
+      "channel": "Web",
+      "placedAt": "2026-09-22T16:04:00Z",
+      "currency": "ILS",
+      "subtotal": 797.6,
+      "tax": 79.76,
+      "discount": 29.91,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0041",
+          "quantity": 4,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00090",
+      "customerId": "CUS-0020",
+      "company": "Wayne Fintech 20",
+      "status": "Delivered",
+      "channel": "Partner",
+      "placedAt": "2026-09-25T23:17:00Z",
+      "currency": "JPY",
+      "subtotal": 7132.8,
+      "tax": 713.28,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0042",
+          "quantity": 5,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 1,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00091",
+      "customerId": "CUS-0021",
+      "company": "Wonka Retail 21",
+      "status": "Refunded",
+      "channel": "Email",
+      "placedAt": "2026-09-28T06:30:00Z",
+      "currency": "USD",
+      "subtotal": 13468,
+      "tax": 1346.8,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0043",
+          "quantity": 1,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 2,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 3,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00092",
+      "customerId": "CUS-0022",
+      "company": "Acme Healthcare 22",
+      "status": "Draft",
+      "channel": "Chat",
+      "placedAt": "2026-10-01T13:43:00Z",
+      "currency": "EUR",
+      "subtotal": 603.2,
+      "tax": 60.32,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0044",
+          "quantity": 2,
+          "unitPrice": 557.04
+        },
+        {
+          "sku": "SKU-0003",
+          "quantity": 3,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 4,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 5,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00093",
+      "customerId": "CUS-0023",
+      "company": "Globex Media 23",
+      "status": "Pending",
+      "channel": "Phone",
+      "placedAt": "2026-10-04T20:56:00Z",
+      "currency": "GBP",
+      "subtotal": 6938.4,
+      "tax": 693.84,
+      "discount": 260.19,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0045",
+          "quantity": 3,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00094",
+      "customerId": "CUS-0024",
+      "company": "Initech Logistics 24",
+      "status": "Paid",
+      "channel": "Web",
+      "placedAt": "2026-10-07T03:09:00Z",
+      "currency": "ILS",
+      "subtotal": 13273.6,
+      "tax": 1327.36,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0046",
+          "quantity": 4,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 5,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00095",
+      "customerId": "CUS-0025",
+      "company": "Umbrella SaaS 25",
+      "status": "Packed",
+      "channel": "Partner",
+      "placedAt": "2026-10-10T10:22:00Z",
+      "currency": "JPY",
+      "subtotal": 408.8,
+      "tax": 40.88,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0047",
+          "quantity": 5,
+          "unitPrice": 527.88
+        },
+        {
+          "sku": "SKU-0006",
+          "quantity": 1,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 2,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00096",
+      "customerId": "CUS-0026",
+      "company": "Stark Fintech 26",
+      "status": "Shipped",
+      "channel": "Email",
+      "placedAt": "2026-10-13T17:35:00Z",
+      "currency": "USD",
+      "subtotal": 6744,
+      "tax": 674.4,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0048",
+          "quantity": 1,
+          "unitPrice": 1478.16
+        },
+        {
+          "sku": "SKU-0007",
+          "quantity": 2,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 3,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 4,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00097",
+      "customerId": "CUS-0027",
+      "company": "Wayne Retail 27",
+      "status": "Delivered",
+      "channel": "Chat",
+      "placedAt": "2026-10-16T00:48:00Z",
+      "currency": "EUR",
+      "subtotal": 13079.2,
+      "tax": 1307.92,
+      "discount": 490.47,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0001",
+          "quantity": 2,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00098",
+      "customerId": "CUS-0028",
+      "company": "Wonka Healthcare 28",
+      "status": "Refunded",
+      "channel": "Phone",
+      "placedAt": "2026-10-19T07:01:00Z",
+      "currency": "GBP",
+      "subtotal": 214.4,
+      "tax": 21.44,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0002",
+          "quantity": 3,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 4,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00099",
+      "customerId": "CUS-0029",
+      "company": "Acme Media 29",
+      "status": "Draft",
+      "channel": "Web",
+      "placedAt": "2026-10-22T14:14:00Z",
+      "currency": "ILS",
+      "subtotal": 6549.6,
+      "tax": 654.96,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0003",
+          "quantity": 4,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 5,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 1,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00100",
+      "customerId": "CUS-0030",
+      "company": "Globex Logistics 30",
+      "status": "Pending",
+      "channel": "Partner",
+      "placedAt": "2026-10-25T21:27:00Z",
+      "currency": "JPY",
+      "subtotal": 12884.8,
+      "tax": 1288.48,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0004",
+          "quantity": 5,
+          "unitPrice": 2865.84
+        },
+        {
+          "sku": "SKU-0011",
+          "quantity": 1,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 2,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 3,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00101",
+      "customerId": "CUS-0031",
+      "company": "Initech SaaS 31",
+      "status": "Paid",
+      "channel": "Email",
+      "placedAt": "2026-10-28T04:40:00Z",
+      "currency": "USD",
+      "subtotal": 19220,
+      "tax": 1922,
+      "discount": 720.75,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0005",
+          "quantity": 1,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00102",
+      "customerId": "CUS-0032",
+      "company": "Umbrella Fintech 32",
+      "status": "Packed",
+      "channel": "Chat",
+      "placedAt": "2026-10-31T11:53:00Z",
+      "currency": "EUR",
+      "subtotal": 6355.2,
+      "tax": 635.52,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0006",
+          "quantity": 2,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 3,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00103",
+      "customerId": "CUS-0033",
+      "company": "Stark Retail 33",
+      "status": "Shipped",
+      "channel": "Phone",
+      "placedAt": "2026-11-03T18:06:00Z",
+      "currency": "GBP",
+      "subtotal": 12690.4,
+      "tax": 1269.04,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0007",
+          "quantity": 3,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 4,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 5,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00104",
+      "customerId": "CUS-0034",
+      "company": "Wayne Healthcare 34",
+      "status": "Delivered",
+      "channel": "Web",
+      "placedAt": "2026-11-06T01:19:00Z",
+      "currency": "ILS",
+      "subtotal": 19025.6,
+      "tax": 1902.56,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0008",
+          "quantity": 4,
+          "unitPrice": 906.96
+        },
+        {
+          "sku": "SKU-0015",
+          "quantity": 5,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 1,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 2,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00105",
+      "customerId": "CUS-0035",
+      "company": "Wonka Media 35",
+      "status": "Refunded",
+      "channel": "Partner",
+      "placedAt": "2026-11-09T08:32:00Z",
+      "currency": "JPY",
+      "subtotal": 6160.8,
+      "tax": 616.08,
+      "discount": 231.03,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0009",
+          "quantity": 5,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00106",
+      "customerId": "CUS-0036",
+      "company": "Acme Logistics 36",
+      "status": "Draft",
+      "channel": "Email",
+      "placedAt": "2026-11-12T15:45:00Z",
+      "currency": "USD",
+      "subtotal": 12496,
+      "tax": 1249.6,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0010",
+          "quantity": 1,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 2,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00107",
+      "customerId": "CUS-0037",
+      "company": "Globex SaaS 37",
+      "status": "Pending",
+      "channel": "Chat",
+      "placedAt": "2026-11-15T22:58:00Z",
+      "currency": "EUR",
+      "subtotal": 18831.2,
+      "tax": 1883.12,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0011",
+          "quantity": 2,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 3,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 4,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00108",
+      "customerId": "CUS-0038",
+      "company": "Initech Fintech 38",
+      "status": "Paid",
+      "channel": "Phone",
+      "placedAt": "2026-11-18T05:11:00Z",
+      "currency": "GBP",
+      "subtotal": 5966.4,
+      "tax": 596.64,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0012",
+          "quantity": 3,
+          "unitPrice": 1828.08
+        },
+        {
+          "sku": "SKU-0019",
+          "quantity": 4,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 5,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 1,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00109",
+      "customerId": "CUS-0039",
+      "company": "Umbrella Retail 39",
+      "status": "Packed",
+      "channel": "Web",
+      "placedAt": "2026-11-21T12:24:00Z",
+      "currency": "ILS",
+      "subtotal": 12301.6,
+      "tax": 1230.16,
+      "discount": 461.31,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0013",
+          "quantity": 4,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00110",
+      "customerId": "CUS-0040",
+      "company": "Stark Healthcare 40",
+      "status": "Shipped",
+      "channel": "Partner",
+      "placedAt": "2026-11-24T19:37:00Z",
+      "currency": "JPY",
+      "subtotal": 18636.8,
+      "tax": 1863.68,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0014",
+          "quantity": 5,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 1,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00111",
+      "customerId": "CUS-0041",
+      "company": "Wayne Media 41",
+      "status": "Delivered",
+      "channel": "Email",
+      "placedAt": "2026-01-01T02:50:00Z",
+      "currency": "USD",
+      "subtotal": 5772,
+      "tax": 577.2,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0015",
+          "quantity": 1,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 2,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 3,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00112",
+      "customerId": "CUS-0042",
+      "company": "Wonka Logistics 42",
+      "status": "Refunded",
+      "channel": "Chat",
+      "placedAt": "2026-01-04T09:03:00Z",
+      "currency": "EUR",
+      "subtotal": 12107.2,
+      "tax": 1210.72,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0016",
+          "quantity": 2,
+          "unitPrice": 2749.2
+        },
+        {
+          "sku": "SKU-0023",
+          "quantity": 3,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 4,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 5,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00113",
+      "customerId": "CUS-0043",
+      "company": "Acme SaaS 43",
+      "status": "Draft",
+      "channel": "Phone",
+      "placedAt": "2026-01-07T16:16:00Z",
+      "currency": "GBP",
+      "subtotal": 18442.4,
+      "tax": 1844.24,
+      "discount": 691.59,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0017",
+          "quantity": 3,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00114",
+      "customerId": "CUS-0044",
+      "company": "Globex Fintech 44",
+      "status": "Pending",
+      "channel": "Web",
+      "placedAt": "2026-01-10T23:29:00Z",
+      "currency": "ILS",
+      "subtotal": 5577.6,
+      "tax": 557.76,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0018",
+          "quantity": 4,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 5,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00115",
+      "customerId": "CUS-0045",
+      "company": "Initech Retail 45",
+      "status": "Paid",
+      "channel": "Partner",
+      "placedAt": "2026-01-13T06:42:00Z",
+      "currency": "JPY",
+      "subtotal": 11912.8,
+      "tax": 1191.28,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0019",
+          "quantity": 5,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 1,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 2,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00116",
+      "customerId": "CUS-0046",
+      "company": "Umbrella Healthcare 46",
+      "status": "Packed",
+      "channel": "Email",
+      "placedAt": "2026-01-16T13:55:00Z",
+      "currency": "USD",
+      "subtotal": 18248,
+      "tax": 1824.8,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0020",
+          "quantity": 1,
+          "unitPrice": 790.32
+        },
+        {
+          "sku": "SKU-0027",
+          "quantity": 2,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 3,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 4,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00117",
+      "customerId": "CUS-0047",
+      "company": "Stark Media 47",
+      "status": "Shipped",
+      "channel": "Chat",
+      "placedAt": "2026-01-19T20:08:00Z",
+      "currency": "EUR",
+      "subtotal": 5383.2,
+      "tax": 538.32,
+      "discount": 201.87,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0021",
+          "quantity": 2,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00118",
+      "customerId": "CUS-0048",
+      "company": "Wayne Logistics 48",
+      "status": "Delivered",
+      "channel": "Phone",
+      "placedAt": "2026-01-22T03:21:00Z",
+      "currency": "GBP",
+      "subtotal": 11718.4,
+      "tax": 1171.84,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0022",
+          "quantity": 3,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 4,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00119",
+      "customerId": "CUS-0049",
+      "company": "Wonka SaaS 49",
+      "status": "Refunded",
+      "channel": "Web",
+      "placedAt": "2026-01-25T10:34:00Z",
+      "currency": "ILS",
+      "subtotal": 18053.6,
+      "tax": 1805.36,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0023",
+          "quantity": 4,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 5,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 1,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00120",
+      "customerId": "CUS-0050",
+      "company": "Acme Fintech 50",
+      "status": "Draft",
+      "channel": "Partner",
+      "placedAt": "2026-01-28T17:47:00Z",
+      "currency": "JPY",
+      "subtotal": 5188.8,
+      "tax": 518.88,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0024",
+          "quantity": 5,
+          "unitPrice": 1711.44
+        },
+        {
+          "sku": "SKU-0031",
+          "quantity": 1,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 2,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 3,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00121",
+      "customerId": "CUS-0051",
+      "company": "Globex Retail 51",
+      "status": "Pending",
+      "channel": "Email",
+      "placedAt": "2026-01-31T00:00:00Z",
+      "currency": "USD",
+      "subtotal": 11524,
+      "tax": 1152.4,
+      "discount": 432.15,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0025",
+          "quantity": 1,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00122",
+      "customerId": "CUS-0052",
+      "company": "Initech Healthcare 52",
+      "status": "Paid",
+      "channel": "Chat",
+      "placedAt": "2026-02-03T07:13:00Z",
+      "currency": "EUR",
+      "subtotal": 17859.2,
+      "tax": 1785.92,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0026",
+          "quantity": 2,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 3,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00123",
+      "customerId": "CUS-0053",
+      "company": "Umbrella Media 53",
+      "status": "Packed",
+      "channel": "Phone",
+      "placedAt": "2026-02-06T14:26:00Z",
+      "currency": "GBP",
+      "subtotal": 4994.4,
+      "tax": 499.44,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0027",
+          "quantity": 3,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 4,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 5,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00124",
+      "customerId": "CUS-0054",
+      "company": "Stark Logistics 54",
+      "status": "Shipped",
+      "channel": "Web",
+      "placedAt": "2026-02-09T21:39:00Z",
+      "currency": "ILS",
+      "subtotal": 11329.6,
+      "tax": 1132.96,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0028",
+          "quantity": 4,
+          "unitPrice": 2632.56
+        },
+        {
+          "sku": "SKU-0035",
+          "quantity": 5,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 1,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 2,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00125",
+      "customerId": "CUS-0055",
+      "company": "Wayne SaaS 55",
+      "status": "Delivered",
+      "channel": "Partner",
+      "placedAt": "2026-02-12T04:52:00Z",
+      "currency": "JPY",
+      "subtotal": 17664.8,
+      "tax": 1766.48,
+      "discount": 662.43,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0029",
+          "quantity": 5,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00126",
+      "customerId": "CUS-0056",
+      "company": "Wonka Fintech 56",
+      "status": "Refunded",
+      "channel": "Email",
+      "placedAt": "2026-02-15T11:05:00Z",
+      "currency": "USD",
+      "subtotal": 4800,
+      "tax": 480,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0030",
+          "quantity": 1,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 2,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00127",
+      "customerId": "CUS-0057",
+      "company": "Acme Retail 57",
+      "status": "Draft",
+      "channel": "Chat",
+      "placedAt": "2026-02-18T18:18:00Z",
+      "currency": "EUR",
+      "subtotal": 11135.2,
+      "tax": 1113.52,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0031",
+          "quantity": 2,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 3,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 4,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00128",
+      "customerId": "CUS-0058",
+      "company": "Globex Healthcare 58",
+      "status": "Pending",
+      "channel": "Phone",
+      "placedAt": "2026-02-21T01:31:00Z",
+      "currency": "GBP",
+      "subtotal": 17470.4,
+      "tax": 1747.04,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0032",
+          "quantity": 3,
+          "unitPrice": 673.68
+        },
+        {
+          "sku": "SKU-0039",
+          "quantity": 4,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 5,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 1,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00129",
+      "customerId": "CUS-0059",
+      "company": "Initech Media 59",
+      "status": "Paid",
+      "channel": "Web",
+      "placedAt": "2026-02-24T08:44:00Z",
+      "currency": "ILS",
+      "subtotal": 4605.6,
+      "tax": 460.56,
+      "discount": 172.71,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0033",
+          "quantity": 4,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00130",
+      "customerId": "CUS-0060",
+      "company": "Umbrella Logistics 60",
+      "status": "Packed",
+      "channel": "Partner",
+      "placedAt": "2026-02-27T15:57:00Z",
+      "currency": "JPY",
+      "subtotal": 10940.8,
+      "tax": 1094.08,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0034",
+          "quantity": 5,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 1,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00131",
+      "customerId": "CUS-0061",
+      "company": "Stark SaaS 61",
+      "status": "Shipped",
+      "channel": "Email",
+      "placedAt": "2026-03-02T22:10:00Z",
+      "currency": "USD",
+      "subtotal": 17276,
+      "tax": 1727.6,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0035",
+          "quantity": 1,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 2,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 3,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00132",
+      "customerId": "CUS-0062",
+      "company": "Wayne Fintech 62",
+      "status": "Delivered",
+      "channel": "Chat",
+      "placedAt": "2026-03-05T05:23:00Z",
+      "currency": "EUR",
+      "subtotal": 4411.2,
+      "tax": 441.12,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0036",
+          "quantity": 2,
+          "unitPrice": 1594.8
+        },
+        {
+          "sku": "SKU-0043",
+          "quantity": 3,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 4,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 5,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00133",
+      "customerId": "CUS-0063",
+      "company": "Wonka Retail 63",
+      "status": "Refunded",
+      "channel": "Phone",
+      "placedAt": "2026-03-08T12:36:00Z",
+      "currency": "GBP",
+      "subtotal": 10746.4,
+      "tax": 1074.64,
+      "discount": 402.99,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0037",
+          "quantity": 3,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00134",
+      "customerId": "CUS-0064",
+      "company": "Acme Healthcare 64",
+      "status": "Draft",
+      "channel": "Web",
+      "placedAt": "2026-03-11T19:49:00Z",
+      "currency": "ILS",
+      "subtotal": 17081.6,
+      "tax": 1708.16,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0038",
+          "quantity": 4,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 5,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00135",
+      "customerId": "CUS-0065",
+      "company": "Globex Media 65",
+      "status": "Pending",
+      "channel": "Partner",
+      "placedAt": "2026-03-14T02:02:00Z",
+      "currency": "JPY",
+      "subtotal": 4216.8,
+      "tax": 421.68,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0039",
+          "quantity": 5,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 1,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 2,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00136",
+      "customerId": "CUS-0066",
+      "company": "Initech Logistics 66",
+      "status": "Paid",
+      "channel": "Email",
+      "placedAt": "2026-03-17T09:15:00Z",
+      "currency": "USD",
+      "subtotal": 10552,
+      "tax": 1055.2,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0040",
+          "quantity": 1,
+          "unitPrice": 2515.92
+        },
+        {
+          "sku": "SKU-0047",
+          "quantity": 2,
+          "unitPrice": 527.88
+        },
+        {
+          "sku": "SKU-0006",
+          "quantity": 3,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 4,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00137",
+      "customerId": "CUS-0067",
+      "company": "Umbrella SaaS 67",
+      "status": "Packed",
+      "channel": "Chat",
+      "placedAt": "2026-03-20T16:28:00Z",
+      "currency": "EUR",
+      "subtotal": 16887.2,
+      "tax": 1688.72,
+      "discount": 633.27,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0041",
+          "quantity": 2,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00138",
+      "customerId": "CUS-0068",
+      "company": "Stark Fintech 68",
+      "status": "Shipped",
+      "channel": "Phone",
+      "placedAt": "2026-03-23T23:41:00Z",
+      "currency": "GBP",
+      "subtotal": 4022.4,
+      "tax": 402.24,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0042",
+          "quantity": 3,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 4,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00139",
+      "customerId": "CUS-0069",
+      "company": "Wayne Retail 69",
+      "status": "Delivered",
+      "channel": "Web",
+      "placedAt": "2026-03-26T06:54:00Z",
+      "currency": "ILS",
+      "subtotal": 10357.6,
+      "tax": 1035.76,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0043",
+          "quantity": 4,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 5,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 1,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00140",
+      "customerId": "CUS-0070",
+      "company": "Wonka Healthcare 70",
+      "status": "Refunded",
+      "channel": "Partner",
+      "placedAt": "2026-03-29T13:07:00Z",
+      "currency": "JPY",
+      "subtotal": 16692.8,
+      "tax": 1669.28,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0044",
+          "quantity": 5,
+          "unitPrice": 557.04
+        },
+        {
+          "sku": "SKU-0003",
+          "quantity": 1,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 2,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 3,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00141",
+      "customerId": "CUS-0001",
+      "company": "Acme SaaS 1",
+      "status": "Draft",
+      "channel": "Email",
+      "placedAt": "2026-04-01T20:20:00Z",
+      "currency": "USD",
+      "subtotal": 3828,
+      "tax": 382.8,
+      "discount": 143.55,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0045",
+          "quantity": 1,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00142",
+      "customerId": "CUS-0002",
+      "company": "Globex Fintech 2",
+      "status": "Pending",
+      "channel": "Chat",
+      "placedAt": "2026-04-04T03:33:00Z",
+      "currency": "EUR",
+      "subtotal": 10163.2,
+      "tax": 1016.32,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0046",
+          "quantity": 2,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 3,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00143",
+      "customerId": "CUS-0003",
+      "company": "Initech Retail 3",
+      "status": "Paid",
+      "channel": "Phone",
+      "placedAt": "2026-04-07T10:46:00Z",
+      "currency": "GBP",
+      "subtotal": 16498.4,
+      "tax": 1649.84,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0047",
+          "quantity": 3,
+          "unitPrice": 527.88
+        },
+        {
+          "sku": "SKU-0006",
+          "quantity": 4,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 5,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00144",
+      "customerId": "CUS-0004",
+      "company": "Umbrella Healthcare 4",
+      "status": "Packed",
+      "channel": "Web",
+      "placedAt": "2026-04-10T17:59:00Z",
+      "currency": "ILS",
+      "subtotal": 3633.6,
+      "tax": 363.36,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0048",
+          "quantity": 4,
+          "unitPrice": 1478.16
+        },
+        {
+          "sku": "SKU-0007",
+          "quantity": 5,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 1,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 2,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00145",
+      "customerId": "CUS-0005",
+      "company": "Stark Media 5",
+      "status": "Shipped",
+      "channel": "Partner",
+      "placedAt": "2026-04-13T00:12:00Z",
+      "currency": "JPY",
+      "subtotal": 9968.8,
+      "tax": 996.88,
+      "discount": 373.83,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0001",
+          "quantity": 5,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00146",
+      "customerId": "CUS-0006",
+      "company": "Wayne Logistics 6",
+      "status": "Delivered",
+      "channel": "Email",
+      "placedAt": "2026-04-16T07:25:00Z",
+      "currency": "USD",
+      "subtotal": 16304,
+      "tax": 1630.4,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0002",
+          "quantity": 1,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 2,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00147",
+      "customerId": "CUS-0007",
+      "company": "Wonka SaaS 7",
+      "status": "Refunded",
+      "channel": "Chat",
+      "placedAt": "2026-04-19T14:38:00Z",
+      "currency": "EUR",
+      "subtotal": 3439.2,
+      "tax": 343.92,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0003",
+          "quantity": 2,
+          "unitPrice": 1915.56
+        },
+        {
+          "sku": "SKU-0010",
+          "quantity": 3,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 4,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00148",
+      "customerId": "CUS-0008",
+      "company": "Acme Fintech 8",
+      "status": "Draft",
+      "channel": "Phone",
+      "placedAt": "2026-04-22T21:51:00Z",
+      "currency": "GBP",
+      "subtotal": 9774.4,
+      "tax": 977.44,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0004",
+          "quantity": 3,
+          "unitPrice": 2865.84
+        },
+        {
+          "sku": "SKU-0011",
+          "quantity": 4,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 5,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 1,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00149",
+      "customerId": "CUS-0009",
+      "company": "Globex Retail 9",
+      "status": "Pending",
+      "channel": "Web",
+      "placedAt": "2026-04-25T04:04:00Z",
+      "currency": "ILS",
+      "subtotal": 16109.6,
+      "tax": 1610.96,
+      "discount": 604.11,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0005",
+          "quantity": 4,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00150",
+      "customerId": "CUS-0010",
+      "company": "Initech Healthcare 10",
+      "status": "Paid",
+      "channel": "Partner",
+      "placedAt": "2026-04-28T11:17:00Z",
+      "currency": "JPY",
+      "subtotal": 3244.8,
+      "tax": 324.48,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0006",
+          "quantity": 5,
+          "unitPrice": 1886.4
+        },
+        {
+          "sku": "SKU-0013",
+          "quantity": 1,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00151",
+      "customerId": "CUS-0011",
+      "company": "Umbrella Media 11",
+      "status": "Packed",
+      "channel": "Email",
+      "placedAt": "2026-05-01T18:30:00Z",
+      "currency": "USD",
+      "subtotal": 9580,
+      "tax": 958,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0007",
+          "quantity": 1,
+          "unitPrice": 2836.68
+        },
+        {
+          "sku": "SKU-0014",
+          "quantity": 2,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 3,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00152",
+      "customerId": "CUS-0012",
+      "company": "Stark Logistics 12",
+      "status": "Shipped",
+      "channel": "Chat",
+      "placedAt": "2026-05-04T01:43:00Z",
+      "currency": "EUR",
+      "subtotal": 15915.2,
+      "tax": 1591.52,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0008",
+          "quantity": 2,
+          "unitPrice": 906.96
+        },
+        {
+          "sku": "SKU-0015",
+          "quantity": 3,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 4,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 5,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00153",
+      "customerId": "CUS-0013",
+      "company": "Wayne SaaS 13",
+      "status": "Delivered",
+      "channel": "Phone",
+      "placedAt": "2026-05-07T08:56:00Z",
+      "currency": "GBP",
+      "subtotal": 3050.4,
+      "tax": 305.04,
+      "discount": 114.39,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0009",
+          "quantity": 3,
+          "unitPrice": 1857.24
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00154",
+      "customerId": "CUS-0014",
+      "company": "Wonka Fintech 14",
+      "status": "Refunded",
+      "channel": "Web",
+      "placedAt": "2026-05-10T15:09:00Z",
+      "currency": "ILS",
+      "subtotal": 9385.6,
+      "tax": 938.56,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0010",
+          "quantity": 4,
+          "unitPrice": 2807.52
+        },
+        {
+          "sku": "SKU-0017",
+          "quantity": 5,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00155",
+      "customerId": "CUS-0015",
+      "company": "Acme Retail 15",
+      "status": "Draft",
+      "channel": "Partner",
+      "placedAt": "2026-05-13T22:22:00Z",
+      "currency": "JPY",
+      "subtotal": 15720.8,
+      "tax": 1572.08,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0011",
+          "quantity": 5,
+          "unitPrice": 877.8
+        },
+        {
+          "sku": "SKU-0018",
+          "quantity": 1,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 2,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00156",
+      "customerId": "CUS-0016",
+      "company": "Globex Healthcare 16",
+      "status": "Pending",
+      "channel": "Email",
+      "placedAt": "2026-05-16T05:35:00Z",
+      "currency": "USD",
+      "subtotal": 2856,
+      "tax": 285.6,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0012",
+          "quantity": 1,
+          "unitPrice": 1828.08
+        },
+        {
+          "sku": "SKU-0019",
+          "quantity": 2,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 3,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 4,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00157",
+      "customerId": "CUS-0017",
+      "company": "Initech Media 17",
+      "status": "Paid",
+      "channel": "Chat",
+      "placedAt": "2026-05-19T12:48:00Z",
+      "currency": "EUR",
+      "subtotal": 9191.2,
+      "tax": 919.12,
+      "discount": 344.67,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0013",
+          "quantity": 2,
+          "unitPrice": 2778.36
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00158",
+      "customerId": "CUS-0018",
+      "company": "Umbrella Logistics 18",
+      "status": "Packed",
+      "channel": "Phone",
+      "placedAt": "2026-05-22T19:01:00Z",
+      "currency": "GBP",
+      "subtotal": 15526.4,
+      "tax": 1552.64,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0014",
+          "quantity": 3,
+          "unitPrice": 848.64
+        },
+        {
+          "sku": "SKU-0021",
+          "quantity": 4,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00159",
+      "customerId": "CUS-0019",
+      "company": "Stark SaaS 19",
+      "status": "Shipped",
+      "channel": "Web",
+      "placedAt": "2026-05-25T02:14:00Z",
+      "currency": "ILS",
+      "subtotal": 2661.6,
+      "tax": 266.16,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0015",
+          "quantity": 4,
+          "unitPrice": 1798.92
+        },
+        {
+          "sku": "SKU-0022",
+          "quantity": 5,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 1,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00160",
+      "customerId": "CUS-0020",
+      "company": "Wayne Fintech 20",
+      "status": "Delivered",
+      "channel": "Partner",
+      "placedAt": "2026-05-28T09:27:00Z",
+      "currency": "JPY",
+      "subtotal": 8996.8,
+      "tax": 899.68,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0016",
+          "quantity": 5,
+          "unitPrice": 2749.2
+        },
+        {
+          "sku": "SKU-0023",
+          "quantity": 1,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 2,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 3,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00161",
+      "customerId": "CUS-0021",
+      "company": "Wonka Retail 21",
+      "status": "Refunded",
+      "channel": "Email",
+      "placedAt": "2026-05-31T16:40:00Z",
+      "currency": "USD",
+      "subtotal": 15332,
+      "tax": 1533.2,
+      "discount": 574.95,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0017",
+          "quantity": 1,
+          "unitPrice": 819.48
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00162",
+      "customerId": "CUS-0022",
+      "company": "Acme Healthcare 22",
+      "status": "Draft",
+      "channel": "Chat",
+      "placedAt": "2026-06-03T23:53:00Z",
+      "currency": "EUR",
+      "subtotal": 2467.2,
+      "tax": 246.72,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0018",
+          "quantity": 2,
+          "unitPrice": 1769.76
+        },
+        {
+          "sku": "SKU-0025",
+          "quantity": 3,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00163",
+      "customerId": "CUS-0023",
+      "company": "Globex Media 23",
+      "status": "Pending",
+      "channel": "Phone",
+      "placedAt": "2026-06-06T06:06:00Z",
+      "currency": "GBP",
+      "subtotal": 8802.4,
+      "tax": 880.24,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0019",
+          "quantity": 3,
+          "unitPrice": 2720.04
+        },
+        {
+          "sku": "SKU-0026",
+          "quantity": 4,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 5,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00164",
+      "customerId": "CUS-0024",
+      "company": "Initech Logistics 24",
+      "status": "Paid",
+      "channel": "Web",
+      "placedAt": "2026-06-09T13:19:00Z",
+      "currency": "ILS",
+      "subtotal": 15137.6,
+      "tax": 1513.76,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0020",
+          "quantity": 4,
+          "unitPrice": 790.32
+        },
+        {
+          "sku": "SKU-0027",
+          "quantity": 5,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 1,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 2,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00165",
+      "customerId": "CUS-0025",
+      "company": "Umbrella SaaS 25",
+      "status": "Packed",
+      "channel": "Partner",
+      "placedAt": "2026-06-12T20:32:00Z",
+      "currency": "JPY",
+      "subtotal": 2272.8,
+      "tax": 227.28,
+      "discount": 85.23,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0021",
+          "quantity": 5,
+          "unitPrice": 1740.6
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00166",
+      "customerId": "CUS-0026",
+      "company": "Stark Fintech 26",
+      "status": "Shipped",
+      "channel": "Email",
+      "placedAt": "2026-06-15T03:45:00Z",
+      "currency": "USD",
+      "subtotal": 8608,
+      "tax": 860.8,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0022",
+          "quantity": 1,
+          "unitPrice": 2690.88
+        },
+        {
+          "sku": "SKU-0029",
+          "quantity": 2,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00167",
+      "customerId": "CUS-0027",
+      "company": "Wayne Retail 27",
+      "status": "Delivered",
+      "channel": "Chat",
+      "placedAt": "2026-06-18T10:58:00Z",
+      "currency": "EUR",
+      "subtotal": 14943.2,
+      "tax": 1494.32,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0023",
+          "quantity": 2,
+          "unitPrice": 761.16
+        },
+        {
+          "sku": "SKU-0030",
+          "quantity": 3,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 4,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00168",
+      "customerId": "CUS-0028",
+      "company": "Wonka Healthcare 28",
+      "status": "Refunded",
+      "channel": "Phone",
+      "placedAt": "2026-06-21T17:11:00Z",
+      "currency": "GBP",
+      "subtotal": 2078.4,
+      "tax": 207.84,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0024",
+          "quantity": 3,
+          "unitPrice": 1711.44
+        },
+        {
+          "sku": "SKU-0031",
+          "quantity": 4,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 5,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 1,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00169",
+      "customerId": "CUS-0029",
+      "company": "Acme Media 29",
+      "status": "Draft",
+      "channel": "Web",
+      "placedAt": "2026-06-24T00:24:00Z",
+      "currency": "ILS",
+      "subtotal": 8413.6,
+      "tax": 841.36,
+      "discount": 315.51,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0025",
+          "quantity": 4,
+          "unitPrice": 2661.72
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00170",
+      "customerId": "CUS-0030",
+      "company": "Globex Logistics 30",
+      "status": "Pending",
+      "channel": "Partner",
+      "placedAt": "2026-06-27T07:37:00Z",
+      "currency": "JPY",
+      "subtotal": 14748.8,
+      "tax": 1474.88,
+      "discount": 0,
+      "expedited": true,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0026",
+          "quantity": 5,
+          "unitPrice": 732
+        },
+        {
+          "sku": "SKU-0033",
+          "quantity": 1,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00171",
+      "customerId": "CUS-0031",
+      "company": "Initech SaaS 31",
+      "status": "Paid",
+      "channel": "Email",
+      "placedAt": "2026-06-30T14:50:00Z",
+      "currency": "USD",
+      "subtotal": 1884,
+      "tax": 188.4,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0027",
+          "quantity": 1,
+          "unitPrice": 1682.28
+        },
+        {
+          "sku": "SKU-0034",
+          "quantity": 2,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 3,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00172",
+      "customerId": "CUS-0032",
+      "company": "Umbrella Fintech 32",
+      "status": "Packed",
+      "channel": "Chat",
+      "placedAt": "2026-07-03T21:03:00Z",
+      "currency": "EUR",
+      "subtotal": 8219.2,
+      "tax": 821.92,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0028",
+          "quantity": 2,
+          "unitPrice": 2632.56
+        },
+        {
+          "sku": "SKU-0035",
+          "quantity": 3,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 4,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 5,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00173",
+      "customerId": "CUS-0033",
+      "company": "Stark Retail 33",
+      "status": "Shipped",
+      "channel": "Phone",
+      "placedAt": "2026-07-06T04:16:00Z",
+      "currency": "GBP",
+      "subtotal": 14554.4,
+      "tax": 1455.44,
+      "discount": 545.79,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0029",
+          "quantity": 3,
+          "unitPrice": 702.84
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00174",
+      "customerId": "CUS-0034",
+      "company": "Wayne Healthcare 34",
+      "status": "Delivered",
+      "channel": "Web",
+      "placedAt": "2026-07-09T11:29:00Z",
+      "currency": "ILS",
+      "subtotal": 1689.6,
+      "tax": 168.96,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0030",
+          "quantity": 4,
+          "unitPrice": 1653.12
+        },
+        {
+          "sku": "SKU-0037",
+          "quantity": 5,
+          "unitPrice": 2545.08
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00175",
+      "customerId": "CUS-0035",
+      "company": "Wonka Media 35",
+      "status": "Refunded",
+      "channel": "Partner",
+      "placedAt": "2026-07-12T18:42:00Z",
+      "currency": "JPY",
+      "subtotal": 8024.8,
+      "tax": 802.48,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0031",
+          "quantity": 5,
+          "unitPrice": 2603.4
+        },
+        {
+          "sku": "SKU-0038",
+          "quantity": 1,
+          "unitPrice": 615.36
+        },
+        {
+          "sku": "SKU-0045",
+          "quantity": 2,
+          "unitPrice": 1507.32
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00176",
+      "customerId": "CUS-0036",
+      "company": "Acme Logistics 36",
+      "status": "Draft",
+      "channel": "Email",
+      "placedAt": "2026-07-15T01:55:00Z",
+      "currency": "USD",
+      "subtotal": 14360,
+      "tax": 1436,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Austin",
+        "country": "US"
+      },
+      "items": [
+        {
+          "sku": "SKU-0032",
+          "quantity": 1,
+          "unitPrice": 673.68
+        },
+        {
+          "sku": "SKU-0039",
+          "quantity": 2,
+          "unitPrice": 1565.64
+        },
+        {
+          "sku": "SKU-0046",
+          "quantity": 3,
+          "unitPrice": 2457.6
+        },
+        {
+          "sku": "SKU-0005",
+          "quantity": 4,
+          "unitPrice": 936.12
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00177",
+      "customerId": "CUS-0037",
+      "company": "Globex SaaS 37",
+      "status": "Pending",
+      "channel": "Chat",
+      "placedAt": "2026-07-18T08:08:00Z",
+      "currency": "EUR",
+      "subtotal": 1495.2,
+      "tax": 149.52,
+      "discount": 56.07,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Paris",
+        "country": "FR"
+      },
+      "items": [
+        {
+          "sku": "SKU-0033",
+          "quantity": 2,
+          "unitPrice": 1623.96
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00178",
+      "customerId": "CUS-0038",
+      "company": "Initech Fintech 38",
+      "status": "Paid",
+      "channel": "Phone",
+      "placedAt": "2026-07-21T15:21:00Z",
+      "currency": "GBP",
+      "subtotal": 7830.4,
+      "tax": 783.04,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Manchester",
+        "country": "GB"
+      },
+      "items": [
+        {
+          "sku": "SKU-0034",
+          "quantity": 3,
+          "unitPrice": 2574.24
+        },
+        {
+          "sku": "SKU-0041",
+          "quantity": 4,
+          "unitPrice": 586.2
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00179",
+      "customerId": "CUS-0039",
+      "company": "Umbrella Retail 39",
+      "status": "Packed",
+      "channel": "Web",
+      "placedAt": "2026-07-24T22:34:00Z",
+      "currency": "ILS",
+      "subtotal": 14165.6,
+      "tax": 1416.56,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Haifa",
+        "country": "IL"
+      },
+      "items": [
+        {
+          "sku": "SKU-0035",
+          "quantity": 4,
+          "unitPrice": 644.52
+        },
+        {
+          "sku": "SKU-0042",
+          "quantity": 5,
+          "unitPrice": 1536.48
+        },
+        {
+          "sku": "SKU-0001",
+          "quantity": 1,
+          "unitPrice": 15
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-00180",
+      "customerId": "CUS-0040",
+      "company": "Stark Healthcare 40",
+      "status": "Shipped",
+      "channel": "Partner",
+      "placedAt": "2026-07-27T05:47:00Z",
+      "currency": "JPY",
+      "subtotal": 1300.8,
+      "tax": 130.08,
+      "discount": 0,
+      "expedited": false,
+      "shippingAddress": {
+        "city": "Osaka",
+        "country": "JP"
+      },
+      "items": [
+        {
+          "sku": "SKU-0036",
+          "quantity": 5,
+          "unitPrice": 1594.8
+        },
+        {
+          "sku": "SKU-0043",
+          "quantity": 1,
+          "unitPrice": 2486.76
+        },
+        {
+          "sku": "SKU-0002",
+          "quantity": 2,
+          "unitPrice": 965.28
+        },
+        {
+          "sku": "SKU-0009",
+          "quantity": 3,
+          "unitPrice": 1857.24
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": "CUS-0001",
+      "company": "Acme SaaS 1",
+      "industry": "SaaS",
+      "region": "North America",
+      "tier": "Free",
+      "joined": "2025-09-23",
+      "contacts": [
+        {
+          "id": "person-001",
+          "name": "Ada 1",
+          "email": "person1@example.com"
+        },
+        {
+          "id": "person-008",
+          "name": "Radia 8",
+          "email": "person8@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0002",
+      "company": "Globex Fintech 2",
+      "industry": "Fintech",
+      "region": "Europe",
+      "tier": "Pro",
+      "joined": "2025-09-26",
+      "contacts": [
+        {
+          "id": "person-002",
+          "name": "Grace 2",
+          "email": "person2@example.com"
+        },
+        {
+          "id": "person-009",
+          "name": "Barbara 9",
+          "email": "person9@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0003",
+      "company": "Initech Retail 3",
+      "industry": "Retail",
+      "region": "Asia Pacific",
+      "tier": "Business",
+      "joined": "2025-09-29",
+      "contacts": [
+        {
+          "id": "person-003",
+          "name": "Linus 3",
+          "email": "person3@example.com"
+        },
+        {
+          "id": "person-010",
+          "name": "Donald 10",
+          "email": "person10@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0004",
+      "company": "Umbrella Healthcare 4",
+      "industry": "Healthcare",
+      "region": "Middle East",
+      "tier": "Enterprise",
+      "joined": "2025-10-02",
+      "contacts": [
+        {
+          "id": "person-004",
+          "name": "Margaret 4",
+          "email": "person4@example.com"
+        },
+        {
+          "id": "person-011",
+          "name": "Ada 11",
+          "email": "person11@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0005",
+      "company": "Stark Media 5",
+      "industry": "Media",
+      "region": "Latin America",
+      "tier": "Free",
+      "joined": "2025-10-05",
+      "contacts": [
+        {
+          "id": "person-005",
+          "name": "Alan 5",
+          "email": "person5@example.com"
+        },
+        {
+          "id": "person-012",
+          "name": "Grace 12",
+          "email": "person12@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0006",
+      "company": "Wayne Logistics 6",
+      "industry": "Logistics",
+      "region": "North America",
+      "tier": "Pro",
+      "joined": "2025-10-08",
+      "contacts": [
+        {
+          "id": "person-006",
+          "name": "Katherine 6",
+          "email": "person6@example.com"
+        },
+        {
+          "id": "person-013",
+          "name": "Linus 13",
+          "email": "person13@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0007",
+      "company": "Wonka SaaS 7",
+      "industry": "SaaS",
+      "region": "Europe",
+      "tier": "Business",
+      "joined": "2025-10-11",
+      "contacts": [
+        {
+          "id": "person-007",
+          "name": "Edsger 7",
+          "email": "person7@example.com"
+        },
+        {
+          "id": "person-014",
+          "name": "Margaret 14",
+          "email": "person14@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0008",
+      "company": "Acme Fintech 8",
+      "industry": "Fintech",
+      "region": "Asia Pacific",
+      "tier": "Enterprise",
+      "joined": "2025-10-14",
+      "contacts": [
+        {
+          "id": "person-008",
+          "name": "Radia 8",
+          "email": "person8@example.com"
+        },
+        {
+          "id": "person-015",
+          "name": "Alan 15",
+          "email": "person15@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0009",
+      "company": "Globex Retail 9",
+      "industry": "Retail",
+      "region": "Middle East",
+      "tier": "Free",
+      "joined": "2025-10-17",
+      "contacts": [
+        {
+          "id": "person-009",
+          "name": "Barbara 9",
+          "email": "person9@example.com"
+        },
+        {
+          "id": "person-016",
+          "name": "Katherine 16",
+          "email": "person16@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0010",
+      "company": "Initech Healthcare 10",
+      "industry": "Healthcare",
+      "region": "Latin America",
+      "tier": "Pro",
+      "joined": "2025-10-20",
+      "contacts": [
+        {
+          "id": "person-010",
+          "name": "Donald 10",
+          "email": "person10@example.com"
+        },
+        {
+          "id": "person-017",
+          "name": "Edsger 17",
+          "email": "person17@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0011",
+      "company": "Umbrella Media 11",
+      "industry": "Media",
+      "region": "North America",
+      "tier": "Business",
+      "joined": "2025-10-23",
+      "contacts": [
+        {
+          "id": "person-011",
+          "name": "Ada 11",
+          "email": "person11@example.com"
+        },
+        {
+          "id": "person-018",
+          "name": "Radia 18",
+          "email": "person18@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0012",
+      "company": "Stark Logistics 12",
+      "industry": "Logistics",
+      "region": "Europe",
+      "tier": "Enterprise",
+      "joined": "2025-10-26",
+      "contacts": [
+        {
+          "id": "person-012",
+          "name": "Grace 12",
+          "email": "person12@example.com"
+        },
+        {
+          "id": "person-019",
+          "name": "Barbara 19",
+          "email": "person19@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0013",
+      "company": "Wayne SaaS 13",
+      "industry": "SaaS",
+      "region": "Asia Pacific",
+      "tier": "Free",
+      "joined": "2025-10-29",
+      "contacts": [
+        {
+          "id": "person-013",
+          "name": "Linus 13",
+          "email": "person13@example.com"
+        },
+        {
+          "id": "person-020",
+          "name": "Donald 20",
+          "email": "person20@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0014",
+      "company": "Wonka Fintech 14",
+      "industry": "Fintech",
+      "region": "Middle East",
+      "tier": "Pro",
+      "joined": "2025-11-01",
+      "contacts": [
+        {
+          "id": "person-014",
+          "name": "Margaret 14",
+          "email": "person14@example.com"
+        },
+        {
+          "id": "person-021",
+          "name": "Ada 21",
+          "email": "person21@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0015",
+      "company": "Acme Retail 15",
+      "industry": "Retail",
+      "region": "Latin America",
+      "tier": "Business",
+      "joined": "2025-11-04",
+      "contacts": [
+        {
+          "id": "person-015",
+          "name": "Alan 15",
+          "email": "person15@example.com"
+        },
+        {
+          "id": "person-022",
+          "name": "Grace 22",
+          "email": "person22@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0016",
+      "company": "Globex Healthcare 16",
+      "industry": "Healthcare",
+      "region": "North America",
+      "tier": "Enterprise",
+      "joined": "2025-11-07",
+      "contacts": [
+        {
+          "id": "person-016",
+          "name": "Katherine 16",
+          "email": "person16@example.com"
+        },
+        {
+          "id": "person-023",
+          "name": "Linus 23",
+          "email": "person23@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0017",
+      "company": "Initech Media 17",
+      "industry": "Media",
+      "region": "Europe",
+      "tier": "Free",
+      "joined": "2025-11-10",
+      "contacts": [
+        {
+          "id": "person-017",
+          "name": "Edsger 17",
+          "email": "person17@example.com"
+        },
+        {
+          "id": "person-024",
+          "name": "Margaret 24",
+          "email": "person24@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0018",
+      "company": "Umbrella Logistics 18",
+      "industry": "Logistics",
+      "region": "Asia Pacific",
+      "tier": "Pro",
+      "joined": "2025-11-13",
+      "contacts": [
+        {
+          "id": "person-018",
+          "name": "Radia 18",
+          "email": "person18@example.com"
+        },
+        {
+          "id": "person-025",
+          "name": "Alan 25",
+          "email": "person25@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0019",
+      "company": "Stark SaaS 19",
+      "industry": "SaaS",
+      "region": "Middle East",
+      "tier": "Business",
+      "joined": "2025-11-16",
+      "contacts": [
+        {
+          "id": "person-019",
+          "name": "Barbara 19",
+          "email": "person19@example.com"
+        },
+        {
+          "id": "person-026",
+          "name": "Katherine 26",
+          "email": "person26@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0020",
+      "company": "Wayne Fintech 20",
+      "industry": "Fintech",
+      "region": "Latin America",
+      "tier": "Enterprise",
+      "joined": "2025-11-19",
+      "contacts": [
+        {
+          "id": "person-020",
+          "name": "Donald 20",
+          "email": "person20@example.com"
+        },
+        {
+          "id": "person-027",
+          "name": "Edsger 27",
+          "email": "person27@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0021",
+      "company": "Wonka Retail 21",
+      "industry": "Retail",
+      "region": "North America",
+      "tier": "Free",
+      "joined": "2025-11-22",
+      "contacts": [
+        {
+          "id": "person-021",
+          "name": "Ada 21",
+          "email": "person21@example.com"
+        },
+        {
+          "id": "person-028",
+          "name": "Radia 28",
+          "email": "person28@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0022",
+      "company": "Acme Healthcare 22",
+      "industry": "Healthcare",
+      "region": "Europe",
+      "tier": "Pro",
+      "joined": "2025-11-25",
+      "contacts": [
+        {
+          "id": "person-022",
+          "name": "Grace 22",
+          "email": "person22@example.com"
+        },
+        {
+          "id": "person-029",
+          "name": "Barbara 29",
+          "email": "person29@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0023",
+      "company": "Globex Media 23",
+      "industry": "Media",
+      "region": "Asia Pacific",
+      "tier": "Business",
+      "joined": "2025-11-28",
+      "contacts": [
+        {
+          "id": "person-023",
+          "name": "Linus 23",
+          "email": "person23@example.com"
+        },
+        {
+          "id": "person-030",
+          "name": "Donald 30",
+          "email": "person30@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0024",
+      "company": "Initech Logistics 24",
+      "industry": "Logistics",
+      "region": "Middle East",
+      "tier": "Enterprise",
+      "joined": "2025-12-01",
+      "contacts": [
+        {
+          "id": "person-024",
+          "name": "Margaret 24",
+          "email": "person24@example.com"
+        },
+        {
+          "id": "person-001",
+          "name": "Ada 1",
+          "email": "person1@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0025",
+      "company": "Umbrella SaaS 25",
+      "industry": "SaaS",
+      "region": "Latin America",
+      "tier": "Free",
+      "joined": "2025-12-04",
+      "contacts": [
+        {
+          "id": "person-025",
+          "name": "Alan 25",
+          "email": "person25@example.com"
+        },
+        {
+          "id": "person-002",
+          "name": "Grace 2",
+          "email": "person2@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0026",
+      "company": "Stark Fintech 26",
+      "industry": "Fintech",
+      "region": "North America",
+      "tier": "Pro",
+      "joined": "2025-12-07",
+      "contacts": [
+        {
+          "id": "person-026",
+          "name": "Katherine 26",
+          "email": "person26@example.com"
+        },
+        {
+          "id": "person-003",
+          "name": "Linus 3",
+          "email": "person3@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0027",
+      "company": "Wayne Retail 27",
+      "industry": "Retail",
+      "region": "Europe",
+      "tier": "Business",
+      "joined": "2025-12-10",
+      "contacts": [
+        {
+          "id": "person-027",
+          "name": "Edsger 27",
+          "email": "person27@example.com"
+        },
+        {
+          "id": "person-004",
+          "name": "Margaret 4",
+          "email": "person4@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0028",
+      "company": "Wonka Healthcare 28",
+      "industry": "Healthcare",
+      "region": "Asia Pacific",
+      "tier": "Enterprise",
+      "joined": "2025-12-13",
+      "contacts": [
+        {
+          "id": "person-028",
+          "name": "Radia 28",
+          "email": "person28@example.com"
+        },
+        {
+          "id": "person-005",
+          "name": "Alan 5",
+          "email": "person5@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0029",
+      "company": "Acme Media 29",
+      "industry": "Media",
+      "region": "Middle East",
+      "tier": "Free",
+      "joined": "2025-12-16",
+      "contacts": [
+        {
+          "id": "person-029",
+          "name": "Barbara 29",
+          "email": "person29@example.com"
+        },
+        {
+          "id": "person-006",
+          "name": "Katherine 6",
+          "email": "person6@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0030",
+      "company": "Globex Logistics 30",
+      "industry": "Logistics",
+      "region": "Latin America",
+      "tier": "Pro",
+      "joined": "2025-12-19",
+      "contacts": [
+        {
+          "id": "person-030",
+          "name": "Donald 30",
+          "email": "person30@example.com"
+        },
+        {
+          "id": "person-007",
+          "name": "Edsger 7",
+          "email": "person7@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0031",
+      "company": "Initech SaaS 31",
+      "industry": "SaaS",
+      "region": "North America",
+      "tier": "Business",
+      "joined": "2025-12-22",
+      "contacts": [
+        {
+          "id": "person-001",
+          "name": "Ada 1",
+          "email": "person1@example.com"
+        },
+        {
+          "id": "person-008",
+          "name": "Radia 8",
+          "email": "person8@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0032",
+      "company": "Umbrella Fintech 32",
+      "industry": "Fintech",
+      "region": "Europe",
+      "tier": "Enterprise",
+      "joined": "2025-12-25",
+      "contacts": [
+        {
+          "id": "person-002",
+          "name": "Grace 2",
+          "email": "person2@example.com"
+        },
+        {
+          "id": "person-009",
+          "name": "Barbara 9",
+          "email": "person9@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0033",
+      "company": "Stark Retail 33",
+      "industry": "Retail",
+      "region": "Asia Pacific",
+      "tier": "Free",
+      "joined": "2025-12-28",
+      "contacts": [
+        {
+          "id": "person-003",
+          "name": "Linus 3",
+          "email": "person3@example.com"
+        },
+        {
+          "id": "person-010",
+          "name": "Donald 10",
+          "email": "person10@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0034",
+      "company": "Wayne Healthcare 34",
+      "industry": "Healthcare",
+      "region": "Middle East",
+      "tier": "Pro",
+      "joined": "2025-12-31",
+      "contacts": [
+        {
+          "id": "person-004",
+          "name": "Margaret 4",
+          "email": "person4@example.com"
+        },
+        {
+          "id": "person-011",
+          "name": "Ada 11",
+          "email": "person11@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0035",
+      "company": "Wonka Media 35",
+      "industry": "Media",
+      "region": "Latin America",
+      "tier": "Business",
+      "joined": "2026-01-03",
+      "contacts": [
+        {
+          "id": "person-005",
+          "name": "Alan 5",
+          "email": "person5@example.com"
+        },
+        {
+          "id": "person-012",
+          "name": "Grace 12",
+          "email": "person12@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0036",
+      "company": "Acme Logistics 36",
+      "industry": "Logistics",
+      "region": "North America",
+      "tier": "Enterprise",
+      "joined": "2026-01-06",
+      "contacts": [
+        {
+          "id": "person-006",
+          "name": "Katherine 6",
+          "email": "person6@example.com"
+        },
+        {
+          "id": "person-013",
+          "name": "Linus 13",
+          "email": "person13@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0037",
+      "company": "Globex SaaS 37",
+      "industry": "SaaS",
+      "region": "Europe",
+      "tier": "Free",
+      "joined": "2026-01-09",
+      "contacts": [
+        {
+          "id": "person-007",
+          "name": "Edsger 7",
+          "email": "person7@example.com"
+        },
+        {
+          "id": "person-014",
+          "name": "Margaret 14",
+          "email": "person14@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0038",
+      "company": "Initech Fintech 38",
+      "industry": "Fintech",
+      "region": "Asia Pacific",
+      "tier": "Pro",
+      "joined": "2026-01-12",
+      "contacts": [
+        {
+          "id": "person-008",
+          "name": "Radia 8",
+          "email": "person8@example.com"
+        },
+        {
+          "id": "person-015",
+          "name": "Alan 15",
+          "email": "person15@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0039",
+      "company": "Umbrella Retail 39",
+      "industry": "Retail",
+      "region": "Middle East",
+      "tier": "Business",
+      "joined": "2026-01-15",
+      "contacts": [
+        {
+          "id": "person-009",
+          "name": "Barbara 9",
+          "email": "person9@example.com"
+        },
+        {
+          "id": "person-016",
+          "name": "Katherine 16",
+          "email": "person16@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0040",
+      "company": "Stark Healthcare 40",
+      "industry": "Healthcare",
+      "region": "Latin America",
+      "tier": "Enterprise",
+      "joined": "2026-01-18",
+      "contacts": [
+        {
+          "id": "person-010",
+          "name": "Donald 10",
+          "email": "person10@example.com"
+        },
+        {
+          "id": "person-017",
+          "name": "Edsger 17",
+          "email": "person17@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0041",
+      "company": "Wayne Media 41",
+      "industry": "Media",
+      "region": "North America",
+      "tier": "Free",
+      "joined": "2026-01-21",
+      "contacts": [
+        {
+          "id": "person-011",
+          "name": "Ada 11",
+          "email": "person11@example.com"
+        },
+        {
+          "id": "person-018",
+          "name": "Radia 18",
+          "email": "person18@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0042",
+      "company": "Wonka Logistics 42",
+      "industry": "Logistics",
+      "region": "Europe",
+      "tier": "Pro",
+      "joined": "2026-01-24",
+      "contacts": [
+        {
+          "id": "person-012",
+          "name": "Grace 12",
+          "email": "person12@example.com"
+        },
+        {
+          "id": "person-019",
+          "name": "Barbara 19",
+          "email": "person19@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0043",
+      "company": "Acme SaaS 43",
+      "industry": "SaaS",
+      "region": "Asia Pacific",
+      "tier": "Business",
+      "joined": "2026-01-27",
+      "contacts": [
+        {
+          "id": "person-013",
+          "name": "Linus 13",
+          "email": "person13@example.com"
+        },
+        {
+          "id": "person-020",
+          "name": "Donald 20",
+          "email": "person20@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0044",
+      "company": "Globex Fintech 44",
+      "industry": "Fintech",
+      "region": "Middle East",
+      "tier": "Enterprise",
+      "joined": "2026-01-30",
+      "contacts": [
+        {
+          "id": "person-014",
+          "name": "Margaret 14",
+          "email": "person14@example.com"
+        },
+        {
+          "id": "person-021",
+          "name": "Ada 21",
+          "email": "person21@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0045",
+      "company": "Initech Retail 45",
+      "industry": "Retail",
+      "region": "Latin America",
+      "tier": "Free",
+      "joined": "2026-02-02",
+      "contacts": [
+        {
+          "id": "person-015",
+          "name": "Alan 15",
+          "email": "person15@example.com"
+        },
+        {
+          "id": "person-022",
+          "name": "Grace 22",
+          "email": "person22@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0046",
+      "company": "Umbrella Healthcare 46",
+      "industry": "Healthcare",
+      "region": "North America",
+      "tier": "Pro",
+      "joined": "2026-02-05",
+      "contacts": [
+        {
+          "id": "person-016",
+          "name": "Katherine 16",
+          "email": "person16@example.com"
+        },
+        {
+          "id": "person-023",
+          "name": "Linus 23",
+          "email": "person23@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0047",
+      "company": "Stark Media 47",
+      "industry": "Media",
+      "region": "Europe",
+      "tier": "Business",
+      "joined": "2026-02-08",
+      "contacts": [
+        {
+          "id": "person-017",
+          "name": "Edsger 17",
+          "email": "person17@example.com"
+        },
+        {
+          "id": "person-024",
+          "name": "Margaret 24",
+          "email": "person24@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0048",
+      "company": "Wayne Logistics 48",
+      "industry": "Logistics",
+      "region": "Asia Pacific",
+      "tier": "Enterprise",
+      "joined": "2026-02-11",
+      "contacts": [
+        {
+          "id": "person-018",
+          "name": "Radia 18",
+          "email": "person18@example.com"
+        },
+        {
+          "id": "person-025",
+          "name": "Alan 25",
+          "email": "person25@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0049",
+      "company": "Wonka SaaS 49",
+      "industry": "SaaS",
+      "region": "Middle East",
+      "tier": "Free",
+      "joined": "2026-02-14",
+      "contacts": [
+        {
+          "id": "person-019",
+          "name": "Barbara 19",
+          "email": "person19@example.com"
+        },
+        {
+          "id": "person-026",
+          "name": "Katherine 26",
+          "email": "person26@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0050",
+      "company": "Acme Fintech 50",
+      "industry": "Fintech",
+      "region": "Latin America",
+      "tier": "Pro",
+      "joined": "2026-02-17",
+      "contacts": [
+        {
+          "id": "person-020",
+          "name": "Donald 20",
+          "email": "person20@example.com"
+        },
+        {
+          "id": "person-027",
+          "name": "Edsger 27",
+          "email": "person27@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0051",
+      "company": "Globex Retail 51",
+      "industry": "Retail",
+      "region": "North America",
+      "tier": "Business",
+      "joined": "2026-02-20",
+      "contacts": [
+        {
+          "id": "person-021",
+          "name": "Ada 21",
+          "email": "person21@example.com"
+        },
+        {
+          "id": "person-028",
+          "name": "Radia 28",
+          "email": "person28@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0052",
+      "company": "Initech Healthcare 52",
+      "industry": "Healthcare",
+      "region": "Europe",
+      "tier": "Enterprise",
+      "joined": "2026-02-23",
+      "contacts": [
+        {
+          "id": "person-022",
+          "name": "Grace 22",
+          "email": "person22@example.com"
+        },
+        {
+          "id": "person-029",
+          "name": "Barbara 29",
+          "email": "person29@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0053",
+      "company": "Umbrella Media 53",
+      "industry": "Media",
+      "region": "Asia Pacific",
+      "tier": "Free",
+      "joined": "2026-02-26",
+      "contacts": [
+        {
+          "id": "person-023",
+          "name": "Linus 23",
+          "email": "person23@example.com"
+        },
+        {
+          "id": "person-030",
+          "name": "Donald 30",
+          "email": "person30@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0054",
+      "company": "Stark Logistics 54",
+      "industry": "Logistics",
+      "region": "Middle East",
+      "tier": "Pro",
+      "joined": "2026-03-01",
+      "contacts": [
+        {
+          "id": "person-024",
+          "name": "Margaret 24",
+          "email": "person24@example.com"
+        },
+        {
+          "id": "person-001",
+          "name": "Ada 1",
+          "email": "person1@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0055",
+      "company": "Wayne SaaS 55",
+      "industry": "SaaS",
+      "region": "Latin America",
+      "tier": "Business",
+      "joined": "2026-03-04",
+      "contacts": [
+        {
+          "id": "person-025",
+          "name": "Alan 25",
+          "email": "person25@example.com"
+        },
+        {
+          "id": "person-002",
+          "name": "Grace 2",
+          "email": "person2@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0056",
+      "company": "Wonka Fintech 56",
+      "industry": "Fintech",
+      "region": "North America",
+      "tier": "Enterprise",
+      "joined": "2026-03-07",
+      "contacts": [
+        {
+          "id": "person-026",
+          "name": "Katherine 26",
+          "email": "person26@example.com"
+        },
+        {
+          "id": "person-003",
+          "name": "Linus 3",
+          "email": "person3@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0057",
+      "company": "Acme Retail 57",
+      "industry": "Retail",
+      "region": "Europe",
+      "tier": "Free",
+      "joined": "2026-03-10",
+      "contacts": [
+        {
+          "id": "person-027",
+          "name": "Edsger 27",
+          "email": "person27@example.com"
+        },
+        {
+          "id": "person-004",
+          "name": "Margaret 4",
+          "email": "person4@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0058",
+      "company": "Globex Healthcare 58",
+      "industry": "Healthcare",
+      "region": "Asia Pacific",
+      "tier": "Pro",
+      "joined": "2026-03-13",
+      "contacts": [
+        {
+          "id": "person-028",
+          "name": "Radia 28",
+          "email": "person28@example.com"
+        },
+        {
+          "id": "person-005",
+          "name": "Alan 5",
+          "email": "person5@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0059",
+      "company": "Initech Media 59",
+      "industry": "Media",
+      "region": "Middle East",
+      "tier": "Business",
+      "joined": "2026-03-16",
+      "contacts": [
+        {
+          "id": "person-029",
+          "name": "Barbara 29",
+          "email": "person29@example.com"
+        },
+        {
+          "id": "person-006",
+          "name": "Katherine 6",
+          "email": "person6@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0060",
+      "company": "Umbrella Logistics 60",
+      "industry": "Logistics",
+      "region": "Latin America",
+      "tier": "Enterprise",
+      "joined": "2026-03-19",
+      "contacts": [
+        {
+          "id": "person-030",
+          "name": "Donald 30",
+          "email": "person30@example.com"
+        },
+        {
+          "id": "person-007",
+          "name": "Edsger 7",
+          "email": "person7@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0061",
+      "company": "Stark SaaS 61",
+      "industry": "SaaS",
+      "region": "North America",
+      "tier": "Free",
+      "joined": "2026-03-22",
+      "contacts": [
+        {
+          "id": "person-001",
+          "name": "Ada 1",
+          "email": "person1@example.com"
+        },
+        {
+          "id": "person-008",
+          "name": "Radia 8",
+          "email": "person8@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0062",
+      "company": "Wayne Fintech 62",
+      "industry": "Fintech",
+      "region": "Europe",
+      "tier": "Pro",
+      "joined": "2026-03-25",
+      "contacts": [
+        {
+          "id": "person-002",
+          "name": "Grace 2",
+          "email": "person2@example.com"
+        },
+        {
+          "id": "person-009",
+          "name": "Barbara 9",
+          "email": "person9@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0063",
+      "company": "Wonka Retail 63",
+      "industry": "Retail",
+      "region": "Asia Pacific",
+      "tier": "Business",
+      "joined": "2026-03-28",
+      "contacts": [
+        {
+          "id": "person-003",
+          "name": "Linus 3",
+          "email": "person3@example.com"
+        },
+        {
+          "id": "person-010",
+          "name": "Donald 10",
+          "email": "person10@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0064",
+      "company": "Acme Healthcare 64",
+      "industry": "Healthcare",
+      "region": "Middle East",
+      "tier": "Enterprise",
+      "joined": "2026-03-31",
+      "contacts": [
+        {
+          "id": "person-004",
+          "name": "Margaret 4",
+          "email": "person4@example.com"
+        },
+        {
+          "id": "person-011",
+          "name": "Ada 11",
+          "email": "person11@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0065",
+      "company": "Globex Media 65",
+      "industry": "Media",
+      "region": "Latin America",
+      "tier": "Free",
+      "joined": "2026-04-03",
+      "contacts": [
+        {
+          "id": "person-005",
+          "name": "Alan 5",
+          "email": "person5@example.com"
+        },
+        {
+          "id": "person-012",
+          "name": "Grace 12",
+          "email": "person12@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0066",
+      "company": "Initech Logistics 66",
+      "industry": "Logistics",
+      "region": "North America",
+      "tier": "Pro",
+      "joined": "2026-04-06",
+      "contacts": [
+        {
+          "id": "person-006",
+          "name": "Katherine 6",
+          "email": "person6@example.com"
+        },
+        {
+          "id": "person-013",
+          "name": "Linus 13",
+          "email": "person13@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0067",
+      "company": "Umbrella SaaS 67",
+      "industry": "SaaS",
+      "region": "Europe",
+      "tier": "Business",
+      "joined": "2026-04-09",
+      "contacts": [
+        {
+          "id": "person-007",
+          "name": "Edsger 7",
+          "email": "person7@example.com"
+        },
+        {
+          "id": "person-014",
+          "name": "Margaret 14",
+          "email": "person14@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0068",
+      "company": "Stark Fintech 68",
+      "industry": "Fintech",
+      "region": "Asia Pacific",
+      "tier": "Enterprise",
+      "joined": "2026-04-12",
+      "contacts": [
+        {
+          "id": "person-008",
+          "name": "Radia 8",
+          "email": "person8@example.com"
+        },
+        {
+          "id": "person-015",
+          "name": "Alan 15",
+          "email": "person15@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0069",
+      "company": "Wayne Retail 69",
+      "industry": "Retail",
+      "region": "Middle East",
+      "tier": "Free",
+      "joined": "2026-04-15",
+      "contacts": [
+        {
+          "id": "person-009",
+          "name": "Barbara 9",
+          "email": "person9@example.com"
+        },
+        {
+          "id": "person-016",
+          "name": "Katherine 16",
+          "email": "person16@example.com"
+        }
+      ]
+    },
+    {
+      "id": "CUS-0070",
+      "company": "Wonka Healthcare 70",
+      "industry": "Healthcare",
+      "region": "Latin America",
+      "tier": "Pro",
+      "joined": "2026-04-18",
+      "contacts": [
+        {
+          "id": "person-010",
+          "name": "Donald 10",
+          "email": "person10@example.com"
+        },
+        {
+          "id": "person-017",
+          "name": "Edsger 17",
+          "email": "person17@example.com"
+        }
+      ]
+    }
+  ],
+  "catalog": [
+    {
+      "sku": "SKU-0001",
+      "name": "Atlas Starter",
+      "category": "Software",
+      "price": 15,
+      "cost": 5.63,
+      "active": false,
+      "attributes": {
+        "color": "Slate",
+        "seats": 1,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0002",
+      "name": "Beacon Pro",
+      "category": "Services",
+      "price": 965.28,
+      "cost": 361.98,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 6,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0003",
+      "name": "Canvas Team",
+      "category": "Hardware",
+      "price": 1915.56,
+      "cost": 718.33,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 11,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0004",
+      "name": "Delta Enterprise",
+      "category": "Training",
+      "price": 2865.84,
+      "cost": 1074.69,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 16,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0005",
+      "name": "Echo Starter",
+      "category": "Software",
+      "price": 936.12,
+      "cost": 351.04,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 21,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0006",
+      "name": "Forge Pro",
+      "category": "Services",
+      "price": 1886.4,
+      "cost": 707.4,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 26,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0007",
+      "name": "Helix Team",
+      "category": "Hardware",
+      "price": 2836.68,
+      "cost": 1063.75,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 31,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0008",
+      "name": "Ion Enterprise",
+      "category": "Training",
+      "price": 906.96,
+      "cost": 340.11,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 36,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0009",
+      "name": "Atlas Starter",
+      "category": "Software",
+      "price": 1857.24,
+      "cost": 696.46,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 41,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0010",
+      "name": "Beacon Pro",
+      "category": "Services",
+      "price": 2807.52,
+      "cost": 1052.82,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 46,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0011",
+      "name": "Canvas Team",
+      "category": "Hardware",
+      "price": 877.8,
+      "cost": 329.18,
+      "active": false,
+      "attributes": {
+        "color": "Green",
+        "seats": 51,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0012",
+      "name": "Delta Enterprise",
+      "category": "Training",
+      "price": 1828.08,
+      "cost": 685.53,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 56,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0013",
+      "name": "Echo Starter",
+      "category": "Software",
+      "price": 2778.36,
+      "cost": 1041.89,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 61,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0014",
+      "name": "Forge Pro",
+      "category": "Services",
+      "price": 848.64,
+      "cost": 318.24,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 66,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0015",
+      "name": "Helix Team",
+      "category": "Hardware",
+      "price": 1798.92,
+      "cost": 674.6,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 71,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0016",
+      "name": "Ion Enterprise",
+      "category": "Training",
+      "price": 2749.2,
+      "cost": 1030.95,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 76,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0017",
+      "name": "Atlas Starter",
+      "category": "Software",
+      "price": 819.48,
+      "cost": 307.31,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 81,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0018",
+      "name": "Beacon Pro",
+      "category": "Services",
+      "price": 1769.76,
+      "cost": 663.66,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 86,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0019",
+      "name": "Canvas Team",
+      "category": "Hardware",
+      "price": 2720.04,
+      "cost": 1020.02,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 91,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0020",
+      "name": "Delta Enterprise",
+      "category": "Training",
+      "price": 790.32,
+      "cost": 296.37,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 96,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0021",
+      "name": "Echo Starter",
+      "category": "Software",
+      "price": 1740.6,
+      "cost": 652.73,
+      "active": false,
+      "attributes": {
+        "color": "Slate",
+        "seats": 1,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0022",
+      "name": "Forge Pro",
+      "category": "Services",
+      "price": 2690.88,
+      "cost": 1009.08,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 6,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0023",
+      "name": "Helix Team",
+      "category": "Hardware",
+      "price": 761.16,
+      "cost": 285.44,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 11,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0024",
+      "name": "Ion Enterprise",
+      "category": "Training",
+      "price": 1711.44,
+      "cost": 641.79,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 16,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0025",
+      "name": "Atlas Starter",
+      "category": "Software",
+      "price": 2661.72,
+      "cost": 998.15,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 21,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0026",
+      "name": "Beacon Pro",
+      "category": "Services",
+      "price": 732,
+      "cost": 274.5,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 26,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0027",
+      "name": "Canvas Team",
+      "category": "Hardware",
+      "price": 1682.28,
+      "cost": 630.86,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 31,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0028",
+      "name": "Delta Enterprise",
+      "category": "Training",
+      "price": 2632.56,
+      "cost": 987.21,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 36,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0029",
+      "name": "Echo Starter",
+      "category": "Software",
+      "price": 702.84,
+      "cost": 263.57,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 41,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0030",
+      "name": "Forge Pro",
+      "category": "Services",
+      "price": 1653.12,
+      "cost": 619.92,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 46,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0031",
+      "name": "Helix Team",
+      "category": "Hardware",
+      "price": 2603.4,
+      "cost": 976.28,
+      "active": false,
+      "attributes": {
+        "color": "Green",
+        "seats": 51,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0032",
+      "name": "Ion Enterprise",
+      "category": "Training",
+      "price": 673.68,
+      "cost": 252.63,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 56,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0033",
+      "name": "Atlas Starter",
+      "category": "Software",
+      "price": 1623.96,
+      "cost": 608.99,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 61,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0034",
+      "name": "Beacon Pro",
+      "category": "Services",
+      "price": 2574.24,
+      "cost": 965.34,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 66,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0035",
+      "name": "Canvas Team",
+      "category": "Hardware",
+      "price": 644.52,
+      "cost": 241.7,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 71,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0036",
+      "name": "Delta Enterprise",
+      "category": "Training",
+      "price": 1594.8,
+      "cost": 598.05,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 76,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0037",
+      "name": "Echo Starter",
+      "category": "Software",
+      "price": 2545.08,
+      "cost": 954.41,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 81,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0038",
+      "name": "Forge Pro",
+      "category": "Services",
+      "price": 615.36,
+      "cost": 230.76,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 86,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0039",
+      "name": "Helix Team",
+      "category": "Hardware",
+      "price": 1565.64,
+      "cost": 587.12,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 91,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0040",
+      "name": "Ion Enterprise",
+      "category": "Training",
+      "price": 2515.92,
+      "cost": 943.47,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 96,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0041",
+      "name": "Atlas Starter",
+      "category": "Software",
+      "price": 586.2,
+      "cost": 219.83,
+      "active": false,
+      "attributes": {
+        "color": "Slate",
+        "seats": 1,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0042",
+      "name": "Beacon Pro",
+      "category": "Services",
+      "price": 1536.48,
+      "cost": 576.18,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 6,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0043",
+      "name": "Canvas Team",
+      "category": "Hardware",
+      "price": 2486.76,
+      "cost": 932.54,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 11,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0044",
+      "name": "Delta Enterprise",
+      "category": "Training",
+      "price": 557.04,
+      "cost": 208.89,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 16,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0045",
+      "name": "Echo Starter",
+      "category": "Software",
+      "price": 1507.32,
+      "cost": 565.25,
+      "active": true,
+      "attributes": {
+        "color": "Slate",
+        "seats": 21,
+        "edition": 2027
+      }
+    },
+    {
+      "sku": "SKU-0046",
+      "name": "Forge Pro",
+      "category": "Services",
+      "price": 2457.6,
+      "cost": 921.6,
+      "active": true,
+      "attributes": {
+        "color": "Blue",
+        "seats": 26,
+        "edition": 2025
+      }
+    },
+    {
+      "sku": "SKU-0047",
+      "name": "Helix Team",
+      "category": "Hardware",
+      "price": 527.88,
+      "cost": 197.96,
+      "active": true,
+      "attributes": {
+        "color": "Green",
+        "seats": 31,
+        "edition": 2026
+      }
+    },
+    {
+      "sku": "SKU-0048",
+      "name": "Ion Enterprise",
+      "category": "Training",
+      "price": 1478.16,
+      "cost": 554.31,
+      "active": true,
+      "attributes": {
+        "color": "Amber",
+        "seats": 36,
+        "edition": 2027
+      }
+    }
+  ],
+  "dailyMetrics": [
+    {
+      "date": "2026-01-01",
+      "orders": 20,
+      "revenue": 875,
+      "conversionRate": 0
+    },
+    {
+      "date": "2026-01-04",
+      "orders": 37,
+      "revenue": 56308,
+      "conversionRate": 0.7
+    },
+    {
+      "date": "2026-01-07",
+      "orders": 54,
+      "revenue": 111741,
+      "conversionRate": 1.4
+    },
+    {
+      "date": "2026-01-10",
+      "orders": 71,
+      "revenue": 167174,
+      "conversionRate": 2.1
+    },
+    {
+      "date": "2026-01-13",
+      "orders": 88,
+      "revenue": 54607,
+      "conversionRate": 2.8
+    },
+    {
+      "date": "2026-01-16",
+      "orders": 105,
+      "revenue": 110040,
+      "conversionRate": 3.5
+    },
+    {
+      "date": "2026-01-19",
+      "orders": 32,
+      "revenue": 165473,
+      "conversionRate": 4.2
+    },
+    {
+      "date": "2026-01-22",
+      "orders": 49,
+      "revenue": 52906,
+      "conversionRate": 4.9
+    },
+    {
+      "date": "2026-01-25",
+      "orders": 66,
+      "revenue": 108339,
+      "conversionRate": 5.6
+    },
+    {
+      "date": "2026-01-28",
+      "orders": 83,
+      "revenue": 163772,
+      "conversionRate": 6.3
+    },
+    {
+      "date": "2026-01-31",
+      "orders": 100,
+      "revenue": 51205,
+      "conversionRate": 7
+    },
+    {
+      "date": "2026-02-03",
+      "orders": 27,
+      "revenue": 106638,
+      "conversionRate": 7.7
+    },
+    {
+      "date": "2026-02-06",
+      "orders": 44,
+      "revenue": 162071,
+      "conversionRate": 8.4
+    },
+    {
+      "date": "2026-02-09",
+      "orders": 61,
+      "revenue": 49504,
+      "conversionRate": 0.6
+    },
+    {
+      "date": "2026-02-12",
+      "orders": 78,
+      "revenue": 104937,
+      "conversionRate": 1.3
+    },
+    {
+      "date": "2026-02-15",
+      "orders": 95,
+      "revenue": 160370,
+      "conversionRate": 2
+    },
+    {
+      "date": "2026-02-18",
+      "orders": 22,
+      "revenue": 47803,
+      "conversionRate": 2.7
+    },
+    {
+      "date": "2026-02-21",
+      "orders": 39,
+      "revenue": 103236,
+      "conversionRate": 3.4
+    },
+    {
+      "date": "2026-02-24",
+      "orders": 56,
+      "revenue": 158669,
+      "conversionRate": 4.1
+    },
+    {
+      "date": "2026-02-27",
+      "orders": 73,
+      "revenue": 46102,
+      "conversionRate": 4.8
+    },
+    {
+      "date": "2026-03-02",
+      "orders": 90,
+      "revenue": 101535,
+      "conversionRate": 5.5
+    },
+    {
+      "date": "2026-03-05",
+      "orders": 107,
+      "revenue": 156968,
+      "conversionRate": 6.2
+    },
+    {
+      "date": "2026-03-08",
+      "orders": 34,
+      "revenue": 44401,
+      "conversionRate": 6.9
+    },
+    {
+      "date": "2026-03-11",
+      "orders": 51,
+      "revenue": 99834,
+      "conversionRate": 7.6
+    },
+    {
+      "date": "2026-03-14",
+      "orders": 68,
+      "revenue": 155267,
+      "conversionRate": 8.3
+    },
+    {
+      "date": "2026-03-17",
+      "orders": 85,
+      "revenue": 42700,
+      "conversionRate": 0.5
+    },
+    {
+      "date": "2026-03-20",
+      "orders": 102,
+      "revenue": 98133,
+      "conversionRate": 1.2
+    },
+    {
+      "date": "2026-03-23",
+      "orders": 29,
+      "revenue": 153566,
+      "conversionRate": 1.9
+    },
+    {
+      "date": "2026-03-26",
+      "orders": 46,
+      "revenue": 40999,
+      "conversionRate": 2.6
+    },
+    {
+      "date": "2026-03-29",
+      "orders": 63,
+      "revenue": 96432,
+      "conversionRate": 3.3
+    },
+    {
+      "date": "2026-04-01",
+      "orders": 80,
+      "revenue": 151865,
+      "conversionRate": 4
+    },
+    {
+      "date": "2026-04-04",
+      "orders": 97,
+      "revenue": 39298,
+      "conversionRate": 4.7
+    },
+    {
+      "date": "2026-04-07",
+      "orders": 24,
+      "revenue": 94731,
+      "conversionRate": 5.4
+    },
+    {
+      "date": "2026-04-10",
+      "orders": 41,
+      "revenue": 150164,
+      "conversionRate": 6.1
+    },
+    {
+      "date": "2026-04-13",
+      "orders": 58,
+      "revenue": 37597,
+      "conversionRate": 6.8
+    },
+    {
+      "date": "2026-04-16",
+      "orders": 75,
+      "revenue": 93030,
+      "conversionRate": 7.5
+    },
+    {
+      "date": "2026-04-19",
+      "orders": 92,
+      "revenue": 148463,
+      "conversionRate": 8.2
+    },
+    {
+      "date": "2026-04-22",
+      "orders": 109,
+      "revenue": 35896,
+      "conversionRate": 0.4
+    },
+    {
+      "date": "2026-04-25",
+      "orders": 36,
+      "revenue": 91329,
+      "conversionRate": 1.1
+    },
+    {
+      "date": "2026-04-28",
+      "orders": 53,
+      "revenue": 146762,
+      "conversionRate": 1.8
+    },
+    {
+      "date": "2026-05-01",
+      "orders": 70,
+      "revenue": 34195,
+      "conversionRate": 2.5
+    },
+    {
+      "date": "2026-05-04",
+      "orders": 87,
+      "revenue": 89628,
+      "conversionRate": 3.2
+    },
+    {
+      "date": "2026-05-07",
+      "orders": 104,
+      "revenue": 145061,
+      "conversionRate": 3.9
+    },
+    {
+      "date": "2026-05-10",
+      "orders": 31,
+      "revenue": 32494,
+      "conversionRate": 4.6
+    },
+    {
+      "date": "2026-05-13",
+      "orders": 48,
+      "revenue": 87927,
+      "conversionRate": 5.3
+    },
+    {
+      "date": "2026-05-16",
+      "orders": 65,
+      "revenue": 143360,
+      "conversionRate": 6
+    },
+    {
+      "date": "2026-05-19",
+      "orders": 82,
+      "revenue": 30793,
+      "conversionRate": 6.7
+    },
+    {
+      "date": "2026-05-22",
+      "orders": 99,
+      "revenue": 86226,
+      "conversionRate": 7.4
+    },
+    {
+      "date": "2026-05-25",
+      "orders": 26,
+      "revenue": 141659,
+      "conversionRate": 8.1
+    },
+    {
+      "date": "2026-05-28",
+      "orders": 43,
+      "revenue": 29092,
+      "conversionRate": 0.3
+    },
+    {
+      "date": "2026-05-31",
+      "orders": 60,
+      "revenue": 84525,
+      "conversionRate": 1
+    },
+    {
+      "date": "2026-06-03",
+      "orders": 77,
+      "revenue": 139958,
+      "conversionRate": 1.7
+    },
+    {
+      "date": "2026-06-06",
+      "orders": 94,
+      "revenue": 27391,
+      "conversionRate": 2.4
+    },
+    {
+      "date": "2026-06-09",
+      "orders": 21,
+      "revenue": 82824,
+      "conversionRate": 3.1
+    },
+    {
+      "date": "2026-06-12",
+      "orders": 38,
+      "revenue": 138257,
+      "conversionRate": 3.8
+    },
+    {
+      "date": "2026-06-15",
+      "orders": 55,
+      "revenue": 25690,
+      "conversionRate": 4.5
+    },
+    {
+      "date": "2026-06-18",
+      "orders": 72,
+      "revenue": 81123,
+      "conversionRate": 5.2
+    },
+    {
+      "date": "2026-06-21",
+      "orders": 89,
+      "revenue": 136556,
+      "conversionRate": 5.9
+    },
+    {
+      "date": "2026-06-24",
+      "orders": 106,
+      "revenue": 23989,
+      "conversionRate": 6.6
+    },
+    {
+      "date": "2026-06-27",
+      "orders": 33,
+      "revenue": 79422,
+      "conversionRate": 7.3
+    },
+    {
+      "date": "2026-06-30",
+      "orders": 50,
+      "revenue": 134855,
+      "conversionRate": 8
+    },
+    {
+      "date": "2026-07-03",
+      "orders": 67,
+      "revenue": 22288,
+      "conversionRate": 0.2
+    },
+    {
+      "date": "2026-07-06",
+      "orders": 84,
+      "revenue": 77721,
+      "conversionRate": 0.9
+    },
+    {
+      "date": "2026-07-09",
+      "orders": 101,
+      "revenue": 133154,
+      "conversionRate": 1.6
+    },
+    {
+      "date": "2026-07-12",
+      "orders": 28,
+      "revenue": 20587,
+      "conversionRate": 2.3
+    },
+    {
+      "date": "2026-07-15",
+      "orders": 45,
+      "revenue": 76020,
+      "conversionRate": 3
+    },
+    {
+      "date": "2026-07-18",
+      "orders": 62,
+      "revenue": 131453,
+      "conversionRate": 3.7
+    },
+    {
+      "date": "2026-07-21",
+      "orders": 79,
+      "revenue": 18886,
+      "conversionRate": 4.4
+    },
+    {
+      "date": "2026-07-24",
+      "orders": 96,
+      "revenue": 74319,
+      "conversionRate": 5.1
+    },
+    {
+      "date": "2026-07-27",
+      "orders": 23,
+      "revenue": 129752,
+      "conversionRate": 5.8
+    },
+    {
+      "date": "2026-07-30",
+      "orders": 40,
+      "revenue": 17185,
+      "conversionRate": 6.5
+    },
+    {
+      "date": "2026-08-02",
+      "orders": 57,
+      "revenue": 72618,
+      "conversionRate": 7.2
+    },
+    {
+      "date": "2026-08-05",
+      "orders": 74,
+      "revenue": 128051,
+      "conversionRate": 7.9
+    },
+    {
+      "date": "2026-08-08",
+      "orders": 91,
+      "revenue": 15484,
+      "conversionRate": 0.1
+    },
+    {
+      "date": "2026-08-11",
+      "orders": 108,
+      "revenue": 70917,
+      "conversionRate": 0.8
+    },
+    {
+      "date": "2026-08-14",
+      "orders": 35,
+      "revenue": 126350,
+      "conversionRate": 1.5
+    },
+    {
+      "date": "2026-08-17",
+      "orders": 52,
+      "revenue": 13783,
+      "conversionRate": 2.2
+    },
+    {
+      "date": "2026-08-20",
+      "orders": 69,
+      "revenue": 69216,
+      "conversionRate": 2.9
+    },
+    {
+      "date": "2026-08-23",
+      "orders": 86,
+      "revenue": 124649,
+      "conversionRate": 3.6
+    },
+    {
+      "date": "2026-08-26",
+      "orders": 103,
+      "revenue": 12082,
+      "conversionRate": 4.3
+    },
+    {
+      "date": "2026-08-29",
+      "orders": 30,
+      "revenue": 67515,
+      "conversionRate": 5
+    },
+    {
+      "date": "2026-09-01",
+      "orders": 47,
+      "revenue": 122948,
+      "conversionRate": 5.7
+    },
+    {
+      "date": "2026-09-04",
+      "orders": 64,
+      "revenue": 10381,
+      "conversionRate": 6.4
+    },
+    {
+      "date": "2026-09-07",
+      "orders": 81,
+      "revenue": 65814,
+      "conversionRate": 7.1
+    },
+    {
+      "date": "2026-09-10",
+      "orders": 98,
+      "revenue": 121247,
+      "conversionRate": 7.8
+    },
+    {
+      "date": "2026-09-13",
+      "orders": 25,
+      "revenue": 8680,
+      "conversionRate": 0
+    },
+    {
+      "date": "2026-09-16",
+      "orders": 42,
+      "revenue": 64113,
+      "conversionRate": 0.7
+    },
+    {
+      "date": "2026-09-19",
+      "orders": 59,
+      "revenue": 119546,
+      "conversionRate": 1.4
+    },
+    {
+      "date": "2026-09-22",
+      "orders": 76,
+      "revenue": 6979,
+      "conversionRate": 2.1
+    },
+    {
+      "date": "2026-09-25",
+      "orders": 93,
+      "revenue": 62412,
+      "conversionRate": 2.8
+    }
+  ]
+}

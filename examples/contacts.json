@@ -1,0 +1,54 @@
+{
+  "$jsonviews": {
+    "version": 1,
+    "schema": {
+      "$.contacts[*].name": { "type": "text", "title": "Name", "required": true },
+      "$.contacts[*].score": { "type": "number", "title": "Score", "minimum": 0, "maximum": 100 },
+      "$.contacts[*].active": { "type": "checkbox", "title": "Active" },
+      "$.contacts[*].status": { "type": "select", "title": "Status", "options": ["New", "Qualified", "Customer"] },
+      "$.contacts[*].tags": { "type": "multi-select", "title": "Tags", "options": ["Design", "Engineering", "Product"] },
+      "$.contacts[*].followUp": { "type": "date", "title": "Follow up" },
+      "$.contacts[*].website": { "type": "url", "title": "Website" },
+      "$.contacts[*].email": { "type": "email", "title": "Email" },
+      "$.contacts[*].notes": { "type": "markdown", "title": "Notes" }
+    },
+    "views": [
+      {
+        "id": "contacts",
+        "name": "Contacts",
+        "path": "$.contacts",
+        "columns": [
+          { "label": "Name", "path": "$.contacts[*].name" },
+          { "label": "Status", "path": "$.contacts[*].status" },
+          { "label": "Score", "path": "$.contacts[*].score" },
+          { "label": "Active", "path": "$.contacts[*].active" },
+          { "label": "Follow up", "path": "$.contacts[*].followUp" }
+        ]
+      }
+    ]
+  },
+  "contacts": [
+    {
+      "name": "Ada Lovelace",
+      "score": 92,
+      "active": true,
+      "status": "Customer",
+      "tags": ["Engineering", "Product"],
+      "followUp": "2026-09-12",
+      "website": "https://example.com/ada",
+      "email": "ada@example.com",
+      "notes": "A detailed record can contain several long text properties."
+    },
+    {
+      "name": "Grace Hopper",
+      "score": 84,
+      "active": true,
+      "status": "Qualified",
+      "tags": ["Engineering"],
+      "followUp": "2026-09-18",
+      "website": "https://example.com/grace",
+      "email": "grace@example.com",
+      "notes": "Edit any scalar cell and download the updated JSON."
+    }
+  ]
+}

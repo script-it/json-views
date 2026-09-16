@@ -1,0 +1,4138 @@
+{
+  "$jsonviews": {
+    "version": 1,
+    "schema": {
+      "$.workItems[*].status": {
+        "type": "select",
+        "title": "Status",
+        "options": [
+          "Backlog",
+          "Ready",
+          "In progress",
+          "Blocked",
+          "Review",
+          "Done"
+        ]
+      },
+      "$.workItems[*].priority": {
+        "type": "select",
+        "title": "Priority",
+        "options": [
+          "Low",
+          "Medium",
+          "High",
+          "Urgent"
+        ]
+      },
+      "$.workItems[*].team": {
+        "type": "select",
+        "title": "Team",
+        "options": [
+          "Platform",
+          "Growth",
+          "Design",
+          "Data",
+          "Security",
+          "Support"
+        ]
+      },
+      "$.workItems[*].ownerEmail": {
+        "type": "email",
+        "title": "Owner email"
+      },
+      "$.workItems[*].due": {
+        "type": "date",
+        "title": "Due date"
+      },
+      "$.workItems[*].blocked": {
+        "type": "checkbox",
+        "title": "Blocked"
+      },
+      "$.workItems[*].progress": {
+        "type": "number",
+        "title": "Progress",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "$.workItems[*].tags": {
+        "type": "multi-select",
+        "title": "Tags"
+      }
+    },
+    "views": [
+      {
+        "id": "all-work",
+        "name": "All work",
+        "path": "$.workItems"
+      },
+      {
+        "id": "work-board",
+        "name": "Work board",
+        "path": "$.workItems",
+        "display": "kanban",
+        "groupBy": "$.workItems[*].status"
+      }
+    ]
+  },
+  "workspace": {
+    "name": "Northstar Operations",
+    "planningCycle": "2026 H2",
+    "public": false
+  },
+  "workItems": [
+    {
+      "id": "WI-0001",
+      "title": "Build Atlas workflow 1",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Ada 1",
+      "ownerEmail": "person1@example.com",
+      "estimate": 1,
+      "progress": 0,
+      "blocked": false,
+      "created": "2025-12-12",
+      "due": "2026-01-29",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/1",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0002",
+      "title": "Review Beacon workflow 2",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Grace 2",
+      "ownerEmail": "person2@example.com",
+      "estimate": 6,
+      "progress": 17,
+      "blocked": false,
+      "created": "2025-12-15",
+      "due": "2026-02-01",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/2",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 2"
+    },
+    {
+      "id": "WI-0003",
+      "title": "Design Canvas workflow 3",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Linus 3",
+      "ownerEmail": "person3@example.com",
+      "estimate": 11,
+      "progress": 34,
+      "blocked": false,
+      "created": "2025-12-18",
+      "due": "2026-02-04",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/3",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 3"
+    },
+    {
+      "id": "WI-0004",
+      "title": "Migrate Delta workflow 4",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Margaret 4",
+      "ownerEmail": "person4@example.com",
+      "estimate": 16,
+      "progress": 51,
+      "blocked": true,
+      "created": "2025-12-21",
+      "due": "2026-02-07",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/4",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 4"
+    },
+    {
+      "id": "WI-0005",
+      "title": "Test Echo workflow 5",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Alan 5",
+      "ownerEmail": "person5@example.com",
+      "estimate": 21,
+      "progress": 68,
+      "blocked": false,
+      "created": "2025-12-24",
+      "due": "2026-02-10",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/5",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 5"
+    },
+    {
+      "id": "WI-0006",
+      "title": "Document Forge workflow 6",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Katherine 6",
+      "ownerEmail": "person6@example.com",
+      "estimate": 5,
+      "progress": 85,
+      "blocked": false,
+      "created": "2025-12-27",
+      "due": "2026-02-13",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/6",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 6"
+    },
+    {
+      "id": "WI-0007",
+      "title": "Build Helix workflow 7",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Edsger 7",
+      "ownerEmail": "person7@example.com",
+      "estimate": 10,
+      "progress": 1,
+      "blocked": false,
+      "created": "2025-12-30",
+      "due": "2026-02-16",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/7",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 7"
+    },
+    {
+      "id": "WI-0008",
+      "title": "Review Ion workflow 8",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Radia 8",
+      "ownerEmail": "person8@example.com",
+      "estimate": 15,
+      "progress": 18,
+      "blocked": false,
+      "created": "2026-01-02",
+      "due": "2026-02-19",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/8",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 8"
+    },
+    {
+      "id": "WI-0009",
+      "title": "Design Atlas workflow 9",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Barbara 9",
+      "ownerEmail": "person9@example.com",
+      "estimate": 20,
+      "progress": 35,
+      "blocked": false,
+      "created": "2026-01-05",
+      "due": "2026-02-22",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/9",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 9"
+    },
+    {
+      "id": "WI-0010",
+      "title": "Migrate Beacon workflow 10",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Donald 10",
+      "ownerEmail": "person10@example.com",
+      "estimate": 4,
+      "progress": 52,
+      "blocked": true,
+      "created": "2026-01-08",
+      "due": "2026-02-25",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/10",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 10"
+    },
+    {
+      "id": "WI-0011",
+      "title": "Test Canvas workflow 11",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Ada 11",
+      "ownerEmail": "person11@example.com",
+      "estimate": 9,
+      "progress": 69,
+      "blocked": false,
+      "created": "2026-01-11",
+      "due": "2026-02-28",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/11",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 11"
+    },
+    {
+      "id": "WI-0012",
+      "title": "Document Delta workflow 12",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Grace 12",
+      "ownerEmail": "person12@example.com",
+      "estimate": 14,
+      "progress": 86,
+      "blocked": false,
+      "created": "2026-01-14",
+      "due": "2026-03-03",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/12",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0013",
+      "title": "Build Echo workflow 13",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Linus 13",
+      "ownerEmail": "person13@example.com",
+      "estimate": 19,
+      "progress": 2,
+      "blocked": false,
+      "created": "2026-01-17",
+      "due": "2026-03-06",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/13",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 13"
+    },
+    {
+      "id": "WI-0014",
+      "title": "Review Forge workflow 14",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Margaret 14",
+      "ownerEmail": "person14@example.com",
+      "estimate": 3,
+      "progress": 19,
+      "blocked": false,
+      "created": "2026-01-20",
+      "due": "2026-03-09",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/14",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 14"
+    },
+    {
+      "id": "WI-0015",
+      "title": "Design Helix workflow 15",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Alan 15",
+      "ownerEmail": "person15@example.com",
+      "estimate": 8,
+      "progress": 36,
+      "blocked": false,
+      "created": "2026-01-23",
+      "due": "2026-03-12",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/15",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 15"
+    },
+    {
+      "id": "WI-0016",
+      "title": "Migrate Ion workflow 16",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Katherine 16",
+      "ownerEmail": "person16@example.com",
+      "estimate": 13,
+      "progress": 53,
+      "blocked": true,
+      "created": "2026-01-26",
+      "due": "2026-03-15",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/16",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 16"
+    },
+    {
+      "id": "WI-0017",
+      "title": "Test Atlas workflow 17",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Edsger 17",
+      "ownerEmail": "person17@example.com",
+      "estimate": 18,
+      "progress": 70,
+      "blocked": false,
+      "created": "2026-01-29",
+      "due": "2026-03-18",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/17",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 17"
+    },
+    {
+      "id": "WI-0018",
+      "title": "Document Beacon workflow 18",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Radia 18",
+      "ownerEmail": "person18@example.com",
+      "estimate": 2,
+      "progress": 87,
+      "blocked": false,
+      "created": "2026-02-01",
+      "due": "2026-03-21",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/18",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 18"
+    },
+    {
+      "id": "WI-0019",
+      "title": "Build Canvas workflow 19",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Barbara 19",
+      "ownerEmail": "person19@example.com",
+      "estimate": 7,
+      "progress": 3,
+      "blocked": false,
+      "created": "2026-02-04",
+      "due": "2026-03-24",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/19",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 19"
+    },
+    {
+      "id": "WI-0020",
+      "title": "Review Delta workflow 20",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Donald 20",
+      "ownerEmail": "person20@example.com",
+      "estimate": 12,
+      "progress": 20,
+      "blocked": false,
+      "created": "2026-02-07",
+      "due": "2026-03-27",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/20",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 20"
+    },
+    {
+      "id": "WI-0021",
+      "title": "Design Echo workflow 21",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Ada 21",
+      "ownerEmail": "person21@example.com",
+      "estimate": 17,
+      "progress": 37,
+      "blocked": false,
+      "created": "2026-02-10",
+      "due": "2026-03-30",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/21",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 21"
+    },
+    {
+      "id": "WI-0022",
+      "title": "Migrate Forge workflow 22",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Grace 22",
+      "ownerEmail": "person22@example.com",
+      "estimate": 1,
+      "progress": 54,
+      "blocked": true,
+      "created": "2026-02-13",
+      "due": "2026-04-02",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/22",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 22"
+    },
+    {
+      "id": "WI-0023",
+      "title": "Test Helix workflow 23",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Linus 23",
+      "ownerEmail": "person23@example.com",
+      "estimate": 6,
+      "progress": 71,
+      "blocked": false,
+      "created": "2026-02-16",
+      "due": "2026-04-05",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/23",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0024",
+      "title": "Document Ion workflow 24",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Margaret 24",
+      "ownerEmail": "person24@example.com",
+      "estimate": 11,
+      "progress": 88,
+      "blocked": false,
+      "created": "2026-02-19",
+      "due": "2026-04-08",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/24",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 24"
+    },
+    {
+      "id": "WI-0025",
+      "title": "Build Atlas workflow 25",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Alan 25",
+      "ownerEmail": "person25@example.com",
+      "estimate": 16,
+      "progress": 4,
+      "blocked": false,
+      "created": "2026-02-22",
+      "due": "2026-04-11",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/25",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 25"
+    },
+    {
+      "id": "WI-0026",
+      "title": "Review Beacon workflow 26",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Katherine 26",
+      "ownerEmail": "person26@example.com",
+      "estimate": 21,
+      "progress": 21,
+      "blocked": false,
+      "created": "2026-02-25",
+      "due": "2026-04-14",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/26",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 26"
+    },
+    {
+      "id": "WI-0027",
+      "title": "Design Canvas workflow 27",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Edsger 27",
+      "ownerEmail": "person27@example.com",
+      "estimate": 5,
+      "progress": 38,
+      "blocked": false,
+      "created": "2026-02-28",
+      "due": "2026-04-17",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/27",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 27"
+    },
+    {
+      "id": "WI-0028",
+      "title": "Migrate Delta workflow 28",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Radia 28",
+      "ownerEmail": "person28@example.com",
+      "estimate": 10,
+      "progress": 55,
+      "blocked": true,
+      "created": "2026-03-03",
+      "due": "2026-04-20",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/28",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 28"
+    },
+    {
+      "id": "WI-0029",
+      "title": "Test Echo workflow 29",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Barbara 29",
+      "ownerEmail": "person29@example.com",
+      "estimate": 15,
+      "progress": 72,
+      "blocked": false,
+      "created": "2026-03-06",
+      "due": "2026-04-23",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/29",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 29"
+    },
+    {
+      "id": "WI-0030",
+      "title": "Document Forge workflow 30",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Donald 30",
+      "ownerEmail": "person30@example.com",
+      "estimate": 20,
+      "progress": 89,
+      "blocked": false,
+      "created": "2026-03-09",
+      "due": "2026-04-26",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/30",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 30"
+    },
+    {
+      "id": "WI-0031",
+      "title": "Build Helix workflow 31",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Ada 1",
+      "ownerEmail": "person1@example.com",
+      "estimate": 4,
+      "progress": 5,
+      "blocked": false,
+      "created": "2026-03-12",
+      "due": "2026-04-29",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/31",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 31"
+    },
+    {
+      "id": "WI-0032",
+      "title": "Review Ion workflow 32",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Grace 2",
+      "ownerEmail": "person2@example.com",
+      "estimate": 9,
+      "progress": 22,
+      "blocked": false,
+      "created": "2026-03-15",
+      "due": "2026-05-02",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/32",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 32"
+    },
+    {
+      "id": "WI-0033",
+      "title": "Design Atlas workflow 33",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Linus 3",
+      "ownerEmail": "person3@example.com",
+      "estimate": 14,
+      "progress": 39,
+      "blocked": false,
+      "created": "2026-03-18",
+      "due": "2026-05-05",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/33",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 33"
+    },
+    {
+      "id": "WI-0034",
+      "title": "Migrate Beacon workflow 34",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Margaret 4",
+      "ownerEmail": "person4@example.com",
+      "estimate": 19,
+      "progress": 56,
+      "blocked": true,
+      "created": "2026-03-21",
+      "due": "2026-05-08",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/34",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0035",
+      "title": "Test Canvas workflow 35",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Alan 5",
+      "ownerEmail": "person5@example.com",
+      "estimate": 3,
+      "progress": 73,
+      "blocked": false,
+      "created": "2026-03-24",
+      "due": "2026-05-11",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/35",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 35"
+    },
+    {
+      "id": "WI-0036",
+      "title": "Document Delta workflow 36",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Katherine 6",
+      "ownerEmail": "person6@example.com",
+      "estimate": 8,
+      "progress": 90,
+      "blocked": false,
+      "created": "2026-03-27",
+      "due": "2026-05-14",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/36",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 36"
+    },
+    {
+      "id": "WI-0037",
+      "title": "Build Echo workflow 37",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Edsger 7",
+      "ownerEmail": "person7@example.com",
+      "estimate": 13,
+      "progress": 6,
+      "blocked": false,
+      "created": "2026-03-30",
+      "due": "2026-05-17",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/37",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 37"
+    },
+    {
+      "id": "WI-0038",
+      "title": "Review Forge workflow 38",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Radia 8",
+      "ownerEmail": "person8@example.com",
+      "estimate": 18,
+      "progress": 23,
+      "blocked": false,
+      "created": "2026-04-02",
+      "due": "2026-05-20",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/38",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 38"
+    },
+    {
+      "id": "WI-0039",
+      "title": "Design Helix workflow 39",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Barbara 9",
+      "ownerEmail": "person9@example.com",
+      "estimate": 2,
+      "progress": 40,
+      "blocked": false,
+      "created": "2026-04-05",
+      "due": "2026-05-23",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/39",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 39"
+    },
+    {
+      "id": "WI-0040",
+      "title": "Migrate Ion workflow 40",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Donald 10",
+      "ownerEmail": "person10@example.com",
+      "estimate": 7,
+      "progress": 57,
+      "blocked": true,
+      "created": "2026-04-08",
+      "due": "2026-05-26",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/40",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 40"
+    },
+    {
+      "id": "WI-0041",
+      "title": "Test Atlas workflow 41",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Ada 11",
+      "ownerEmail": "person11@example.com",
+      "estimate": 12,
+      "progress": 74,
+      "blocked": false,
+      "created": "2026-04-11",
+      "due": "2026-05-29",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/41",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 41"
+    },
+    {
+      "id": "WI-0042",
+      "title": "Document Beacon workflow 42",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Grace 12",
+      "ownerEmail": "person12@example.com",
+      "estimate": 17,
+      "progress": 91,
+      "blocked": false,
+      "created": "2026-04-14",
+      "due": "2026-06-01",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/42",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 42"
+    },
+    {
+      "id": "WI-0043",
+      "title": "Build Canvas workflow 43",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Linus 13",
+      "ownerEmail": "person13@example.com",
+      "estimate": 1,
+      "progress": 7,
+      "blocked": false,
+      "created": "2026-04-17",
+      "due": "2026-06-04",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/43",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 43"
+    },
+    {
+      "id": "WI-0044",
+      "title": "Review Delta workflow 44",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Margaret 14",
+      "ownerEmail": "person14@example.com",
+      "estimate": 6,
+      "progress": 24,
+      "blocked": false,
+      "created": "2026-04-20",
+      "due": "2026-06-07",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/44",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 44"
+    },
+    {
+      "id": "WI-0045",
+      "title": "Design Echo workflow 45",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Alan 15",
+      "ownerEmail": "person15@example.com",
+      "estimate": 11,
+      "progress": 41,
+      "blocked": false,
+      "created": "2026-04-23",
+      "due": "2026-06-10",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/45",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0046",
+      "title": "Migrate Forge workflow 46",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Katherine 16",
+      "ownerEmail": "person16@example.com",
+      "estimate": 16,
+      "progress": 58,
+      "blocked": true,
+      "created": "2026-04-26",
+      "due": "2026-06-13",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/46",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 46"
+    },
+    {
+      "id": "WI-0047",
+      "title": "Test Helix workflow 47",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Edsger 17",
+      "ownerEmail": "person17@example.com",
+      "estimate": 21,
+      "progress": 75,
+      "blocked": false,
+      "created": "2026-04-29",
+      "due": "2026-06-16",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/47",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 47"
+    },
+    {
+      "id": "WI-0048",
+      "title": "Document Ion workflow 48",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Radia 18",
+      "ownerEmail": "person18@example.com",
+      "estimate": 5,
+      "progress": 92,
+      "blocked": false,
+      "created": "2026-05-02",
+      "due": "2026-06-19",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/48",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 48"
+    },
+    {
+      "id": "WI-0049",
+      "title": "Build Atlas workflow 49",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Barbara 19",
+      "ownerEmail": "person19@example.com",
+      "estimate": 10,
+      "progress": 8,
+      "blocked": false,
+      "created": "2026-05-05",
+      "due": "2026-06-22",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/49",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 49"
+    },
+    {
+      "id": "WI-0050",
+      "title": "Review Beacon workflow 50",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Donald 20",
+      "ownerEmail": "person20@example.com",
+      "estimate": 15,
+      "progress": 25,
+      "blocked": false,
+      "created": "2026-05-08",
+      "due": "2026-06-25",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/50",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 50"
+    },
+    {
+      "id": "WI-0051",
+      "title": "Design Canvas workflow 51",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Ada 21",
+      "ownerEmail": "person21@example.com",
+      "estimate": 20,
+      "progress": 42,
+      "blocked": false,
+      "created": "2026-05-11",
+      "due": "2026-06-28",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/51",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 51"
+    },
+    {
+      "id": "WI-0052",
+      "title": "Migrate Delta workflow 52",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Grace 22",
+      "ownerEmail": "person22@example.com",
+      "estimate": 4,
+      "progress": 59,
+      "blocked": true,
+      "created": "2026-05-14",
+      "due": "2026-07-01",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/52",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 52"
+    },
+    {
+      "id": "WI-0053",
+      "title": "Test Echo workflow 53",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Linus 23",
+      "ownerEmail": "person23@example.com",
+      "estimate": 9,
+      "progress": 76,
+      "blocked": false,
+      "created": "2026-05-17",
+      "due": "2026-07-04",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/53",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 53"
+    },
+    {
+      "id": "WI-0054",
+      "title": "Document Forge workflow 54",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Margaret 24",
+      "ownerEmail": "person24@example.com",
+      "estimate": 14,
+      "progress": 93,
+      "blocked": false,
+      "created": "2026-05-20",
+      "due": "2026-07-07",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/54",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 54"
+    },
+    {
+      "id": "WI-0055",
+      "title": "Build Helix workflow 55",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Alan 25",
+      "ownerEmail": "person25@example.com",
+      "estimate": 19,
+      "progress": 9,
+      "blocked": false,
+      "created": "2026-05-23",
+      "due": "2026-07-10",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/55",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 55"
+    },
+    {
+      "id": "WI-0056",
+      "title": "Review Ion workflow 56",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Katherine 26",
+      "ownerEmail": "person26@example.com",
+      "estimate": 3,
+      "progress": 26,
+      "blocked": false,
+      "created": "2026-05-26",
+      "due": "2026-07-13",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/56",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0057",
+      "title": "Design Atlas workflow 57",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Edsger 27",
+      "ownerEmail": "person27@example.com",
+      "estimate": 8,
+      "progress": 43,
+      "blocked": false,
+      "created": "2026-05-29",
+      "due": "2026-07-16",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/57",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 57"
+    },
+    {
+      "id": "WI-0058",
+      "title": "Migrate Beacon workflow 58",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Radia 28",
+      "ownerEmail": "person28@example.com",
+      "estimate": 13,
+      "progress": 60,
+      "blocked": true,
+      "created": "2026-06-01",
+      "due": "2026-07-19",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/58",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 58"
+    },
+    {
+      "id": "WI-0059",
+      "title": "Test Canvas workflow 59",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Barbara 29",
+      "ownerEmail": "person29@example.com",
+      "estimate": 18,
+      "progress": 77,
+      "blocked": false,
+      "created": "2026-06-04",
+      "due": "2026-07-22",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/59",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 59"
+    },
+    {
+      "id": "WI-0060",
+      "title": "Document Delta workflow 60",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Donald 30",
+      "ownerEmail": "person30@example.com",
+      "estimate": 2,
+      "progress": 94,
+      "blocked": false,
+      "created": "2026-06-07",
+      "due": "2026-07-25",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/60",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 60"
+    },
+    {
+      "id": "WI-0061",
+      "title": "Build Echo workflow 61",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Ada 1",
+      "ownerEmail": "person1@example.com",
+      "estimate": 7,
+      "progress": 10,
+      "blocked": false,
+      "created": "2026-06-10",
+      "due": "2026-07-28",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/61",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 61"
+    },
+    {
+      "id": "WI-0062",
+      "title": "Review Forge workflow 62",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Grace 2",
+      "ownerEmail": "person2@example.com",
+      "estimate": 12,
+      "progress": 27,
+      "blocked": false,
+      "created": "2026-06-13",
+      "due": "2026-07-31",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/62",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 62"
+    },
+    {
+      "id": "WI-0063",
+      "title": "Design Helix workflow 63",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Linus 3",
+      "ownerEmail": "person3@example.com",
+      "estimate": 17,
+      "progress": 44,
+      "blocked": false,
+      "created": "2026-06-16",
+      "due": "2026-08-03",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/63",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 63"
+    },
+    {
+      "id": "WI-0064",
+      "title": "Migrate Ion workflow 64",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Margaret 4",
+      "ownerEmail": "person4@example.com",
+      "estimate": 1,
+      "progress": 61,
+      "blocked": true,
+      "created": "2026-06-19",
+      "due": "2026-08-06",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/64",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 64"
+    },
+    {
+      "id": "WI-0065",
+      "title": "Test Atlas workflow 65",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Alan 5",
+      "ownerEmail": "person5@example.com",
+      "estimate": 6,
+      "progress": 78,
+      "blocked": false,
+      "created": "2026-06-22",
+      "due": "2026-08-09",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/65",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 65"
+    },
+    {
+      "id": "WI-0066",
+      "title": "Document Beacon workflow 66",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Katherine 6",
+      "ownerEmail": "person6@example.com",
+      "estimate": 11,
+      "progress": 95,
+      "blocked": false,
+      "created": "2026-06-25",
+      "due": "2026-08-12",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/66",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 66"
+    },
+    {
+      "id": "WI-0067",
+      "title": "Build Canvas workflow 67",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Edsger 7",
+      "ownerEmail": "person7@example.com",
+      "estimate": 16,
+      "progress": 11,
+      "blocked": false,
+      "created": "2026-06-28",
+      "due": "2026-08-15",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/67",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0068",
+      "title": "Review Delta workflow 68",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Radia 8",
+      "ownerEmail": "person8@example.com",
+      "estimate": 21,
+      "progress": 28,
+      "blocked": false,
+      "created": "2026-07-01",
+      "due": "2026-08-18",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/68",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 68"
+    },
+    {
+      "id": "WI-0069",
+      "title": "Design Echo workflow 69",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Barbara 9",
+      "ownerEmail": "person9@example.com",
+      "estimate": 5,
+      "progress": 45,
+      "blocked": false,
+      "created": "2026-07-04",
+      "due": "2026-08-21",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/69",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 69"
+    },
+    {
+      "id": "WI-0070",
+      "title": "Migrate Forge workflow 70",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Donald 10",
+      "ownerEmail": "person10@example.com",
+      "estimate": 10,
+      "progress": 62,
+      "blocked": true,
+      "created": "2026-07-07",
+      "due": "2026-08-24",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/70",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 70"
+    },
+    {
+      "id": "WI-0071",
+      "title": "Test Helix workflow 71",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Ada 11",
+      "ownerEmail": "person11@example.com",
+      "estimate": 15,
+      "progress": 79,
+      "blocked": false,
+      "created": "2026-07-10",
+      "due": "2026-08-27",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/71",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 71"
+    },
+    {
+      "id": "WI-0072",
+      "title": "Document Ion workflow 72",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Grace 12",
+      "ownerEmail": "person12@example.com",
+      "estimate": 20,
+      "progress": 96,
+      "blocked": false,
+      "created": "2026-07-13",
+      "due": "2026-08-30",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/72",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 72"
+    },
+    {
+      "id": "WI-0073",
+      "title": "Build Atlas workflow 73",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Linus 13",
+      "ownerEmail": "person13@example.com",
+      "estimate": 4,
+      "progress": 12,
+      "blocked": false,
+      "created": "2026-07-16",
+      "due": "2026-09-02",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/73",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 73"
+    },
+    {
+      "id": "WI-0074",
+      "title": "Review Beacon workflow 74",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Margaret 14",
+      "ownerEmail": "person14@example.com",
+      "estimate": 9,
+      "progress": 29,
+      "blocked": false,
+      "created": "2026-07-19",
+      "due": "2026-09-05",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/74",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 74"
+    },
+    {
+      "id": "WI-0075",
+      "title": "Design Canvas workflow 75",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Alan 15",
+      "ownerEmail": "person15@example.com",
+      "estimate": 14,
+      "progress": 46,
+      "blocked": false,
+      "created": "2026-07-22",
+      "due": "2026-09-08",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/75",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 75"
+    },
+    {
+      "id": "WI-0076",
+      "title": "Migrate Delta workflow 76",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Katherine 16",
+      "ownerEmail": "person16@example.com",
+      "estimate": 19,
+      "progress": 63,
+      "blocked": true,
+      "created": "2026-07-25",
+      "due": "2026-09-11",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/76",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 76"
+    },
+    {
+      "id": "WI-0077",
+      "title": "Test Echo workflow 77",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Edsger 17",
+      "ownerEmail": "person17@example.com",
+      "estimate": 3,
+      "progress": 80,
+      "blocked": false,
+      "created": "2026-07-28",
+      "due": "2026-09-14",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/77",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 77"
+    },
+    {
+      "id": "WI-0078",
+      "title": "Document Forge workflow 78",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Radia 18",
+      "ownerEmail": "person18@example.com",
+      "estimate": 8,
+      "progress": 97,
+      "blocked": false,
+      "created": "2026-07-31",
+      "due": "2026-09-17",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/78",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0079",
+      "title": "Build Helix workflow 79",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Barbara 19",
+      "ownerEmail": "person19@example.com",
+      "estimate": 13,
+      "progress": 13,
+      "blocked": false,
+      "created": "2026-08-03",
+      "due": "2026-09-20",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/79",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 79"
+    },
+    {
+      "id": "WI-0080",
+      "title": "Review Ion workflow 80",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Donald 20",
+      "ownerEmail": "person20@example.com",
+      "estimate": 18,
+      "progress": 30,
+      "blocked": false,
+      "created": "2026-08-06",
+      "due": "2026-09-23",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/80",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 80"
+    },
+    {
+      "id": "WI-0081",
+      "title": "Design Atlas workflow 81",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Ada 21",
+      "ownerEmail": "person21@example.com",
+      "estimate": 2,
+      "progress": 47,
+      "blocked": false,
+      "created": "2026-08-09",
+      "due": "2026-09-26",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/81",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 81"
+    },
+    {
+      "id": "WI-0082",
+      "title": "Migrate Beacon workflow 82",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Grace 22",
+      "ownerEmail": "person22@example.com",
+      "estimate": 7,
+      "progress": 64,
+      "blocked": true,
+      "created": "2026-08-12",
+      "due": "2026-09-29",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/82",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 82"
+    },
+    {
+      "id": "WI-0083",
+      "title": "Test Canvas workflow 83",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Linus 23",
+      "ownerEmail": "person23@example.com",
+      "estimate": 12,
+      "progress": 81,
+      "blocked": false,
+      "created": "2026-08-15",
+      "due": "2026-10-02",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/83",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 83"
+    },
+    {
+      "id": "WI-0084",
+      "title": "Document Delta workflow 84",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Margaret 24",
+      "ownerEmail": "person24@example.com",
+      "estimate": 17,
+      "progress": 98,
+      "blocked": false,
+      "created": "2026-08-18",
+      "due": "2026-10-05",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/84",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 84"
+    },
+    {
+      "id": "WI-0085",
+      "title": "Build Echo workflow 85",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Alan 25",
+      "ownerEmail": "person25@example.com",
+      "estimate": 1,
+      "progress": 14,
+      "blocked": false,
+      "created": "2026-08-21",
+      "due": "2026-10-08",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/85",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 85"
+    },
+    {
+      "id": "WI-0086",
+      "title": "Review Forge workflow 86",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Katherine 26",
+      "ownerEmail": "person26@example.com",
+      "estimate": 6,
+      "progress": 31,
+      "blocked": false,
+      "created": "2026-08-24",
+      "due": "2026-10-11",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/86",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 86"
+    },
+    {
+      "id": "WI-0087",
+      "title": "Design Helix workflow 87",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Edsger 27",
+      "ownerEmail": "person27@example.com",
+      "estimate": 11,
+      "progress": 48,
+      "blocked": false,
+      "created": "2026-08-27",
+      "due": "2026-10-14",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/87",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 87"
+    },
+    {
+      "id": "WI-0088",
+      "title": "Migrate Ion workflow 88",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Radia 28",
+      "ownerEmail": "person28@example.com",
+      "estimate": 16,
+      "progress": 65,
+      "blocked": true,
+      "created": "2026-08-30",
+      "due": "2026-10-17",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/88",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 88"
+    },
+    {
+      "id": "WI-0089",
+      "title": "Test Atlas workflow 89",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Barbara 29",
+      "ownerEmail": "person29@example.com",
+      "estimate": 21,
+      "progress": 82,
+      "blocked": false,
+      "created": "2026-09-02",
+      "due": "2026-10-20",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/89",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0090",
+      "title": "Document Beacon workflow 90",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Donald 30",
+      "ownerEmail": "person30@example.com",
+      "estimate": 5,
+      "progress": 99,
+      "blocked": false,
+      "created": "2026-09-05",
+      "due": "2026-10-23",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/90",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 90"
+    },
+    {
+      "id": "WI-0091",
+      "title": "Build Canvas workflow 91",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Ada 1",
+      "ownerEmail": "person1@example.com",
+      "estimate": 10,
+      "progress": 15,
+      "blocked": false,
+      "created": "2026-09-08",
+      "due": "2026-10-26",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/91",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 91"
+    },
+    {
+      "id": "WI-0092",
+      "title": "Review Delta workflow 92",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Grace 2",
+      "ownerEmail": "person2@example.com",
+      "estimate": 15,
+      "progress": 32,
+      "blocked": false,
+      "created": "2026-09-11",
+      "due": "2026-10-29",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/92",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 92"
+    },
+    {
+      "id": "WI-0093",
+      "title": "Design Echo workflow 93",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Linus 3",
+      "ownerEmail": "person3@example.com",
+      "estimate": 20,
+      "progress": 49,
+      "blocked": false,
+      "created": "2026-09-14",
+      "due": "2026-11-01",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/93",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 93"
+    },
+    {
+      "id": "WI-0094",
+      "title": "Migrate Forge workflow 94",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Margaret 4",
+      "ownerEmail": "person4@example.com",
+      "estimate": 4,
+      "progress": 66,
+      "blocked": true,
+      "created": "2026-09-17",
+      "due": "2026-11-04",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/94",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 94"
+    },
+    {
+      "id": "WI-0095",
+      "title": "Test Helix workflow 95",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Alan 5",
+      "ownerEmail": "person5@example.com",
+      "estimate": 9,
+      "progress": 83,
+      "blocked": false,
+      "created": "2026-09-20",
+      "due": "2026-11-07",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/95",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 95"
+    },
+    {
+      "id": "WI-0096",
+      "title": "Document Ion workflow 96",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Katherine 6",
+      "ownerEmail": "person6@example.com",
+      "estimate": 14,
+      "progress": 100,
+      "blocked": false,
+      "created": "2026-09-23",
+      "due": "2026-11-10",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/96",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 96"
+    },
+    {
+      "id": "WI-0097",
+      "title": "Build Atlas workflow 97",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Edsger 7",
+      "ownerEmail": "person7@example.com",
+      "estimate": 19,
+      "progress": 16,
+      "blocked": false,
+      "created": "2026-09-26",
+      "due": "2026-11-13",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/97",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 97"
+    },
+    {
+      "id": "WI-0098",
+      "title": "Review Beacon workflow 98",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Radia 8",
+      "ownerEmail": "person8@example.com",
+      "estimate": 3,
+      "progress": 33,
+      "blocked": false,
+      "created": "2026-09-29",
+      "due": "2026-11-16",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/98",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 98"
+    },
+    {
+      "id": "WI-0099",
+      "title": "Design Canvas workflow 99",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Barbara 9",
+      "ownerEmail": "person9@example.com",
+      "estimate": 8,
+      "progress": 50,
+      "blocked": false,
+      "created": "2026-10-02",
+      "due": "2026-11-19",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/99",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 99"
+    },
+    {
+      "id": "WI-0100",
+      "title": "Migrate Delta workflow 100",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Donald 10",
+      "ownerEmail": "person10@example.com",
+      "estimate": 13,
+      "progress": 67,
+      "blocked": true,
+      "created": "2026-10-05",
+      "due": "2026-11-22",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/100",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0101",
+      "title": "Test Echo workflow 101",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Ada 11",
+      "ownerEmail": "person11@example.com",
+      "estimate": 18,
+      "progress": 84,
+      "blocked": false,
+      "created": "2026-10-08",
+      "due": "2026-11-25",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/101",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 101"
+    },
+    {
+      "id": "WI-0102",
+      "title": "Document Forge workflow 102",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Grace 12",
+      "ownerEmail": "person12@example.com",
+      "estimate": 2,
+      "progress": 0,
+      "blocked": false,
+      "created": "2026-10-11",
+      "due": "2026-01-02",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/102",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 102"
+    },
+    {
+      "id": "WI-0103",
+      "title": "Build Helix workflow 103",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Linus 13",
+      "ownerEmail": "person13@example.com",
+      "estimate": 7,
+      "progress": 17,
+      "blocked": false,
+      "created": "2026-10-14",
+      "due": "2026-01-05",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/103",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 103"
+    },
+    {
+      "id": "WI-0104",
+      "title": "Review Ion workflow 104",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Margaret 14",
+      "ownerEmail": "person14@example.com",
+      "estimate": 12,
+      "progress": 34,
+      "blocked": false,
+      "created": "2026-10-17",
+      "due": "2026-01-08",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/104",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 104"
+    },
+    {
+      "id": "WI-0105",
+      "title": "Design Atlas workflow 105",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Alan 15",
+      "ownerEmail": "person15@example.com",
+      "estimate": 17,
+      "progress": 51,
+      "blocked": false,
+      "created": "2026-10-20",
+      "due": "2026-01-11",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/105",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 105"
+    },
+    {
+      "id": "WI-0106",
+      "title": "Migrate Beacon workflow 106",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Katherine 16",
+      "ownerEmail": "person16@example.com",
+      "estimate": 1,
+      "progress": 68,
+      "blocked": true,
+      "created": "2026-10-23",
+      "due": "2026-01-14",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/106",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 106"
+    },
+    {
+      "id": "WI-0107",
+      "title": "Test Canvas workflow 107",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Edsger 17",
+      "ownerEmail": "person17@example.com",
+      "estimate": 6,
+      "progress": 85,
+      "blocked": false,
+      "created": "2026-10-26",
+      "due": "2026-01-17",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/107",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 107"
+    },
+    {
+      "id": "WI-0108",
+      "title": "Document Delta workflow 108",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Radia 18",
+      "ownerEmail": "person18@example.com",
+      "estimate": 11,
+      "progress": 1,
+      "blocked": false,
+      "created": "2026-10-29",
+      "due": "2026-01-20",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/108",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 108"
+    },
+    {
+      "id": "WI-0109",
+      "title": "Build Echo workflow 109",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Barbara 19",
+      "ownerEmail": "person19@example.com",
+      "estimate": 16,
+      "progress": 18,
+      "blocked": false,
+      "created": "2026-11-01",
+      "due": "2026-01-23",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/109",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 109"
+    },
+    {
+      "id": "WI-0110",
+      "title": "Review Forge workflow 110",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Donald 20",
+      "ownerEmail": "person20@example.com",
+      "estimate": 21,
+      "progress": 35,
+      "blocked": false,
+      "created": "2026-11-04",
+      "due": "2026-01-26",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/110",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 110"
+    },
+    {
+      "id": "WI-0111",
+      "title": "Design Helix workflow 111",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Ada 21",
+      "ownerEmail": "person21@example.com",
+      "estimate": 5,
+      "progress": 52,
+      "blocked": false,
+      "created": "2026-11-07",
+      "due": "2026-01-29",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/111",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0112",
+      "title": "Migrate Ion workflow 112",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Grace 22",
+      "ownerEmail": "person22@example.com",
+      "estimate": 10,
+      "progress": 69,
+      "blocked": true,
+      "created": "2026-11-10",
+      "due": "2026-02-01",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/112",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 112"
+    },
+    {
+      "id": "WI-0113",
+      "title": "Test Atlas workflow 113",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Linus 23",
+      "ownerEmail": "person23@example.com",
+      "estimate": 15,
+      "progress": 86,
+      "blocked": false,
+      "created": "2026-11-13",
+      "due": "2026-02-04",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/113",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 113"
+    },
+    {
+      "id": "WI-0114",
+      "title": "Document Beacon workflow 114",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Margaret 24",
+      "ownerEmail": "person24@example.com",
+      "estimate": 20,
+      "progress": 2,
+      "blocked": false,
+      "created": "2026-11-16",
+      "due": "2026-02-07",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/114",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 114"
+    },
+    {
+      "id": "WI-0115",
+      "title": "Build Canvas workflow 115",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Alan 25",
+      "ownerEmail": "person25@example.com",
+      "estimate": 4,
+      "progress": 19,
+      "blocked": false,
+      "created": "2026-11-19",
+      "due": "2026-02-10",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/115",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 115"
+    },
+    {
+      "id": "WI-0116",
+      "title": "Review Delta workflow 116",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Katherine 26",
+      "ownerEmail": "person26@example.com",
+      "estimate": 9,
+      "progress": 36,
+      "blocked": false,
+      "created": "2026-11-22",
+      "due": "2026-02-13",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/116",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 116"
+    },
+    {
+      "id": "WI-0117",
+      "title": "Design Echo workflow 117",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Edsger 27",
+      "ownerEmail": "person27@example.com",
+      "estimate": 14,
+      "progress": 53,
+      "blocked": false,
+      "created": "2026-11-25",
+      "due": "2026-02-16",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/117",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 117"
+    },
+    {
+      "id": "WI-0118",
+      "title": "Migrate Forge workflow 118",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Radia 28",
+      "ownerEmail": "person28@example.com",
+      "estimate": 19,
+      "progress": 70,
+      "blocked": true,
+      "created": "2026-01-02",
+      "due": "2026-02-19",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/118",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 118"
+    },
+    {
+      "id": "WI-0119",
+      "title": "Test Helix workflow 119",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Barbara 29",
+      "ownerEmail": "person29@example.com",
+      "estimate": 3,
+      "progress": 87,
+      "blocked": false,
+      "created": "2026-01-05",
+      "due": "2026-02-22",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/119",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 119"
+    },
+    {
+      "id": "WI-0120",
+      "title": "Document Ion workflow 120",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Donald 30",
+      "ownerEmail": "person30@example.com",
+      "estimate": 8,
+      "progress": 3,
+      "blocked": false,
+      "created": "2026-01-08",
+      "due": "2026-02-25",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/120",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 120"
+    },
+    {
+      "id": "WI-0121",
+      "title": "Build Atlas workflow 121",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Ada 1",
+      "ownerEmail": "person1@example.com",
+      "estimate": 13,
+      "progress": 20,
+      "blocked": false,
+      "created": "2026-01-11",
+      "due": "2026-02-28",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/121",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": "Acceptance notes for item 121"
+    },
+    {
+      "id": "WI-0122",
+      "title": "Review Beacon workflow 122",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Grace 2",
+      "ownerEmail": "person2@example.com",
+      "estimate": 18,
+      "progress": 37,
+      "blocked": false,
+      "created": "2026-01-14",
+      "due": "2026-03-03",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/122",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0123",
+      "title": "Design Canvas workflow 123",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Linus 3",
+      "ownerEmail": "person3@example.com",
+      "estimate": 2,
+      "progress": 54,
+      "blocked": false,
+      "created": "2026-01-17",
+      "due": "2026-03-06",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/123",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 123"
+    },
+    {
+      "id": "WI-0124",
+      "title": "Migrate Delta workflow 124",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Margaret 4",
+      "ownerEmail": "person4@example.com",
+      "estimate": 7,
+      "progress": 71,
+      "blocked": true,
+      "created": "2026-01-20",
+      "due": "2026-03-09",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/124",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 124"
+    },
+    {
+      "id": "WI-0125",
+      "title": "Test Echo workflow 125",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Alan 5",
+      "ownerEmail": "person5@example.com",
+      "estimate": 12,
+      "progress": 88,
+      "blocked": false,
+      "created": "2026-01-23",
+      "due": "2026-03-12",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/125",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 125"
+    },
+    {
+      "id": "WI-0126",
+      "title": "Document Forge workflow 126",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Katherine 6",
+      "ownerEmail": "person6@example.com",
+      "estimate": 17,
+      "progress": 4,
+      "blocked": false,
+      "created": "2026-01-26",
+      "due": "2026-03-15",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/126",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 126"
+    },
+    {
+      "id": "WI-0127",
+      "title": "Build Helix workflow 127",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Edsger 7",
+      "ownerEmail": "person7@example.com",
+      "estimate": 1,
+      "progress": 21,
+      "blocked": false,
+      "created": "2026-01-29",
+      "due": "2026-03-18",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/127",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 127"
+    },
+    {
+      "id": "WI-0128",
+      "title": "Review Ion workflow 128",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Radia 8",
+      "ownerEmail": "person8@example.com",
+      "estimate": 6,
+      "progress": 38,
+      "blocked": false,
+      "created": "2026-02-01",
+      "due": "2026-03-21",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/128",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 128"
+    },
+    {
+      "id": "WI-0129",
+      "title": "Design Atlas workflow 129",
+      "status": "In progress",
+      "priority": "Low",
+      "team": "Design",
+      "owner": "Barbara 9",
+      "ownerEmail": "person9@example.com",
+      "estimate": 11,
+      "progress": 55,
+      "blocked": false,
+      "created": "2026-02-04",
+      "due": "2026-03-24",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/129",
+        "repository": "https://github.com/example/project-9"
+      },
+      "notes": "Acceptance notes for item 129"
+    },
+    {
+      "id": "WI-0130",
+      "title": "Migrate Beacon workflow 130",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "team": "Data",
+      "owner": "Donald 10",
+      "ownerEmail": "person10@example.com",
+      "estimate": 16,
+      "progress": 72,
+      "blocked": true,
+      "created": "2026-02-07",
+      "due": "2026-03-27",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/130",
+        "repository": "https://github.com/example/project-10"
+      },
+      "notes": "Acceptance notes for item 130"
+    },
+    {
+      "id": "WI-0131",
+      "title": "Test Canvas workflow 131",
+      "status": "Review",
+      "priority": "High",
+      "team": "Security",
+      "owner": "Ada 11",
+      "ownerEmail": "person11@example.com",
+      "estimate": 21,
+      "progress": 89,
+      "blocked": false,
+      "created": "2026-02-10",
+      "due": "2026-03-30",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/131",
+        "repository": "https://github.com/example/project-11"
+      },
+      "notes": "Acceptance notes for item 131"
+    },
+    {
+      "id": "WI-0132",
+      "title": "Document Delta workflow 132",
+      "status": "Done",
+      "priority": "Medium",
+      "team": "Support",
+      "owner": "Grace 12",
+      "ownerEmail": "person12@example.com",
+      "estimate": 5,
+      "progress": 5,
+      "blocked": false,
+      "created": "2026-02-13",
+      "due": "2026-04-02",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/132",
+        "repository": "https://github.com/example/project-12"
+      },
+      "notes": "Acceptance notes for item 132"
+    },
+    {
+      "id": "WI-0133",
+      "title": "Build Echo workflow 133",
+      "status": "Backlog",
+      "priority": "Low",
+      "team": "Platform",
+      "owner": "Linus 13",
+      "ownerEmail": "person13@example.com",
+      "estimate": 10,
+      "progress": 22,
+      "blocked": false,
+      "created": "2026-02-16",
+      "due": "2026-04-05",
+      "tags": [
+        "Echo",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/133",
+        "repository": "https://github.com/example/project-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "WI-0134",
+      "title": "Review Forge workflow 134",
+      "status": "Ready",
+      "priority": "Urgent",
+      "team": "Growth",
+      "owner": "Margaret 14",
+      "ownerEmail": "person14@example.com",
+      "estimate": 15,
+      "progress": 39,
+      "blocked": false,
+      "created": "2026-02-19",
+      "due": "2026-04-08",
+      "tags": [
+        "Forge",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/134",
+        "repository": "https://github.com/example/project-2"
+      },
+      "notes": "Acceptance notes for item 134"
+    },
+    {
+      "id": "WI-0135",
+      "title": "Design Helix workflow 135",
+      "status": "In progress",
+      "priority": "High",
+      "team": "Design",
+      "owner": "Alan 15",
+      "ownerEmail": "person15@example.com",
+      "estimate": 20,
+      "progress": 56,
+      "blocked": false,
+      "created": "2026-02-22",
+      "due": "2026-04-11",
+      "tags": [
+        "Helix",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/135",
+        "repository": "https://github.com/example/project-3"
+      },
+      "notes": "Acceptance notes for item 135"
+    },
+    {
+      "id": "WI-0136",
+      "title": "Migrate Ion workflow 136",
+      "status": "Blocked",
+      "priority": "Medium",
+      "team": "Data",
+      "owner": "Katherine 16",
+      "ownerEmail": "person16@example.com",
+      "estimate": 4,
+      "progress": 73,
+      "blocked": true,
+      "created": "2026-02-25",
+      "due": "2026-04-14",
+      "tags": [
+        "Ion",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/136",
+        "repository": "https://github.com/example/project-4"
+      },
+      "notes": "Acceptance notes for item 136"
+    },
+    {
+      "id": "WI-0137",
+      "title": "Test Atlas workflow 137",
+      "status": "Review",
+      "priority": "Low",
+      "team": "Security",
+      "owner": "Edsger 17",
+      "ownerEmail": "person17@example.com",
+      "estimate": 9,
+      "progress": 90,
+      "blocked": false,
+      "created": "2026-02-28",
+      "due": "2026-04-17",
+      "tags": [
+        "Atlas",
+        "Internal",
+        "Low"
+      ],
+      "links": {
+        "brief": "https://example.com/work/137",
+        "repository": "https://github.com/example/project-5"
+      },
+      "notes": "Acceptance notes for item 137"
+    },
+    {
+      "id": "WI-0138",
+      "title": "Document Beacon workflow 138",
+      "status": "Done",
+      "priority": "Urgent",
+      "team": "Support",
+      "owner": "Radia 18",
+      "ownerEmail": "person18@example.com",
+      "estimate": 14,
+      "progress": 6,
+      "blocked": false,
+      "created": "2026-03-03",
+      "due": "2026-04-20",
+      "tags": [
+        "Beacon",
+        "Customer",
+        "Medium"
+      ],
+      "links": {
+        "brief": "https://example.com/work/138",
+        "repository": "https://github.com/example/project-6"
+      },
+      "notes": "Acceptance notes for item 138"
+    },
+    {
+      "id": "WI-0139",
+      "title": "Build Canvas workflow 139",
+      "status": "Backlog",
+      "priority": "High",
+      "team": "Platform",
+      "owner": "Barbara 19",
+      "ownerEmail": "person19@example.com",
+      "estimate": 19,
+      "progress": 23,
+      "blocked": false,
+      "created": "2026-03-06",
+      "due": "2026-04-23",
+      "tags": [
+        "Canvas",
+        "Internal",
+        "High"
+      ],
+      "links": {
+        "brief": "https://example.com/work/139",
+        "repository": "https://github.com/example/project-7"
+      },
+      "notes": "Acceptance notes for item 139"
+    },
+    {
+      "id": "WI-0140",
+      "title": "Review Delta workflow 140",
+      "status": "Ready",
+      "priority": "Medium",
+      "team": "Growth",
+      "owner": "Donald 20",
+      "ownerEmail": "person20@example.com",
+      "estimate": 3,
+      "progress": 40,
+      "blocked": false,
+      "created": "2026-03-09",
+      "due": "2026-04-26",
+      "tags": [
+        "Delta",
+        "Customer",
+        "Urgent"
+      ],
+      "links": {
+        "brief": "https://example.com/work/140",
+        "repository": "https://github.com/example/project-8"
+      },
+      "notes": "Acceptance notes for item 140"
+    }
+  ],
+  "people": [
+    {
+      "id": "person-001",
+      "name": "Ada 1",
+      "email": "person1@example.com",
+      "team": "Platform",
+      "active": false,
+      "location": {
+        "city": "New York",
+        "region": "North America"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ]
+    },
+    {
+      "id": "person-002",
+      "name": "Grace 2",
+      "email": "person2@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Europe"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ]
+    },
+    {
+      "id": "person-003",
+      "name": "Linus 3",
+      "email": "person3@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Canvas",
+        "Forge"
+      ]
+    },
+    {
+      "id": "person-004",
+      "name": "Margaret 4",
+      "email": "person4@example.com",
+      "team": "Data",
+      "active": true,
+      "location": {
+        "city": "Tokyo",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Delta",
+        "Helix"
+      ]
+    },
+    {
+      "id": "person-005",
+      "name": "Alan 5",
+      "email": "person5@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Echo",
+        "Ion"
+      ]
+    },
+    {
+      "id": "person-006",
+      "name": "Katherine 6",
+      "email": "person6@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "North America"
+      },
+      "skills": [
+        "Forge",
+        "Atlas"
+      ]
+    },
+    {
+      "id": "person-007",
+      "name": "Edsger 7",
+      "email": "person7@example.com",
+      "team": "Platform",
+      "active": true,
+      "location": {
+        "city": "New York",
+        "region": "Europe"
+      },
+      "skills": [
+        "Helix",
+        "Beacon"
+      ]
+    },
+    {
+      "id": "person-008",
+      "name": "Radia 8",
+      "email": "person8@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Ion",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "person-009",
+      "name": "Barbara 9",
+      "email": "person9@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ]
+    },
+    {
+      "id": "person-010",
+      "name": "Donald 10",
+      "email": "person10@example.com",
+      "team": "Data",
+      "active": false,
+      "location": {
+        "city": "Tokyo",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ]
+    },
+    {
+      "id": "person-011",
+      "name": "Ada 11",
+      "email": "person11@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "North America"
+      },
+      "skills": [
+        "Canvas",
+        "Forge"
+      ]
+    },
+    {
+      "id": "person-012",
+      "name": "Grace 12",
+      "email": "person12@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "Europe"
+      },
+      "skills": [
+        "Delta",
+        "Helix"
+      ]
+    },
+    {
+      "id": "person-013",
+      "name": "Linus 13",
+      "email": "person13@example.com",
+      "team": "Platform",
+      "active": true,
+      "location": {
+        "city": "New York",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Echo",
+        "Ion"
+      ]
+    },
+    {
+      "id": "person-014",
+      "name": "Margaret 14",
+      "email": "person14@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Forge",
+        "Atlas"
+      ]
+    },
+    {
+      "id": "person-015",
+      "name": "Alan 15",
+      "email": "person15@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Helix",
+        "Beacon"
+      ]
+    },
+    {
+      "id": "person-016",
+      "name": "Katherine 16",
+      "email": "person16@example.com",
+      "team": "Data",
+      "active": true,
+      "location": {
+        "city": "Tokyo",
+        "region": "North America"
+      },
+      "skills": [
+        "Ion",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "person-017",
+      "name": "Edsger 17",
+      "email": "person17@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "Europe"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ]
+    },
+    {
+      "id": "person-018",
+      "name": "Radia 18",
+      "email": "person18@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ]
+    },
+    {
+      "id": "person-019",
+      "name": "Barbara 19",
+      "email": "person19@example.com",
+      "team": "Platform",
+      "active": false,
+      "location": {
+        "city": "New York",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Canvas",
+        "Forge"
+      ]
+    },
+    {
+      "id": "person-020",
+      "name": "Donald 20",
+      "email": "person20@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Delta",
+        "Helix"
+      ]
+    },
+    {
+      "id": "person-021",
+      "name": "Ada 21",
+      "email": "person21@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "North America"
+      },
+      "skills": [
+        "Echo",
+        "Ion"
+      ]
+    },
+    {
+      "id": "person-022",
+      "name": "Grace 22",
+      "email": "person22@example.com",
+      "team": "Data",
+      "active": true,
+      "location": {
+        "city": "Tokyo",
+        "region": "Europe"
+      },
+      "skills": [
+        "Forge",
+        "Atlas"
+      ]
+    },
+    {
+      "id": "person-023",
+      "name": "Linus 23",
+      "email": "person23@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Helix",
+        "Beacon"
+      ]
+    },
+    {
+      "id": "person-024",
+      "name": "Margaret 24",
+      "email": "person24@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Ion",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "person-025",
+      "name": "Alan 25",
+      "email": "person25@example.com",
+      "team": "Platform",
+      "active": true,
+      "location": {
+        "city": "New York",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Atlas",
+        "Delta"
+      ]
+    },
+    {
+      "id": "person-026",
+      "name": "Katherine 26",
+      "email": "person26@example.com",
+      "team": "Growth",
+      "active": true,
+      "location": {
+        "city": "London",
+        "region": "North America"
+      },
+      "skills": [
+        "Beacon",
+        "Echo"
+      ]
+    },
+    {
+      "id": "person-027",
+      "name": "Edsger 27",
+      "email": "person27@example.com",
+      "team": "Design",
+      "active": true,
+      "location": {
+        "city": "Tel Aviv",
+        "region": "Europe"
+      },
+      "skills": [
+        "Canvas",
+        "Forge"
+      ]
+    },
+    {
+      "id": "person-028",
+      "name": "Radia 28",
+      "email": "person28@example.com",
+      "team": "Data",
+      "active": false,
+      "location": {
+        "city": "Tokyo",
+        "region": "Asia Pacific"
+      },
+      "skills": [
+        "Delta",
+        "Helix"
+      ]
+    },
+    {
+      "id": "person-029",
+      "name": "Barbara 29",
+      "email": "person29@example.com",
+      "team": "Security",
+      "active": true,
+      "location": {
+        "city": "Berlin",
+        "region": "Middle East"
+      },
+      "skills": [
+        "Echo",
+        "Ion"
+      ]
+    },
+    {
+      "id": "person-030",
+      "name": "Donald 30",
+      "email": "person30@example.com",
+      "team": "Support",
+      "active": true,
+      "location": {
+        "city": "Toronto",
+        "region": "Latin America"
+      },
+      "skills": [
+        "Forge",
+        "Atlas"
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "id": "release-1",
+      "name": "Atlas 2026.1",
+      "status": "In progress",
+      "targetDate": "2026-03-02",
+      "itemIds": [
+        "WI-0001",
+        "WI-0002",
+        "WI-0003",
+        "WI-0004",
+        "WI-0005",
+        "WI-0006",
+        "WI-0007",
+        "WI-0008",
+        "WI-0009",
+        "WI-0010",
+        "WI-0011",
+        "WI-0012"
+      ]
+    },
+    {
+      "id": "release-2",
+      "name": "Beacon 2026.2",
+      "status": "Blocked",
+      "targetDate": "2026-03-05",
+      "itemIds": [
+        "WI-0009",
+        "WI-0010",
+        "WI-0011",
+        "WI-0012",
+        "WI-0013",
+        "WI-0014",
+        "WI-0015",
+        "WI-0016",
+        "WI-0017",
+        "WI-0018",
+        "WI-0019",
+        "WI-0020"
+      ]
+    },
+    {
+      "id": "release-3",
+      "name": "Canvas 2026.3",
+      "status": "Review",
+      "targetDate": "2026-03-08",
+      "itemIds": [
+        "WI-0017",
+        "WI-0018",
+        "WI-0019",
+        "WI-0020",
+        "WI-0021",
+        "WI-0022",
+        "WI-0023",
+        "WI-0024",
+        "WI-0025",
+        "WI-0026",
+        "WI-0027",
+        "WI-0028"
+      ]
+    },
+    {
+      "id": "release-4",
+      "name": "Delta 2026.4",
+      "status": "Done",
+      "targetDate": "2026-03-11",
+      "itemIds": [
+        "WI-0025",
+        "WI-0026",
+        "WI-0027",
+        "WI-0028",
+        "WI-0029",
+        "WI-0030",
+        "WI-0031",
+        "WI-0032",
+        "WI-0033",
+        "WI-0034",
+        "WI-0035",
+        "WI-0036"
+      ]
+    },
+    {
+      "id": "release-5",
+      "name": "Echo 2027.1",
+      "status": "Backlog",
+      "targetDate": "2026-03-14",
+      "itemIds": [
+        "WI-0033",
+        "WI-0034",
+        "WI-0035",
+        "WI-0036",
+        "WI-0037",
+        "WI-0038",
+        "WI-0039",
+        "WI-0040",
+        "WI-0041",
+        "WI-0042",
+        "WI-0043",
+        "WI-0044"
+      ]
+    },
+    {
+      "id": "release-6",
+      "name": "Forge 2027.2",
+      "status": "Ready",
+      "targetDate": "2026-03-17",
+      "itemIds": [
+        "WI-0041",
+        "WI-0042",
+        "WI-0043",
+        "WI-0044",
+        "WI-0045",
+        "WI-0046",
+        "WI-0047",
+        "WI-0048",
+        "WI-0049",
+        "WI-0050",
+        "WI-0051",
+        "WI-0052"
+      ]
+    },
+    {
+      "id": "release-7",
+      "name": "Helix 2027.3",
+      "status": "In progress",
+      "targetDate": "2026-03-20",
+      "itemIds": [
+        "WI-0049",
+        "WI-0050",
+        "WI-0051",
+        "WI-0052",
+        "WI-0053",
+        "WI-0054",
+        "WI-0055",
+        "WI-0056",
+        "WI-0057",
+        "WI-0058",
+        "WI-0059",
+        "WI-0060"
+      ]
+    },
+    {
+      "id": "release-8",
+      "name": "Ion 2027.4",
+      "status": "Blocked",
+      "targetDate": "2026-03-23",
+      "itemIds": [
+        "WI-0057",
+        "WI-0058",
+        "WI-0059",
+        "WI-0060",
+        "WI-0061",
+        "WI-0062",
+        "WI-0063",
+        "WI-0064",
+        "WI-0065",
+        "WI-0066",
+        "WI-0067",
+        "WI-0068"
+      ]
+    },
+    {
+      "id": "release-9",
+      "name": "Atlas 2028.1",
+      "status": "Review",
+      "targetDate": "2026-03-26",
+      "itemIds": [
+        "WI-0065",
+        "WI-0066",
+        "WI-0067",
+        "WI-0068",
+        "WI-0069",
+        "WI-0070",
+        "WI-0071",
+        "WI-0072",
+        "WI-0073",
+        "WI-0074",
+        "WI-0075",
+        "WI-0076"
+      ]
+    },
+    {
+      "id": "release-10",
+      "name": "Beacon 2028.2",
+      "status": "Done",
+      "targetDate": "2026-03-29",
+      "itemIds": [
+        "WI-0073",
+        "WI-0074",
+        "WI-0075",
+        "WI-0076",
+        "WI-0077",
+        "WI-0078",
+        "WI-0079",
+        "WI-0080",
+        "WI-0081",
+        "WI-0082",
+        "WI-0083",
+        "WI-0084"
+      ]
+    },
+    {
+      "id": "release-11",
+      "name": "Canvas 2028.3",
+      "status": "Backlog",
+      "targetDate": "2026-04-01",
+      "itemIds": [
+        "WI-0081",
+        "WI-0082",
+        "WI-0083",
+        "WI-0084",
+        "WI-0085",
+        "WI-0086",
+        "WI-0087",
+        "WI-0088",
+        "WI-0089",
+        "WI-0090",
+        "WI-0091",
+        "WI-0092"
+      ]
+    },
+    {
+      "id": "release-12",
+      "name": "Delta 2028.4",
+      "status": "Ready",
+      "targetDate": "2026-04-04",
+      "itemIds": [
+        "WI-0089",
+        "WI-0090",
+        "WI-0091",
+        "WI-0092",
+        "WI-0093",
+        "WI-0094",
+        "WI-0095",
+        "WI-0096",
+        "WI-0097",
+        "WI-0098",
+        "WI-0099",
+        "WI-0100"
+      ]
+    }
+  ]
+}

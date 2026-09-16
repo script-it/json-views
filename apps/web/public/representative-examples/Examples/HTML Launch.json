@@ -1,0 +1,67 @@
+{
+  "name": "A quieter kind of launch",
+  "description": "A small release. Thoughtful details. Everything ready for the first hello.",
+  "progress": 65,
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Polish the welcome screen",
+      "done": true
+    },
+    {
+      "id": "t2",
+      "title": "Record the product walkthrough",
+      "done": false
+    },
+    {
+      "id": "t3",
+      "title": "Send the first invitations",
+      "done": false
+    }
+  ],
+  "$jsonviews": {
+    "version": 1,
+    "schema": {
+      "$.name": {
+        "type": "text"
+      },
+      "$.description": {
+        "type": "body"
+      },
+      "$.progress": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "$.tasks[*].title": {
+        "type": "text"
+      },
+      "$.tasks[*].done": {
+        "type": "checkbox"
+      }
+    },
+    "views": [
+      {
+        "id": "launch",
+        "name": "Launch page",
+        "path": "$",
+        "display": "html",
+        "html": "<main><span class=\"eyebrow\">THE NEXT CHAPTER</span><h1><jv-field bind=\"$.name\"></jv-field></h1><p><jv-field bind=\"$.description\"></jv-field></p><div class=\"metric\"><label for=\"readiness\">Launch readiness</label><strong><jv-value bind=\"$.progress\"></jv-value>%</strong></div><input id=\"readiness\" type=\"range\" min=\"0\" max=\"100\" jv-bind=\"$.progress\"><jv-repeat source=\"$.tasks\" as=\"task\" key=\"id\"><div class=\"row\"><input type=\"checkbox\" jv-bind=\"task.done\" jv-attr-aria-label=\"task.title\"><jv-field bind=\"task.title\"></jv-field></div></jv-repeat></main>",
+        "css": ":root{color-scheme:light dark}body{background:light-dark(#fff,#202420);color:light-dark(#253329,#e4ece6);font:15px system-ui}main{max-width:900px;margin:auto;padding:40px}h1{font:600 42px/1.15 Georgia,serif;margin:14px 0}p{line-height:1.7;color:light-dark(#627166,#abbcaf)}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:light-dark(#366b4c,#9acd9e)}input{accent-color:light-dark(#366b4c,#9acd9e)}.row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid light-dark(#dde5df,#3a473e)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}.card{background:light-dark(#f3f6f1,#2b342b);border-radius:12px;padding:24px}.metric{display:flex;justify-content:space-between;align-items:center;margin:30px 0 12px}.metric strong{font:36px Georgia,serif}input[type=range]{width:100%}input[type=number]{width:90px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:5px;padding:7px;font:inherit}svg{width:100%;height:auto}.point{fill:light-dark(#366b4c,#9acd9e)}@media(max-width:480px){main{padding:22px}h1{font-size:32px}}"
+      },
+      {
+        "id": "checklist",
+        "name": "Checklist",
+        "path": "$",
+        "display": "html",
+        "html": "<main><span class=\"eyebrow\">LAUNCH CHECKLIST</span><h1><jv-value bind=\"$.name\"></jv-value></h1><jv-repeat source=\"$.tasks\" as=\"task\" key=\"id\"><div class=\"row\"><input type=\"checkbox\" jv-bind=\"task.done\" jv-attr-aria-label=\"task.title\"><jv-field bind=\"task.title\"></jv-field></div></jv-repeat></main>",
+        "css": ":root{color-scheme:light dark}body{background:light-dark(#fff,#202420);color:light-dark(#253329,#e4ece6);font:15px system-ui}main{max-width:900px;margin:auto;padding:40px}h1{font:600 42px/1.15 Georgia,serif;margin:14px 0}p{line-height:1.7;color:light-dark(#627166,#abbcaf)}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:light-dark(#366b4c,#9acd9e)}input{accent-color:light-dark(#366b4c,#9acd9e)}.row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid light-dark(#dde5df,#3a473e)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}.card{background:light-dark(#f3f6f1,#2b342b);border-radius:12px;padding:24px}.metric{display:flex;justify-content:space-between;align-items:center;margin:30px 0 12px}.metric strong{font:36px Georgia,serif}input[type=range]{width:100%}input[type=number]{width:90px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:5px;padding:7px;font:inherit}svg{width:100%;height:auto}.point{fill:light-dark(#366b4c,#9acd9e)}@media(max-width:480px){main{padding:22px}h1{font-size:32px}}"
+      },
+      {
+        "id": "tasks",
+        "name": "Tasks",
+        "path": "$.tasks"
+      }
+    ]
+  }
+}

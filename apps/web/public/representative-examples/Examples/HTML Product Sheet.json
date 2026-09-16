@@ -1,0 +1,69 @@
+{
+  "name": "Everyday notebook",
+  "description": "A place for unfinished ideas. Lay-flat binding, recycled paper, and a cover that gets better with use.",
+  "price": 24,
+  "stock": 120,
+  "variants": [
+    {
+      "id": "v1",
+      "name": "Forest",
+      "status": "Available"
+    },
+    {
+      "id": "v2",
+      "name": "Clay",
+      "status": "Low stock"
+    },
+    {
+      "id": "v3",
+      "name": "Ink",
+      "status": "Available"
+    }
+  ],
+  "$jsonviews": {
+    "version": 1,
+    "schema": {
+      "$.name": {
+        "type": "text"
+      },
+      "$.description": {
+        "type": "body"
+      },
+      "$.price": {
+        "type": "number",
+        "minimum": 0
+      },
+      "$.stock": {
+        "type": "number",
+        "minimum": 0,
+        "step": 1
+      },
+      "$.variants[*].name": {
+        "type": "text"
+      },
+      "$.variants[*].status": {
+        "type": "select",
+        "options": [
+          "Available",
+          "Low stock",
+          "Sold out"
+        ]
+      }
+    },
+    "views": [
+      {
+        "id": "sheet",
+        "name": "Product sheet",
+        "path": "$",
+        "display": "html",
+        "html": "<main><span class=\"eyebrow\">OBJECTS FOR EVERY DAY</span><div class=\"grid\"><div class=\"notebook\" role=\"img\" aria-label=\"Notebook illustration\"></div><article><h1><jv-field bind=\"$.name\"></jv-field></h1><p><jv-field bind=\"$.description\"></jv-field></p><div class=\"metric\"><span>Price</span><strong>$<jv-field bind=\"$.price\"></jv-field></strong></div><label>Stock <input type=\"number\" min=\"0\" step=\"1\" jv-bind=\"$.stock\" aria-label=\"Stock\"></label></article></div><h2>Colors</h2><jv-repeat source=\"$.variants\" as=\"variant\" key=\"id\"><div class=\"row\"><jv-field bind=\"variant.name\"></jv-field> \u2014 <jv-field bind=\"variant.status\"></jv-field></div></jv-repeat></main>",
+        "css": ":root{color-scheme:light dark}body{background:light-dark(#fff,#202420);color:light-dark(#253329,#e4ece6);font:15px system-ui}main{max-width:900px;margin:auto;padding:40px}h1{font:600 42px/1.15 Georgia,serif;margin:14px 0}p{line-height:1.7;color:light-dark(#627166,#abbcaf)}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:light-dark(#366b4c,#9acd9e)}input{accent-color:light-dark(#366b4c,#9acd9e)}.row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid light-dark(#dde5df,#3a473e)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}.card{background:light-dark(#f3f6f1,#2b342b);border-radius:12px;padding:24px}.metric{display:flex;justify-content:space-between;align-items:center;margin:30px 0 12px}.metric strong{font:36px Georgia,serif}input[type=range]{width:100%}input[type=number]{width:90px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:5px;padding:7px;font:inherit}svg{width:100%;height:auto}.point{fill:light-dark(#366b4c,#9acd9e)}@media(max-width:480px){main{padding:22px}h1{font-size:32px}}.notebook{height:320px;max-width:230px;margin:20px auto;background:light-dark(#38634c,#6a9477);border-radius:5px 16px 16px 5px;box-shadow:inset 12px 0 0 light-dark(#294c38,#547a5d),8px 10px 0 light-dark(#dde4d9,#374536)}"
+      },
+      {
+        "id": "variants",
+        "name": "Variants",
+        "path": "$.variants"
+      }
+    ]
+  }
+}

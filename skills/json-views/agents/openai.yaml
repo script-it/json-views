@@ -1,0 +1,7 @@
+interface:
+  display_name: "JSON Views"
+  short_description: "Explore, edit, and organize JSON in visual views"
+  icon_small: "./assets/json-views-icon.svg"
+  icon_large: "./assets/json-views-logo.svg"
+  brand_color: "#6854B8"
+  default_prompt: "Use $json-views to explore this JSON, make the requested edits, and set up useful table, page, or Kanban views."

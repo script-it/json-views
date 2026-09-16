@@ -1,0 +1,82 @@
+{
+  "tasks": [
+    {
+      "id": "TASK-101",
+      "title": "Define the launch checklist",
+      "status": "In progress",
+      "priority": "High",
+      "project": "Website launch",
+      "assignee": "Maya Chen",
+      "due_date": "2026-09-10",
+      "tags": ["Launch", "Planning"],
+      "done": false,
+      "position": 1,
+      "description": "List the product, documentation, support, and announcement checks that must be complete before launch."
+    },
+    {
+      "id": "TASK-102",
+      "title": "Review onboarding copy",
+      "status": "To do",
+      "priority": "Medium",
+      "project": "Website launch",
+      "assignee": "Theo Martin",
+      "due_date": "2026-09-12",
+      "tags": ["Content", "Review"],
+      "done": false,
+      "position": 2,
+      "description": "Check the first-run instructions for clarity and make sure every action matches the current interface."
+    },
+    {
+      "id": "TASK-103",
+      "title": "Fix mobile navigation spacing",
+      "status": "Blocked",
+      "priority": "Urgent",
+      "project": "Website launch",
+      "assignee": "Ari Patel",
+      "due_date": "2026-09-09",
+      "tags": ["Frontend", "Bug"],
+      "done": false,
+      "position": 3,
+      "description": "The navigation wraps at narrow widths. Confirm the intended breakpoint before changing the layout."
+    },
+    {
+      "id": "TASK-104",
+      "title": "Prepare customer import sample",
+      "status": "Backlog",
+      "priority": "Low",
+      "project": "Data migration",
+      "assignee": "Noah Williams",
+      "due_date": null,
+      "tags": ["Data", "Docs"],
+      "done": false,
+      "position": 4,
+      "description": "Create a small anonymized file that demonstrates the supported import fields and validation errors."
+    },
+    {
+      "id": "TASK-105",
+      "title": "Publish API error reference",
+      "status": "In review",
+      "priority": "High",
+      "project": "Developer experience",
+      "assignee": "Lena Ortiz",
+      "due_date": "2026-09-11",
+      "tags": ["API", "Docs"],
+      "done": false,
+      "position": 5,
+      "description": "Document the public error codes with a cause, a recovery action, and one minimal request example for each."
+    },
+    {
+      "id": "TASK-106",
+      "title": "Confirm analytics events",
+      "status": "Done",
+      "priority": "Medium",
+      "project": "Website launch",
+      "assignee": "Maya Chen",
+      "due_date": "2026-09-06",
+      "tags": ["Analytics", "Launch"],
+      "done": true,
+      "position": 6,
+      "description": "Verify that sign-up, workspace creation, and first successful edit are recorded once with the expected properties."
+    }
+  ]
+}

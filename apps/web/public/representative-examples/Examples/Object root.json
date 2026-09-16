@@ -1,0 +1,23 @@
+{
+  "project": "A small launch",
+  "tasks": [
+    {
+      "name": "Draft the brief",
+      "status": "Done",
+      "owner": "Ada",
+      "hours": 2
+    },
+    {
+      "name": "Review the draft",
+      "status": "In progress",
+      "owner": "Sam",
+      "hours": 1.5
+    },
+    {
+      "name": "Publish the result",
+      "status": "Todo",
+      "owner": "Lee",
+      "hours": 1
+    }
+  ]
+}

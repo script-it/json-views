@@ -1,0 +1,1 @@
+examples/view-flow/*.csv text eol=crlf whitespace=trailing-space,space-before-tab,cr-at-eol

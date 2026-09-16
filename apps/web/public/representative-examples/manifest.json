@@ -1,0 +1,298 @@
+[
+  {
+    "id": "json-views",
+    "title": "About JSON Views",
+    "sourceFile": "About JSON Views.json",
+    "description": "A welcome page and a database of seven short articles.",
+    "sourceSha256": "f8d591a600394de1325f8f1db4f118f6b0eb93370617c5d52780faa1389629c2",
+    "bytes": 14373,
+    "category": "Guide",
+    "presentationState": {
+      "version": 1,
+      "tables": {
+        "[\"example:About JSON Views.json\",\"jsonView:articles\"]": {
+          "columnWidths": {
+            "[\"[{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"articles\\\"},{\\\"kind\\\":\\\"wildcard\\\"},{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"title\\\"}]\",0]": 261.66,
+            "[\"[{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"articles\\\"},{\\\"kind\\\":\\\"wildcard\\\"},{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"topic\\\"}]\",0]": 121.999,
+            "[\"[{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"articles\\\"},{\\\"kind\\\":\\\"wildcard\\\"},{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"audience\\\"}]\",0]": 124.996,
+            "[\"[{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"articles\\\"},{\\\"kind\\\":\\\"wildcard\\\"},{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"done\\\"}]\",0]": 80,
+            "[\"[{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"articles\\\"},{\\\"kind\\\":\\\"wildcard\\\"},{\\\"kind\\\":\\\"property\\\",\\\"key\\\":\\\"reading_time\\\"}]\",0]": 147
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "task-management",
+    "title": "Task Management",
+    "category": "Template",
+    "description": "A ready-to-edit task workspace with an HTML project dashboard, status board, complete task table, open-task queue, due dates, priorities, assignees, tags, and record descriptions.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/Task Management.json",
+    "annotationFile": "Templates/Task Management.jsonviews.json",
+    "shape": "Object containing a task array",
+    "records": 6,
+    "features": [
+      "Editable HTML dashboard",
+      "Kanban by status",
+      "Persistent card order",
+      "Open-task filter",
+      "Colored priorities",
+      "Record descriptions"
+    ],
+    "sourceSha256": "72c61c077247c4c4a70d8df7d64a07ac3db545bb29140a04e0a444193753c915",
+    "bytes": 2660,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/Task Management.json"
+  },
+  {
+    "id": "lead-management",
+    "title": "Lead Management",
+    "category": "Template",
+    "description": "A sales workspace with a draggable pipeline, all-leads table, follow-up queue, high-value view, contact fields, ownership, tags, and notes.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/Lead Management.json",
+    "annotationFile": "Templates/Lead Management.jsonviews.json",
+    "shape": "Object containing a lead array",
+    "records": 6,
+    "features": [
+      "Kanban pipeline",
+      "Follow-up queue",
+      "High-value filter",
+      "Email and date validation",
+      "Lead notes"
+    ],
+    "sourceSha256": "2826cf0ed975148f9b5a7262df091ae21401433971a9d0bfb0532723f0cd353d",
+    "bytes": 3243,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/Lead Management.json"
+  },
+  {
+    "id": "llm-messages",
+    "title": "LLM Messages",
+    "category": "Template",
+    "description": "An API-shaped chat payload with nested attachments and tool calls, plus conversation, role-board, prompt-input, and model-output views.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/LLM Messages.json",
+    "annotationFile": "Templates/LLM Messages.jsonviews.json",
+    "shape": "Object containing model settings and a messages array",
+    "records": 5,
+    "features": [
+      "LLM message roles",
+      "Multiline message editors",
+      "Prompt and output filters",
+      "Kanban by role",
+      "Nested attachment and tool-call tables",
+      "Model settings"
+    ],
+    "sourceSha256": "cc0bbcdea1b88720e75cb0f6097cdf2bc67559cdb224113833e9e00e97ec1bfb",
+    "bytes": 2283,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/LLM Messages.json"
+  },
+  {
+    "id": "research-sprint",
+    "title": "Research Sprint",
+    "category": "Template",
+    "description": "A short-lived evidence workspace for an agent research assignment, with sources, confidence, verification state, and a follow-up queue.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/Research Sprint.json",
+    "annotationFile": "Templates/Research Sprint.jsonviews.json",
+    "shape": "Object containing a research findings array",
+    "records": 6,
+    "features": [
+      "Evidence table",
+      "Verification board",
+      "Source links",
+      "Confidence labels",
+      "Needs-verification filter"
+    ],
+    "sourceSha256": "00fe60091cd91706d50c8273ef9328a2d711d040f47ab6a06361ba766366633d",
+    "bytes": 2853,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/Research Sprint.json"
+  },
+  {
+    "id": "decision-comparison",
+    "title": "Decision Comparison",
+    "category": "Template",
+    "description": "A one-off decision workspace for comparing options, documenting weighted criteria, and turning an agent recommendation into a reviewable choice.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/Decision Comparison.json",
+    "annotationFile": "Templates/Decision Comparison.jsonviews.json",
+    "shape": "Object containing criteria and option arrays",
+    "records": 4,
+    "features": [
+      "Scored comparison",
+      "Recommendation board",
+      "Shortlist filter",
+      "Criteria table",
+      "Record rationale"
+    ],
+    "sourceSha256": "ffa0001aa9e3296b532dac378710d373d7a08d3edc4b3e3a180e2a8fdab7596f",
+    "bytes": 2344,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/Decision Comparison.json"
+  },
+  {
+    "id": "review-findings",
+    "title": "Review Findings",
+    "category": "Template",
+    "description": "A focused handoff for an agent reviewing a document, design, or codebase, with severity, evidence, recommendations, and resolution state.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/Review Findings.json",
+    "annotationFile": "Templates/Review Findings.jsonviews.json",
+    "shape": "Object containing a review findings array",
+    "records": 6,
+    "features": [
+      "Triage board",
+      "Severity queue",
+      "Open-findings filter",
+      "Evidence body",
+      "Resolution tracking"
+    ],
+    "sourceSha256": "9cc793a0ec86ddc5b1fe1a7964259ba14ddb128e9eca72d01b46a3455a1b76f4",
+    "bytes": 3152,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/Review Findings.json"
+  },
+  {
+    "id": "content-batch",
+    "title": "Content Batch",
+    "category": "Template",
+    "description": "A temporary campaign workspace for turning one brief into several agent-generated deliverables and moving each through review and publication.",
+    "sourcePath": "Bundled example",
+    "sourceFile": "Templates/Content Batch.json",
+    "annotationFile": "Templates/Content Batch.jsonviews.json",
+    "shape": "Object containing a content deliverables array",
+    "records": 6,
+    "features": [
+      "Content pipeline",
+      "Review queue",
+      "Channel and audience fields",
+      "Publish dates",
+      "Markdown draft editor"
+    ],
+    "sourceSha256": "74966c615204c3a62512844205f2532f977f641e5a4f4e1dd6ff793f382c087a",
+    "bytes": 3361,
+    "annotationIssues": 0,
+    "dataIssues": 0,
+    "relativePath": "Templates/Content Batch.json"
+  },
+  {
+    "id": "csv",
+    "title": "Tasks CSV",
+    "sourceFile": "Examples/Tasks.csv",
+    "description": "The same tasks as a flat CSV table.",
+    "sourceSha256": "26c7613a76cf895784b0179986f3619efceda056a011d2826ec7429673b1851b",
+    "bytes": 118,
+    "category": "Example",
+    "relativePath": "Examples/Tasks.csv"
+  },
+  {
+    "id": "object-root",
+    "title": "Object root",
+    "sourceFile": "Examples/Object root.json",
+    "description": "An ordinary object with a nested collection; views are inferred.",
+    "sourceSha256": "4865163eb6de8f4785b64bfda3c63657cc30929b23bdab5dc806579661c7fcb1",
+    "bytes": 391,
+    "category": "Example",
+    "relativePath": "Examples/Object root.json"
+  },
+  {
+    "id": "array-root",
+    "title": "Array root",
+    "sourceFile": "Examples/Array root.json",
+    "description": "The same tasks as a plain root array, with no annotations.",
+    "sourceSha256": "af111d4466cd83c18241d7d0af05dc6a5ae718df3402c9705fc9c4bd07ae7b9b",
+    "bytes": 307,
+    "category": "Example",
+    "relativePath": "Examples/Array root.json"
+  },
+  {
+    "id": "single-record",
+    "title": "Single record",
+    "sourceFile": "Examples/Single record.json",
+    "description": "A plain record with long text properties.",
+    "sourceSha256": "53d877b52e0f8e1da54028ed7f45c4ebd00113080b3354b454f22dbe340150d1",
+    "bytes": 193,
+    "category": "Example",
+    "relativePath": "Examples/Single record.json"
+  },
+  {
+    "id": "nested-json",
+    "title": "Nested JSON",
+    "sourceFile": "Examples/Nested JSON.json",
+    "description": "Nested objects and collections to navigate.",
+    "sourceSha256": "95e2b2c3ee7a83619d648bc953f228e702d52c16127096d9fa565df60b9698bd",
+    "bytes": 538,
+    "category": "Example",
+    "relativePath": "Examples/Nested JSON.json"
+  },
+  {
+    "id": "object-map",
+    "title": "Object map",
+    "sourceFile": "Examples/Object map.json",
+    "description": "A dictionary of records keyed by ID.",
+    "sourceSha256": "967c14ed8505b02dd7a8bb81dc05bb3baa495c74f32b55a09af176aa5bd63819",
+    "bytes": 180,
+    "category": "Example",
+    "relativePath": "Examples/Object map.json"
+  },
+  {
+    "id": "mixed-array",
+    "title": "Mixed array",
+    "sourceFile": "Examples/Mixed array.json",
+    "description": "A JSON array can mix strings, numbers, booleans, null, arrays, and objects.",
+    "sourceSha256": "ccf9ef7382aef7cdd1e1554ee4973e26b4f4377e975886c10f9cd51ebbe1e463",
+    "bytes": 106,
+    "category": "Example",
+    "relativePath": "Examples/Mixed array.json"
+  },
+  {
+    "id": "scalar-json",
+    "title": "Scalar JSON",
+    "sourceFile": "Examples/Scalar JSON.json",
+    "description": "A valid JSON file does not have to start with an object or array.",
+    "sourceSha256": "11923a6aa62d7af9c18fec51cfbbaa48d38a8ed809c2e494e26f83df884e1db7",
+    "bytes": 36,
+    "category": "Example",
+    "relativePath": "Examples/Scalar JSON.json"
+  },
+  {
+    "id": "html-launch",
+    "title": "HTML Launch",
+    "category": "Example",
+    "sourceFile": "Examples/HTML Launch.json",
+    "relativePath": "Examples/HTML Launch.json",
+    "description": "A self-contained, editable HTML/CSS view inside JSON.",
+    "sourceSha256": "758fe62022d9e0aaa0e6e978d16241b45fa72d57b2ec719af7a58f1d9f91ac21",
+    "bytes": 4417
+  },
+  {
+    "id": "html-room-plan",
+    "title": "HTML Room Plan",
+    "category": "Example",
+    "sourceFile": "Examples/HTML Room Plan.json",
+    "relativePath": "Examples/HTML Room Plan.json",
+    "description": "A self-contained, editable HTML/CSS view inside JSON.",
+    "sourceSha256": "f926ffc692e3b5cdc0a428dd98adb25b3a78f529d279296a4f52a40c7638e22b",
+    "bytes": 3132
+  },
+  {
+    "id": "html-product-sheet",
+    "title": "HTML Product Sheet",
+    "category": "Example",
+    "sourceFile": "Examples/HTML Product Sheet.json",
+    "relativePath": "Examples/HTML Product Sheet.json",
+    "description": "A self-contained, editable HTML/CSS view inside JSON.",
+    "sourceSha256": "b550e53aa457d7575deaaa90123aa7732285dba9a0ae3d7cfbbc43e634af9a25",
+    "bytes": 3332
+  }
+]

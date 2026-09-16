@@ -1,0 +1,69 @@
+{
+  "name": "Studio room plan",
+  "rooms": [
+    {
+      "id": "r1",
+      "name": "Garden studio",
+      "capacity": 6,
+      "available": true,
+      "x": 110,
+      "y": 105
+    },
+    {
+      "id": "r2",
+      "name": "Workshop",
+      "capacity": 12,
+      "available": false,
+      "x": 310,
+      "y": 105
+    },
+    {
+      "id": "r3",
+      "name": "Reading room",
+      "capacity": 4,
+      "available": true,
+      "x": 210,
+      "y": 230
+    }
+  ],
+  "$jsonviews": {
+    "version": 1,
+    "schema": {
+      "$.rooms[*].name": {
+        "type": "text"
+      },
+      "$.rooms[*].capacity": {
+        "type": "number",
+        "minimum": 1
+      },
+      "$.rooms[*].available": {
+        "type": "checkbox"
+      },
+      "$.rooms[*].x": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 420
+      },
+      "$.rooms[*].y": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 300
+      }
+    },
+    "views": [
+      {
+        "id": "plan",
+        "name": "Room plan",
+        "path": "$",
+        "display": "html",
+        "html": "<main><span class=\"eyebrow\">SPACES TO THINK</span><h1><jv-field bind=\"$.name\"></jv-field></h1><svg viewBox=\"0 0 420 300\" role=\"img\" aria-label=\"Room locations\"><rect x=\"10\" y=\"10\" width=\"400\" height=\"280\" rx=\"12\" fill=\"none\" stroke=\"currentColor\"></rect><jv-repeat source=\"$.rooms\" as=\"room\" key=\"id\"><circle class=\"point\" jv-attr-cx=\"room.x\" jv-attr-cy=\"room.y\" r=\"12\"><title><jv-value bind=\"room.name\"></jv-value></title></circle></jv-repeat></svg><div class=\"grid\"><jv-repeat source=\"$.rooms\" as=\"room\" key=\"id\"><article class=\"card\"><h2><jv-field bind=\"room.name\"></jv-field></h2><p><jv-field bind=\"room.capacity\"></jv-field> people</p><label><input type=\"checkbox\" jv-bind=\"room.available\"> Available</label></article></jv-repeat></div></main>",
+        "css": ":root{color-scheme:light dark}body{background:light-dark(#fff,#202420);color:light-dark(#253329,#e4ece6);font:15px system-ui}main{max-width:900px;margin:auto;padding:40px}h1{font:600 42px/1.15 Georgia,serif;margin:14px 0}p{line-height:1.7;color:light-dark(#627166,#abbcaf)}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:light-dark(#366b4c,#9acd9e)}input{accent-color:light-dark(#366b4c,#9acd9e)}.row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid light-dark(#dde5df,#3a473e)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}.card{background:light-dark(#f3f6f1,#2b342b);border-radius:12px;padding:24px}.metric{display:flex;justify-content:space-between;align-items:center;margin:30px 0 12px}.metric strong{font:36px Georgia,serif}input[type=range]{width:100%}input[type=number]{width:90px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:5px;padding:7px;font:inherit}svg{width:100%;height:auto}.point{fill:light-dark(#366b4c,#9acd9e)}@media(max-width:480px){main{padding:22px}h1{font-size:32px}}"
+      },
+      {
+        "id": "rooms",
+        "name": "Rooms",
+        "path": "$.rooms"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ada": {
+    "name": "Ada",
+    "team": "Design"
+  },
+  "sam": {
+    "name": "Sam",
+    "team": "Engineering"
+  },
+  "lee": {
+    "name": "Lee",
+    "team": "Operations"
+  }
+}

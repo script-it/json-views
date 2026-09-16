@@ -1,0 +1,34 @@
+{
+  "project": {
+    "name": "A small launch",
+    "active": true,
+    "settings": {
+      "timezone": "UTC",
+      "notifications": false
+    }
+  },
+  "milestones": [
+    {
+      "name": "Draft",
+      "checks": [
+        {
+          "name": "Brief agreed",
+          "done": true
+        },
+        {
+          "name": "Copy reviewed",
+          "done": false
+        }
+      ]
+    },
+    {
+      "name": "Publish",
+      "checks": [
+        {
+          "name": "Preview approved",
+          "done": false
+        }
+      ]
+    }
+  ]
+}

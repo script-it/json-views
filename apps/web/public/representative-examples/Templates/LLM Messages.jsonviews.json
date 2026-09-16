@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "schema": {
+    "$.model": {
+      "type": "text",
+      "title": "Model",
+      "required": true
+    },
+    "$.temperature": {
+      "type": "number",
+      "title": "Temperature",
+      "minimum": 0,
+      "maximum": 2,
+      "step": 0.1
+    },
+    "$.messages[*].role": {
+      "type": "select",
+      "title": "Role",
+      "required": true,
+      "options": ["system", "developer", "user", "assistant", "tool"],
+      "optionColors": {
+        "system": "purple",
+        "developer": "blue",
+        "user": "green",
+        "assistant": "orange",
+        "tool": "gray"
+      }
+    },
+    "$.messages[*].name": {
+      "type": "text",
+      "title": "Name",
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "description": "Optional participant or tool name."
+    },
+    "$.messages[*].content": {
+      "type": "text",
+      "title": "Content",
+      "required": true,
+      "multiline": true,
+      "description": "The text content sent to or returned by the model."
+    },
+    "$.messages[*].tool_call_id": {
+      "type": "text",
+      "title": "Tool call ID"
+    },
+    "$.messages[*].attachments[*].id": {
+      "type": "text",
+      "title": "File ID"
+    },
+    "$.messages[*].attachments[*].file_name": {
+      "type": "text",
+      "title": "File name"
+    },
+    "$.messages[*].attachments[*].media_type": {
+      "type": "select",
+      "title": "Media type",
+      "options": ["text/markdown", "text/csv", "application/json", "image/png"]
+    },
+    "$.messages[*].attachments[*].purpose": {
+      "type": "select",
+      "title": "Purpose",
+      "options": ["context", "analysis", "reference"],
+      "optionColors": {
+        "context": "blue",
+        "analysis": "purple",
+        "reference": "gray"
+      }
+    },
+    "$.messages[*].attachments[*].size_bytes": {
+      "type": "number",
+      "title": "Bytes",
+      "minimum": 0
+    },
+    "$.messages[*].tool_calls[*].id": {
+      "type": "text",
+      "title": "Call ID"
+    },
+    "$.messages[*].tool_calls[*].name": {
+      "type": "text",
+      "title": "Tool"
+    },
+    "$.messages[*].tool_calls[*].status": {
+      "type": "select",
+      "title": "Status",
+      "options": ["pending", "running", "completed", "failed"],
+      "optionColors": {
+        "pending": "gray",
+        "running": "blue",
+        "completed": "green",
+        "failed": "red"
+      }
+    },
+    "$.messages[*].tool_calls[*].arguments": {
+      "type": "text",
+      "title": "Arguments",
+      "multiline": true
+    },
+    "$.messages[*].tool_calls[*].result_summary": {
+      "type": "text",
+      "title": "Result",
+      "multiline": true
+    },
+    "$.messages[*].tool_calls[*].duration_ms": {
+      "type": "number",
+      "title": "Duration (ms)",
+      "minimum": 0
+    }
+  },
+  "views": [
+    {
+      "id": "conversation",
+      "name": "Conversation",
+      "path": "$.messages",
+      "columns": [
+        { "label": "Content", "path": "$.messages[*].content" },
+        { "label": "Role", "path": "$.messages[*].role" },
+        { "label": "Name", "path": "$.messages[*].name" },
+        { "label": "Attachments", "path": "$.messages[*].attachments" },
+        { "label": "Tool calls", "path": "$.messages[*].tool_calls" }
+      ]
+    },
+    {
+      "id": "messages-by-role",
+      "name": "Messages by role",
+      "path": "$.messages",
+      "display": "kanban",
+      "groupBy": "$.messages[*].role",
+      "columns": [
+        { "label": "Content", "path": "$.messages[*].content" },
+        { "label": "Name", "path": "$.messages[*].name" }
+      ]
+    },
+    {
+      "id": "attachments",
+      "name": "Attachments",
+      "path": "$.messages[1].attachments",
+      "columns": [
+        { "label": "File name", "path": "$.messages[1].attachments[*].file_name" },
+        { "label": "Media type", "path": "$.messages[1].attachments[*].media_type" },
+        { "label": "Purpose", "path": "$.messages[1].attachments[*].purpose" },
+        { "label": "Bytes", "path": "$.messages[1].attachments[*].size_bytes" },
+        { "label": "File ID", "path": "$.messages[1].attachments[*].id" }
+      ]
+    },
+    {
+      "id": "tool-calls",
+      "name": "Tool calls",
+      "path": "$.messages[2].tool_calls",
+      "columns": [
+        { "label": "Tool", "path": "$.messages[2].tool_calls[*].name" },
+        { "label": "Status", "path": "$.messages[2].tool_calls[*].status" },
+        { "label": "Arguments", "path": "$.messages[2].tool_calls[*].arguments" },
+        { "label": "Result", "path": "$.messages[2].tool_calls[*].result_summary" },
+        { "label": "Duration (ms)", "path": "$.messages[2].tool_calls[*].duration_ms" },
+        { "label": "Call ID", "path": "$.messages[2].tool_calls[*].id" }
+      ]
+    },
+    {
+      "id": "prompt-inputs",
+      "name": "Prompt inputs",
+      "path": "$.messages",
+      "columns": [
+        { "label": "Content", "path": "$.messages[*].content" },
+        { "label": "Role", "path": "$.messages[*].role" },
+        { "label": "Name", "path": "$.messages[*].name" }
+      ],
+      "filter": {
+        "rules": [{ "path": "$.messages[*].role", "operator": "in", "value": ["system", "developer", "user"] }]
+      }
+    },
+    {
+      "id": "model-outputs",
+      "name": "Model outputs",
+      "path": "$.messages",
+      "columns": [
+        { "label": "Content", "path": "$.messages[*].content" },
+        { "label": "Name", "path": "$.messages[*].name" }
+      ],
+      "filter": {
+        "rules": [{ "path": "$.messages[*].role", "operator": "eq", "value": "assistant" }]
+      }
+    }
+  ]
+}
