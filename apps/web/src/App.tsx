@@ -43,6 +43,10 @@ type AnalyticsInterface = 'console' | 'ui' | 'webmcp'
 const THEME_KEY = 'json-views-theme'
 const SIDEBAR_KEY = 'json-views-sidebar-collapsed'
 const SHARE_EXPLAINER_KEY = 'json-views-share-explainer-seen'
+// Temporarily keep URL-embedded snapshots out of the public site while its
+// Safe Browsing classification is reviewed. Tests and local development retain
+// the feature so the implementation remains covered and recoverable.
+const SNAPSHOT_SHARING_ENABLED = import.meta.env.MODE !== 'production'
 const BLANK_JSON = '{\n}\n'
 const NEW_TABLE_JSON = `${JSON.stringify({
   $jsonviews: {
@@ -653,9 +657,11 @@ export function App() {
     }
     const loadWorkspace = async () => {
       const sharedDocumentResult: Promise<{ document?: ShareDocument; error?: string }> = initialShareHash
-        ? readShareHash(initialShareHash)
+        ? SNAPSHOT_SHARING_ENABLED
+          ? readShareHash(initialShareHash)
           .then((document) => ({ document }))
           .catch(() => ({ error: 'This share link is incomplete or invalid. Ask the sender to create a new link, or share the file directly.' }))
+          : Promise.resolve({ error: 'Shared document links are temporarily unavailable while we complete a security review. Ask the sender to share the file directly.' })
         : Promise.resolve({})
       const [examples, cached, sharedResult] = await Promise.all([
         loadExamples().catch(() => []),
@@ -1403,7 +1409,7 @@ export function App() {
               onClick={() => startDownload(documentSession.id, content, filename)}
               title={downloadConfirmedDocumentId === documentSession.id ? 'Downloaded' : `Download ${filename}`}
             />
-            <InlineFeedbackAction
+            {SNAPSHOT_SHARING_ENABLED && <InlineFeedbackAction
               ariaLabel={shareCopiedDocumentId === documentSession.id ? `Copied share link for ${filename}` : `Copy share link for ${filename}`}
               disabled={Boolean(parseError) || connecting}
               feedback={shareCopiedDocumentId === documentSession.id ? 'Link copied' : undefined}
@@ -1411,7 +1417,7 @@ export function App() {
               label={`Copy share link for ${filename}`}
               onClick={() => { void copyShareLink() }}
               title={shareCopiedDocumentId === documentSession.id ? 'Share link copied' : 'Copy share link'}
-            />
+            />}
           </>}
         </div>
       </section>
