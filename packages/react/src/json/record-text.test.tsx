@@ -55,6 +55,20 @@ it('keeps a dictionary of records as a collection table', async () => {
   expect(rendered.container.querySelector('table')).not.toBeNull()
 })
 
+it('shows unrelated object sections as properties but honors an explicit table', async () => {
+  const { JSONContent } = await import('./json-content.js')
+  const settings = { database: { host: 'db' }, logging: { level: 'info' } }
+  rendered = await renderComponent(<JSONContent sourceVisible={false} content={JSON.stringify(settings)} />)
+  expect(rendered.container.querySelector('table')).toBeNull()
+  expect(rendered.container.textContent).toContain('database')
+  expect(rendered.container.textContent).toContain('logging')
+  await rendered.cleanup()
+  rendered = await renderComponent(<JSONContent sourceVisible={false} content={JSON.stringify({ settings, $jsonviews: { version: 1, views: [{ id: 'settings', name: 'Settings', path: '$.settings' }] } })} />)
+  expect(rendered.container.querySelector('table')).not.toBeNull()
+  expect(rendered.container.textContent).toContain('host')
+  expect(rendered.container.textContent).toContain('level')
+})
+
 it('shows a sole object in an inferred array as a record, while a declared table stays tabular', async () => {
   const { JSONContent } = await import('./json-content.js')
   const value = [{ name: 'Result', score: 42 }]

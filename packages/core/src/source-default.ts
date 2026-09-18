@@ -11,6 +11,10 @@ export function prefersSource(content: string, metadata?: unknown): boolean {
     const lines = formatted.split('\n').length
     if (formatted.length > 8000 || lines > 100) return false
     const entries = root !== null && typeof root === 'object' ? Object.values(root) : []
+    // Dictionaries now fall back to properties when their fields differ. Keep
+    // that structured presentation instead of switching them to source.
+    if (!Array.isArray(root) && entries.length >= 2
+      && entries.every((value) => value !== null && typeof value === 'object' && !Array.isArray(value))) return false
     // A compact root with little visible information is easier to read whole
     // than by opening each nested value, even when nesting is only one level.
     if (entries.length <= 5 && formatted.length <= 3000 && lines <= 40

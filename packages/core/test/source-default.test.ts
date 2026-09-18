@@ -4,6 +4,10 @@ import { prefersSource } from '../src/source-default.js'
 const prefers = (value: unknown) => prefersSource(JSON.stringify(value))
 
 describe('compact nested source default', () => {
+  it('opens unrelated dictionary sections in the property view', () => {
+    expect(prefers({ database: { host: 'db' }, logging: { level: 'info' } })).toBe(false)
+  })
+
   it('opens shallow objects and arrays with a small nested root in source', () => {
     expect(prefers({ status: 'ok', body: { message: 'Hello' } })).toBe(true)
     expect(prefers([{ message: 'Hello' }])).toBe(true)
