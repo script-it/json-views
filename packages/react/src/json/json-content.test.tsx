@@ -1459,7 +1459,7 @@ describe('JSON file view', () => {
     ])
   })
 
-  it('renders a heterogeneous map with union columns', async () => {
+  it('renders a heterogeneous map as separate properties', async () => {
     const content = JSON.stringify({
       database: { host: 'db', port: 5432 },
       cache: { ttl: 60, size: 100 },
@@ -1473,8 +1473,10 @@ describe('JSON file view', () => {
     // Section keys stay as row headers; the dissimilar sections are not forced
     // into a sparse table.
     const headers = headerTexts(rendered.container)
-    expect(headers).toEqual(expect.arrayContaining(['key', 'host', 'port', 'ttl', 'size']))
-    expect(rendered.container.textContent).toContain('2 rows')
+    expect(headers).toEqual(['database', 'cache'])
+    expect(rendered.container.querySelector('table')).toBeNull()
+    expect(rendered.container.textContent).toContain('host: db')
+    expect(rendered.container.textContent).toContain('ttl: 60')
   })
 
   it('opens the first declared view and projects, filters, and sorts nested columns', async () => {

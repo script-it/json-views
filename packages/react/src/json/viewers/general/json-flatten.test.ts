@@ -23,12 +23,12 @@ describe('getDictOfObjectsInfo', () => {
     })
   })
 
-  it('accepts sparse records with a union of fields', () => {
+  it('rejects sparse records whose shared fields are a minority of columns', () => {
     expect(getDictOfObjectsInfo({
       a: { shared: 1, only_a: 2 },
       b: { shared: 3, only_b: 4 },
       c: { shared: 5, only_c: 6 },
-    })).not.toBeNull()
+    })).toBeNull()
   })
 
   it('renames the key column when a nested field is already named "key"', () => {
@@ -54,7 +54,7 @@ describe('getDictOfObjectsInfo', () => {
     expect(getDictOfObjectsInfo({ a: { x: 1 }, b: null })).toBeNull()
   })
 
-  it('accepts dissimilar records with no shared field', () => {
+  it('rejects dissimilar records with no shared field', () => {
     // A config of unrelated sections is a map, not a collection — leave it as
     // the key/value view rather than forcing a sparse table.
     expect(
@@ -62,7 +62,7 @@ describe('getDictOfObjectsInfo', () => {
         database: { host: 'db', port: 5432 },
         cache: { ttl: 60, size: 100 },
       }),
-    ).not.toBeNull()
+    ).toBeNull()
   })
 
   it('returns null when every record is empty', () => {

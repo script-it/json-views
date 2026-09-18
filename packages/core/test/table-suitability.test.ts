@@ -8,7 +8,31 @@ const contacts = [
   { name: 'Katherine', email: 'katherine@example.com' },
 ]
 
-describe('permissive table prediction', () => {
+describe('table prediction', () => {
+  it('keeps unrelated object sections out of automatic tables', () => {
+    const settings = { database: { host: 'db' }, logging: { level: 'info' } }
+    expect(isJsonViewTableCandidate(settings)).toBe(false)
+    expect(inferJsonViewMetadata(settings).views).toEqual([])
+    expect(inferJsonViewMetadata({ settings }).views).toEqual([])
+    expect(isJsonViewTableCandidate(Object.values(settings))).toBe(true)
+  })
+
+  it('allows optional dictionary fields and retains a shared core with missing values', () => {
+    const rows = Array.from({ length: 5 }, (_, i) => ({
+      name: `Person ${i}`, ...(i > 0 ? { email: null } : {}),
+      ...(i === 0 ? { note: 'optional', active: true } : {}),
+    }))
+    expect(isJsonViewTableCandidate(Object.fromEntries(rows.map((row, i) => [i, row])))).toBe(true)
+  })
+
+  it('rejects sparse dictionaries, empty entries, and unrelated entries beyond the sample', () => {
+    expect(isJsonViewTableCandidate({ a: { id: 1, x: 1 }, b: { id: 2, y: 1 }, c: { id: 3, z: 1 } })).toBe(false)
+    expect(isJsonViewTableCandidate({ a: { name: 'Ada' }, b: {} })).toBe(false)
+    const records = Object.fromEntries(Array.from({ length: 20 }, (_, i) => [i, { name: `Person ${i}`, score: i }]))
+    expect(isJsonViewTableCandidate({ ...records, settings: { enabled: true } })).toBe(false)
+    expect(isJsonViewTableCandidate({ a: { $jsonviews: {} }, b: { $jsonviews: {} } })).toBe(false)
+  })
+
   it('accepts useful rows and dictionaries, independent of collection names', () => {
     expect(isJsonViewTableCandidate(contacts)).toBe(true)
     expect(isJsonViewTableCandidate(Object.fromEntries(contacts.map((row, i) => [i, row])))).toBe(true)

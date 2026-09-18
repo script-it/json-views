@@ -13,11 +13,22 @@ function isReadable(value: unknown): boolean {
     || (typeof value === 'string' && value.trim().length > 0)
 }
 
-/** Two or more records with fields can render as rows and columns. */
+/** Arrays imply rows; dictionaries need a substantial shared field structure. */
 export function isJsonViewTableCandidate(value: unknown): boolean {
   const rows = Array.isArray(value) ? value : isRecord(value) ? Object.values(value) : []
-  return rows.length >= MIN_RECORDS && rows.every(isRecord)
-    && rows.some((row) => Object.keys(row).some((key) => key !== '$jsonviews'))
+  if (rows.length < MIN_RECORDS || !rows.every(isRecord)) return false
+  const fields = rows.map((row) => Object.keys(row).filter((key) => key !== '$jsonviews'))
+  if (Array.isArray(value)) return fields.some((keys) => keys.length > 0)
+
+  // Inspect the whole dictionary so late, unrelated sections cannot be missed.
+  // Nested values remain intact: only the fields used as columns matter here.
+  const counts = new Map<string, number>()
+  for (const keys of fields) {
+    for (const key of keys) counts.set(key, (counts.get(key) ?? 0) + 1)
+  }
+  const shared = new Set([...counts].filter(([, count]) => count / rows.length >= 0.8).map(([key]) => key))
+  return shared.size > 0 && shared.size / counts.size >= 0.5
+    && fields.every((keys) => keys.some((key) => shared.has(key)))
 }
 
 /** Shared scalar paths only; never explodes arrays or rewrites source records. */
