@@ -153,7 +153,11 @@ function measure(label, run) {
 const sha = (text) => createHash('sha256').update(text).digest('hex')
 
 measure('JSON.parse', () => JSON.parse(source))
-const inspected = measure('inspectJsonSource', () => core.inspectJsonSource(source))
+// Alternating two spellings of the same document defeats the single-entry inspection cache.
+const spellings = [source, `${source} `]
+let turn = 0
+measure('inspectJsonSource (cold)', () => core.inspectJsonSource(spellings[(turn += 1) % 2]))
+const inspected = measure('inspectJsonSource (same text again)', () => core.inspectJsonSource(source))
 const root = inspected.value
 const compiled = measure('compileJsonViewMetadata', () => core.compileJsonViewMetadata(root))
 measure('compileJsonViewMetadata (validateValues: false)', () => core.compileJsonViewMetadata(root, undefined, { validateValues: false }))
