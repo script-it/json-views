@@ -8,10 +8,8 @@ export function formatHtmlValue(value: unknown, attrs: Record<string, string>, r
   if (!attrs.format) return undefined
   if (value == null) return '—'
   if (attrs.format === 'currency-minor') {
-    const currency = attrs['currency-bind'] ? resolve(attrs['currency-bind']) : attrs.currency
-    if (typeof currency !== 'string' || !/^[a-z]{3}$/i.test(currency)) throw new Error('currency-minor requires a currency code')
     if (typeof value !== 'number' || !Number.isSafeInteger(value)) throw new Error('currency-minor requires a safe integer')
-    const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency })
+    const formatter = currencyFormatter(attrs, resolve)
     return formatter.format(value / 10 ** (formatter.resolvedOptions().maximumFractionDigits ?? 2))
   }
   if (['date', 'time', 'datetime'].includes(attrs.format)) {
@@ -37,19 +35,24 @@ export function formatHtmlValue(value: unknown, attrs: Record<string, string>, r
   throw new Error(`Unsupported value format: ${attrs.format}`)
 }
 
-function minorUnitFactor(attrs: Record<string, string>): number {
-  if (!attrs.currency || !/^[a-z]{3}$/i.test(attrs.currency)) throw new Error('currency-minor requires a currency code')
-  return 10 ** (new Intl.NumberFormat('en-US', { style: 'currency', currency: attrs.currency }).resolvedOptions().maximumFractionDigits ?? 2)
+function currencyFormatter(attrs: Record<string, string>, resolve: (binding: string) => unknown): Intl.NumberFormat {
+  const currency = attrs['currency-bind'] ? resolve(attrs['currency-bind']) : attrs.currency
+  if (typeof currency !== 'string' || !/^[a-z]{3}$/i.test(currency)) throw new Error('currency-minor requires a currency code')
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency })
+}
+
+function minorUnitFactor(attrs: Record<string, string>, resolve: (binding: string) => unknown): number {
+  return 10 ** (currencyFormatter(attrs, resolve).resolvedOptions().maximumFractionDigits ?? 2)
 }
 
 /** The editor shows human units; the source retains its API encoding. */
-export function htmlValueForEditing(value: unknown, attrs: Record<string, string>): unknown {
-  if (attrs.format === 'base64url') return formatHtmlValue(value, attrs, () => undefined)
-  if (attrs.format === 'currency-minor' && typeof value === 'number') return value / minorUnitFactor(attrs)
+export function htmlValueForEditing(value: unknown, attrs: Record<string, string>, resolve: (binding: string) => unknown = () => undefined): unknown {
+  if (attrs.format === 'base64url') return formatHtmlValue(value, attrs, resolve)
+  if (attrs.format === 'currency-minor' && typeof value === 'number') return value / minorUnitFactor(attrs, resolve)
   return value
 }
 
-export function htmlValueFromEditing(value: unknown, attrs: Record<string, string>): unknown {
+export function htmlValueFromEditing(value: unknown, attrs: Record<string, string>, resolve: (binding: string) => unknown = () => undefined): unknown {
   if (attrs.format === 'base64url') {
     if (typeof value !== 'string') throw new Error('Enter text')
     const bytes = new TextEncoder().encode(value)
@@ -59,7 +62,7 @@ export function htmlValueFromEditing(value: unknown, attrs: Record<string, strin
   }
   if (attrs.format === 'currency-minor') {
     if (typeof value !== 'number' || !Number.isFinite(value)) throw new Error('Enter a finite amount')
-    const scaled = value * minorUnitFactor(attrs), rounded = Math.round(scaled)
+    const scaled = value * minorUnitFactor(attrs, resolve), rounded = Math.round(scaled)
     if (!Number.isSafeInteger(rounded) || Math.abs(scaled - rounded) > 1e-7) throw new Error('Amount has unsupported precision')
     return rounded
   }

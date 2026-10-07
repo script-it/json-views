@@ -40,6 +40,22 @@ describe('HTML value presentation', () => {
     expect(() => format('U01', { labels: '{"U01":{}}' })).toThrow('string labels')
   })
 
+  it('uses bound currency consistently for display and edits, ahead of a literal currency', () => {
+    const attrs = { format: 'currency-minor', 'currency-bind': 'payment.currency' }
+    const usd = (binding: string) => binding === 'payment.currency' ? 'USD' : undefined
+    expect(formatHtmlValue(24900, attrs, usd)).toBe('$249.00')
+    expect(htmlValueForEditing(24900, attrs, usd)).toBe(249)
+    expect(htmlValueFromEditing(19.99, attrs, usd)).toBe(1999)
+    const conflicting = { ...attrs, currency: 'JPY' }
+    expect(formatHtmlValue(24900, conflicting, usd)).toBe('$249.00')
+    expect(htmlValueForEditing(24900, conflicting, usd)).toBe(249)
+    expect(htmlValueFromEditing(19.99, conflicting, usd)).toBe(1999)
+    expect(htmlValueForEditing(24900, { ...attrs, currency: 'USD' }, () => 'JPY')).toBe(24900)
+    expect(htmlValueFromEditing(1999, { ...attrs, currency: 'USD' }, () => 'JPY')).toBe(1999)
+    expect(() => htmlValueForEditing(24900, conflicting, () => undefined)).toThrow('currency code')
+    expect(() => htmlValueFromEditing(19.99, conflicting, () => undefined)).toThrow('currency code')
+  })
+
   it('decodes UTF-8 base64url as text, never HTML', () => {
     const text = 'Hello 👋\n<script>alert(1)</script>'
     expect(format(Buffer.from(text).toString('base64url'), { format: 'base64url' })).toBe(text)

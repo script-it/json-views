@@ -8,7 +8,7 @@ import { renderComponent } from '../../test/render.js'
 it.each([
   { name: 'MIME body and UTF-8 byte size', initial: { body: { data: 'SGVsbG8', size: 5 } }, html: '<jv-field bind="$.body.data" format="base64url" byte-length-bind="$.body.size"></jv-field>', typed: 'Hello 👋', expected: { body: { data: Buffer.from('Hello 👋').toString('base64url'), size: 10 } } },
   { name: 'paired rich text', initial: { text: { content: 'Old' }, plain_text: 'Old' }, html: '<jv-field bind="$.text.content" sync-bind="$.plain_text"></jv-field>', typed: 'New title', expected: { text: { content: 'New title' }, plain_text: 'New title' } },
-  { name: 'currency and received amount', initial: { amount: 24900, received: 24900 }, html: '<jv-field bind="$.amount" format="currency-minor" currency="USD" sync-bind="$.received"></jv-field>', typed: '19.99', expected: { amount: 1999, received: 1999 } },
+  { name: 'bound currency and received amount', initial: { amount: 24900, received: 24900, currency: 'usd' }, html: '<jv-field bind="$.amount" format="currency-minor" currency-bind="$.currency" currency="JPY" sync-bind="$.received"></jv-field>', typed: '19.99', expected: { amount: 1999, received: 1999, currency: 'usd' } },
 ])('saves $name atomically through the source pipeline', async ({ initial, html, typed, expected }) => {
   const metadata = { version: 1, views: [{ name: 'Edit', path: '$', display: 'html', html }] }
   const source = JSON.stringify({ ...initial, untouched: 'preserved', $jsonviews: metadata }, null, 2)
@@ -50,7 +50,14 @@ it('renders formatted values and reversed records while editing their original s
     expect(rendered.container.querySelector('[role="alert"]')).toBeNull()
     await act(async () => { (doc.querySelector('button.jv-field') as HTMLButtonElement).click() })
     expect((document.querySelector('[data-anchored-popup] input') as HTMLInputElement).value).toBe('99')
-    expect(save).not.toHaveBeenCalled()
+    const input = document.querySelector('[data-anchored-popup] input') as HTMLInputElement
+    await act(async () => {
+      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!.set!.call(input, '19.99')
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    await act(async () => { input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', ctrlKey: true, bubbles: true })) })
+    expect(save).toHaveBeenCalledTimes(1)
+    expect(JSON.parse(save.mock.calls[0][0]).rows).toEqual([{ id: 'a', amount: 24900, currency: 'usd' }, { id: 'b', amount: 1999, currency: 'usd' }])
   } finally { await rendered.cleanup() }
 })
 

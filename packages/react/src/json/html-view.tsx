@@ -16,7 +16,7 @@ const skeleton = `<!doctype html><html><head><meta http-equiv="Content-Security-
 export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathChange }: { compiled: CompiledJsonViewMetadata; view: CompiledJsonViewView; editing?: JsonViewJsonEditing; fillHeight?: boolean; onCurrentPathChange?: (path: ValuePath) => void }) {
   const frame = useRef<HTMLIFrameElement>(null), editorRef = useRef<HTMLDivElement>(null)
   const [doc, setDoc] = useState<Document>(), [error, setError] = useState(''), [height, setHeight] = useState(500)
-  const [selected, setSelected] = useState<{ path: ValuePath; anchor: HTMLElement; base?: string; attrs: Record<string, string>; syncPath?: ValuePath; byteLengthPath?: ValuePath }>()
+  const [selected, setSelected] = useState<{ path: ValuePath; anchor: HTMLElement; base?: string; attrs: Record<string, string>; resolve: (binding: string) => unknown; syncPath?: ValuePath; byteLengthPath?: ValuePath }>()
   const base = useContext(EditBaseContext), literals = useJsonSourceLiterals(), portal = useJsonViewsPortalContainer()
   const anchorRef = useRef<HTMLElement | null>(null); anchorRef.current = selected?.anchor ?? null
   // A bound field is laid out by the template, not by a column, so the popup
@@ -91,15 +91,14 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
       if (node.tag === 'jv-field' || node.tag === 'jv-value') {
         const resolved = resolve(node.attrs.bind ?? '', aliases), value = resolved.value
         if (value !== null && typeof value === 'object') throw new Error('Use jv-repeat for arrays and objects')
-        const text = formatHtmlValue(value, node.attrs, binding => resolve(binding, aliases).value) ?? literals(resolved.sourcePath) ?? (value == null ? '—' : String(value))
+        const resolveValue = (binding: string) => resolve(binding, aliases).value
+        const text = formatHtmlValue(value, node.attrs, resolveValue) ?? literals(resolved.sourcePath) ?? (value == null ? '—' : String(value))
         const sync = node.attrs['sync-bind'] ? resolve(node.attrs['sync-bind'], aliases) : undefined
         const byteLength = node.attrs['byte-length-bind'] ? resolve(node.attrs['byte-length-bind'], aliases) : undefined
         if (sync && sync.value !== null && typeof sync.value === 'object') throw new Error('sync-bind must address a scalar')
         if (byteLength && (node.attrs.format !== 'base64url' || typeof byteLength.value !== 'number')) throw new Error('byte-length-bind requires base64url and a numeric size field')
-        const attrs = { ...node.attrs }
-        if (attrs['currency-bind']) attrs.currency = String(resolve(attrs['currency-bind'], aliases).value)
         const canEdit = node.tag === 'jv-field' && editing && [resolved, sync, byteLength].every(target => !target || editing.canReplace?.(target.sourcePath) !== false)
-        return <span key={node.id}>{canEdit ? <button className="jv-field" aria-label={node.attrs['aria-label'] ?? `Edit ${node.attrs.bind}`} onClick={event => setSelected({ path: resolved.sourcePath, anchor: event.currentTarget, base, attrs, syncPath: sync?.sourcePath, byteLengthPath: byteLength?.sourcePath })}>{text}</button> : text}</span>
+        return <span key={node.id}>{canEdit ? <button className="jv-field" aria-label={node.attrs['aria-label'] ?? `Edit ${node.attrs.bind}`} onClick={event => setSelected({ path: resolved.sourcePath, anchor: event.currentTarget, base, attrs: node.attrs, resolve: resolveValue, syncPath: sync?.sourcePath, byteLengthPath: byteLength?.sourcePath })}>{text}</button> : text}</span>
       }
       if (node.attrs['jv-bind']) {
         if (node.tag !== 'input' && node.tag !== 'textarea') throw new Error('jv-bind requires input or textarea')
@@ -122,11 +121,11 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
   let editorValue = selectedValue
   let formattedDescriptor = selected?.attrs.format === 'base64url' ? { type: 'text', multiline: true } : descriptor
   try {
-    if (selected) editorValue = htmlValueForEditing(selectedValue, selected.attrs)
+    if (selected) editorValue = htmlValueForEditing(selectedValue, selected.attrs, selected.resolve)
     if (selected?.attrs.format === 'currency-minor' && descriptor) {
       formattedDescriptor = { ...descriptor }
       for (const key of ['minimum', 'maximum', 'step']) {
-        if (typeof descriptor[key] === 'number') formattedDescriptor[key] = htmlValueForEditing(descriptor[key], selected.attrs)
+        if (typeof descriptor[key] === 'number') formattedDescriptor[key] = htmlValueForEditing(descriptor[key], selected.attrs, selected.resolve)
       }
     }
   } catch {
@@ -141,7 +140,7 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
     {selected && editorDescriptor && editing && portal && createPortal(<div ref={editorRef} data-anchored-popup className="z-[120] w-80 rounded-md border bg-card p-3 text-card-foreground shadow-lg" style={position}>
       <EditBaseContext.Provider value={base}><SchemaEditor key={`${view.id}:${JSON.stringify(selected.path)}`} descriptor={editorDescriptor} disabled={editing.saving} label={selected.attrs['aria-label'] ?? String(selected.path.at(-1) ?? 'value')} variant="default" value={editorValue} onCancel={() => { const anchor = selected.anchor; setSelected(undefined); if (anchor.isConnected) anchor.focus() }} onCommit={async value => {
         if (selected.base !== base) throw new Error('This document changed outside this editor. Cancel and reopen it before saving.')
-        const encoded = htmlValueFromEditing(value, selected.attrs)
+        const encoded = htmlValueFromEditing(value, selected.attrs, selected.resolve)
         const replacements = [{ path: selected.path, value: encoded }]
         if (selected.syncPath) replacements.push({ path: selected.syncPath, value: encoded })
         if (selected.byteLengthPath) replacements.push({ path: selected.byteLengthPath, value: new TextEncoder().encode(String(value)).length })
