@@ -242,6 +242,8 @@ dialog.document-sidebar::backdrop { background: rgb(0 0 0 / .45); backdrop-filte
 /* A view whose path is one Markdown value reads as a page at a comfortable width. */
 [data-id="jsonView-schema-value"] .json-views-markdown { max-width: 64rem; margin-inline: auto; padding: 1rem 1.25rem 4rem; }
 [data-id="jsonView-schema-value"] div:has(> .json-views-markdown) { flex: 1; }
+/* The opening headline of a Markdown page is its title. */
+[data-id="jsonView-schema-value"] .json-views-markdown > h1:first-child { font-size: 2.25em; letter-spacing: -.02em; }
 [data-id="jsonView-schema-value"] [data-id="structured-value-cell"]:has(.json-views-markdown):hover { background: transparent; }
 
 /* Markdown buttons and code blocks with a copy button. */
