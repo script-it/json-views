@@ -3,9 +3,9 @@
     "id": "json-views",
     "title": "About JSON Views",
     "sourceFile": "About JSON Views.json",
-    "description": "A welcome page and a database of seven short articles.",
-    "sourceSha256": "2a98f4bc2c42c1f76ca6eecd2e973b3be44bf4c15523070a1ecd00b70924f258",
-    "bytes": 14884,
+    "description": "The JSON Views home page and a database of seven short articles.",
+    "sourceSha256": "8e2506189329461d0b7af6f172da28111b55cf335d8b5c09784b277050622b83",
+    "bytes": 20676,
     "category": "Guide",
     "presentationState": {
       "version": 1,

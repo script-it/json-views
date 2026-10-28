@@ -152,7 +152,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .json-views-markdown hr { margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border); }
 .json-views-markdown table { width: 100%; margin: 1rem 0; border-collapse: collapse; }
 .json-views-markdown th, .json-views-markdown td { border: 1px solid var(--border); padding: .4rem .55rem; text-align: left; }
-.json-views-markdown img { max-width: 100%; height: auto; }
+.json-views-markdown img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 10px; }
+/* A linked image is a card that opens a file or view. */
+.json-views-markdown a:has(> img) { display: inline-block; max-width: 100%; border-radius: 10px; transition: transform 200ms ease, box-shadow 200ms ease; }
+.json-views-markdown a:has(> img):hover { transform: translateY(-2px); box-shadow: 0 12px 28px -14px rgb(30 20 60 / .35); }
+.json-views-markdown a > img { display: block; }
+/* Tables of linked images are galleries: no grid lines, a caption above each image. */
+.json-views-markdown table:has(img) { table-layout: fixed; }
+.json-views-markdown table:has(img) :is(th, td) { border: 0; padding: .35rem .4rem; vertical-align: top; }
+.json-views-markdown table:has(img) th { padding-top: .9rem; font-size: .9em; }
+.json-views-markdown table:has(img) th a { color: inherit; text-decoration: none; }
+@media (prefers-reduced-motion: reduce) { .json-views-markdown a:has(> img) { transition: none; } }
 .json-views-markdown svg { display: block; width: min(100%, 46rem); height: auto; margin: 0 auto; }
 .site-shell[data-json-views-device="mobile"] {
   .document-sidebar { position: absolute; z-index: 40; inset: 0 auto 0 0; width: min(250px, calc(100vw - 48px)); height: 100%; box-shadow: 12px 0 32px rgb(0 0 0 / .22); }
@@ -229,3 +239,23 @@ dialog.document-sidebar::backdrop { background: rgb(0 0 0 / .45); backdrop-filte
 
 /* Keep adjacent Markdown diagrams legible at the viewer width. */
 .json-views-markdown p:has(> svg + svg) { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1.5rem; align-items: start; }
+/* A view whose path is one Markdown value reads as a page at a comfortable width. */
+[data-id="jsonView-schema-value"] .json-views-markdown { max-width: 64rem; margin-inline: auto; padding: 1rem 1.25rem 4rem; }
+[data-id="jsonView-schema-value"] div:has(> .json-views-markdown) { flex: 1; }
+[data-id="jsonView-schema-value"] [data-id="structured-value-cell"]:has(.json-views-markdown):hover { background: transparent; }
+
+/* Markdown buttons and code blocks with a copy button. */
+.json-views-markdown a.markdown-button { min-height: 38px; padding: 0 16px; border-radius: 9px; font-size: 14px; text-decoration: none; }
+.json-views-markdown a.markdown-button.primary { color: var(--primary-foreground); }
+.json-views-markdown a.markdown-button.secondary { border-color: var(--border); color: var(--foreground); background: var(--card); }
+.json-views-markdown a.markdown-button.secondary:hover { background: var(--accent); }
+.json-views-markdown p:has(> a.markdown-button) { display: flex; flex-wrap: wrap; gap: 10px; }
+.markdown-code-block { position: relative; margin: 1rem 0; }
+.markdown-code-block pre { margin: 0; padding-right: 5.5rem; }
+.markdown-code-block .markdown-copy { position: absolute; top: 8px; right: 8px; min-height: 28px; padding: 0 10px; border: 1px solid var(--border); background: var(--card); font-size: 12px; }
+.json-views-markdown .markdown-copy { white-space: nowrap; }
+.json-views-markdown .markdown-copy svg { display: inline-block; width: 13px; height: 13px; margin: 0; }
+/* An icon inside a Markdown button, such as an agent logo. */
+.json-views-markdown a.markdown-button:has(> img) { display: inline-flex; box-shadow: none; transform: none; }
+.json-views-markdown a.markdown-button > img { display: inline-block; width: 18px; height: 18px; border: 0; border-radius: 0; }
+.json-views-app[data-json-views-theme="dark"] .json-views-markdown a.markdown-button > img[src*="-mono."] { filter: invert(1); }
