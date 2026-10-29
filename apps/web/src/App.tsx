@@ -79,7 +79,7 @@ function findHeading(from: Element, target: string): Element | undefined {
     .find((candidate) => headingSlug(candidate.textContent ?? '').includes(target))
 }
 
-/** Copies the first code block that follows the heading named by `#copy:<heading>`. */
+/** Copies the text carried by a `#copy:<url-encoded text>` link. */
 function MarkdownCopyLink({ href, className, children }: { href: string; className?: string; children?: ReactNode }) {
   const [copied, setCopied] = useState(false)
   useEffect(() => {
@@ -88,14 +88,13 @@ function MarkdownCopyLink({ href, className, children }: { href: string; classNa
     return () => clearTimeout(timer)
   }, [copied])
   return (
-    <a href={href} className={className} aria-live="polite" {...keepClickInside} onClick={async (event) => {
+    <a href="#" className={className} aria-live="polite" {...keepClickInside} onClick={async (event) => {
       event.preventDefault()
       event.stopPropagation()
-      let block = findHeading(event.currentTarget, href.slice('#copy:'.length))?.nextElementSibling
-      while (block && !block.matches('.markdown-code-block') && !/^H[1-4]$/.test(block.tagName)) block = block.nextElementSibling
-      const text = block?.matches('.markdown-code-block') ? block.querySelector('pre')?.textContent : undefined
+      let text = ''
+      try { text = decodeURIComponent(href.slice('#copy:'.length)) } catch { return }
       if (!text) return
-      try { await copyText(text); setCopied(true) } catch { /* The prompt remains selectable in its section. */ }
+      try { await copyText(text); setCopied(true) } catch { /* Clipboard access was denied; the label stays unchanged. */ }
     }}>
       {copied ? <Check size={15} aria-hidden="true" /> : <Copy size={15} aria-hidden="true" />}
       {copied ? 'Copied' : children}
