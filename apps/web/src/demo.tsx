@@ -35,8 +35,8 @@ const BOARD_VIEW = `,
         "groupBy": "$.tasks[*].status", "groupOrder": ["To do", "In progress", "Done"]
       }`
 
-const SUMMARY_HTML = '<h2>Launch tasks</h2><jv-repeat source="$.tasks" as="task"><div class="task"><b><jv-value bind="task.title"></jv-value></b><span><jv-value bind="task.status"></jv-value></span></div></jv-repeat>'
-const SUMMARY_CSS = 'h2{margin:0 0 12px;font:600 20px system-ui}.task{display:flex;justify-content:space-between;gap:12px;margin:8px 0;padding:12px 14px;border-radius:12px;background:#f3f0ff;font:14px system-ui}.task span{color:#5b46b8;font-weight:600}'
+const SUMMARY_HTML = '<div class="launch"><p class="eyebrow">🚀 Website launch</p><h2>Launch tasks</h2><p class="lede">Everything that ships on launch day.</p><jv-repeat source="$.tasks" as="task"><div class="task" jv-attr-aria-label="task.status"><span class="check"></span><div class="body"><b><jv-value bind="task.title"></jv-value></b><small><jv-value bind="task.owner"></jv-value></small></div><span class="pill"><jv-value bind="task.status"></jv-value></span></div></jv-repeat></div>'
+const SUMMARY_CSS = '.launch{padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,#1d1a33,#3b2a7a);color:#fff;font:14px/1.4 system-ui}.eyebrow{margin:0;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c9bcff}h2{margin:6px 0 2px;font:700 24px/1.2 system-ui;letter-spacing:-.01em}.lede{margin:0 0 16px;color:#cfc7f2}.task{display:flex;align-items:center;gap:12px;margin:8px 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.08)}.check{display:grid;place-items:center;flex:none;width:20px;height:20px;border:2px solid #8f80d9;border-radius:50%;color:#1d1a33;font-size:12px;font-weight:800}.body{display:grid;flex:1;min-width:0}small{color:#b9afe2}.pill{padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}.task[aria-label="Done"] .check{border-color:#5fd39a;background:#5fd39a}.task[aria-label="Done"] .check::after{content:"✓"}.task[aria-label="Done"] b{text-decoration:line-through;opacity:.65}.task[aria-label="Done"] .pill{background:rgba(95,211,154,.18);color:#8ef0be}.task[aria-label="In progress"] .pill{background:rgba(182,156,255,.22);color:#ddd2ff}.task[aria-label="To do"] .pill{background:rgba(127,179,255,.2);color:#c2dbff}'
 const SUMMARY_VIEW = `,
       {
         "name": "Summary", "path": "$", "display": "html",
@@ -126,7 +126,7 @@ function Demo() {
           const start = current.indexOf(edit.anchor) + edit.anchor.length
           const head = current.slice(0, start)
           const tail = current.slice(start)
-          const step = edit.text.length > 300 ? 4 : 2
+          const step = edit.text.length > 900 ? 10 : edit.text.length > 300 ? 4 : 2
           for (let length = step; length < edit.text.length + step && active(); length += step) {
             const typed = Math.min(length, edit.text.length)
             current = head + edit.text.slice(0, typed) + tail
