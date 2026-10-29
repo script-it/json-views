@@ -85,6 +85,8 @@ const MARKDOWN_COMPONENTS: Components = {
     }
     return <a {...props} {...titleProps} className={className} target="_blank" rel="noreferrer" />
   },
+  // Images below the fold load as the reader scrolls toward them.
+  img: ({ node: _node, ...props }) => <img {...props} loading="lazy" decoding="async" />,
   pre: ({ node: _node, children }) => <MarkdownCodeBlock>{children}</MarkdownCodeBlock>,
 }
 

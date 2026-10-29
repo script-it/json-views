@@ -104,6 +104,15 @@ describe('Markdown links', () => {
   })
 })
 
+describe('Markdown images', () => {
+  it('load lazily', () => {
+    render('[![Board](./home/board.jpg)](#/files/a.json/views/Board)')
+    const image = container.querySelector('img')!
+    expect(image.getAttribute('loading')).toBe('lazy')
+    expect(image.getAttribute('src')).toBe('./home/board.jpg')
+  })
+})
+
 describe('Markdown code blocks', () => {
   it('adds a Copy button that copies the block text without opening the editor', async () => {
     const writeText = stubClipboard()

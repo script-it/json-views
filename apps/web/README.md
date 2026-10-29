@@ -32,6 +32,8 @@ The site opens on the bundled **About JSON Views** guide. Its **What is this?** 
 
 Fenced code blocks get a **Copy** button.
 
+The agent logos in `public/icons/agents/` come from [lobe-icons](https://github.com/lobehub/lobe-icons) (`@lobehub/icons-static-svg` 1.101.0, MIT). The logos are trademarks of their owners and are used only to label the setup buttons for those agents.
+
 The landing page's images live in `public/home/`. `public/install.html` lets a README link open Claude Code, Codex, Cursor, or Grok: it maps `?agent=` to the same app links as the landing page and ignores any other value.
 
 ## Agent help and the published skill

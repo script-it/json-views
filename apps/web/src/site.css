@@ -162,6 +162,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .json-views-markdown table:has(img) :is(th, td) { border: 0; padding: .35rem .4rem; vertical-align: top; }
 .json-views-markdown table:has(img) th { padding-top: .9rem; font-size: .9em; }
 .json-views-markdown table:has(img) th a { color: inherit; text-decoration: none; }
+/* On narrow screens a gallery keeps readable thumbnails and scrolls sideways; titles wrap between words. */
+@media (max-width: 640px) {
+  .json-views-markdown table:has(img) { display: block; overflow-x: auto; }
+  .json-views-markdown table:has(img) :is(th, td) { min-width: 9.5rem; overflow-wrap: normal; }
+}
 @media (prefers-reduced-motion: reduce) { .json-views-markdown a:has(> img) { transition: none; } }
 .json-views-markdown svg { display: block; width: min(100%, 46rem); height: auto; margin: 0 auto; }
 .site-shell[data-json-views-device="mobile"] {
