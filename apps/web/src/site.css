@@ -246,6 +246,8 @@ dialog.document-sidebar::backdrop { background: rgb(0 0 0 / .45); backdrop-filte
 [data-id="jsonView-schema-value"] .json-views-markdown > h1:first-child { font-size: 2.25em; letter-spacing: -.02em; }
 /* A headline after a row of diagrams, buttons or images gets room to breathe. */
 .json-views-markdown :is(p:has(> svg), p:has(> a.markdown-button), table:has(img)) + :is(h1, h2) { margin-top: 4rem; }
+/* A headline directly above a large image keeps some distance from it. */
+.json-views-markdown :is(h1, h2):has(+ p > a > img, + p > img) { margin-bottom: 1.5rem; }
 /* Sections of a Markdown page are spaced apart; a section directly under a title stays close to it. */
 [data-id="jsonView-schema-value"] .json-views-markdown > :is(h1:not(:first-child), h2):not(h1 + *) { margin-top: 4rem; }
 [data-id="jsonView-schema-value"] [data-id="structured-value-cell"]:has(.json-views-markdown):hover { background: transparent; }
