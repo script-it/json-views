@@ -5,12 +5,20 @@
 <p>
   <a href="https://json-views.com/"><img alt="Open json-views.com" src="https://img.shields.io/badge/Open_json--views.com-6854B8?style=for-the-badge"></a>
   &nbsp;
-  <a href="#use-with-your-agent"><img alt="Use with your agent" src="https://img.shields.io/badge/Use_with_your_agent-000000?style=for-the-badge&logo=anthropic&logoColor=white"></a>
-  &nbsp;
   <a href="#open-a-local-file"><img alt="Run it locally" src="https://img.shields.io/badge/Run_it_locally-2ea44f?style=for-the-badge&logo=npm&logoColor=white"></a>
 </p>
 
 <a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><img alt="tasks.json is open in JSON Views next to Claude; a status and a priority are edited in the table, then Claude re-runs the weekly status report with those edits" src="apps/web/public/home/claude-demo-light.webp" width="100%"></a>
+
+### Install JSON Views in your AI agent with one click
+
+<p>
+  <a href="https://json-views.com/install.html?agent=claude"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/button-claude-dark.svg"><img alt="Install in Claude Code" src="docs/readme/button-claude-light.svg" height="40"></picture></a>
+  <a href="https://json-views.com/install.html?agent=codex"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/button-codex-dark.svg"><img alt="Install in Codex" src="docs/readme/button-codex-light.svg" height="40"></picture></a>
+  <a href="https://json-views.com/install.html?agent=cursor"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/button-cursor-dark.svg"><img alt="Install in Cursor" src="docs/readme/button-cursor-light.svg" height="40"></picture></a>
+  <a href="https://json-views.com/install.html?agent=grok"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/button-grok-dark.svg"><img alt="Install in Grok Bot" src="docs/readme/button-grok-light.svg" height="40"></picture></a>
+  <a href="#use-with-your-agent"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/button-copy-prompt-dark.svg"><img alt="Copy the setup prompt" src="docs/readme/button-copy-prompt-light.svg" height="40"></picture></a>
+</p>
 
 ## Why JSON Views
 
@@ -231,7 +239,7 @@ Set up JSON Views (https://github.com/script-it/json-views) for me:
 If you can control my browser instead, use json-views.com through WebMCP or `window.jsonViews.help()`.
 ```
 
-The site also publishes the skill at [json-views.com/SKILL.md](https://json-views.com/SKILL.md), with its reference files beside it, so an agent can install it from a URL. [json-views.com](https://json-views.com/) has one-click setup buttons for Claude Code, Codex, Cursor, and Grok; GitHub does not allow those app links in a README.
+The site also publishes the skill at [json-views.com/SKILL.md](https://json-views.com/SKILL.md), with its reference files beside it, so an agent can install it from a URL. The one-click buttons at the top of this README link to [json-views.com/install.html](https://json-views.com/install.html), which opens Claude Code, Codex, Cursor, or Grok with the install prompt; GitHub does not allow app links in a README directly.
 
 ## Develop
 

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Install JSON Views in your agent</title>
+    <link rel="icon" href="./json-views-icon.svg?v=4" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: light dark; --fg: #38353f; --muted: #77717f; --bg: #faf9fb; --card: #fff; --border: #e3e0e6; --primary: #5b46b8; }
+      @media (prefers-color-scheme: dark) { :root { --fg: #eeeaf1; --muted: #b7afbd; --bg: #1e1c21; --card: #26232a; --border: #3d3843; --primary: #b7a8f0; } }
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      body { display: grid; min-height: 100vh; min-height: 100dvh; margin: 0; place-items: center; padding: 24px 16px; color: var(--fg); background: var(--bg); font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+      main { display: grid; gap: 14px; width: min(460px, 100%); padding: 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); text-align: center; }
+      .brand { display: inline-flex; justify-content: center; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+      .brand img { width: 16px; height: 16px; }
+      h1 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
+      p { margin: 0; color: var(--muted); }
+      .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px; }
+      a.button, button { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 16px; border: 1px solid var(--border); border-radius: 9px; color: var(--fg); background: var(--card); font: inherit; font-size: 14px; font-weight: 650; text-decoration: none; cursor: pointer; }
+      a.button.primary { border-color: transparent; color: #fff; background: var(--primary); }
+      @media (prefers-color-scheme: dark) { a.button.primary { color: #1e1c21; } }
+      a.button img { width: 18px; height: 18px; }
+      .more { font-size: 13px; }
+      .more a { color: var(--primary); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="brand"><img src="./json-views-icon.svg?v=4" alt="" />JSON Views</span>
+      <h1 id="title">Install JSON Views in your agent</h1>
+      <p id="status">Choose your agent on <a href="./">json-views.com</a>.</p>
+      <div class="actions" id="actions" hidden>
+        <a class="button primary" id="open"><img id="icon" alt="" /><span id="open-label"></span></a>
+        <button type="button" id="copy">Copy prompt</button>
+      </div>
+      <p class="more">Prefer to read first? See the <a href="./SKILL.md">JSON Views skill</a>.</p>
+    </main>
+    <script>
+      // A README cannot link to app protocols, so it links here and this page opens the agent.
+      // Only these four destinations exist; any other ?agent= value does nothing.
+      const agents = {
+        claude: { name: 'Claude Code', icon: 'claude.svg', href: 'claude://code/new?q=Install%20the%20skill%20from%20https%3A%2F%2Fjson-views.com%2FSKILL.md%20into%20~%2F.claude%2Fskills%2Fjson-views%2F' },
+        codex: { name: 'Codex', icon: 'codex.svg', href: 'codex://new?prompt=Install%20the%20skill%20from%20https%3A%2F%2Fjson-views.com%2FSKILL.md%20into%20~%2F.agents%2Fskills%2Fjson-views%2F' },
+        cursor: { name: 'Cursor', icon: 'cursor-mono.svg', href: 'cursor://anysphere.cursor-deeplink/prompt?text=Install%20the%20skill%20from%20https%3A%2F%2Fjson-views.com%2FSKILL.md%20into%20~%2F.cursor%2Fskills%2Fjson-views%2F' },
+        grok: { name: 'Grok Bot', icon: 'grok-mono.svg', href: 'grokbot://app/v1/prompt?text=Read%20https%3A%2F%2Fjson-views.com%2FSKILL.md%20and%20save%20it%20as%20a%20private%20skill%20called%20json-views.' },
+      }
+      const prompt = 'Set up JSON Views (https://github.com/script-it/json-views) for me:\n1. Install its agent skill: `npx skills add script-it/json-views`.\n   If that fails, copy the `skills/json-views` folder from the repo into your skills directory.\n2. Read the skill so you know how to use JSON Views.\n3. Ask me which JSON file to work on, open it with `npx @script-it/json-views <file>`,\n   and suggest useful views for the data.\nIf you can control my browser instead, use json-views.com through WebMCP or `window.jsonViews.help()`.'
+      const agent = Object.hasOwn(agents, new URLSearchParams(location.search).get('agent') ?? '') ? agents[new URLSearchParams(location.search).get('agent')] : undefined
+      if (agent) {
+        document.title = `Install JSON Views in ${agent.name}`
+        document.getElementById('title').textContent = `Opening ${agent.name}…`
+        document.getElementById('status').textContent = `Allow your browser to open ${agent.name}. If nothing happens, open it again or copy the prompt into any agent.`
+        document.getElementById('open').href = agent.href
+        document.getElementById('icon').src = `./icons/agents/${agent.icon}`
+        document.getElementById('open-label').textContent = `Open ${agent.name}`
+        document.getElementById('actions').hidden = false
+        location.href = agent.href
+      }
+      document.getElementById('copy').addEventListener('click', async (event) => {
+        try { await navigator.clipboard.writeText(prompt); event.currentTarget.textContent = 'Copied' } catch { /* The button keeps its label. */ }
+      })
+    </script>
+  </body>
+</html>

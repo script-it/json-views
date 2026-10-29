@@ -68,6 +68,14 @@ describe('landing page', () => {
     }
   })
 
+  it('opens the same agent links from the README install page', () => {
+    const landing = targets.filter((target) => /^(claude|codex|cursor|grokbot):/.test(target))
+    const installPage = readFileSync(join(publicDirectory, 'install.html'), 'utf8')
+    const installLinks = [...installPage.matchAll(/href: '([^']+)'/g)].map(([, href]) => href)
+    expect(installLinks).toHaveLength(4)
+    expect(new Set(installLinks)).toEqual(new Set(landing))
+  })
+
   it('copies the agent setup prompt and the local command', () => {
     const copied = new Set(targets.filter((target) => target.startsWith('#copy:')).map((target) => decodeURIComponent(target.slice('#copy:'.length))))
     expect(copied.size).toBe(2)
