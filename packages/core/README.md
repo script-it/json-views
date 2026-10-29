@@ -27,6 +27,22 @@ For source-aware projections, pass a number-token lookup as the fifth argument t
 
 Structured operations support up to `MAX_JSON_DEPTH` (512) nested object/array containers. Deeper input raises `JsonDepthLimitError`, whose code is `json-depth-limit`; this is a resource limit, not invalid JSON syntax. Keep original source available for recovery. Source scanning and diagnostic traversal use explicit stacks.
 
+### Inferred types and views
+
+Ordinary JSON does not need `$jsonviews`. JSON Views predicts useful metadata in memory:
+
+- booleans, finite numbers, validated web URLs, email addresses, ISO dates, and long text get matching edit widgets;
+- select fields require a category-like field name and a small set of short values, each repeated at least twice across four or more records; a single observed category is allowed. Mode, platform, and channel fields qualify, including labels containing slashes. Multi-select requires the same repeated evidence in tags, labels, categories, or departments; arbitrary names, IDs, and string arrays remain generic;
+- tables require at least three records and populated, consistently typed comparison columns. Four shared varying scalar columns with at least 60% readable top-level fields allow optional enrichment and nested details; otherwise the stricter 80% shared-field/readable-content rule and two useful columns apply;
+- Kanban additionally requires distinct readable titles and two to six recurring groups in a `status`, `state`, `stage`, or `phase` field, with at least two records per group and recognized workflow values such as Open, In progress, or Done. Health states such as healthy/down do not qualify;
+- uniform scalar records may remain tabular with null or constant fields. Consistent nested objects can supply up to 12 scalar columns through two object levels; arrays never expand into additional rows;
+- collections inside individual dictionary records are not promoted to document tabs; collections inside ordinary response wrappers remain eligible;
+- Table (table icon) and Source (`{ }` icon) are built-in tabs. Table is the structured browser for the document, including property lists and expandable values when a record table is unsuitable. Compact JSON (at most 100 pretty-printed lines and 8,000 characters) opens in Source when at least 60% of scalar values are three or more levels deep and no declared view or natural table applies. Saved selections take precedence; otherwise Table opens by default. Qualifying predictions are optional tabs. The same table check applies inside Table, with unsuitable collections shown as expandable values. Inference never adds a duplicate view for the root itself.
+
+Opening inferred views never changes the source. Saved tab choices and explicit `$jsonviews` views take precedence over prediction; CSV remains tabular regardless of row count. Saving the settings of an inferred view materializes the predicted schema and views into `$jsonviews`, where they can be renamed and customized.
+
+Markdown renders automatically and edits as source text. Long text stays visible in tables; clicking it opens its record editor. Markdown properties appear at the end of each record. HTML is inferred from complete pages or styled fragments and shown in an isolated preview; Markdown is inferred from recognizable formatting. An explicit text annotation overrides inference. Legacy `body` annotations are accepted as Markdown, with no single-body restriction.
+
 ## Annotation specification
 
 Version 1 describes how JSON is inspected, validated, and presented. The annotation `schema` is a JSON Views descriptor map; it is **not** the JSON Schema vocabulary. The packaged [`jsonviews.schema.json`](./schema/jsonviews.schema.json) is a Draft 7 JSON Schema **for annotation objects**. It checks their structural shape. The compiler additionally checks paths, registered types, regex syntax, valid dates, compatible views, and values in the document.

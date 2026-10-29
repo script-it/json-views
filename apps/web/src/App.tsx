@@ -5,10 +5,6 @@ import {
   CSVContent, InlineFeedbackAction, JSONContent, JsonViewsProvider, useJsonViewsDevice,
   type JsonViewsPresentationState, type ObjectRootConversionRequest,
 } from '@script-it/json-views-react'
-import Markdown, { type Components } from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
-import remarkGfm from 'remark-gfm'
 import {
   applyJsonPatchInSource, compileJsonViewMetadata, inspectCsvSource, inspectJsonSource, JsonPatchError, JsonDepthLimitError,
   sourceDiagnosticHelp, validateCsvSource,
@@ -30,6 +26,8 @@ import { collectDroppedFiles, readDocumentFiles, type CollectedFiles } from './f
 import { ResponsiveSidebar, SidebarToggle } from './ResponsiveSidebar.js'
 import { documentRouteUrl, routeActiveView } from './document-route.js'
 import { useDocumentRoute } from './use-document-route.js'
+import { copyText } from './clipboard.js'
+import { renderMarkdownBody } from './markdown.js'
 
 interface LocalDocument {
   content: string
@@ -70,35 +68,6 @@ const NEW_TABLE_JSON = `${JSON.stringify({
   ],
 }, null, 2)}\n`
 
-const MARKDOWN_COMPONENTS: Components = {
-  a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
-}
-
-const HTML_SANITIZE_SCHEMA = {
-  ...defaultSchema,
-  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text'],
-  attributes: {
-    ...defaultSchema.attributes,
-    svg: ['ariaLabel', 'height', 'role', 'viewBox', 'width'],
-    circle: ['cx', 'cy', 'fill', 'r', 'stroke', 'strokeLinecap', 'strokeWidth'],
-    text: ['dominantBaseline', 'fill', 'fontFamily', 'fontSize', 'fontWeight', 'textAnchor', 'x', 'y'],
-  },
-}
-
-function renderMarkdownBody(content: string): ReactNode {
-  return (
-    <div className="json-views-markdown">
-      <Markdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, [rehypeSanitize, HTML_SANITIZE_SCHEMA]]}
-        components={MARKDOWN_COMPONENTS}
-      >
-        {content}
-      </Markdown>
-    </div>
-  )
-}
-
 function initialTheme(): Theme {
   try {
     const stored = localStorage.getItem(THEME_KEY)
@@ -115,25 +84,6 @@ function initialShareExplainerSeen(): boolean {
   try { return localStorage.getItem(SHARE_EXPLAINER_KEY) === 'true' } catch { return false }
 }
 
-async function copyText(value: string): Promise<void> {
-  if (navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(value)
-      return
-    } catch { /* Fall back for browsers that expose the API but deny access. */ }
-  }
-  const textarea = document.createElement('textarea')
-  textarea.value = value
-  textarea.style.position = 'fixed'
-  textarea.style.opacity = '0'
-  document.body.appendChild(textarea)
-  textarea.select()
-  try {
-    if (!document.execCommand('copy')) throw new Error('Clipboard access was denied')
-  } finally {
-    textarea.remove()
-  }
-}
 
 function download(content: string, filename: string) {
   const link = document.createElement('a')

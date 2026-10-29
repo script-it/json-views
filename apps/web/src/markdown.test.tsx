@@ -1,0 +1,178 @@
+import { act } from 'react'
+import { createRoot, type Root } from 'react-dom/client'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { renderMarkdownBody } from './markdown.js'
+
+let container: HTMLDivElement
+let root: Root
+const parentMouseDown = vi.fn()
+
+beforeEach(() => {
+  Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
+  container = document.createElement('div')
+  document.body.append(container)
+  root = createRoot(container)
+  parentMouseDown.mockReset()
+})
+
+afterEach(() => {
+  act(() => root.unmount())
+  container.remove()
+})
+
+function render(markdown: string) {
+  // The parent stands in for the editable value, which opens its editor on mouse down.
+  act(() => root.render(<div onMouseDown={parentMouseDown}>{renderMarkdownBody(markdown)}</div>))
+}
+
+function link(text: string): HTMLAnchorElement {
+  const found = [...container.querySelectorAll('a')].find((anchor) => anchor.textContent?.includes(text))
+  if (!found) throw new Error(`No link containing “${text}”`)
+  return found
+}
+
+function stubClipboard() {
+  const writeText = vi.fn(async (_text: string) => {})
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
+  return writeText
+}
+
+describe('Markdown links', () => {
+  it('renders links titled "button" as buttons without a tooltip', () => {
+    render('[Start](#/files/a.json "button primary") [More](#/files/b.json "button") [Plain](#/files/c.json "Help")')
+    expect(link('Start').className).toBe('button primary markdown-button')
+    expect(link('Start').hasAttribute('title')).toBe(false)
+    expect(link('More').className).toBe('button secondary markdown-button')
+    expect(link('Plain').className).toBe('')
+    expect(link('Plain').title).toBe('Help')
+  })
+
+  it('keeps site and agent links in the same tab and opens other links in a new one', () => {
+    render([
+      '[View](#/files/Tasks.json/views/Board)',
+      '[Claude](claude://code/new?q=Install)',
+      '[Codex](codex://new?prompt=Install)',
+      '[Cursor](cursor://anysphere.cursor-deeplink/prompt?text=Install)',
+      '[Grok](grokbot://app/v1/prompt?text=Install)',
+      '[GitHub](https://github.com/script-it/json-views)',
+    ].join(' '))
+    for (const text of ['View', 'Claude', 'Codex', 'Cursor', 'Grok']) {
+      expect(link(text).hasAttribute('target')).toBe(false)
+    }
+    expect(link('Claude').getAttribute('href')).toBe('claude://code/new?q=Install')
+    expect(link('Grok').getAttribute('href')).toBe('grokbot://app/v1/prompt?text=Install')
+    expect(link('GitHub').target).toBe('_blank')
+    expect(link('GitHub').rel).toBe('noreferrer')
+  })
+
+  it('removes links to other non-web protocols', () => {
+    render('[Script](javascript:alert(1)) [App](otherapp://open) [Raw](<a href="vbscript:run">Raw</a>)')
+    for (const text of ['Script', 'App']) expect(link(text).getAttribute('href')).toBeFalsy()
+    expect(container.innerHTML).not.toMatch(/javascript:|otherapp:|vbscript:/)
+  })
+
+  it('scrolls an in-page link to the heading whose text matches it', () => {
+    render('[Run it locally](#run-it-locally "button")\n\n## Introduction\n\n### Run it locally\n\nText')
+    const heading = [...container.querySelectorAll('h3')].find((candidate) => candidate.textContent === 'Run it locally')!
+    const scrollIntoView = vi.fn()
+    heading.scrollIntoView = scrollIntoView
+    const click = new MouseEvent('click', { bubbles: true, cancelable: true })
+    act(() => { link('Run it locally').dispatchEvent(click) })
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' })
+    expect(click.defaultPrevented).toBe(true)
+  })
+
+  it('copies the text carried by a copy link without opening the editor', async () => {
+    const writeText = stubClipboard()
+    const prompt = 'Set up JSON Views:\n1. Install `the skill`.'
+    render(`[Copy prompt](#copy:${encodeURIComponent(prompt)} "button")`)
+    const copy = link('Copy prompt')
+    expect(copy.getAttribute('href')).toBe('#')
+    act(() => { copy.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })) })
+    await act(async () => { copy.click() })
+    expect(writeText).toHaveBeenCalledWith(prompt)
+    expect(copy.textContent).toBe('Copied')
+    expect(parentMouseDown).not.toHaveBeenCalled()
+  })
+
+  it('ignores a copy link whose text cannot be decoded', async () => {
+    const writeText = stubClipboard()
+    render('[Copy](#copy:%E0%A4%A "button")')
+    await act(async () => { link('Copy').click() })
+    expect(writeText).not.toHaveBeenCalled()
+    expect(link('Copy').textContent).toBe('Copy')
+  })
+})
+
+describe('Markdown frames', () => {
+  it('embeds only the site\'s own live demo', () => {
+    render('<iframe src="./demo.html" title="Live demo"></iframe>\n\n<iframe src="https://example.com/"></iframe>\n\n<iframe src="./demo.html/../x"></iframe>')
+    const frames = [...container.querySelectorAll('iframe')]
+    expect(frames.map((frame) => frame.getAttribute('src'))).toEqual(['./demo.html'])
+    expect(frames[0].title).toBe('Live demo')
+    expect(frames[0].getAttribute('loading')).toBe('lazy')
+  })
+})
+
+describe('Markdown images', () => {
+  it('pair a light image with its dark version', () => {
+    render('[![Board](./home/board-light.jpg)](#/files/a.json/views/Board) ![Logo](./logo.svg)')
+    const images = [...container.querySelectorAll('img')]
+    expect(images.map((image) => [image.getAttribute('src'), image.className])).toEqual([
+      ['./home/board-light.jpg', 'theme-light'],
+      ['./home/board-dark.jpg', 'theme-dark'],
+      ['./logo.svg', ''],
+    ])
+  })
+
+  it('show the still frame of an animated image when the reader prefers reduced motion', () => {
+    const listeners = new Set<() => void>()
+    const query = { matches: true, addEventListener: (_: string, listener: () => void) => listeners.add(listener), removeEventListener: (_: string, listener: () => void) => listeners.delete(listener) }
+    vi.stubGlobal('matchMedia', vi.fn((media: string) => media === '(prefers-reduced-motion: reduce)' ? query : { ...query, matches: false }))
+    try {
+      render('[![Demo](./home/demo-light.webp)](#/files/a.json) ![Board](./home/board-light.jpg) ![Other](https://example.com/x.webp)')
+      const sources = () => [...container.querySelectorAll('img')].map((image) => [image.getAttribute('src'), image.className])
+      expect(sources()).toEqual([
+        ['./home/demo-light.still.webp', 'theme-light'],
+        ['./home/demo-dark.still.webp', 'theme-dark'],
+        ['./home/board-light.jpg', 'theme-light'],
+        ['./home/board-dark.jpg', 'theme-dark'],
+        ['https://example.com/x.webp', ''],
+      ])
+      // Turning the preference off brings the animation back.
+      query.matches = false
+      act(() => listeners.forEach((listener) => listener()))
+      expect(sources().slice(0, 2)).toEqual([
+        ['./home/demo-light.webp', 'theme-light'],
+        ['./home/demo-dark.webp', 'theme-dark'],
+      ])
+    } finally {
+      vi.unstubAllGlobals()
+    }
+  })
+
+  it('show animated images when motion is fine', () => {
+    render('![Demo](./home/demo-light.webp)')
+    expect([...container.querySelectorAll('img')].map((image) => image.getAttribute('src'))).toEqual(['./home/demo-light.webp', './home/demo-dark.webp'])
+  })
+
+  it('load lazily', () => {
+    render('[![Board](./home/board.jpg)](#/files/a.json/views/Board)')
+    const image = container.querySelector('img')!
+    expect(image.getAttribute('loading')).toBe('lazy')
+    expect(image.getAttribute('src')).toBe('./home/board.jpg')
+  })
+})
+
+describe('Markdown code blocks', () => {
+  it('adds a Copy button that copies the block text without opening the editor', async () => {
+    const writeText = stubClipboard()
+    render('```bash\nnpx @script-it/json-views ./data.json\n```')
+    const button = container.querySelector<HTMLButtonElement>('.markdown-copy')!
+    act(() => { button.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })) })
+    await act(async () => { button.click() })
+    expect(writeText).toHaveBeenCalledWith('npx @script-it/json-views ./data.json\n')
+    expect(button.textContent).toBe('Copied')
+    expect(parentMouseDown).not.toHaveBeenCalled()
+  })
+})

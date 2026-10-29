@@ -3,9 +3,9 @@
     "id": "json-views",
     "title": "About JSON Views",
     "sourceFile": "About JSON Views.json",
-    "description": "A welcome page and a database of seven short articles.",
-    "sourceSha256": "2a98f4bc2c42c1f76ca6eecd2e973b3be44bf4c15523070a1ecd00b70924f258",
-    "bytes": 14884,
+    "description": "The JSON Views home page and a database of seven short articles.",
+    "sourceSha256": "8f123a689aa213dad0ceb92fa0201f491f2d85fe1dae034cd1f65ba7e0e1dea7",
+    "bytes": 20076,
     "category": "Guide",
     "presentationState": {
       "version": 1,
@@ -184,8 +184,8 @@
     "description": "A familiar payments table with editable amounts, statuses, descriptions, notes, and billing contacts.",
     "sourceFile": "Templates/App Views/Stripe Payments.json",
     "relativePath": "Templates/App Views/Stripe Payments.json",
-    "sourceSha256": "7876554baf597c3182c450119f4ccfb122fa624516df22686a7a36ec6eeb4842",
-    "bytes": 10022,
+    "sourceSha256": "ff94d71d520f9a780542b97554b75b78b9e55f8e59562b3f3404e17efd0289cc",
+    "bytes": 10582,
     "apiReference": [
       "https://docs.stripe.com/api/payment_intents/list",
       "https://docs.stripe.com/api/payment_intents/object",
