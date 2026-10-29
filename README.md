@@ -4,6 +4,14 @@ An extensible JSON viewer and editor for browsers, React apps, local files, huma
 
 The viewer supports adaptive tables, record drill-down, source-preserving edits, declared views, filters, sorting, and Kanban. Its core and React packages are independent of Script.it APIs and styling.
 
+<p>
+  <a href="https://json-views.com/"><img alt="Open json-views.com" src="https://img.shields.io/badge/Open_json--views.com-6854B8?style=for-the-badge"></a>
+  &nbsp;
+  <a href="#use-with-your-agent"><img alt="Use with your agent" src="https://img.shields.io/badge/Use_with_your_agent-000000?style=for-the-badge&logo=anthropic&logoColor=white"></a>
+  &nbsp;
+  <a href="#open-a-local-file"><img alt="Run it locally" src="https://img.shields.io/badge/Run_it_locally-2ea44f?style=for-the-badge&logo=npm&logoColor=white"></a>
+</p>
+
 **Release status: public beta.** Feedback is welcome in [GitHub Issues](https://github.com/script-it/json-views/issues). For an example of consuming the published packages, see the [installed-package consumer](examples/consumer/README.md).
 
 ## Open a local file
@@ -19,6 +27,18 @@ Use `--no-open` when an agent or another tool should consume the printed URL and
 ## Use the public editor
 
 The [browser editor](https://json-views.com/) supports upload, paste, download, share links, and a browser-local workspace backed by IndexedDB. Share links gzip the active JSON or CSV document, preserve its exact source and filename, and place the encoded data in the URL fragment so it is not sent to the server. Links longer than 8 KB carry an interoperability warning and links longer than 32 KB are rejected. Treat a share link as public to anyone who receives it.
+
+The site opens on the bundled **About JSON Views** guide. Its **What is this?** view is the landing page, and **Articles** lists every article. Both are ordinary JSON Views data: the landing page is one Markdown field rendered as a page, so it can be edited like any other value. Markdown fields support a few link forms for pages like this:
+
+| Markdown | Behavior |
+| --- | --- |
+| `[Label](target "button")` or `"button primary"` | Renders the link as a button. |
+| `[Label](#/files/<file>/views/<view>)` | Opens a bundled or workspace file at a view, in the same tab. |
+| `[Label](#heading-text)` | Scrolls to the heading whose text matches. |
+| `[Label](#copy:<url-encoded text>)` | Copies the text to the clipboard. |
+| `claude:`, `codex:`, `cursor:`, `grokbot:` links | Open that agent with a prompt; other non-web protocols are removed. |
+
+Fenced code blocks get a **Copy** button.
 
 The editor restores the last document, selected view, source/view mode, searches, navigation, table widths, transient presentation controls, and scroll positions per document without adding cache data to `$jsonviews`. A synchronous session-storage backup preserves each tab’s latest presentation changes during page unload; it contains no document content or metadata. The standalone static site has no upload backend. Imported text stays exact, including whitespace and large numeric IDs. Source edits require **Apply** (or **Save** for a CLI file); **Format** is an explicit action. Malformed JSON remains available for repair and download. Uploading from a CLI session creates a separate browser document.
 
@@ -140,9 +160,23 @@ Annotations can also be supplied separately through `metadata`, including for ar
 
 See [the annotation specification](packages/core/README.md#annotation-specification), [React integration](packages/react/README.md#react-integration), and [the local file and agent API](packages/cli/README.md#local-file-and-agent-api). Each package documents its own contract.
 
-## Agent skill
+## Use with your agent
 
 The repository includes a portable JSON Views skill at [`skills/json-views`](skills/json-views/SKILL.md). It teaches agents how to open local files, use revision-safe API writes, author `$jsonviews` metadata, and verify saved views.
+
+Paste this into Claude Code, Cursor, Codex, or any coding agent:
+
+```text
+Set up JSON Views (https://github.com/script-it/json-views) for me:
+1. Install its agent skill: `npx skills add script-it/json-views`.
+   If that fails, copy the `skills/json-views` folder from the repo into your skills directory.
+2. Read the skill so you know how to use JSON Views.
+3. Ask me which JSON file to work on, open it with `npx @script-it/json-views <file>`,
+   and suggest useful views for the data.
+If you can control my browser instead, use json-views.com through WebMCP or `window.jsonViews.help()`.
+```
+
+The site also publishes the skill at [json-views.com/SKILL.md](https://json-views.com/SKILL.md), with its reference files beside it, so an agent can install it from a URL. [json-views.com](https://json-views.com/) has one-click setup buttons for Claude Code, Codex, Cursor, and Grok; GitHub does not allow those app links in a README.
 
 ## Develop
 
