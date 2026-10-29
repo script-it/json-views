@@ -48,7 +48,10 @@ describe('landing page', () => {
   it('shows only images that ship with the site', () => {
     const images = [...page.matchAll(/!\[[^\]]*\]\((\.\/[^)\s]+)\)/g)].map(([, source]) => source)
     expect(images.length).toBeGreaterThan(5)
-    for (const image of images) expect(existsSync(join(publicDirectory, image)), image).toBe(true)
+    for (const image of images) {
+      expect(existsSync(join(publicDirectory, image)), image).toBe(true)
+      if (/-light\.\w+$/.test(image)) expect(existsSync(join(publicDirectory, image.replace(/-light(\.\w+)$/, '-dark$1'))), `${image} dark version`).toBe(true)
+    }
   })
 
   it('jumps only to headings on the page', () => {

@@ -89,14 +89,23 @@ const MARKDOWN_COMPONENTS: Components = {
   iframe: ({ node: _node, src, title }) => isDemoFrame(src)
     ? <iframe className="markdown-demo" src={src} title={title ?? 'JSON Views live demo'} loading="lazy" />
     : null,
-  // Images below the fold load as the reader scrolls toward them.
-  img: ({ node: _node, ...props }) => <img {...props} loading="lazy" decoding="async" />,
+  // Images below the fold load as the reader scrolls toward them. An image named
+  // `*-light.<ext>` also renders its `*-dark.<ext>` twin; the site theme shows one.
+  img: ({ node: _node, ...props }) => {
+    const darkSource = typeof props.src === 'string' ? themedDarkSource(props.src) : undefined
+    if (!darkSource) return <img {...props} loading="lazy" decoding="async" />
+    return <>
+      <img {...props} className="theme-light" loading="lazy" decoding="async" />
+      <img {...props} src={darkSource} className="theme-dark" loading="lazy" decoding="async" />
+    </>
+  },
   pre: ({ node: _node, children }) => <MarkdownCodeBlock>{children}</MarkdownCodeBlock>,
 }
 
 // Deep links that open a coding agent with a setup prompt.
 const AGENT_LINK_PROTOCOLS = ['claude', 'codex', 'cursor', 'grokbot']
 const isAgentLink = (href: string) => AGENT_LINK_PROTOCOLS.some((protocol) => href.startsWith(`${protocol}:`))
+const themedDarkSource = (src: string) => /-light\.(?:jpe?g|png|webp|gif)$/.test(src) ? src.replace(/-light(\.\w+)$/, '-dark$1') : undefined
 const isDemoFrame = (src: unknown) => typeof src === 'string' && /^\.\/demo\.html(?:\?[\w=&-]*)?$/.test(src)
 const markdownUrlTransform = (url: string) => isAgentLink(url) ? url : defaultUrlTransform(url)
 

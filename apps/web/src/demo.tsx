@@ -96,7 +96,15 @@ function Demo() {
   const [viewerRevision, setViewerRevision] = useState('0')
   const [caret, setCaret] = useState<number | undefined>()
   const [mode, setMode] = useState<'playing' | 'editing'>('playing')
-  const [theme] = useState(initialTheme)
+  const [theme, setTheme] = useState(initialTheme)
+  // Follow the site's theme toggle (shared storage) and the system setting.
+  useEffect(() => {
+    const update = () => setTheme(initialTheme())
+    const system = matchMedia('(prefers-color-scheme: dark)')
+    window.addEventListener('storage', update)
+    system.addEventListener('change', update)
+    return () => { window.removeEventListener('storage', update); system.removeEventListener('change', update) }
+  }, [])
   const playing = useRef(true)
   const codeRef = useRef<HTMLPreElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)

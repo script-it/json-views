@@ -8,7 +8,7 @@
   <a href="#open-a-local-file"><img alt="Run it locally" src="https://img.shields.io/badge/Run_it_locally-2ea44f?style=for-the-badge&logo=npm&logoColor=white"></a>
 </p>
 
-<a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><img alt="tasks.json is open in JSON Views next to Claude; a status and a priority are edited in the table, then Claude re-runs the weekly status report with those edits" src="apps/web/public/home/claude-demo-light.webp" width="100%"></a>
+<a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/home/claude-demo-dark.webp"><img alt="tasks.json is open in JSON Views next to Claude; a status and a priority are edited in the table, then Claude re-runs the weekly status report with those edits" src="apps/web/public/home/claude-demo-light.webp" width="100%"></picture></a>
 
 ### Install JSON Views in your AI agent with one click
 
@@ -52,7 +52,7 @@ What Markdown does for documents, JSON Views does for structured data: it makes 
 
 Records become a typed table the moment you open the file. Dates get date pickers, statuses become colored tags, and every cell is editable. No schema, no setup.
 
-<a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><img alt="Tasks as an editable table" src="apps/web/public/home/tasks-table-light.jpg" width="100%"></a>
+<a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/home/tasks-table-dark.jpg"><img alt="Tasks as an editable table" src="apps/web/public/home/tasks-table-light.jpg" width="100%"></picture></a>
 
 ### View/Edit your data in a Kanban or an HTML view
 
@@ -60,8 +60,8 @@ Group the same records by status and drag cards between columns. Or build a dash
 
 <table>
   <tr>
-    <td width="50%"><a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/Task%20board"><img alt="Task board" src="apps/web/public/home/tasks-board-light.jpg"></a></td>
-    <td width="50%"><a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/Project%20dashboard"><img alt="Project dashboard" src="apps/web/public/home/tasks-dashboard-light.jpg"></a></td>
+    <td width="50%"><a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/Task%20board"><picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/home/tasks-board-dark.jpg"><img alt="Task board" src="apps/web/public/home/tasks-board-light.jpg"></picture></a></td>
+    <td width="50%"><a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/Project%20dashboard"><picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/home/tasks-dashboard-dark.jpg"><img alt="Project dashboard" src="apps/web/public/home/tasks-dashboard-light.jpg"></picture></a></td>
   </tr>
 </table>
 
@@ -69,7 +69,7 @@ Group the same records by status and drag cards between columns. Or build a dash
 
 Before your data goes to Gmail, Slack, Stripe, or Notion, see it the way that app will show it. HTML views render the JSON as the destination app. Every value stays editable, and every edit writes back to the file.
 
-<a href="https://json-views.com/#/files/Templates%2FApp%20Views%2FGmail%20Message.json/views/Gmail%20message"><img alt="The same kinds of data previewed as Gmail, Slack, Stripe, Notion, and HubSpot" src="apps/web/public/home/apps-light.webp" width="100%"></a>
+<a href="https://json-views.com/#/files/Templates%2FApp%20Views%2FGmail%20Message.json/views/Gmail%20message"><picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/home/apps-dark.webp"><img alt="The same kinds of data previewed as Gmail, Slack, Stripe, Notion, and HubSpot" src="apps/web/public/home/apps-light.webp" width="100%"></picture></a>
 
 ## About this repository
 

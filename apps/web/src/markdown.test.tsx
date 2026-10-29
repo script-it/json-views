@@ -115,6 +115,16 @@ describe('Markdown frames', () => {
 })
 
 describe('Markdown images', () => {
+  it('pair a light image with its dark version', () => {
+    render('[![Board](./home/board-light.jpg)](#/files/a.json/views/Board) ![Logo](./logo.svg)')
+    const images = [...container.querySelectorAll('img')]
+    expect(images.map((image) => [image.getAttribute('src'), image.className])).toEqual([
+      ['./home/board-light.jpg', 'theme-light'],
+      ['./home/board-dark.jpg', 'theme-dark'],
+      ['./logo.svg', ''],
+    ])
+  })
+
   it('load lazily', () => {
     render('[![Board](./home/board.jpg)](#/files/a.json/views/Board)')
     const image = container.querySelector('img')!
