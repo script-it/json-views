@@ -13,7 +13,7 @@ body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSyst
 .source .file { font-size: 13px; font-weight: 600; }
 .source .status { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .source .status.playing { color: #f0b39d; background: rgba(217, 119, 87, .16); }
-.source .status.editing { color: #9fd8a8; background: rgba(110, 200, 140, .14); }
+.source .status.invalid { color: #f2a7a7; background: rgba(230, 110, 110, .16); }
 
 .source pre, .source textarea {
   flex: 1; min-height: 0; margin: 0; padding: 14px 16px; overflow: auto; border: 0; outline: 0;

@@ -53,6 +53,12 @@ const EDITS: Edit[] = [
   { anchor: '"groupOrder": ["To do", "In progress", "Done"]\n      }', text: SUMMARY_VIEW, open: 'Summary' },
 ]
 
+// The finished file: every edit applied. A visitor who clicks starts from this.
+const FINAL = EDITS.reduce((text, edit) => {
+  const at = text.indexOf(edit.anchor) + edit.anchor.length
+  return text.slice(0, at) + edit.text + text.slice(at)
+}, INITIAL)
+
 function parses(text: string): boolean {
   try { JSON.parse(text); return true } catch { return false }
 }
@@ -80,7 +86,6 @@ function Demo() {
   const [viewerContent, setViewerContent] = useState(INITIAL)
   // A new revision per change lets the viewer accept a return to earlier text (the loop's reset, an undo).
   const revision = useRef(0)
-  const lastValid = useRef(INITIAL)
   const [viewerRevision, setViewerRevision] = useState('0')
   const [caret, setCaret] = useState<number | undefined>()
   const [mode, setMode] = useState<'playing' | 'editing'>('playing')
@@ -94,7 +99,6 @@ function Demo() {
     setText(next)
     setCaret(at)
     if (!parses(next)) return
-    lastValid.current = next
     revision.current += 1
     setViewerContent(next)
     setViewerRevision(String(revision.current))
@@ -151,8 +155,11 @@ function Demo() {
     const takeOver = (event: Event) => {
       if (!event.isTrusted || !playing.current) return
       playing.current = false
-      // Hand over the last complete version, not a half-typed edit.
-      setText(lastValid.current)
+      // Hand over the finished file, wherever the animation was.
+      revision.current += 1
+      setText(FINAL)
+      setViewerContent(FINAL)
+      setViewerRevision(String(revision.current))
       setCaret(undefined)
       setMode('editing')
     }
@@ -172,7 +179,6 @@ function Demo() {
   // Edits made in the view write back to the JSON on the left.
   const save: JsonDocumentSave = useCallback(async (next) => {
     revision.current += 1
-    lastValid.current = next
     setText(next)
     setViewerContent(next)
     setViewerRevision(String(revision.current))
@@ -188,7 +194,9 @@ function Demo() {
       <section className="source">
         <header>
           <span className="file">tasks.json</span>
-          <span className={`status ${mode}`}>{mode === 'playing' ? 'An agent is editing · click to try it' : valid ? 'Your turn: edit the JSON or the board' : 'Invalid JSON: the view keeps the last valid version'}</span>
+          {mode === 'playing'
+            ? <span className="status playing">An agent is editing · click to try it</span>
+            : !valid && <span className="status invalid">Invalid JSON: the view keeps the last valid version</span>}
         </header>
         {mode === 'playing'
           ? <pre ref={codeRef} aria-label="JSON source"><code dangerouslySetInnerHTML={{ __html: `${highlight(before)}${caret === undefined ? '' : '<span class="caret"></span>'}${highlight(after)}` }} /></pre>

@@ -32,7 +32,7 @@ The site opens on the bundled **About JSON Views** guide. Its **What is this?** 
 
 Fenced code blocks get a **Copy** button.
 
-`demo.html` (source in `src/demo.tsx`) is the live demo embedded under the landing page title. An agent builds `tasks.json` on the left — the tasks first, then a Kanban view and an HTML view in its `$jsonviews` block — while the real viewer on the right shows each step, until the visitor clicks and takes over. Markdown fields embed only this page; every other iframe is dropped.
+`demo.html` (source in `src/demo.tsx`) is the live demo embedded under the landing page title. An agent builds `tasks.json` on the left — the tasks first, then a Kanban view and an HTML view in its `$jsonviews` block — while the real viewer on the right shows each step, until the visitor clicks: the finished file is then filled in and both sides become editable. Markdown fields embed only this page; every other iframe is dropped.
 
 The agent logos in `public/icons/agents/` come from [lobe-icons](https://github.com/lobehub/lobe-icons) (`@lobehub/icons-static-svg` 1.101.0, MIT). The logos are trademarks of their owners and are used only to label the setup buttons for those agents.
 
