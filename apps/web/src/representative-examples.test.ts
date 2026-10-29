@@ -23,7 +23,7 @@ const exampleIds = [
 ] as const
 
 describe('bundled examples', () => {
-  it('opens the guide with a welcome page and article database and preserves plain example formats', () => {
+  it('opens the guide on its landing page and article database and preserves plain example formats', () => {
     const guide = JSON.parse(readFileSync(join(examplesDirectory, manifest[0].sourceFile), 'utf8'))
     const compiled = compileJsonViewMetadata(guide)
     expect(compiled.diagnostics).toEqual([])
