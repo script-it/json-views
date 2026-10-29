@@ -183,9 +183,18 @@ function Demo() {
     }
   }, [])
 
+  // Keep the typing in view by scrolling the code panel only, never the page around
+  // the demo, and leave the panel alone for a moment after the visitor scrolls it.
+  const lastManualScroll = useRef(0)
   useEffect(() => {
     if (mode !== 'playing' || caret === undefined) return
-    codeRef.current?.querySelector('.caret')?.scrollIntoView({ block: 'nearest' })
+    const code = codeRef.current
+    const marker = code?.querySelector<HTMLElement>('.caret')
+    if (!code || !marker || Date.now() - lastManualScroll.current < 3000) return
+    const top = marker.offsetTop
+    const margin = 48
+    if (top < code.scrollTop + margin) code.scrollTop = Math.max(0, top - margin)
+    else if (top > code.scrollTop + code.clientHeight - margin) code.scrollTop = top - code.clientHeight + margin
   }, [caret, mode, text])
 
   // Edits made in the view write back to the JSON on the left.
@@ -211,7 +220,7 @@ function Demo() {
             : !valid && <span className="status invalid">Invalid JSON: the view keeps the last valid version</span>}
         </header>
         {mode === 'playing'
-          ? <pre ref={codeRef} aria-label="JSON source"><code dangerouslySetInnerHTML={{ __html: `${highlight(before)}${caret === undefined ? '' : '<span class="caret"></span>'}${highlight(after)}` }} /></pre>
+          ? <pre ref={codeRef} aria-label="JSON source" onWheel={() => { lastManualScroll.current = Date.now() }} onTouchMove={() => { lastManualScroll.current = Date.now() }}><code dangerouslySetInnerHTML={{ __html: `${highlight(before)}${caret === undefined ? '' : '<span class="caret"></span>'}${highlight(after)}` }} /></pre>
           : <textarea ref={textareaRef} aria-label="JSON source" spellCheck={false} value={text} onChange={(event) => show(event.target.value)} autoFocus />}
       </section>
       <section className="view" ref={viewRef}>
