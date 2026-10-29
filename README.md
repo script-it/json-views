@@ -1,8 +1,6 @@
 # JSON Views
 
-An extensible JSON viewer and editor for browsers, React apps, local files, humans, and agents.
-
-The viewer supports adaptive tables, record drill-down, source-preserving edits, declared views, filters, sorting, and Kanban. Its core and React packages are independent of Script.it APIs and styling.
+**Data files that both humans and agents can easily view and edit.** JSON Views is an open-source JSON viewer and editor for browsers, React apps, local files, humans, and agents.
 
 <p>
   <a href="https://json-views.com/"><img alt="Open json-views.com" src="https://img.shields.io/badge/Open_json--views.com-6854B8?style=for-the-badge"></a>
@@ -11,6 +9,63 @@ The viewer supports adaptive tables, record drill-down, source-preserving edits,
   &nbsp;
   <a href="#open-a-local-file"><img alt="Run it locally" src="https://img.shields.io/badge/Run_it_locally-2ea44f?style=for-the-badge&logo=npm&logoColor=white"></a>
 </p>
+
+<a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><img alt="tasks.json is open in JSON Views next to Claude; a status and a priority are edited in the table, then Claude re-runs the weekly status report with those edits" src="apps/web/public/home/claude-demo-light.webp" width="100%"></a>
+
+## Why JSON Views
+
+Today, the formats we use for structured data leave a gap:
+
+- **CSV** is not expressive enough.
+- **JSON** is hard for humans to navigate and edit.
+- **Excel (XLSX)** is cumbersome for agents to navigate and edit.
+
+JSON Views closes that gap with an editor that makes JSON files look like a **Notion database**. People can browse records, open pages, and edit fields while agents work with the same underlying JSON.
+
+A small **`$jsonviews`** property inside the file holds the column schema and saved views of its important parts. Users can jump straight to the useful tables and pages instead of navigating the whole JSON tree. Agents can edit this property to help humans navigate JSON easily.
+
+What Markdown does for documents, JSON Views does for structured data: it makes an expressive, machine-friendly format comfortable for people too.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/readme/structured-data-dark.svg">
+    <img alt="Structured data: JSON Views is machine friendly, human friendly, and expressive" src="docs/readme/structured-data-light.svg" width="45%">
+  </picture>
+  &nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/readme/text-documents-dark.svg">
+    <img alt="Text documents: Markdown is machine friendly, human friendly, and expressive" src="docs/readme/text-documents-light.svg" width="45%">
+  </picture>
+</p>
+
+## What you can do with JSON Views
+
+### View/Edit your data as a Notion-style table
+
+Records become a typed table the moment you open the file. Dates get date pickers, statuses become colored tags, and every cell is editable. No schema, no setup.
+
+<a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/All%20tasks"><img alt="Tasks as an editable table" src="apps/web/public/home/tasks-table-light.jpg" width="100%"></a>
+
+### View/Edit your data in a Kanban or an HTML view
+
+Group the same records by status and drag cards between columns. Or build a dashboard in HTML that still edits the data underneath. Views are saved inside the file, so they travel with it.
+
+<table>
+  <tr>
+    <td width="50%"><a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/Task%20board"><img alt="Task board" src="apps/web/public/home/tasks-board-light.jpg"></a></td>
+    <td width="50%"><a href="https://json-views.com/#/files/Templates%2FTask%20Management.json/views/Project%20dashboard"><img alt="Project dashboard" src="apps/web/public/home/tasks-dashboard-light.jpg"></a></td>
+  </tr>
+</table>
+
+### View/Edit your data as it will look in the app it goes to
+
+Before your data goes to Gmail, Slack, Stripe, or Notion, see it the way that app will show it. HTML views render the JSON as the destination app. Every value stays editable, and every edit writes back to the file.
+
+<a href="https://json-views.com/#/files/Templates%2FApp%20Views%2FGmail%20Message.json/views/Gmail%20message"><img alt="The same kinds of data previewed as Gmail, Slack, Stripe, Notion, and HubSpot" src="apps/web/public/home/apps-light.webp" width="100%"></a>
+
+## About this repository
+
+The viewer supports adaptive tables, record drill-down, source-preserving edits, declared views, filters, sorting, and Kanban. Its core and React packages are independent of Script.it APIs and styling.
 
 **Release status: public beta.** Feedback is welcome in [GitHub Issues](https://github.com/script-it/json-views/issues). For an example of consuming the published packages, see the [installed-package consumer](examples/consumer/README.md).
 
