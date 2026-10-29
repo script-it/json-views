@@ -54,7 +54,6 @@ describe('landing page', () => {
   it('jumps only to headings on the page', () => {
     const slugs = [...page.matchAll(/^#{1,4} (.+)$/gm)].map(([, text]) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
     const jumps = targets.filter((target) => /^#[a-z][a-z0-9-]*$/.test(target))
-    expect(jumps).toContain('#run-it-locally')
     for (const jump of jumps) expect(slugs.some((slug) => slug.includes(jump.slice(1))), jump).toBe(true)
   })
 
@@ -69,11 +68,10 @@ describe('landing page', () => {
     }
   })
 
-  it('copies a setup prompt that names the repository skill', () => {
-    const copies = targets.filter((target) => target.startsWith('#copy:'))
-    expect(copies.length).toBeGreaterThan(0)
-    for (const copy of copies) {
-      expect(decodeURIComponent(copy.slice('#copy:'.length))).toContain('npx skills add script-it/json-views')
-    }
+  it('copies the agent setup prompt and the local command', () => {
+    const copied = new Set(targets.filter((target) => target.startsWith('#copy:')).map((target) => decodeURIComponent(target.slice('#copy:'.length))))
+    expect(copied.size).toBe(2)
+    expect([...copied].some((text) => text.includes('npx skills add script-it/json-views'))).toBe(true)
+    expect(copied).toContain('npx @script-it/json-views ./data.json')
   })
 })
