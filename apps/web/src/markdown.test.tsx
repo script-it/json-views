@@ -104,6 +104,16 @@ describe('Markdown links', () => {
   })
 })
 
+describe('Markdown frames', () => {
+  it('embeds only the site\'s own live demo', () => {
+    render('<iframe src="./demo.html" title="Live demo"></iframe>\n\n<iframe src="https://example.com/"></iframe>\n\n<iframe src="./demo.html/../x"></iframe>')
+    const frames = [...container.querySelectorAll('iframe')]
+    expect(frames.map((frame) => frame.getAttribute('src'))).toEqual(['./demo.html'])
+    expect(frames[0].title).toBe('Live demo')
+    expect(frames[0].getAttribute('loading')).toBe('lazy')
+  })
+})
+
 describe('Markdown images', () => {
   it('load lazily', () => {
     render('[![Board](./home/board.jpg)](#/files/a.json/views/Board)')

@@ -85,6 +85,10 @@ const MARKDOWN_COMPONENTS: Components = {
     }
     return <a {...props} {...titleProps} className={className} target="_blank" rel="noreferrer" />
   },
+  // Only the site's own live demo may be embedded; any other frame is dropped.
+  iframe: ({ node: _node, src, title }) => isDemoFrame(src)
+    ? <iframe className="markdown-demo" src={src} title={title ?? 'JSON Views live demo'} loading="lazy" />
+    : null,
   // Images below the fold load as the reader scrolls toward them.
   img: ({ node: _node, ...props }) => <img {...props} loading="lazy" decoding="async" />,
   pre: ({ node: _node, children }) => <MarkdownCodeBlock>{children}</MarkdownCodeBlock>,
@@ -93,14 +97,16 @@ const MARKDOWN_COMPONENTS: Components = {
 // Deep links that open a coding agent with a setup prompt.
 const AGENT_LINK_PROTOCOLS = ['claude', 'codex', 'cursor', 'grokbot']
 const isAgentLink = (href: string) => AGENT_LINK_PROTOCOLS.some((protocol) => href.startsWith(`${protocol}:`))
+const isDemoFrame = (src: unknown) => typeof src === 'string' && /^\.\/demo\.html(?:\?[\w=&-]*)?$/.test(src)
 const markdownUrlTransform = (url: string) => isAgentLink(url) ? url : defaultUrlTransform(url)
 
 const HTML_SANITIZE_SCHEMA = {
   ...defaultSchema,
   protocols: { ...defaultSchema.protocols, href: [...(defaultSchema.protocols?.href ?? []), ...AGENT_LINK_PROTOCOLS] },
-  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text'],
+  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text', 'iframe'],
   attributes: {
     ...defaultSchema.attributes,
+    iframe: ['src', 'title'],
     svg: ['ariaLabel', 'height', 'role', 'viewBox', 'width'],
     circle: ['cx', 'cy', 'fill', 'r', 'stroke', 'strokeLinecap', 'strokeWidth'],
     text: ['dominantBaseline', 'fill', 'fontFamily', 'fontSize', 'fontWeight', 'textAnchor', 'x', 'y'],
