@@ -125,6 +125,37 @@ describe('Markdown images', () => {
     ])
   })
 
+  it('show the still frame of an animated image when the reader prefers reduced motion', () => {
+    const listeners = new Set<() => void>()
+    const query = { matches: true, addEventListener: (_: string, listener: () => void) => listeners.add(listener), removeEventListener: (_: string, listener: () => void) => listeners.delete(listener) }
+    vi.stubGlobal('matchMedia', vi.fn((media: string) => media === '(prefers-reduced-motion: reduce)' ? query : { ...query, matches: false }))
+    try {
+      render('[![Demo](./home/demo-light.webp)](#/files/a.json) ![Board](./home/board-light.jpg) ![Other](https://example.com/x.webp)')
+      const sources = () => [...container.querySelectorAll('img')].map((image) => [image.getAttribute('src'), image.className])
+      expect(sources()).toEqual([
+        ['./home/demo-light.still.webp', 'theme-light'],
+        ['./home/demo-dark.still.webp', 'theme-dark'],
+        ['./home/board-light.jpg', 'theme-light'],
+        ['./home/board-dark.jpg', 'theme-dark'],
+        ['https://example.com/x.webp', ''],
+      ])
+      // Turning the preference off brings the animation back.
+      query.matches = false
+      act(() => listeners.forEach((listener) => listener()))
+      expect(sources().slice(0, 2)).toEqual([
+        ['./home/demo-light.webp', 'theme-light'],
+        ['./home/demo-dark.webp', 'theme-dark'],
+      ])
+    } finally {
+      vi.unstubAllGlobals()
+    }
+  })
+
+  it('show animated images when motion is fine', () => {
+    render('![Demo](./home/demo-light.webp)')
+    expect([...container.querySelectorAll('img')].map((image) => image.getAttribute('src'))).toEqual(['./home/demo-light.webp', './home/demo-dark.webp'])
+  })
+
   it('load lazily', () => {
     render('[![Board](./home/board.jpg)](#/files/a.json/views/Board)')
     const image = container.querySelector('img')!

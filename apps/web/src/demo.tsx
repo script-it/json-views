@@ -78,6 +78,9 @@ function initialTheme(): 'light' | 'dark' {
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
+// Visitors who prefer reduced motion get the finished file, ready to edit, with no typing animation.
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)')
+
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function highlight(text: string): string {
@@ -89,13 +92,15 @@ function highlight(text: string): string {
 }
 
 function Demo() {
-  const [text, setText] = useState(INITIAL)
-  const [viewerContent, setViewerContent] = useState(INITIAL)
+  const [text, setText] = useState(() => reducedMotion.matches ? FINAL : INITIAL)
+  const [viewerContent, setViewerContent] = useState(() => reducedMotion.matches ? FINAL : INITIAL)
   // A new revision per change lets the viewer accept a return to earlier text (the loop's reset, an undo).
   const revision = useRef(0)
   const [viewerRevision, setViewerRevision] = useState('0')
   const [caret, setCaret] = useState<number | undefined>()
-  const [mode, setMode] = useState<'playing' | 'editing'>('playing')
+  const [mode, setMode] = useState<'playing' | 'editing'>(() => reducedMotion.matches ? 'editing' : 'playing')
+  // Focus the editor only when a visitor takes over, never on load.
+  const [focusEditor, setFocusEditor] = useState(false)
   const [theme, setTheme] = useState(initialTheme)
   // Follow the site's theme toggle (shared storage) and the system setting.
   useEffect(() => {
@@ -105,7 +110,7 @@ function Demo() {
     system.addEventListener('change', update)
     return () => { window.removeEventListener('storage', update); system.removeEventListener('change', update) }
   }, [])
-  const playing = useRef(true)
+  const playing = useRef(!reducedMotion.matches)
   const codeRef = useRef<HTMLPreElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const viewRef = useRef<HTMLElement>(null)
@@ -170,10 +175,10 @@ function Demo() {
     return () => { cancelled = true }
   }, [show])
 
-  // Any click or key press hands control to the visitor.
+  // Any click or key press hands control to the visitor; so does turning on reduced motion.
   useEffect(() => {
-    const takeOver = (event: Event) => {
-      if (!event.isTrusted || !playing.current) return
+    const finish = () => {
+      if (!playing.current) return false
       playing.current = false
       // Hand over the finished file, wherever the animation was.
       revision.current += 1
@@ -182,12 +187,19 @@ function Demo() {
       setViewerRevision(String(revision.current))
       setCaret(undefined)
       setMode('editing')
+      return true
     }
+    const takeOver = (event: Event) => {
+      if (event.isTrusted && finish()) setFocusEditor(true)
+    }
+    const stopForReducedMotion = () => { if (reducedMotion.matches) finish() }
     window.addEventListener('pointerdown', takeOver, { capture: true })
     window.addEventListener('keydown', takeOver, { capture: true })
+    reducedMotion.addEventListener('change', stopForReducedMotion)
     return () => {
       window.removeEventListener('pointerdown', takeOver, { capture: true })
       window.removeEventListener('keydown', takeOver, { capture: true })
+      reducedMotion.removeEventListener('change', stopForReducedMotion)
     }
   }, [])
 
@@ -229,7 +241,7 @@ function Demo() {
         </header>
         {mode === 'playing'
           ? <pre ref={codeRef} aria-label="JSON source" onWheel={() => { lastManualScroll.current = Date.now() }} onTouchMove={() => { lastManualScroll.current = Date.now() }}><code dangerouslySetInnerHTML={{ __html: `${highlight(before)}${caret === undefined ? '' : '<span class="caret"></span>'}${highlight(after)}` }} /></pre>
-          : <textarea ref={textareaRef} aria-label="JSON source" spellCheck={false} value={text} onChange={(event) => show(event.target.value)} autoFocus />}
+          : <textarea ref={textareaRef} aria-label="JSON source" spellCheck={false} value={text} onChange={(event) => show(event.target.value)} autoFocus={focusEditor} />}
       </section>
       <section className="view" ref={viewRef}>
         <JSONContent

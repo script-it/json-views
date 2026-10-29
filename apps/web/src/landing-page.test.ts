@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { stillSource } from './markdown.js'
 
 interface ManifestEntry {
   sourceFile: string
@@ -50,8 +51,15 @@ describe('landing page', () => {
     expect(images.length).toBeGreaterThan(5)
     for (const image of images) {
       expect(existsSync(join(publicDirectory, image)), image).toBe(true)
-      if (/-light\.\w+$/.test(image)) expect(existsSync(join(publicDirectory, image.replace(/-light(\.\w+)$/, '-dark$1'))), `${image} dark version`).toBe(true)
+      const dark = /-light\.\w+$/.test(image) ? image.replace(/-light(\.\w+)$/, '-dark$1') : undefined
+      if (dark) expect(existsSync(join(publicDirectory, dark)), `${image} dark version`).toBe(true)
+      // Animated images need a still frame for readers who prefer reduced motion.
+      for (const source of [image, dark]) {
+        const still = source && stillSource(source)
+        if (still) expect(existsSync(join(publicDirectory, still)), `${source} still frame`).toBe(true)
+      }
     }
+    expect(images.filter((image) => stillSource(image))).not.toHaveLength(0)
   })
 
   it('jumps only to headings on the page', () => {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ComponentProps, type ReactNode } from 'react'
 import { Check, Copy } from 'lucide-react'
 import Markdown, { defaultUrlTransform, type Components } from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
@@ -64,6 +64,36 @@ function MarkdownCodeBlock({ children }: { children?: ReactNode }) {
   )
 }
 
+const REDUCED_MOTION = '(prefers-reduced-motion: reduce)'
+
+function usePrefersReducedMotion(): boolean {
+  const [reduce, setReduce] = useState(() => typeof matchMedia === 'function' && matchMedia(REDUCED_MOTION).matches)
+  useEffect(() => {
+    if (typeof matchMedia !== 'function') return
+    const query = matchMedia(REDUCED_MOTION)
+    const update = () => setReduce(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
+  return reduce
+}
+
+// Images below the fold load as the reader scrolls toward them. An image named
+// `*-light.<ext>` also renders its `*-dark.<ext>` twin; the site theme shows one.
+// The site's animated WebPs show their `*.still.webp` frame to readers who prefer reduced motion.
+function MarkdownImage(props: ComponentProps<'img'>) {
+  const reduceMotion = usePrefersReducedMotion()
+  const source = (src: string) => reduceMotion ? stillSource(src) ?? src : src
+  if (typeof props.src !== 'string') return <img {...props} loading="lazy" decoding="async" />
+  const darkSource = themedDarkSource(props.src)
+  if (!darkSource) return <img {...props} src={source(props.src)} loading="lazy" decoding="async" />
+  return <>
+    <img {...props} src={source(props.src)} className="theme-light" loading="lazy" decoding="async" />
+    <img {...props} src={source(darkSource)} className="theme-dark" loading="lazy" decoding="async" />
+  </>
+}
+
 const MARKDOWN_COMPONENTS: Components = {
   a: ({ node: _node, title, ...props }) => {
     const href = props.href ?? ''
@@ -89,16 +119,7 @@ const MARKDOWN_COMPONENTS: Components = {
   iframe: ({ node: _node, src, title }) => isDemoFrame(src)
     ? <iframe className="markdown-demo" src={src} title={title ?? 'JSON Views live demo'} loading="lazy" />
     : null,
-  // Images below the fold load as the reader scrolls toward them. An image named
-  // `*-light.<ext>` also renders its `*-dark.<ext>` twin; the site theme shows one.
-  img: ({ node: _node, ...props }) => {
-    const darkSource = typeof props.src === 'string' ? themedDarkSource(props.src) : undefined
-    if (!darkSource) return <img {...props} loading="lazy" decoding="async" />
-    return <>
-      <img {...props} className="theme-light" loading="lazy" decoding="async" />
-      <img {...props} src={darkSource} className="theme-dark" loading="lazy" decoding="async" />
-    </>
-  },
+  img: ({ node: _node, ...props }) => <MarkdownImage {...props} />,
   pre: ({ node: _node, children }) => <MarkdownCodeBlock>{children}</MarkdownCodeBlock>,
 }
 
@@ -106,6 +127,8 @@ const MARKDOWN_COMPONENTS: Components = {
 const AGENT_LINK_PROTOCOLS = ['claude', 'codex', 'cursor', 'grokbot']
 const isAgentLink = (href: string) => AGENT_LINK_PROTOCOLS.some((protocol) => href.startsWith(`${protocol}:`))
 const themedDarkSource = (src: string) => /-light\.(?:jpe?g|png|webp|gif)$/.test(src) ? src.replace(/-light(\.\w+)$/, '-dark$1') : undefined
+/** The still frame shipped next to the site's own animated WebPs, e.g. `./home/x-light.webp` → `./home/x-light.still.webp`. */
+export const stillSource = (src: string) => /^\.\/home\/[\w-]+\.webp$/.test(src) ? src.replace(/\.webp$/, '.still.webp') : undefined
 const isDemoFrame = (src: unknown) => typeof src === 'string' && /^\.\/demo\.html(?:\?[\w=&-]*)?$/.test(src)
 const markdownUrlTransform = (url: string) => isAgentLink(url) ? url : defaultUrlTransform(url)
 
