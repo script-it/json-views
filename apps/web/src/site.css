@@ -258,8 +258,6 @@ dialog.document-sidebar::backdrop { background: rgb(0 0 0 / .45); backdrop-filte
 .json-views-markdown p:has(> a.markdown-button) { display: flex; flex-wrap: wrap; gap: 10px; }
 .markdown-code-block { position: relative; margin: 1rem 0; }
 .markdown-code-block pre { margin: 0; padding-right: 5.5rem; }
-/* Prose prompts wrap so they stay readable next to the Copy button; code keeps its lines. */
-.markdown-code-block pre:has(> code.language-text) { white-space: pre-wrap; overflow-wrap: anywhere; }
 .markdown-code-block .markdown-copy { position: absolute; top: 8px; right: 8px; min-height: 28px; padding: 0 10px; border: 1px solid var(--border); background: var(--card); font-size: 12px; }
 .json-views-markdown .markdown-copy { white-space: nowrap; }
 .json-views-markdown .markdown-copy svg { display: inline-block; width: 13px; height: 13px; margin: 0; }
