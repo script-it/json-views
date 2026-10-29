@@ -74,6 +74,35 @@ function headingSlug(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
+function findHeading(from: Element, target: string): Element | undefined {
+  return [...(from.closest('.json-views-markdown')?.querySelectorAll('h1, h2, h3, h4') ?? [])]
+    .find((candidate) => headingSlug(candidate.textContent ?? '').includes(target))
+}
+
+/** Copies the first code block that follows the heading named by `#copy:<heading>`. */
+function MarkdownCopyLink({ href, className, children }: { href: string; className?: string; children?: ReactNode }) {
+  const [copied, setCopied] = useState(false)
+  useEffect(() => {
+    if (!copied) return
+    const timer = setTimeout(() => setCopied(false), 1800)
+    return () => clearTimeout(timer)
+  }, [copied])
+  return (
+    <a href={href} className={className} aria-live="polite" {...keepClickInside} onClick={async (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+      let block = findHeading(event.currentTarget, href.slice('#copy:'.length))?.nextElementSibling
+      while (block && !block.matches('.markdown-code-block') && !/^H[1-4]$/.test(block.tagName)) block = block.nextElementSibling
+      const text = block?.matches('.markdown-code-block') ? block.querySelector('pre')?.textContent : undefined
+      if (!text) return
+      try { await copyText(text); setCopied(true) } catch { /* The prompt remains selectable in its section. */ }
+    }}>
+      {copied ? <Check size={15} aria-hidden="true" /> : <Copy size={15} aria-hidden="true" />}
+      {copied ? 'Copied' : children}
+    </a>
+  )
+}
+
 // Clicks inside an editable Markdown value must not open its editor.
 const stopPropagation = (event: { stopPropagation(): void }) => event.stopPropagation()
 const keepClickInside = { onMouseDown: stopPropagation, onPointerDown: stopPropagation }
@@ -108,12 +137,11 @@ const MARKDOWN_COMPONENTS: Components = {
     const className = button ? `button ${title === 'button primary' ? 'primary' : 'secondary'} markdown-button` : undefined
     const titleProps = button || title === undefined ? {} : { title }
     if (href.startsWith('#/') || isAgentLink(href)) return <a {...props} {...titleProps} className={className} />
+    if (href.startsWith('#copy:')) return <MarkdownCopyLink href={href} className={className}>{props.children}</MarkdownCopyLink>
     if (href.startsWith('#')) {
       // An in-page link scrolls to the heading whose text matches it.
       return <a {...props} {...titleProps} className={className} onClick={(event) => {
-        const target = href.slice(1)
-        const heading = [...(event.currentTarget.closest('.json-views-markdown')?.querySelectorAll('h1, h2, h3, h4') ?? [])]
-          .find((candidate) => headingSlug(candidate.textContent ?? '').includes(target))
+        const heading = findHeading(event.currentTarget, href.slice(1))
         if (!heading) return
         event.preventDefault()
         event.stopPropagation()

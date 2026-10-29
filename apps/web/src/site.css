@@ -262,4 +262,5 @@ dialog.document-sidebar::backdrop { background: rgb(0 0 0 / .45); backdrop-filte
 /* An icon inside a Markdown button, such as an agent logo. */
 .json-views-markdown a.markdown-button:has(> img) { display: inline-flex; box-shadow: none; transform: none; }
 .json-views-markdown a.markdown-button > img { display: inline-block; width: 18px; height: 18px; border: 0; border-radius: 0; }
+.json-views-markdown a.markdown-button > svg { display: inline-block; width: 15px; height: 15px; margin: 0; }
 .json-views-app[data-json-views-theme="dark"] .json-views-markdown a.markdown-button > img[src*="-mono."] { filter: invert(1); }
