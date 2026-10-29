@@ -5,56 +5,53 @@ import { JSONContent } from '@script-it/json-views-react'
 import type { JsonDocumentSave } from '@script-it/json-views-core'
 import './demo.css'
 
-// Views are supplied separately, so the JSON on the left stays plain data.
-const METADATA = {
-  version: 1,
-  schema: {
-    '$.tasks[*].title': { type: 'text', title: 'Task' },
-    '$.tasks[*].status': {
-      type: 'select',
-      title: 'Status',
-      options: ['To do', 'In progress', 'Done'],
-      optionColors: { 'To do': 'blue', 'In progress': 'purple', Done: 'green' },
+// The views live in the file itself, under "$jsonviews", exactly as in any JSON Views document.
+const INITIAL = `{
+  "$jsonviews": {
+    "version": 1,
+    "schema": {
+      "$.tasks[*].status": {
+        "type": "select",
+        "options": ["To do", "In progress", "Done"],
+        "optionColors": { "To do": "blue", "In progress": "purple", "Done": "green" }
+      },
+      "$.tasks[*].due": { "type": "date" }
     },
-    '$.tasks[*].owner': { type: 'text', title: 'Owner' },
-    '$.tasks[*].due': { type: 'date', title: 'Due' },
+    "views": [
+      {
+        "name": "Board", "path": "$.tasks", "display": "kanban",
+        "groupBy": "$.tasks[*].status", "groupOrder": ["To do", "In progress", "Done"]
+      }
+    ]
   },
-  views: [
+  "tasks": [
     {
-      id: 'board',
-      name: 'Board',
-      path: '$.tasks',
-      display: 'kanban',
-      groupBy: '$.tasks[*].status',
-      groupOrder: ['To do', 'In progress', 'Done'],
-      columns: [
-        { label: 'Task', path: '$.tasks[*].title' },
-        { label: 'Owner', path: '$.tasks[*].owner' },
-        { label: 'Due', path: '$.tasks[*].due' },
-      ],
+      "title": "Define the launch checklist",
+      "status": "In progress",
+      "owner": "Maya Chen",
+      "due": "2026-09-10"
     },
     {
-      id: 'table',
-      name: 'Table',
-      path: '$.tasks',
-      columns: [
-        { label: 'Task', path: '$.tasks[*].title' },
-        { label: 'Status', path: '$.tasks[*].status' },
-        { label: 'Owner', path: '$.tasks[*].owner' },
-        { label: 'Due', path: '$.tasks[*].due' },
-      ],
+      "title": "Review onboarding copy",
+      "status": "To do",
+      "owner": "Theo Martin",
+      "due": "2026-09-12"
     },
-  ],
+    {
+      "title": "Fix mobile navigation spacing",
+      "status": "To do",
+      "owner": "Ari Patel",
+      "due": "2026-09-09"
+    },
+    {
+      "title": "Confirm analytics events",
+      "status": "Done",
+      "owner": "Maya Chen",
+      "due": "2026-09-06"
+    }
+  ]
 }
-
-const INITIAL = `${JSON.stringify({
-  tasks: [
-    { title: 'Define the launch checklist', status: 'In progress', owner: 'Maya Chen', due: '2026-09-10' },
-    { title: 'Review onboarding copy', status: 'To do', owner: 'Theo Martin', due: '2026-09-12' },
-    { title: 'Fix mobile navigation spacing', status: 'To do', owner: 'Ari Patel', due: '2026-09-09' },
-    { title: 'Confirm analytics events', status: 'Done', owner: 'Maya Chen', due: '2026-09-06' },
-  ],
-}, null, 2)}\n`
+`
 
 const NEW_TASK = `,
     {
@@ -68,7 +65,7 @@ const NEW_TASK = `,
 type Edit = { anchor: string; from: string; to: string }
 const EDITS: Edit[] = [
   { anchor: '"title": "Fix mobile navigation spacing",\n      "status": "', from: 'To do', to: 'Done' },
-  { anchor: '"title": "Review onboarding copy",\n      "status": "', from: 'To do', to: 'In progress' },
+  { anchor: '"groupOrder": ["To do", "In progress", "Done"]\n      }', from: '', to: ',\n      { "name": "Task list", "path": "$.tasks" }' },
   { anchor: '"due": "2026-09-06"\n    }', from: '', to: NEW_TASK },
 ]
 
@@ -100,8 +97,6 @@ function Demo() {
   const [caret, setCaret] = useState<number | undefined>()
   const [mode, setMode] = useState<'playing' | 'editing'>('playing')
   const [theme] = useState(initialTheme)
-  // View settings changed in the board (lane order, columns) stay for this visit.
-  const [metadata, setMetadata] = useState<Record<string, unknown>>(METADATA)
   const playing = useRef(true)
   const codeRef = useRef<HTMLPreElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -198,11 +193,8 @@ function Demo() {
           documentId="demo:tasks"
           path="tasks.json"
           content={viewerContent}
-          metadata={metadata}
-          onMetadataChange={async (next) => setMetadata(next)}
           theme={theme}
           fillHeight
-          presentationState={{ version: 1, activeView: 'view:board' }}
           onSave={save}
         />
       </section>
