@@ -5,52 +5,59 @@ import { JSONContent } from '@script-it/json-views-react'
 import type { JsonDocumentSave } from '@script-it/json-views-core'
 import './demo.css'
 
-// The file starts with no data and one table view. The views live in the file
-// itself, under "$jsonviews" below the data, exactly as in any JSON Views document.
+// The site's own articles, as published in "About JSON Views". The file starts
+// with no data and one table view; the views live in the file itself, under
+// "$jsonviews" below the data, exactly as in any JSON Views document.
 const INITIAL = `{
-  "tasks": [
+  "articles": [
   ],
   "$jsonviews": {
     "version": 1,
     "schema": {
-      "$.tasks[*].status": { "type": "select", "optionColors": { "To do": "blue", "In progress": "purple", "Done": "green" } }
+      "$.articles[*].topic": { "type": "select", "optionColors": { "Overview": "blue", "Origin": "orange", "Files": "green", "Format": "yellow", "Getting started": "gray", "Privacy": "purple" } },
+      "$.articles[*].audience": { "type": "multi-select", "optionColors": { "Everyone": "blue", "Developers": "purple", "Agents": "green" } },
+      "$.articles[*].done": { "type": "checkbox" }
     },
     "views": [
-      { "name": "Tasks", "path": "$.tasks" }
+      { "name": "Articles", "path": "$.articles" }
     ]
   }
 }
 `
 
-const TASKS = [
-  ['Define the launch checklist', 'In progress', 'Maya Chen'],
-  ['Review onboarding copy', 'To do', 'Theo Martin'],
-  ['Fix mobile navigation spacing', 'Done', 'Ari Patel'],
-  ['Confirm analytics events', 'Done', 'Lena Ortiz'],
-].map(([title, status, owner]) => `\n    {\n      "title": "${title}",\n      "status": "${status}",\n      "owner": "${owner}"\n    }`).join(',')
+const ARTICLES = ([
+  ['What is this?', 'Overview', ['Everyone', 'Notion Lovers'], 223],
+  ['Why we built this?', 'Origin', ['Everyone', 'Script.it Fans'], 30],
+  ['How the Editor Works', 'Files', ['Everyone'], 57],
+  ['The file schema', 'Format', ['Developers', 'Agents'], 31],
+  ['Multiple ways to use json-views', 'Getting started', ['Everyone'], 44],
+  ['A very private web app', 'Privacy', ['Everyone'], 24],
+  ['Embed json-views in your app', 'Getting started', ['Developers'], 27],
+] as const).map(([title, topic, audience, readingTime]) => `\n    {\n      "title": "${title}",\n      "topic": "${topic}",\n      "audience": ${JSON.stringify(audience).replace(/","/g, '", "')},\n      "reading_time": ${readingTime},\n      "done": false\n    }`).join(',')
 
 const BOARD_VIEW = `,
       {
-        "name": "Board", "path": "$.tasks", "display": "kanban",
-        "groupBy": "$.tasks[*].status", "groupOrder": ["To do", "In progress", "Done"]
+        "name": "Board", "path": "$.articles", "display": "kanban",
+        "groupBy": "$.articles[*].topic",
+        "groupOrder": ["Overview", "Origin", "Files", "Format", "Getting started", "Privacy"]
       }`
 
-const SUMMARY_HTML = '<div class="launch"><p class="eyebrow">🚀 Website launch</p><h2>Launch tasks</h2><p class="lede">Everything that ships on launch day.</p><jv-repeat source="$.tasks" as="task"><div class="task" jv-attr-aria-label="task.status"><span class="check"></span><div class="body"><input class="title" jv-bind="task.title" aria-label="Task title"><input class="owner" jv-bind="task.owner" aria-label="Owner"></div><span class="pill"><jv-field bind="task.status" aria-label="Status"></jv-field></span></div></jv-repeat></div>'
-const SUMMARY_CSS = '.launch{padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,#1d1a33,#3b2a7a);color:#fff;font:14px/1.4 system-ui}.eyebrow{margin:0;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c9bcff}h2{margin:6px 0 2px;font:700 24px/1.2 system-ui;letter-spacing:-.01em}.lede{margin:0 0 16px;color:#cfc7f2}.task{display:flex;align-items:center;gap:12px;margin:8px 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.08)}.check{display:grid;place-items:center;flex:none;width:20px;height:20px;border:2px solid #8f80d9;border-radius:50%;color:#1d1a33;font-size:12px;font-weight:800}.body{display:grid;flex:1;min-width:0}input{width:100%;margin:0;padding:1px 4px;border:1px solid transparent;border-radius:6px;color:inherit;background:transparent;font:inherit}input:hover{border-color:rgba(255,255,255,.18)}input:focus{outline:0;border-color:#b69cff;background:rgba(255,255,255,.08)}.title{font-weight:700}.owner{font-size:12.5px;color:#b9afe2}.pill{padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}.task[aria-label="Done"] .check{border-color:#5fd39a;background:#5fd39a}.task[aria-label="Done"] .check::after{content:"✓"}.task[aria-label="Done"] .title{text-decoration:line-through;opacity:.65}.task[aria-label="Done"] .pill{background:rgba(95,211,154,.18);color:#8ef0be}.task[aria-label="In progress"] .pill{background:rgba(182,156,255,.22);color:#ddd2ff}.task[aria-label="To do"] .pill{background:rgba(127,179,255,.2);color:#c2dbff}'
-const SUMMARY_VIEW = `,
+const READING_HTML = '<div class="guide"><p class="eyebrow">📚 JSON Views guide</p><h2>Reading list</h2><p class="lede">Seven short articles about JSON Views.</p><jv-repeat source="$.articles" as="article"><div class="row" jv-attr-aria-label="article.done"><input type="checkbox" jv-bind="article.done" aria-label="Read"><div class="body"><input class="title" jv-bind="article.title" aria-label="Title"><small><jv-value bind="article.reading_time"></jv-value> sec read</small></div><span class="pill"><jv-field bind="article.topic" aria-label="Topic"></jv-field></span></div></jv-repeat></div>'
+const READING_CSS = '.guide{padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,#1d1a33,#3b2a7a);color:#fff;font:14px/1.4 system-ui}.eyebrow{margin:0;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c9bcff}h2{margin:6px 0 2px;font:700 24px/1.2 system-ui;letter-spacing:-.01em}.lede{margin:0 0 16px;color:#cfc7f2}.row{display:flex;align-items:center;gap:12px;margin:8px 0;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.08)}input[type=checkbox]{flex:none;width:18px;height:18px;margin:0;accent-color:#5fd39a}.body{display:grid;flex:1;min-width:0}.title{width:100%;margin:0;padding:1px 4px;border:1px solid transparent;border-radius:6px;color:inherit;background:transparent;font:inherit;font-weight:700}.title:hover{border-color:rgba(255,255,255,.18)}.title:focus{outline:0;border-color:#b69cff;background:rgba(255,255,255,.08)}small{padding:0 4px;color:#b9afe2;font-size:12.5px}.pill{padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:#ddd2ff;font-size:12px;font-weight:600;white-space:nowrap}.row[aria-label="true"] .title{text-decoration:line-through;opacity:.6}'
+const READING_VIEW = `,
       {
-        "name": "Summary", "path": "$", "display": "html",
-        "html": ${JSON.stringify(SUMMARY_HTML)},
-        "css": ${JSON.stringify(SUMMARY_CSS)}
+        "name": "Reading list", "path": "$", "display": "html",
+        "html": ${JSON.stringify(READING_HTML)},
+        "css": ${JSON.stringify(READING_CSS)}
       }`
 
 // What the agent writes, in order: the data, then a Kanban view, then an HTML view.
-// Each edit inserts text after a unique anchor; `open` names the tab to show afterwards.
-type Edit = { anchor: string; text: string; open?: string }
+// Each edit inserts text after a unique anchor, `step` characters per frame; `open` names the tab to show afterwards.
+type Edit = { anchor: string; text: string; step: number; open?: string }
 const EDITS: Edit[] = [
-  { anchor: '"tasks": [', text: TASKS },
-  { anchor: '{ "name": "Tasks", "path": "$.tasks" }', text: BOARD_VIEW, open: 'Board' },
-  { anchor: '"groupOrder": ["To do", "In progress", "Done"]\n      }', text: SUMMARY_VIEW, open: 'Summary' },
+  { anchor: '"articles": [', text: ARTICLES, step: 6 },
+  { anchor: '{ "name": "Articles", "path": "$.articles" }', text: BOARD_VIEW, step: 2, open: 'Board' },
+  { anchor: '"groupOrder": ["Overview", "Origin", "Files", "Format", "Getting started", "Privacy"]\n      }', text: READING_VIEW, step: 16, open: 'Reading list' },
 ]
 
 // The finished file: every edit applied. A visitor who clicks starts from this.
@@ -126,12 +133,17 @@ function Demo() {
           const start = current.indexOf(edit.anchor) + edit.anchor.length
           const head = current.slice(0, start)
           const tail = current.slice(start)
-          const step = edit.text.length > 900 ? 10 : edit.text.length > 300 ? 4 : 2
-          for (let length = step; length < edit.text.length + step && active(); length += step) {
-            const typed = Math.min(length, edit.text.length)
+          // Stop at every point where the JSON is complete again, so each object lands in the view.
+          const stops = new Set<number>()
+          for (let length = 1; length <= edit.text.length; length++) if (parses(head + edit.text.slice(0, length) + tail)) stops.add(length)
+          let typed = 0
+          while (typed < edit.text.length && active()) {
+            let next = Math.min(typed + edit.step, edit.text.length)
+            for (let length = typed + 1; length < next; length++) if (stops.has(length)) { next = length; break }
+            typed = next
             current = head + edit.text.slice(0, typed) + tail
             show(current, start + typed)
-            await wait(16)
+            await wait(stops.has(typed) && typed < edit.text.length ? 260 : 16)
           }
           if (!active()) return
           show(current, undefined)
@@ -142,7 +154,7 @@ function Demo() {
         if (!active()) return
         current = INITIAL
         show(current, undefined)
-        openTab('Tasks')
+        openTab('Articles')
         await wait(1200)
       }
     }
@@ -193,7 +205,7 @@ function Demo() {
     <main className="demo" data-theme={theme}>
       <section className="source">
         <header>
-          <span className="file">tasks.json</span>
+          <span className="file">articles.json</span>
           {mode === 'playing'
             ? <span className="status playing">An agent is editing · click to try it</span>
             : !valid && <span className="status invalid">Invalid JSON: the view keeps the last valid version</span>}
@@ -204,8 +216,8 @@ function Demo() {
       </section>
       <section className="view" ref={viewRef}>
         <JSONContent
-          documentId="demo:tasks"
-          path="tasks.json"
+          documentId="demo:articles"
+          path="articles.json"
           content={viewerContent}
           revision={viewerRevision}
           theme={theme}
