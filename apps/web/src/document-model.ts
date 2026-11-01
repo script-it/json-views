@@ -27,6 +27,8 @@ export function documentFormat(filename: string): DocumentFormat {
 }
 
 export interface RepresentativeSample {
+  /** Existing manifest classification (Guide or Template), not a sidebar group.
+   * Template preserves the legacy Templates/ document ID after paths are flattened. */
   category?: string
   presentationState?: JsonViewsPresentationState
   sourceFile: string
