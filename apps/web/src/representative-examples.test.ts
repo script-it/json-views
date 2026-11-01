@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { compileJsonViewMetadata, createDefaultTypeRegistry, validateCsvSource } from '@script-it/json-views-core'
+import { compileJsonViewMetadata, createDefaultTypeRegistry } from '@script-it/json-views-core'
 
 interface ManifestEntry {
   id: string
@@ -23,7 +23,7 @@ const exampleIds = [
 ] as const
 
 describe('bundled examples', () => {
-  it('opens the guide with a welcome page and article database and preserves plain example formats', () => {
+  it('opens the guide with a welcome page and article database', () => {
     const guide = JSON.parse(readFileSync(join(examplesDirectory, manifest[0].sourceFile), 'utf8'))
     const compiled = compileJsonViewMetadata(guide)
     expect(compiled.diagnostics).toEqual([])
@@ -35,15 +35,30 @@ describe('bundled examples', () => {
       const source = readFileSync(join(examplesDirectory, entry.sourceFile), 'utf8')
       expect(Buffer.byteLength(source)).toBe(entry.bytes)
       expect(createHash('sha256').update(source).digest('hex')).toBe(entry.sourceSha256)
-      if (entry.sourceFile.endsWith('.csv')) {
-        expect(() => validateCsvSource(source)).not.toThrow()
-      } else if (!entry.annotationFile) {
+      if (!entry.annotationFile) {
         expect(compileJsonViewMetadata(JSON.parse(source)).diagnostics).toEqual([])
       }
-      if (entry.id !== 'json-views') expect(entry.relativePath).toMatch(/^(Templates|Examples)\//)
     }
-    const array = manifest.find((entry) => entry.id === 'array-root')!
-    expect(Array.isArray(JSON.parse(readFileSync(join(examplesDirectory, array.sourceFile), 'utf8')))).toBe(true)
+  })
+
+  it('lists every document at the top of the sidebar, with no Examples or Templates folder', () => {
+    expect(manifest.filter((entry) => entry.relativePath)).toEqual([])
+    expect(manifest.filter((entry) => entry.sourceFile.startsWith('Examples/'))).toEqual([])
+    expect(manifest.map((entry) => entry.id)).toEqual(expect.arrayContaining(['task-management', 'app-gmail']))
+  })
+
+  it('links the guide only to documents that are still in the sidebar', () => {
+    const guide = readFileSync(join(examplesDirectory, manifest[0].sourceFile), 'utf8')
+    const targets = [...guide.matchAll(/\(#\/files\/([^)]+)\)/g)].map((match) => decodeURIComponent(match[1]))
+    expect(targets.length).toBeGreaterThan(0)
+    const filenames = manifest.map((entry) => entry.sourceFile.split('/').pop())
+    for (const target of targets) expect(filenames).toContain(target)
+  })
+
+  it('opens Task Management on the task board and keeps its other views', () => {
+    const entry = manifest.find((candidate) => candidate.id === 'task-management')!
+    const metadata = JSON.parse(readFileSync(join(examplesDirectory, entry.annotationFile!), 'utf8')) as { views: Array<{ id: string }> }
+    expect(metadata.views.map((view) => view.id)).toEqual(['task-board', 'project-dashboard', 'all-tasks', 'open-tasks'])
   })
 
   it.each(exampleIds)('ships a valid, integrity-checked %s document', (id) => {

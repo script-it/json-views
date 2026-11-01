@@ -5,7 +5,7 @@ import {
   CSVContent, InlineFeedbackAction, JSONContent, JsonViewsProvider, useJsonViewsDevice,
   type JsonViewsPresentationState, type ObjectRootConversionRequest,
 } from '@script-it/json-views-react'
-import Markdown, { type Components } from 'react-markdown'
+import Markdown, { defaultUrlTransform, type Components } from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import remarkGfm from 'remark-gfm'
@@ -70,12 +70,18 @@ const NEW_TABLE_JSON = `${JSON.stringify({
   ],
 }, null, 2)}\n`
 
+// Deep links that open a coding agent with a prompt.
+const AGENT_LINK_PROTOCOLS = ['claude', 'codex', 'cursor', 'grokbot']
+const isAgentLink = (href: string) => AGENT_LINK_PROTOCOLS.some((protocol) => href.startsWith(`${protocol}:`))
+const markdownUrlTransform = (url: string) => isAgentLink(url) ? url : defaultUrlTransform(url)
+
 const MARKDOWN_COMPONENTS: Components = {
-  a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
+  a: ({ node: _node, ...props }) => isAgentLink(props.href ?? '') ? <a {...props} /> : <a {...props} target="_blank" rel="noreferrer" />,
 }
 
 const HTML_SANITIZE_SCHEMA = {
   ...defaultSchema,
+  protocols: { ...defaultSchema.protocols, href: [...(defaultSchema.protocols?.href ?? []), ...AGENT_LINK_PROTOCOLS] },
   tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text'],
   attributes: {
     ...defaultSchema.attributes,
@@ -85,13 +91,14 @@ const HTML_SANITIZE_SCHEMA = {
   },
 }
 
-function renderMarkdownBody(content: string): ReactNode {
+export function renderMarkdownBody(content: string): ReactNode {
   return (
     <div className="json-views-markdown">
       <Markdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, [rehypeSanitize, HTML_SANITIZE_SCHEMA]]}
         components={MARKDOWN_COMPONENTS}
+        urlTransform={markdownUrlTransform}
       >
         {content}
       </Markdown>
