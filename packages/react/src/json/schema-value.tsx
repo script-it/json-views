@@ -12,6 +12,7 @@ import type { JsonViewSchemaDescriptor, ValuePath } from '@script-it/json-views-
 import { validateJsonViewSchemaValue } from '@script-it/json-views-core'
 import { useJsonViewsRegistries } from '../widget-registry.js'
 import { useEditBaseChanged } from '../structured-data/edit-base.js'
+import { ButtonToEditContext } from './edit-interaction.js'
 import { HtmlPreview } from './html-preview.js'
 
 export interface JsonViewSchemaExternalWidgetProps {
@@ -312,6 +313,8 @@ export function JsonViewSchemaValueCell({
   value: unknown
   sourcePath?: ValuePath
 }) {
+  const buttonToEdit = useContext(ButtonToEditContext)
+  const markdownButton = buttonToEdit && (descriptor.type === 'markdown' || descriptor.type === 'body')
   const [editing, setEditing] = useState(initiallyEditing)
   const displayRef = useRef<HTMLDivElement>(null)
   const [editorMinHeight, setEditorMinHeight] = useState<number>()
@@ -385,7 +388,7 @@ export function JsonViewSchemaValueCell({
   const linkedValue = typeof value === 'string'
     && (descriptor.type === 'url' || descriptor.type === 'email')
   const interactiveText = ((descriptor.type === 'body' || descriptor.type === 'markdown') && renderMarkdown !== undefined || descriptor.type === 'html') && !compact && typeof value === 'string'
-  const explicitEditAction = linkedValue || descriptor.type === 'html'
+  const explicitEditAction = linkedValue || descriptor.type === 'html' || markdownButton
   const startEditing = () => {
     preserveLayoutHeight()
     setEditing(true)
@@ -400,7 +403,7 @@ export function JsonViewSchemaValueCell({
     <div ref={displayRef} data-id="jsonView-schema-value" className={cn('h-full min-w-0', invalid && 'ring-1 ring-inset ring-destructive', !invalid && warning && 'ring-1 ring-inset ring-amber-500')} style={stableLayout && editorMinHeight ? { minHeight: editorMinHeight } : undefined} title={invalid ?? warning}>
       <StructuredValueCellFrame
         actions={explicitEditAction || container || textPreview ? actions : undefined}
-        overlayActions={descriptor.type === 'html' && !compact}
+        overlayActions={(descriptor.type === 'html' || markdownButton) && !compact}
         activationDisabled={!editable || saving || explicitEditAction}
         activationLabel={editable && !explicitEditAction ? `Edit ${label}` : undefined}
         activationRole={interactiveText ? 'group' : 'button'}

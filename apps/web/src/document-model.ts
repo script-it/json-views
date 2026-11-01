@@ -27,6 +27,7 @@ export function documentFormat(filename: string): DocumentFormat {
 }
 
 export interface RepresentativeSample {
+  category?: string
   presentationState?: JsonViewsPresentationState
   sourceFile: string
   annotationFile?: string

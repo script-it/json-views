@@ -100,6 +100,8 @@ export interface StructuredDataContentProps {
   clearBehavior?: JsonViewClearBehavior
   /** Clamps tall table cells and reveals one on selection (default), or lets rows grow to fit. */
   tableCells?: JsonViewsTableCellOptions
+  /** Require the hover/focus edit button for Markdown fields instead of clicking their content. Defaults to false. */
+  buttonToEdit?: boolean
   onDraftRowsChange?: (paths: readonly ValuePath[]) => void
   renderMarkdown?: (content: string) => ReactNode
   renderExternalWidget?: JsonViewSchemaExternalWidgetRenderer
@@ -139,7 +141,7 @@ function StructuredDataContentSession({
   content, adapter, documentId, revision, metadata, metadataPersistence, presentationState,
   onMetadataChange, onRequestMetadataPersistence, metadataConversionConfirmation = 'viewer', allowRootArrayWrapping = true,
   path, uiSize, fillHeight = false, edit, onSave, isSaving, isDirty, saveError, sourceVisible, onSourceVisibleChange, clearBehavior = 'null',
-  tableCells, onDraftRowsChange, renderExternalWidget, renderMarkdown,
+  buttonToEdit, tableCells, onDraftRowsChange, renderExternalWidget, renderMarkdown,
 }: StructuredDataContentProps) {
   const { types } = useJsonViewsRegistries()
   const [editorGeneration, setEditorGeneration] = useState(0)
@@ -509,7 +511,7 @@ function StructuredDataContentSession({
       <JsonViewer compiled={compiled} defaultKey={path?.split('/').pop() || 'root'} filePath={documentId ?? path}
         sourceContent={sourceEditor} sourceVisible={showingSource} onSourceVisibleChange={setShowingSource}
         tabularRoot={adapter.format === 'csv'}
-        editing={editing} onCurrentPathChange={rememberSourcePaths} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} sourceControl={sourceControl} tableCells={tableCells} uiSize={uiSize} fillHeight={fillHeight} />
+        editing={editing} onCurrentPathChange={rememberSourcePaths} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} sourceControl={sourceControl} buttonToEdit={buttonToEdit} tableCells={tableCells} uiSize={uiSize} fillHeight={fillHeight} />
       </EditBaseContext.Provider>
       </JsonSourceLiteralsProvider>
       </JsonRendererBoundary>

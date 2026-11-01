@@ -1,6 +1,6 @@
 # App Views
 
-Familiar app layouts built with embedded HTML views. Open **Templates → App Views** in JSON Views. Data is fictional and API-shaped, not captured from live accounts; responses are shortened to the fields used by the examples. `$jsonviews` is local presentation metadata, not an API response field. LinkedIn is explicitly a UI mock.
+Familiar app layouts built with embedded HTML views. Open **App Views** in JSON Views. Data is fictional and API-shaped, not captured from live accounts; responses are shortened to the fields used by the examples. `$jsonviews` is local presentation metadata, not an API response field. LinkedIn is explicitly a UI mock.
 
 Edits only change the local JSON. These fixtures are not write-request bodies or live integrations. Nullable, optional, and differently ordered fields in other responses require adapting the bindings. Only built-in text formatting runs in the views: currency, dates, explicit labels, and UTF-8 base64url decoding. No scripts or API calls run inside templates.
 

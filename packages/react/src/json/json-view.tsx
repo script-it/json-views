@@ -1,6 +1,7 @@
 import { HtmlView } from './html-view.js'
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Braces, LayoutGrid, Columns3, FileText, Search, Table2 } from 'lucide-react'
+import { ButtonToEditContext } from './edit-interaction.js'
 import { useJsonViewsRegistries } from '../widget-registry.js'
 import { cn } from '../lib/cn.js'
 import type { UiSize } from '../lib/ui-size.js'
@@ -205,6 +206,7 @@ export function JsonViewer({
   renderExternalWidget,
   renderMarkdown,
   sourceControl, sourceContent, sourceVisible, onSourceVisibleChange,
+  buttonToEdit = false,
   tableCells,
   uiSize,
   viewsEnabled = true,
@@ -398,6 +400,7 @@ export function JsonViewer({
   }
 
   return (
+    <ButtonToEditContext.Provider value={buttonToEdit}>
     <TableCellOptionsContext.Provider value={tableCells}>
     <Tabs value={selectedTab} onValueChange={(value) => { if (value !== 'source') setActiveTab(value); onSourceVisibleChange?.(value === 'source') }} className={cn('flex min-h-0 flex-1 flex-col bg-background text-foreground', fillHeight && 'h-full')}>
       <div data-id="json-viewer-content" className={cn('flex min-h-0 w-full max-w-none flex-1 flex-col px-3 py-4 sm:px-6 sm:py-5', fillHeight && 'h-full')}>
@@ -494,6 +497,7 @@ export function JsonViewer({
       </div>
     </Tabs>
     </TableCellOptionsContext.Provider>
+    </ButtonToEditContext.Provider>
   )
 }
 

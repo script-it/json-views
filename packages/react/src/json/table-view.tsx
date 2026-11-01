@@ -1,6 +1,7 @@
+import { ButtonToEditContext } from './edit-interaction.js'
 import { isLongText } from './long-text.js'
 import { useJsonSourceLiterals } from './source-literals.js'
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { useJsonViewsRegistries } from '../widget-registry.js'
 import type { UiSize } from '../lib/ui-size.js'
 import { AtomicValueEditor, EditValueAction, StructuredValueCellFrame } from '../structured-data/atomic-value-editor.js'
@@ -73,6 +74,7 @@ export function ProjectedTableView({
   uiSize?: UiSize
   view: CompiledJsonViewView
 }) {
+  const buttonToEdit = useContext(ButtonToEditContext)
   const { types } = useJsonViewsRegistries()
   const sourceLiteral = useJsonSourceLiterals()
   const [editPath, setEditPath] = useState<ValuePath>()
@@ -329,13 +331,14 @@ export function ProjectedTableView({
           const openRecordEditor = () => { setEditPath(resolved.sourcePath); setOpenRowPath(row.sourcePath) }
           // Render before applying the plain-text shortcut. A group preserves
           // native link interactions without nesting links inside a button.
-          if (renderMarkdown && (descriptor?.type === 'markdown' || descriptor?.type === 'body')) return (
+          if ((renderMarkdown || buttonToEdit) && (descriptor?.type === 'markdown' || descriptor?.type === 'body')) return (
             <StructuredValueCellFrame
               activationLabel={`Open ${displayColumn.label} in record`}
               activationRole="group"
-              onActivate={openRecordEditor}
+              onActivate={buttonToEdit ? undefined : openRecordEditor}
+              overlayActions={buttonToEdit}
               actions={editing && editing.canReplace?.(resolved.sourcePath) !== false
-                ? <EditValueAction label={displayColumn.label} onClick={openRecordEditor} />
+                ? <EditValueAction disabled={editing.saving} label={displayColumn.label} onClick={openRecordEditor} />
                 : undefined}
             >
               <div className="min-w-0 flex-1 break-words pr-2">

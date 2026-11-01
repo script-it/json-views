@@ -682,7 +682,7 @@ export function App() {
         if (annotationResponse && (!annotations || typeof annotations !== 'object' || Array.isArray(annotations))) throw new Error(`Invalid annotations for ${sample.title}`)
         return openDocument(annotationResponse ? embedJsonViewMetadata(source, annotations as Record<string, unknown>) : source, filenameFromPath(sample.sourceFile), {
           cacheable: false,
-          id: `example:${sample.sourceFile}`,
+          id: `example:${sample.category === 'Template' ? `Templates/${sample.sourceFile}` : sample.sourceFile}`,
           label: sample.title,
           relativePath: sample.relativePath,
           presentationState: sample.presentationState,
@@ -711,7 +711,7 @@ export function App() {
         // Edited examples are ordinary browser documents. Their saved source
         // takes precedence over a freshly fetched template, including its UI state.
         const edited = cachedById.get(document.id)
-        if (edited) return edited
+        if (edited) return { ...edited, relativePath: document.relativePath }
         const state = cached?.templateStates?.[document.filename]
         return state ? { ...document, mode: state.mode ?? document.mode, presentationState: state.presentationState ?? document.presentationState } : document
       })
@@ -1530,6 +1530,7 @@ export function App() {
               isDirty={snapshot.dirty}
               isSaving={snapshot.saving || (!token && documentSession.cacheable && workspaceSave.saving)}
               saveError={snapshot.error?.message || hostError || (!token && documentSession.cacheable ? storageError || (workspaceConflicts.includes(documentSession.id) ? 'This document has a save conflict.' : undefined) : undefined)}
+              buttonToEdit
               renderMarkdown={renderMarkdownBody}
               fillHeight
               edit={{
