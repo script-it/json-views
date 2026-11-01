@@ -5,6 +5,9 @@ import { type CompiledJsonViewMetadata } from '@script-it/json-views-core'
 import { type JsonViewSchemaExternalWidgetRenderer } from './schema-value.js'
 import type { JsonValueReplacement } from '@script-it/json-views-core'
 import type { JsonViewsTableCellOptions } from '../structured-data/table-cell-options.js'
+import type { JsonViewsPick } from '../structured-data/picking.js'
+import type { JsonViewsMark } from '../structured-data/value-elements.js'
+import type { JsonViewsController } from '../controller.js'
 
 
 export interface JsonViewJsonEditing {
@@ -50,4 +53,13 @@ export interface JsonViewerProps {
   viewsEnabled?: boolean
   /** CSV is already tabular, irrespective of JSON prediction confidence. */
   tabularRoot?: boolean
+  /** Presses on values pick them, reported here, instead of acting on them; see the README. */
+  onPick?: (pick: JsonViewsPick) => void
+  /** Labels on values, rendered into their elements' `data-json-views-mark`. */
+  marks?: readonly JsonViewsMark[]
+  /** Bound to this viewer while it is mounted, to find and scroll to its values. */
+  controller?: JsonViewsController
+  /** CSS added to each HTML view's frame after the view's own, since the host's stylesheets do not reach the frame. The
+   *  custom properties it reads with `var()` take their values from the host's page. */
+  htmlViewCss?: string
 }

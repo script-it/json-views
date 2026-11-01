@@ -322,6 +322,7 @@
   [data-id="jsonView-record-back"] { min-height: 44px; margin: 0 0 8px; font-size: 14px; }
   [data-id="jsonView-record-view"] article { padding-inline: 0; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   [data-id="jsonView-record-view"] dl { grid-template-columns: minmax(5rem, 30%) minmax(0, 1fr); gap: 0 12px; align-items: center; font-size: 14px; }
+  [data-id="jsonView-record-view"] dl > div { align-items: center; }
   [data-id="jsonView-record-view"] dt { padding: 8px 0; font-size: 12px; }
   [data-id="jsonView-record-view"] dd { padding-block: 4px; }
   [data-id="jsonView-record-view"] [data-id="atomic-edit-value"], [data-id="jsonView-record-view"] button { min-height: 44px; }
@@ -345,4 +346,9 @@
 /* Paint the whole header, including its selection control, as one hit area. */
 .json-views-root [data-id="tabular-column-header"]:is(:hover, :has([data-id="tabular-column-menu"][aria-expanded="true"])) {
   background: var(--accent);
+}
+
+/* While values are picked, a drag from a link or image inside one selects text rather than carrying the link away. */
+.json-views-root [data-json-views-picking] [data-json-views-path] :is(a, img) {
+  -webkit-user-drag: none;
 }

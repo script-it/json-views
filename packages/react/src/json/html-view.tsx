@@ -10,14 +10,17 @@ import { useJsonSourceLiterals } from './source-literals.js'
 import { parseHtmlTemplate, type HtmlTemplateNode } from './html-view/template.js'
 import { NativeHtmlControl } from './html-view/native-control.js'
 import { formatHtmlValue, htmlValueForEditing, htmlValueFromEditing } from './html-view/format-value.js'
+import { useValueMarks, valueElementAttributes } from '../structured-data/value-elements.js'
+import { usePicking } from '../structured-data/picking.js'
 import type { JsonViewJsonEditing } from './view-types.js'
 
-const skeleton = `<!doctype html><html><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src data:; font-src 'none'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><style>body{margin:0;font:14px system-ui;background:var(--jv-background);color:var(--jv-foreground)}*{box-sizing:border-box}jv-field,jv-value{display:inline}button.jv-field{font:inherit;color:inherit;background:transparent;border:0;padding:0;text-align:inherit;cursor:pointer}button.jv-field:hover{outline:1px dashed currentColor}button.jv-field:focus-visible{outline:2px solid currentColor}</style></head><body><div id="mount"></div></body></html>`
-export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathChange }: { compiled: CompiledJsonViewMetadata; view: CompiledJsonViewView; editing?: JsonViewJsonEditing; fillHeight?: boolean; onCurrentPathChange?: (path: ValuePath) => void }) {
+const skeleton = `<!doctype html><html><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src data:; font-src 'none'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><style>body{margin:0;font:14px system-ui;background:var(--jv-background);color:var(--jv-foreground)}*{box-sizing:border-box}jv-field,jv-value{display:inline}button.jv-field{font:inherit;color:inherit;background:transparent;border:0;padding:0;text-align:inherit;cursor:pointer}button.jv-field:hover{outline:1px dashed currentColor}button.jv-field:focus-visible{outline:2px solid currentColor}[data-json-views-picking] button.jv-field:hover{outline:0}</style></head><body><div id="mount"></div></body></html>`
+export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathChange, htmlViewCss }: { compiled: CompiledJsonViewMetadata; view: CompiledJsonViewView; editing?: JsonViewJsonEditing; fillHeight?: boolean; onCurrentPathChange?: (path: ValuePath) => void; htmlViewCss?: string }) {
   const frame = useRef<HTMLIFrameElement>(null), editorRef = useRef<HTMLDivElement>(null)
   const [doc, setDoc] = useState<Document>(), [error, setError] = useState(''), [height, setHeight] = useState(500)
   const [selected, setSelected] = useState<{ path: ValuePath; anchor: HTMLElement; base?: string; attrs: Record<string, string>; resolve: (binding: string) => unknown; syncPath?: ValuePath; byteLengthPath?: ValuePath }>()
   const base = useContext(EditBaseContext), literals = useJsonSourceLiterals(), portal = useJsonViewsPortalContainer()
+  const marks = useValueMarks(), picking = usePicking()
   const anchorRef = useRef<HTMLElement | null>(null); anchorRef.current = selected?.anchor ?? null
   // A bound field is laid out by the template, not by a column, so the popup
   // takes its width from the text it covers instead of a fixed card width.
@@ -30,21 +33,25 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
   useEffect(() => { setSelected(undefined); setError('') }, [view.html, view.id])
   useEffect(() => {
     if (!doc) return
-    const style = doc.createElement('style'); style.textContent = view.css ?? ''; doc.head.appendChild(style)
-    return () => style.remove()
-  }, [doc, view.css])
+    // The host's CSS follows the view's own: the frame is a document the host's stylesheets do not reach.
+    const styles = [view.css ?? '', htmlViewCss ?? ''].map(css => { const style = doc.createElement('style'); style.textContent = css; doc.head.appendChild(style); return style })
+    return () => styles.forEach(style => style.remove())
+  }, [doc, view.css, htmlViewCss])
+  useEffect(() => { doc?.documentElement.toggleAttribute('data-json-views-picking', picking) }, [doc, picking])
   useEffect(() => {
     if (!doc || !frame.current) return
     const update = () => {
       const computed = getComputedStyle(frame.current!)
       for (const name of ['background', 'foreground', 'muted', 'border', 'accent']) doc.documentElement.style.setProperty('--jv-' + name, computed.getPropertyValue('--jv-' + name))
+      // The custom properties the host's CSS reads take their values from the host's page, as the theme's do.
+      for (const [, name] of (htmlViewCss ?? '').matchAll(/var\(\s*(--[\w-]+)/g)) doc.documentElement.style.setProperty(name, computed.getPropertyValue(name))
       doc.documentElement.style.colorScheme = frame.current!.closest('[data-json-views-theme]')?.getAttribute('data-json-views-theme') ?? 'light'
       if (!fillHeight) setHeight(Math.min(2000, Math.max(200, doc.body.scrollHeight)))
     }
     update(); const observer = typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(update); observer?.observe(doc.body)
     const themeObserver = new MutationObserver(update); const host = frame.current.closest('[data-json-views-theme]'); if (host) themeObserver.observe(host, { attributes: true })
     return () => { observer?.disconnect(); themeObserver.disconnect() }
-  }, [doc, fillHeight])
+  }, [doc, fillHeight, htmlViewCss])
   useEffect(() => {
     if (!selected || !doc) return
     const close = (event: Event) => {
@@ -63,7 +70,8 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
     if (result.value === JSON_VIEW_PATH_MISSING) throw new Error(`Unresolved binding: ${expression}`)
     return result
   }
-  const render = (nodes: HtmlTemplateNode[], aliases: Record<string, ValuePath> = {}): ReactNode[] => nodes.map(node => {
+  // `item` is the repeated value whose elements these nodes are the outermost of, which carry its path.
+  const render = (nodes: HtmlTemplateNode[], aliases: Record<string, ValuePath> = {}, item?: ValuePath): ReactNode[] => nodes.map(node => {
     if (++expanded > 10000) throw new Error('HTML view exceeds 10,000 expanded nodes')
     if (!node.tag) return node.text
     try {
@@ -76,7 +84,7 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
         if (node.attrs.order && !['forward', 'reverse'].includes(node.attrs.order)) throw new Error('Repeat order must be forward or reverse')
         const indices = resolved.value.map((_, index) => index)
         if (node.attrs.order === 'reverse') indices.reverse()
-        return indices.map(index => <Fragment key={`${node.id}:${keys[index]}`}>{render(node.children, { ...aliases, [alias]: [...resolved.sourcePath, index] })}</Fragment>)
+        return indices.map(index => <Fragment key={`${node.id}:${keys[index]}`}>{render(node.children, { ...aliases, [alias]: [...resolved.sourcePath, index] }, [...resolved.sourcePath, index])}</Fragment>)
       }
       const props: Record<string, unknown> = { key: node.id }
       const mapping: Record<string, string> = { class: 'className', for: 'htmlFor', tabindex: 'tabIndex', readonly: 'readOnly', maxlength: 'maxLength', viewbox: 'viewBox', preserveaspectratio: 'preserveAspectRatio', 'stroke-width': 'strokeWidth', 'text-anchor': 'textAnchor', 'font-size': 'fontSize', 'font-family': 'fontFamily' }
@@ -98,17 +106,20 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
         if (sync && sync.value !== null && typeof sync.value === 'object') throw new Error('sync-bind must address a scalar')
         if (byteLength && (node.attrs.format !== 'base64url' || typeof byteLength.value !== 'number')) throw new Error('byte-length-bind requires base64url and a numeric size field')
         const canEdit = node.tag === 'jv-field' && editing && [resolved, sync, byteLength].every(target => !target || editing.canReplace?.(target.sourcePath) !== false)
-        return <span key={node.id}>{canEdit ? <button className="jv-field" aria-label={node.attrs['aria-label'] ?? `Edit ${node.attrs.bind}`} onClick={event => setSelected({ path: resolved.sourcePath, anchor: event.currentTarget, base, attrs: node.attrs, resolve: resolveValue, syncPath: sync?.sourcePath, byteLengthPath: byteLength?.sourcePath })}>{text}</button> : text}</span>
+        return <span key={node.id} {...valueElementAttributes(resolved.sourcePath, marks)}>{canEdit ? <button className="jv-field" aria-label={node.attrs['aria-label'] ?? `Edit ${node.attrs.bind}`} onClick={event => setSelected({ path: resolved.sourcePath, anchor: event.currentTarget, base, attrs: node.attrs, resolve: resolveValue, syncPath: sync?.sourcePath, byteLengthPath: byteLength?.sourcePath })}>{text}</button> : text}</span>
       }
       if (node.attrs['jv-bind']) {
         if (node.tag !== 'input' && node.tag !== 'textarea') throw new Error('jv-bind requires input or textarea')
         const resolved = resolve(node.attrs['jv-bind'], aliases)
-        return <NativeHtmlControl key={node.id} tag={node.tag} props={props} path={resolved.sourcePath} value={resolved.value} editing={editing} report={setError} />
+        return <NativeHtmlControl key={node.id} tag={node.tag} props={{ ...props, ...valueElementAttributes(resolved.sourcePath, marks) }} path={resolved.sourcePath} value={resolved.value} editing={editing} report={setError} />
       }
       if (node.attrs['jv-value']) {
         if (!['progress', 'meter'].includes(node.tag)) throw new Error('jv-value attribute requires progress or meter')
-        props.value = resolve(node.attrs['jv-value'], aliases).value
+        const resolved = resolve(node.attrs['jv-value'], aliases)
+        props.value = resolved.value
+        Object.assign(props, valueElementAttributes(resolved.sourcePath, marks))
       }
+      else if (item) Object.assign(props, valueElementAttributes(item, marks))
       return createElement(node.tag, props, ...render(node.children, aliases))
     } catch (cause) { if (cause instanceof Error && cause.message.includes('10,000 expanded nodes')) throw cause; const message = `${view.name}, node ${node.id}: ${cause instanceof Error ? cause.message : 'Invalid binding'}`; warnings.push(message); return <span key={node.id}>[Binding unavailable]</span> }
   })

@@ -213,10 +213,13 @@ export function ProjectedTableView({
       await onSaveView(next)
     },
   } : undefined
+  // Every rendered cell names its source path, so columns are looked up by id rather than searched.
+  const columnsById = useMemo(() => new Map(tableModel.visibleColumns.map((column) => [column.id, column])), [tableModel.visibleColumns])
   const getCellSourcePath = useCallback((rowIndex: number, columnId: string) => {
-    const column = tableModel.visibleColumns.find((candidate) => candidate.id === columnId)
+    const column = columnsById.get(columnId)
     return column && resolveJsonViewRowPath(compiled.root, projected.rows[rowIndex], column.path).sourcePath
-  }, [compiled.root, projected.rows, tableModel.visibleColumns])
+  }, [columnsById, compiled.root, projected.rows])
+  const getRowSourcePath = useCallback((rowIndex: number) => projected.rows[rowIndex]?.sourcePath, [projected.rows])
   const openRow = rowAtSourcePath(compiled.root, openRowPath)
   const reportedPath = openRow?.sourcePath ?? openCell?.path ?? view.sourcePath
   const reportedPathKey = JSON.stringify(reportedPath)
@@ -267,6 +270,7 @@ export function ProjectedTableView({
     <TabularObjectArrayView
       arr={records}
       getCellSourcePath={getCellSourcePath}
+      getRowSourcePath={getRowSourcePath}
       rowKeys={projected.rows.map((row) => JSON.stringify(row.sourcePath))}
       onVisibleRowsChange={reportVisibleRows}
       columns={visibleColumns.map(({ id }) => id)}

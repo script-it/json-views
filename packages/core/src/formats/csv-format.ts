@@ -173,14 +173,17 @@ function inferredColumns(state: CsvDocumentState): Array<'string' | 'number' | '
   })
 }
 
+/** The key a column's cells take in the root: its header, `$columnN` for an empty one, and `Header [N]` for a repeat. */
+function csvColumnKey(headers: readonly string[], column: number): string {
+  const key = headers[column] || `$column${column + 1}`
+  return headers.indexOf(key) === column ? key : `${key} [${column + 1}]`
+}
+
 function normalizedRoot(state: CsvDocumentState): Array<Record<string, unknown>> {
   const types = inferredColumns(state)
   return state.records.slice(1).map((record) => Object.fromEntries(record.cells.map((cell, column) => {
-    const original = state.headers[column]
-    let key = original || `$column${column + 1}`
-    if (state.headers.indexOf(key) !== column) key = `${key} [${column + 1}]`
     const value: unknown = cell.value === '' ? '' : types[column] === 'number' ? Number(cell.value) : types[column] === 'boolean' ? cell.value === 'true' : cell.value
-    return [key, value]
+    return [csvColumnKey(state.headers, column), value]
   })))
 }
 
@@ -230,6 +233,31 @@ function applyEdits(source: string, edits: Array<{ start: number; end: number; t
 export function inspectCsvSource(source: string): { root: Array<Record<string, unknown>>; state: CsvDocumentState; diagnostics: DocumentDiagnostic[] } {
   const parsed = parseCsv(source)
   return { root: normalizedRoot(parsed.state), state: parsed.state, diagnostics: parsed.diagnostics }
+}
+
+/**
+ * The UTF-16 span of a CSV view path in its source: `[row]` is a data record
+ * without its line ending, `[row, key]` a cell as written, quotes included,
+ * and `[]` every data record. `key` is the root's column key, so empty and
+ * repeated headers use their synthesized keys. Header and quoting problems do
+ * not prevent a lookup.
+ */
+export function csvSourceRangeAtPath(source: string, path: ValuePath): { start: number; end: number } {
+  const { state } = parseCsv(source)
+  const rows = state.records.slice(1)
+  if (path.length === 0) return rows.length ? { start: rows[0].start, end: rows[rows.length - 1].end } : { start: source.length, end: source.length }
+  const [row, key] = path
+  if (path.length > 2 || typeof row !== 'number' || !Number.isSafeInteger(row) || row < 0 || (path.length === 2 && typeof key !== 'string')) {
+    throw new TypeError(`CSV path ${describeValuePath(path)} must identify a row, or a row and column`)
+  }
+  const record = rows[row]
+  if (!record) throw new RangeError(`CSV path ${describeValuePath(path)} does not exist`)
+  if (path.length === 1) return { start: record.start, end: record.end }
+  // Columns sharing a key keep the last one's value in the root.
+  let column = record.cells.length - 1
+  while (column >= 0 && csvColumnKey(state.headers, column) !== key) column -= 1
+  if (column < 0) throw new RangeError(`CSV path ${describeValuePath(path)} does not exist`)
+  return { start: record.cells[column].start, end: record.cells[column].end }
 }
 
 export function validateCsvSource(source: string): void {

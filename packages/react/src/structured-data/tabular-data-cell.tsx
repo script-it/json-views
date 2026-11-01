@@ -1,6 +1,9 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from 'react'
+import type { ValuePath } from '@script-it/json-views-core'
 
 import { cn } from '../lib/cn.js'
+import { usePicking } from './picking.js'
+import { useValueMarks, valueElementAttributes } from './value-elements.js'
 
 /** Focus on a text control means the cell is being edited. */
 function isTextEntry(target: EventTarget): boolean {
@@ -18,7 +21,8 @@ export function TabularDataCell({
   children,
   className,
   clamped,
-  onReveal,
+  onReveal: revealOnSelect,
+  path,
   pinned = false,
   revealedHeight,
   style,
@@ -29,6 +33,8 @@ export function TabularDataCell({
   clamped: boolean
   /** Present only on cells that may be revealed; receives the cell height. */
   onReveal?: (height: number) => void
+  /** The source path of the value the cell shows; none when the row has no value of its own here. */
+  path?: ValuePath
   pinned?: boolean
   /** The row height held while this cell is revealed. */
   revealedHeight?: number
@@ -37,6 +43,9 @@ export function TabularDataCell({
   const contentRef = useRef<HTMLDivElement>(null)
   const [overflowing, setOverflowing] = useState(false)
   const revealed = revealedHeight !== undefined
+  const marks = useValueMarks()
+  // A press on a value picks it rather than revealing it.
+  const onReveal = usePicking() ? undefined : revealOnSelect
 
   // Only a value taller than its cell needs a surface of its own; one that
   // fits stays visually identical to the unselected cell.
@@ -62,6 +71,7 @@ export function TabularDataCell({
   return (
     <td
       ref={cellRef}
+      {...valueElementAttributes(path, marks)}
       data-pinned={pinned || undefined}
       data-cell-revealed={revealed || undefined}
       className={cn(className, revealed ? 'relative overflow-visible' : 'overflow-hidden')}
