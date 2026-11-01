@@ -682,6 +682,8 @@ export function App() {
         if (annotationResponse && (!annotations || typeof annotations !== 'object' || Array.isArray(annotations))) throw new Error(`Invalid annotations for ${sample.title}`)
         return openDocument(annotationResponse ? embedJsonViewMetadata(source, annotations as Record<string, unknown>) : source, filenameFromPath(sample.sourceFile), {
           cacheable: false,
+          // Before flattening, Template sourceFile paths already began with Templates/.
+          // Preserve those IDs so saved edits and active selection still match.
           id: `example:${sample.category === 'Template' ? `Templates/${sample.sourceFile}` : sample.sourceFile}`,
           label: sample.title,
           relativePath: sample.relativePath,
