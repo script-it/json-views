@@ -184,8 +184,8 @@
     "description": "A familiar payments table with editable amounts, statuses, descriptions, notes, and billing contacts.",
     "sourceFile": "Templates/App Views/Stripe Payments.json",
     "relativePath": "Templates/App Views/Stripe Payments.json",
-    "sourceSha256": "7876554baf597c3182c450119f4ccfb122fa624516df22686a7a36ec6eeb4842",
-    "bytes": 10022,
+    "sourceSha256": "ff94d71d520f9a780542b97554b75b78b9e55f8e59562b3f3404e17efd0289cc",
+    "bytes": 10582,
     "apiReference": [
       "https://docs.stripe.com/api/payment_intents/list",
       "https://docs.stripe.com/api/payment_intents/object",
