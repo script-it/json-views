@@ -16,6 +16,8 @@ import { matchesSearch, inferredDescriptor, rowHasLongText, titleForRow, titleFi
 import { GeneralRecordView, RecordView } from './record-view.js'
 import { useKanbanColumnDrag } from './use-kanban-column-drag.js'
 import { useKanbanCardDrag } from './use-kanban-card-drag.js'
+import { usePicking } from '../structured-data/picking.js'
+import { useValueMarks, valueElementAttributes } from '../structured-data/value-elements.js'
 
 interface KanbanGroup {
   key: string
@@ -158,6 +160,9 @@ export function KanbanView({
 }) {
   const { types } = useJsonViewsRegistries()
   const sourceLiteral = useJsonSourceLiterals()
+  // While values are picked, cards hold still so their text can be selected.
+  const picking = usePicking()
+  const marks = useValueMarks()
   const rowTitle = (row: JsonViewViewRow) => sourceLiteral(titleFieldForRow(compiled.root, view, row)?.path) ?? titleForRow(compiled.root, view, row)
   const [openRowPath, setOpenRowPath] = useState<ValuePath>()
   const [pendingGroups, setPendingGroups] = useState<KanbanGroup[]>()
@@ -242,7 +247,7 @@ export function KanbanView({
   }, [onCurrentPathChange, reportedPathKey, sourcePathsKey])
   const cardDrag = useKanbanCardDrag({
     boardRef: columnDrag.boardRef,
-    enabled: !!editing && !editing.saving && !openRow,
+    enabled: !!editing && !editing.saving && !openRow && !picking,
     scope: JSON.stringify([filePath, view.id, view.groupBy?.source, groups.map(group => group.key), rows.map(row => [rowIdentity(row), row.value]), temporaryOrder]),
     onMove: (id, key, before) => {
       const row = completeRows.find(row => rowIdentity(row) === id)
@@ -382,13 +387,14 @@ export function KanbanView({
                   {grouped.length === 0 && <p className="px-2 py-5 text-center text-xs text-muted-foreground">{query ? 'No matching cards' : 'No cards'}</p>}
                   {grouped.map((row, rowIndex) => {
                     const groupPath = resolveJsonViewRowPath(compiled.root, row, view.groupBy!)
-                    const canMove = editing !== undefined && editing.canReplace?.(groupPath.sourcePath) !== false && groupPath.value !== JSON_VIEW_PATH_MISSING
+                    const canMove = !picking && editing !== undefined && editing.canReplace?.(groupPath.sourcePath) !== false && groupPath.value !== JSON_VIEW_PATH_MISSING
                     const hasLongText = rowHasLongText(compiled, row.sourcePath)
                     const PageIcon = hasLongText ? FileText : File
                     const rowId = rowIdentity(row)
                     return (
                       <article
                         key={JSON.stringify(row.sourcePath)}
+                        {...valueElementAttributes(row.sourcePath, marks)}
                         data-id="jsonView-kanban-card"
                         data-row-id={rowId}
                         draggable={canMove && !editing.saving}
@@ -422,7 +428,7 @@ export function KanbanView({
                             const schema = schemaForJsonViewPath(compiled.schema, resolved.sourcePath)
                             const descriptor = schema?.descriptor ?? inferredDescriptor(resolved.value)
                             return (
-                              <div key={column.id} className="min-w-0">
+                              <div key={column.id} {...valueElementAttributes(resolved.sourcePath, marks)} className="min-w-0">
                                 <JsonViewSchemaValueCell
                                   sourcePath={resolved.sourcePath}
                                   compact

@@ -14,6 +14,7 @@ import { useMetadataPersistence, type MetadataPersistence } from '../structured-
 import type { JsonViewsTableCellOptions } from '../structured-data/table-cell-options.js'
 import { JsonViewer } from './json-view.js'
 import type { JsonViewSchemaExternalWidgetRenderer } from './schema-value.js'
+import type { JsonViewerProps } from './view-types.js'
 import { useJsonViewsRegistries } from '../widget-registry.js'
 import { assertSourceReplacementSafe, assertUnambiguousSourcePath, replacementIssue } from './source-edit-capabilities.js'
 import { JsonSourceLiteralsProvider } from './source-literals.js'
@@ -105,6 +106,14 @@ export interface StructuredDataContentProps {
   onDraftRowsChange?: (paths: readonly ValuePath[]) => void
   renderMarkdown?: (content: string) => ReactNode
   renderExternalWidget?: JsonViewSchemaExternalWidgetRenderer
+  /** Presses on values pick them, reported here, instead of acting on them; see the README. */
+  onPick?: JsonViewerProps['onPick']
+  /** Labels on values, rendered into their elements' `data-json-views-mark`. */
+  marks?: JsonViewerProps['marks']
+  /** Bound to the viewer while it is mounted, to find and scroll to its values. */
+  controller?: JsonViewerProps['controller']
+  /** CSS for each HTML view's frame, which the host's stylesheets do not reach; see the README. */
+  htmlViewCss?: JsonViewerProps['htmlViewCss']
   /** @deprecated Use onRequestMetadataPersistence. */
   allowRootArrayWrapping?: boolean
 }
@@ -141,7 +150,7 @@ function StructuredDataContentSession({
   content, adapter, documentId, revision, metadata, metadataPersistence, presentationState,
   onMetadataChange, onRequestMetadataPersistence, metadataConversionConfirmation = 'viewer', allowRootArrayWrapping = true,
   path, uiSize, fillHeight = false, edit, onSave, isSaving, isDirty, saveError, sourceVisible, onSourceVisibleChange, clearBehavior = 'null',
-  buttonToEdit, tableCells, onDraftRowsChange, renderExternalWidget, renderMarkdown,
+  buttonToEdit, tableCells, onDraftRowsChange, renderExternalWidget, renderMarkdown, onPick, marks, controller, htmlViewCss,
 }: StructuredDataContentProps) {
   const { types } = useJsonViewsRegistries()
   const [editorGeneration, setEditorGeneration] = useState(0)
@@ -511,7 +520,8 @@ function StructuredDataContentSession({
       <JsonViewer compiled={compiled} defaultKey={path?.split('/').pop() || 'root'} filePath={documentId ?? path}
         sourceContent={sourceEditor} sourceVisible={showingSource} onSourceVisibleChange={setShowingSource}
         tabularRoot={adapter.format === 'csv'}
-        editing={editing} onCurrentPathChange={rememberSourcePaths} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} sourceControl={sourceControl} buttonToEdit={buttonToEdit} tableCells={tableCells} uiSize={uiSize} fillHeight={fillHeight} />
+        editing={editing} onCurrentPathChange={rememberSourcePaths} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} sourceControl={sourceControl} buttonToEdit={buttonToEdit} tableCells={tableCells} uiSize={uiSize} fillHeight={fillHeight}
+        onPick={onPick} marks={marks} controller={controller} htmlViewCss={htmlViewCss} />
       </EditBaseContext.Provider>
       </JsonSourceLiteralsProvider>
       </JsonRendererBoundary>

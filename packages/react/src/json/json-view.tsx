@@ -20,6 +20,9 @@ import { ProjectedTableView } from './table-view.js'
 import { KanbanView } from './kanban-view.js'
 import { useViewerState } from '../viewer-state.js'
 import { TableCellOptionsContext } from '../structured-data/table-cell-options.js'
+import { indexValueMarks, ValueMarksContext } from '../structured-data/value-elements.js'
+import { PickingContext, usePickHandlers } from '../structured-data/picking.js'
+import { RevealTablesContext, useBindController } from '../controller.js'
 
 // A tab is the containing block of its `sr-only` label, so the label stays inside the scrolling tab strip
 // instead of widening the toolbar and the host's page.
@@ -185,8 +188,8 @@ function PageView({
   return <RecordView compiled={compiled} copyFileName={copyFileName} editing={editing} filePath={filePath} fillHeight={fillHeight} onCurrentPathChange={onCurrentPathChange} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} row={row} uiSize={uiSize} view={view} />
 }
 
-function ConfiguredView(props: Omit<Parameters<typeof AdaptiveView>[0], 'view'> & { view: CompiledJsonViewView }) {
-  if (props.view.display === 'html') return <HtmlView {...props} />
+function ConfiguredView({ htmlViewCss, ...props }: Omit<Parameters<typeof AdaptiveView>[0], 'view'> & { view: CompiledJsonViewView; htmlViewCss?: string }) {
+  if (props.view.display === 'html') return <HtmlView {...props} htmlViewCss={htmlViewCss} />
   if (props.view.display === 'kanban') return <KanbanView {...props} />
   if (props.view.declarationIndex >= 0
     && props.view.value !== null
@@ -213,9 +216,19 @@ export function JsonViewer({
   uiSize,
   viewsEnabled = true,
   tabularRoot = false,
+  onPick,
+  marks,
+  controller,
+  htmlViewCss,
 }: JsonViewerProps) {
   const { types } = useJsonViewsRegistries()
   const viewerState = useViewerState()
+  const contentRef = useRef<HTMLDivElement>(null)
+  const revealTables = useBindController(controller, contentRef)
+  const pickHandlers = usePickHandlers(onPick)
+  // Hosts often pass a new array with the same marks; the index changes only with the marks themselves.
+  const marksSignature = JSON.stringify(marks?.map((mark) => [mark.path, mark.kind]) ?? [])
+  const valueMarks = useMemo(() => indexValueMarks(marks), [marksSignature])
   const firstViewTab = viewsEnabled && compiled.views[0] ? `view:${compiled.views[0].id}` : 'root'
   const initialActiveTab = viewerState.activeView ?? firstViewTab
   const [activeTab, setActiveTab] = useState(initialActiveTab)
@@ -494,8 +507,14 @@ export function JsonViewer({
             )}
           </div>
         )}
-        <TabsContent value={selectedTab} className={cn('mt-2 min-w-0', fillHeight && 'flex min-h-0 flex-1 flex-col')}>
-          {selectedTab === 'source' ? sourceContent : <ConfiguredView key={selectedTab} forceTable={forceTable} compiled={compiled} copyFileName={defaultKey === 'root' ? 'document.json' : defaultKey} editing={editing} filePath={filePath} fillHeight={fillHeight} onCurrentPathChange={rememberCurrentPath} onSaveView={saveColumnView} query={query} rawView={columnRawView} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} uiSize={uiSize} view={renderedView} />}
+        <TabsContent ref={contentRef} value={selectedTab} className={cn('mt-2 min-w-0', fillHeight && 'flex min-h-0 flex-1 flex-col')} {...pickHandlers}>
+          <ValueMarksContext.Provider value={valueMarks}>
+          <PickingContext.Provider value={onPick !== undefined}>
+          <RevealTablesContext.Provider value={revealTables}>
+          {selectedTab === 'source' ? sourceContent : <ConfiguredView key={selectedTab} forceTable={forceTable} compiled={compiled} copyFileName={defaultKey === 'root' ? 'document.json' : defaultKey} editing={editing} filePath={filePath} fillHeight={fillHeight} onCurrentPathChange={rememberCurrentPath} onSaveView={saveColumnView} query={query} rawView={columnRawView} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} uiSize={uiSize} view={renderedView} htmlViewCss={htmlViewCss} />}
+          </RevealTablesContext.Provider>
+          </PickingContext.Provider>
+          </ValueMarksContext.Provider>
         </TabsContent>
       </div>
     </Tabs>

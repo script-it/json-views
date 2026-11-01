@@ -190,6 +190,23 @@ Built-in `select` and `multi-select` widgets are creatable. Descriptor `options`
 
 Use descriptor `optionColors` to assign a palette color per option. With writable annotations, the menu shows a palette button beside each option and persists the selected color through the annotation host callback.
 
+### Picking, marking, and revealing values
+
+Every value the viewer renders carries `data-json-views-path`, set to `valuePathKey(path)` (the `JSON.stringify` of its core `ValuePath`): table rows and cells, a record with its title and fields, general-view object rows, and Kanban cards and their fields. A cell without a source value of its own, such as an absent property or a map's key column, belongs to its row and carries no path. In an HTML view, each `jv-field` and `jv-value`, each control bound with `jv-bind` or `jv-value`, and the outermost elements of each `jv-repeat` item carry the path of what they show. Source carries none.
+
+Pass `onPick` to pick values. While it is set, a click, Enter or Space inside a value calls `onPick({ path, element })` instead of the value's own action: nothing enters editing, toggles, drills in, opens a record or cell, follows a link, selects a row, copies, reveals a clipped cell, or starts a card drag, and a press on an HTML view's bound control neither focuses nor changes it. The innermost value wins, and a row's leading icon picks the row. A click that ends a mouse selection inside one value also reports `selection: { text, range }`; a selection across a row's cells picks the row. Tabs and Source, search, breadcrumbs, column menus, resizing and reordering, the table footer, and Kanban column headers keep working. A pick stops its click from propagating, so detect presses outside the viewer with `pointerdown`. While picking, the content area carries `data-json-views-picking`, which a host can use for its own cursor:
+
+```css
+[data-json-views-picking] [data-json-views-path],
+[data-json-views-picking] [data-json-views-path] * { cursor: crosshair !important; }
+```
+
+Pass `marks={[{ path, kind }]}` to label values, whether or not picking is on. A marked value's element gets `data-json-views-mark`, the sorted, space-separated kinds on its path; style a kind with `[data-json-views-mark~="draft"]`. Marks reach virtualized rows as they mount.
+
+An HTML view draws its document in a frame, which the host's stylesheets do not reach. Pass `htmlViewCss` to add CSS there, after the view's own: custom properties it reads with `var()` take the host page's values, and while picking the frame's root carries `data-json-views-picking`. The elements `onPick` and the controller return for an HTML view sit in that frame, so their `getBoundingClientRect()` is relative to its `ownerDocument.defaultView.frameElement`.
+
+`useJsonViewsController()` (or `createJsonViewsController()` outside React) returns a controller to pass as `controller`. `controller.elementForPath(path)` returns the mounted element showing a value. `await controller.revealPath(path)` scrolls the value into view, scrolling a virtualized table to its row first, and returns the value's element. When the open view does not show the value, it returns the nearest ancestor the view shows, such as the row of a field that has no column. It returns `null` when the view shows none of the path (another view, or a search or filter hiding the row), and when no viewer is mounted within `timeoutMs` (default 3000). It does not switch views or open records. These props work on `JSONContent`, `CSVContent`, `StructuredDataContent`, and `JsonViewer`.
+
 ### External annotations
 
 Pass `metadata={{ version: 1, schema: ..., views: ... }}` to annotate any JSON root without inserting `$jsonviews`. This overrides embedded annotations and inference. Supply `onMetadataChange` to persist view settings separately; otherwise the external annotations are read-only. The host must return the accepted metadata through props. Removing `metadata` restores embedded annotations or inference. These saves do not request conversion or change the source. For transient annotations owned by the viewer, set `metadataPersistence="session"`; their lifetime is the mounted document session. Creating or deleting a property together with its annotation is offered for embedded object-root documents, where both can be committed atomically. Hosts using external annotations should coordinate such schema/data changes in their own storage transaction. Malformed and future versions produce visible diagnostics and cannot be silently replaced by version 1 settings.

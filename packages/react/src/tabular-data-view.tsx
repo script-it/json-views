@@ -1,5 +1,5 @@
 import { parseFilterValue } from './structured-data/filter-value.js'
-import { compareJsonValues, matchesJsonValueFilter, jsonValueText } from '@script-it/json-views-core'
+import { compareJsonValues, matchesJsonValueFilter, jsonValueText, valuePathKey } from '@script-it/json-views-core'
 import { useJsonSourceLiterals } from './json/source-literals.js'
 import { AddColumnHeader, ColumnHeaderMenu } from './structured-data/column-controls.js'
 import { ValueCell } from './structured-data/value-cell.js'
@@ -23,6 +23,8 @@ import { StructuredValueCellFrame } from './structured-data/atomic-value-editor.
 import { TabularDataCell } from './structured-data/tabular-data-cell.js'
 import { TableCellOptionsContext, resolveTableCellOptions } from './structured-data/table-cell-options.js'
 import { useDismiss } from './lib/use-dismiss.js'
+import { useValueMarks, valueElementAttributes } from './structured-data/value-elements.js'
+import { useRevealTable } from './controller.js'
 
 const DEFAULT_COLUMN_WIDTH = 200
 const MIN_COLUMN_WIDTH = 80
@@ -114,6 +116,7 @@ export function TabularObjectArrayView({
   arr,
   rowKeys,
   getCellSourcePath,
+  getRowSourcePath,
   columns,
   columnLabels,
   columnStateKeys,
@@ -406,14 +409,18 @@ export function TabularObjectArrayView({
     pendingScrollPosition.current = { scrollLeft: element.scrollLeft, scrollTop: element.scrollTop }
     scrollSaveTimer.current = setTimeout(flushScrollPosition, 120)
   }, [flushScrollPosition])
+  // A reveal cancels the restore, which would otherwise land after it and scroll the row away again.
+  const restoreFrame = useRef<number | undefined>(undefined)
   useEffect(() => {
     const element = scrollContainerRef.current
     if (!element || !filePath) return
     const saved = tableState.get(cacheKey)
     const frame = requestAnimationFrame(() => {
+      restoreFrame.current = undefined
       element.scrollLeft = saved?.scrollLeft ?? 0
       element.scrollTop = saved?.scrollTop ?? 0
     })
+    restoreFrame.current = frame
     return () => cancelAnimationFrame(frame)
   }, [cacheKey, filePath, tableState])
   useEffect(() => {
@@ -436,6 +443,34 @@ export function TabularObjectArrayView({
   useEffect(() => {
     rowVirtualizer.measure()
   }, [rowHeight, rowVirtualizer])
+
+  const marks = useValueMarks()
+  // Rows by source path key, built when the viewer's controller first asks after the rows change.
+  const rowsByKey = useRef<{ arr: typeof arr; getRowSourcePath: typeof getRowSourcePath; index: Map<string, number> } | undefined>(undefined)
+  const displayIndexOf = (key: string) => {
+    let cached = rowsByKey.current
+    if (!cached || cached.arr !== arr || cached.getRowSourcePath !== getRowSourcePath) {
+      const index = new Map<string, number>()
+      arr.forEach((_row, rowIndex) => {
+        const path = getRowSourcePath?.(rowIndex)
+        if (path) index.set(valuePathKey(path), rowIndex)
+      })
+      cached = rowsByKey.current = { arr, getRowSourcePath, index }
+    }
+    const original = cached.index.get(key)
+    return original === undefined ? -1 : sortedData.findIndex((row) => row.originalIndex === original)
+  }
+  // A row a filter hides is not this table's to show.
+  useRevealTable({
+    hasRow: (key) => displayIndexOf(key) >= 0,
+    scrollToRow: (key) => {
+      const index = displayIndexOf(key)
+      if (index < 0) return
+      if (restoreFrame.current !== undefined) cancelAnimationFrame(restoreFrame.current)
+      restoreFrame.current = undefined
+      rowVirtualizer.scrollToIndex(index, { align: 'center' })
+    },
+  })
 
   const virtualItems = rowVirtualizer.getVirtualItems()
   const totalTableWidth = visibleColumnWidths.reduce((sum, width) => sum + width, 0) + (onAddColumn ? 180 : 0)
@@ -714,6 +749,7 @@ export function TabularObjectArrayView({
                       <tr
                         key={virtualRow.key}
                         ref={rowVirtualizer.measureElement}
+                        {...valueElementAttributes(getRowSourcePath?.(originalIndex), marks)}
                         data-index={virtualRow.index}
                         aria-rowindex={virtualRow.index + (hiddenColumns.length > 0 ? 3 : 2)}
                         aria-selected={selectable ? selectedRows.has(originalIndex) : undefined}
@@ -758,6 +794,7 @@ export function TabularObjectArrayView({
                           return (
                             <TabularDataCell
                               key={col}
+                              path={hasKey ? getCellSourcePath?.(originalIndex, col) : undefined}
                               cellRef={revealedHeight === undefined ? undefined : revealedCellRef}
                               clamped={cellOptions.clamp}
                               pinned={compact && col === controlColumn}

@@ -5,6 +5,7 @@ import {
   createDefaultWidgetRegistry,
   JSONContent,
   JsonViewsProvider,
+  useJsonViewsController,
   type JsonViewDisplayWidgetProps,
   type JsonViewEditWidgetProps,
 } from '@script-it/json-views-react'
@@ -44,10 +45,16 @@ const sessions = {
 }
 const acceptedRevisions = { light: 0, dark: 0 }
 
+// The picked value's mark inside an HTML view, whose frame the page's stylesheet does not reach.
+const PICKED_IN_HTML_VIEW = '[data-json-views-mark~="picked"] { outline: 2px solid; }'
+
 function EmbeddedDocument({ theme }: { theme: 'light' | 'dark' }) {
   const session = sessions[theme]
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot)
   const [editingEnabled, setEditingEnabled] = useState(true)
+  const [pickingEnabled, setPickingEnabled] = useState(false)
+  const [picked, setPicked] = useState<readonly (string | number)[]>()
+  const controller = useJsonViewsController()
   const commit = (content: string) => session.commit(() => content, async (accepted) => ({
     content: accepted,
     revision: `${theme}-${++acceptedRevisions[theme]}`,
@@ -57,6 +64,8 @@ function EmbeddedDocument({ theme }: { theme: 'light' | 'dark' }) {
     <header className="fixture-card-header">
       <div><h2>{theme === 'light' ? 'Light viewer' : 'Dark viewer'}</h2><p>Session: {snapshot.documentId} · Revision: {snapshot.revision}</p></div>
       <label className="fixture-edit-toggle"><input type="checkbox" checked={editingEnabled} onChange={(event) => setEditingEnabled(event.target.checked)} /> Editing enabled</label>
+      <label className="fixture-edit-toggle"><input type="checkbox" checked={pickingEnabled} onChange={(event) => setPickingEnabled(event.target.checked)} /> Pick values</label>
+      {picked && <button className="fixture-widget-button" type="button" onClick={() => void controller.revealPath(picked)}>Show picked value</button>}
     </header>
     <div className="fixture-viewer-frame">
       <JSONContent
@@ -65,6 +74,10 @@ function EmbeddedDocument({ theme }: { theme: 'light' | 'dark' }) {
         content={snapshot.content}
         theme={theme}
         onSave={editingEnabled ? commit : undefined}
+        onPick={pickingEnabled ? (pick) => setPicked(pick.path) : undefined}
+        marks={picked ? [{ path: picked, kind: 'picked' }] : undefined}
+        controller={controller}
+        htmlViewCss={PICKED_IN_HTML_VIEW}
       />
     </div>
     <details className="fixture-source" open>

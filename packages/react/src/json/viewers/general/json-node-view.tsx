@@ -19,6 +19,7 @@ import {
   StructuredValueCellFrame,
 } from '../../../structured-data/atomic-value-editor.js'
 import { isEditableAtomicValue } from '../../../structured-data/atomic-value.js'
+import { useValueMarks, valueElementAttributes } from '../../../structured-data/value-elements.js'
 import { inferJsonViewRecordTitleKey, isJsonViewTableCandidate, type ValuePath } from '@script-it/json-views-core'
 import type { JsonViewSchemaDescriptor } from '@script-it/json-views-core'
 import {
@@ -395,6 +396,7 @@ function ArrayView({
 }: ArrayViewProps) {
   const sourceLiteral = useJsonSourceLiterals()
   const getCellSourcePath = useCallback((rowIndex: number, column: string) => [...currentJsonPath, rowIndex, column], [currentJsonPath])
+  const getRowSourcePath = useCallback((rowIndex: number) => [...currentJsonPath, rowIndex], [currentJsonPath])
   if (arr.length === 0) return <div className="text-muted-foreground italic">(empty list)</div>
 
   const tabularInfo = getTabularInfo(arr)
@@ -405,6 +407,7 @@ function ArrayView({
       <TabularObjectArrayView
         arr={records}
         getCellSourcePath={getCellSourcePath}
+        getRowSourcePath={getRowSourcePath}
         columns={[titleKey, ...tabularInfo.columns.filter((column) => column !== titleKey)]}
         filePath={filePath}
         viewStateKey={currentPath}
@@ -521,6 +524,7 @@ function TupleArrayView({
   onVisibleSourcePathsChange?: ViewSeams['onVisibleSourcePathsChange']
 }) {
   const getCellSourcePath = useCallback((rowIndex: number, column: string) => [...currentJsonPath, rowIndex, Number(column)], [currentJsonPath])
+  const getRowSourcePath = useCallback((rowIndex: number) => [...currentJsonPath, rowIndex], [currentJsonPath])
   const columns = useMemo(() => Array.from({ length: tupleLength }, (_, i) => String(i)), [tupleLength])
   const records = useMemo(() => arr.map((tuple) =>
     tuple.reduce<Record<string, unknown>>((record, value, index) => {
@@ -533,6 +537,7 @@ function TupleArrayView({
     <TabularObjectArrayView
       arr={records}
       getCellSourcePath={getCellSourcePath}
+      getRowSourcePath={getRowSourcePath}
       columns={columns}
       filePath={filePath}
       viewStateKey={arrayPath}
@@ -593,12 +598,14 @@ function SingleColumnArrayView({
   onVisibleSourcePathsChange?: ViewSeams['onVisibleSourcePathsChange']
 }) {
   const getCellSourcePath = useCallback((rowIndex: number) => [...currentJsonPath, rowIndex], [currentJsonPath])
+  const getRowSourcePath = getCellSourcePath
   const records = useMemo(() => arr.map((item) => ({ Value: item })), [arr])
 
   return (
     <TabularObjectArrayView
       arr={records}
       getCellSourcePath={getCellSourcePath}
+      getRowSourcePath={getRowSourcePath}
       columns={['Value']}
       filePath={filePath}
       viewStateKey={arrayPath}
@@ -657,6 +664,7 @@ function DictObjectTableView({
   onVisibleSourcePathsChange,
 }: DictObjectTableViewProps) {
   const getCellSourcePath = useCallback((rowIndex: number, column: string) => column === info.keyColumn ? undefined : [...currentJsonPath, info.keys[rowIndex], column], [currentJsonPath, info])
+  const getRowSourcePath = useCallback((rowIndex: number) => [...currentJsonPath, info.keys[rowIndex]], [currentJsonPath, info])
   // Rows are keyed by their original map key (not row index). The key column
   // drills into the whole record (`obj[key]`); every other column drills into
   // `obj[key].<field>`. Keying both the node and the path off the map key means
@@ -667,6 +675,7 @@ function DictObjectTableView({
     <TabularObjectArrayView
       arr={info.records}
       getCellSourcePath={getCellSourcePath}
+      getRowSourcePath={getRowSourcePath}
       columns={info.columns}
       filePath={filePath}
       viewStateKey={currentPath}
@@ -717,6 +726,7 @@ interface ObjectViewProps extends ViewSeams {
 }
 
 function ObjectView({ obj, navigateTo, currentJsonPath, atomicEditing, renderMarkdown, renderExternalWidget, schemaForPath }: ObjectViewProps) {
+  const marks = useValueMarks()
   return (
     // `shrink-0`: when the viewer fills a bounded viewport its scroller is a
     // flex column, and this frame is a scroll container, so its `min-height:
@@ -732,7 +742,7 @@ function ObjectView({ obj, navigateTo, currentJsonPath, atomicEditing, renderMar
         <table className="mb-0 w-full table-fixed border-separate border-spacing-0 text-sm">
           <tbody>
             {Object.entries(obj).map(([k, v], i, arr) => (
-              <tr key={k}>
+              <tr key={k} {...valueElementAttributes([...currentJsonPath, k], marks)}>
                 {/* The key column shares the table's width instead of
                     reserving a fixed slice of it. `table-fixed` means content
                     cannot influence a column, so one hardcoded width squeezes

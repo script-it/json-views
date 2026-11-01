@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { csvFormat, inspectCsvSource, validateCsvSource } from '../src/formats/csv-format.js'
+import { readFileSync } from 'node:fs'
+import { csvFormat, csvSourceRangeAtPath, inspectCsvSource, validateCsvSource } from '../src/formats/csv-format.js'
+
+const slice = (source: string, path: Array<string | number>) => {
+  const { start, end } = csvSourceRangeAtPath(source, path)
+  return source.slice(start, end)
+}
 
 describe('CSV format adapter', () => {
   it('never treats the header or fractional indices as a data row', () => {
@@ -73,5 +79,45 @@ describe('CSV format adapter', () => {
   it('rejects malformed CSV validation and nested cell values', () => {
     expect(() => validateCsvSource('a\n"unterminated')).toThrow(/Unterminated/)
     expect(csvFormat.canRepresent({ nested: true })).toMatchObject({ representable: false })
+  })
+
+  it('spans each row and cell of the root in the source, as written', () => {
+    const source = '﻿id,name,note\r\n1,"García, Ana","one\r\ntwo"\r\n2,Bo,""\r\n'
+    expect(slice(source, [0])).toBe('1,"García, Ana","one\r\ntwo"')
+    expect(slice(source, [0, 'name'])).toBe('"García, Ana"')
+    expect(slice(source, [0, 'note'])).toBe('"one\r\ntwo"')
+    expect(slice(source, [1, 'note'])).toBe('""')
+    expect(slice(source, [])).toBe('1,"García, Ana","one\r\ntwo"\r\n2,Bo,""')
+    expect(csvSourceRangeAtPath('id\n', [])).toEqual({ start: 3, end: 3 })
+  })
+
+  it('finds cells under synthesized keys, in CSVs that cannot be edited', () => {
+    const source = 'name,,name\nAda,x,Lovelace,extra\n'
+    expect(Object.keys(inspectCsvSource(source).root[0])).toEqual(['name', '$column2 [2]', 'name [3]', '$column4 [4]'])
+    expect(slice(source, [0, 'name'])).toBe('Ada')
+    expect(slice(source, [0, '$column2 [2]'])).toBe('x')
+    expect(slice(source, [0, 'name [3]'])).toBe('Lovelace')
+    expect(slice(source, [0, '$column4 [4]'])).toBe('extra')
+    // A stray quote makes the CSV invalid, but its rows are still there to find.
+    expect(slice('a,b\n1,x"y\n', [0, 'b'])).toBe('x"y')
+  })
+
+  it('reads every value of a wide fixture back from its span', () => {
+    const source = readFileSync(new URL('../../../examples/view-flow/08-csv-wide-sales-350x24.csv', import.meta.url), 'utf8')
+    const { root, state } = inspectCsvSource(source)
+    root.forEach((row, index) => Object.keys(row).forEach((key) => {
+      const raw = slice(source, [index, key])
+      const cell = state.records[index + 1].cells.find((candidate) => candidate.raw === raw)
+      expect(cell?.value, `${index} ${key}`).toBe(String(row[key]))
+    }))
+  })
+
+  it('throws for paths the root does not have, or that name no row', () => {
+    const source = 'id,name\n1,Ada\n'
+    expect(() => csvSourceRangeAtPath(source, [1])).toThrow(RangeError)
+    expect(() => csvSourceRangeAtPath(source, [0, 'missing'])).toThrow(RangeError)
+    expect(() => csvSourceRangeAtPath(source, ['0'])).toThrow(TypeError)
+    expect(() => csvSourceRangeAtPath(source, [0, 1])).toThrow(TypeError)
+    expect(() => csvSourceRangeAtPath(source, [0, 'id', 'more'])).toThrow(TypeError)
   })
 })
