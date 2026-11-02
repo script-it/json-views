@@ -21,6 +21,7 @@ export interface CachedBrowserDocument {
 export interface CachedBrowserWorkspace {
   version: 1
   activeDocumentIndex: number
+  activeBuiltinId?: string
   activeTemplateFilename?: string
   documents: CachedBrowserDocument[]
   templateStates?: Record<string, CachedBrowserDocumentState>
@@ -36,6 +37,7 @@ const PRESENTATION_KEY = 'json-views-browser-presentation-v1'
 interface CachedWorkspacePresentation {
   version: 1
   activeDocumentId?: string
+  activeBuiltinId?: string
   activeTemplateFilename?: string
   documents: Record<string, CachedBrowserDocumentState>
   templateStates?: Record<string, CachedBrowserDocumentState>
@@ -52,6 +54,7 @@ export function writeBrowserPresentation(workspace: CachedBrowserWorkspace): voi
   const presentation: CachedWorkspacePresentation = {
     version: 1,
     ...(activeDocument ? { activeDocumentId: documentStateKey(activeDocument) } : {}),
+    ...(workspace.activeBuiltinId ? { activeBuiltinId: workspace.activeBuiltinId } : {}),
     ...(workspace.activeTemplateFilename ? { activeTemplateFilename: workspace.activeTemplateFilename } : {}),
     documents: Object.fromEntries(workspace.documents.map((document) => [documentStateKey(document), {
       mode: document.mode,
@@ -75,16 +78,17 @@ function restorePresentation(workspace: CachedBrowserWorkspace): CachedBrowserWo
     if (!presentation || presentation.version !== 1 || !presentation.documents
       || !validTemplateStates(presentation.documents) || !validTemplateStates(presentation.templateStates)
       || (presentation.activeDocumentId !== undefined && typeof presentation.activeDocumentId !== 'string')
+      || (presentation.activeBuiltinId !== undefined && typeof presentation.activeBuiltinId !== 'string')
       || (presentation.activeTemplateFilename !== undefined && typeof presentation.activeTemplateFilename !== 'string')) return workspace
     // Move the legacy shared backup into this tab once; it must not override
     // every newly opened tab forever.
     if (sessionStorage.getItem(PRESENTATION_KEY) === null) sessionStorage.setItem(PRESENTATION_KEY, raw)
     localStorage.removeItem(PRESENTATION_KEY)
     const activeIndex = workspace.documents.findIndex((document) => documentStateKey(document) === presentation.activeDocumentId)
-    const hasActiveSelection = activeIndex >= 0 || presentation.activeTemplateFilename !== undefined
+    const hasActiveSelection = activeIndex >= 0 || presentation.activeBuiltinId !== undefined || presentation.activeTemplateFilename !== undefined
     return {
       ...workspace,
-      ...(hasActiveSelection ? { activeDocumentIndex: activeIndex, activeTemplateFilename: presentation.activeTemplateFilename } : {}),
+      ...(hasActiveSelection ? { activeDocumentIndex: activeIndex, activeBuiltinId: presentation.activeBuiltinId, activeTemplateFilename: presentation.activeTemplateFilename } : {}),
       documents: workspace.documents.map((document) => {
         const state = presentation.documents![documentStateKey(document)]
         return state ? { ...document, mode: state.mode, presentationState: state.presentationState } : document
@@ -153,6 +157,7 @@ function validWorkspace(value: unknown): value is CachedBrowserWorkspace {
       && (document.metadata === undefined || (document.metadata !== null && typeof document.metadata === 'object' && !Array.isArray(document.metadata)))
       && (document.mode === undefined || document.mode === 'view' || document.mode === 'source')
       && validPresentationState(document.presentationState))
+    && (workspace.activeBuiltinId === undefined || typeof workspace.activeBuiltinId === 'string')
     && (workspace.activeTemplateFilename === undefined || typeof workspace.activeTemplateFilename === 'string')
     && validTemplateStates(workspace.templateStates)
 }

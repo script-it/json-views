@@ -1,3 +1,4 @@
+import { reconcileBuiltinDocuments } from './builtin-documents.js'
 import { documentFormat, embedJsonViewMetadata, filenameFromPath, openDocument, sourceError, untitledFilename, type OpenDocument, type RepresentativeSample } from './document-model.js'
 import { Component, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { Check, Download, Github, Moon, Plus, Settings, Share2, Sun, Upload, X } from 'lucide-react'
@@ -76,9 +77,10 @@ const MARKDOWN_COMPONENTS: Components = {
 
 const HTML_SANITIZE_SCHEMA = {
   ...defaultSchema,
-  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text'],
+  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text', 'picture', 'source'],
   attributes: {
     ...defaultSchema.attributes,
+    source: ['media', 'srcSet', 'type'],
     svg: ['ariaLabel', 'height', 'role', 'viewBox', 'width'],
     circle: ['cx', 'cy', 'fill', 'r', 'stroke', 'strokeLinecap', 'strokeWidth'],
     text: ['dominantBaseline', 'fill', 'fontFamily', 'fontSize', 'fontWeight', 'textAnchor', 'x', 'y'],
@@ -402,13 +404,14 @@ export function App() {
     // Visiting a local file leaves the browser workspace's last selection intact.
     const previousActive = previous?.documents[previous.activeDocumentIndex]
     const activeIndex = cacheableDocuments.findIndex((document) => document.id === (activeDocument?.token ? previousActive?.id : activeDocument?.id))
-    const activeTemplateFilename = activeDocument?.token
-      ? previous?.activeTemplateFilename
-      : activeDocument && !activeDocument.cacheable ? activeDocument.filename : undefined
+    const activeBuiltinId = activeDocument?.token
+      ? previous?.activeBuiltinId
+      : activeDocument && !activeDocument.cacheable ? activeDocument.id : undefined
     const workspace: CachedBrowserWorkspace = {
       version: 1,
       activeDocumentIndex: activeIndex,
-      ...(activeTemplateFilename ? { activeTemplateFilename } : {}),
+      ...(activeBuiltinId ? { activeBuiltinId } : {}),
+      ...(activeDocument?.token && previous?.activeTemplateFilename ? { activeTemplateFilename: previous.activeTemplateFilename } : {}),
       documents: cacheableDocuments.map((document) => ({
         content: document.controller.getSnapshot().content,
         filename: document.filename,
@@ -420,9 +423,9 @@ export function App() {
         mode: document.mode,
         ...(document.presentationState ? { presentationState: document.presentationState } : {}),
       })),
-      templateStates: { ...previous?.templateStates, ...Object.fromEntries(latestDocuments
+      templateStates: { ...(initialToken ? previous?.templateStates : {}), ...Object.fromEntries(latestDocuments
         .filter((document) => !document.cacheable && !document.token)
-        .map((document) => [document.filename, {
+        .map((document) => [document.id, {
           mode: document.mode,
           ...(document.presentationState ? { presentationState: document.presentationState } : {}),
         }])) },
@@ -672,6 +675,7 @@ export function App() {
       const response = await fetch('./representative-examples/manifest.json', { signal: abort.signal })
       if (!response.ok) throw new Error('Could not load representative examples')
       const samples = await response.json() as RepresentativeSample[]
+      if (samples.some(sample => !sample.documentId) || new Set(samples.map(sample => sample.documentId)).size !== samples.length) throw new Error('Built-in document IDs must be present and unique')
       const opened = await Promise.all(samples.map(async (sample) => {
         const [sourceResponse, annotationResponse] = await Promise.all([
           fetch(`./representative-examples/${sample.sourceFile}`, { signal: abort.signal }),
@@ -682,9 +686,7 @@ export function App() {
         if (annotationResponse && (!annotations || typeof annotations !== 'object' || Array.isArray(annotations))) throw new Error(`Invalid annotations for ${sample.title}`)
         return openDocument(annotationResponse ? embedJsonViewMetadata(source, annotations as Record<string, unknown>) : source, filenameFromPath(sample.sourceFile), {
           cacheable: false,
-          // Before flattening, Template sourceFile paths already began with Templates/.
-          // Preserve those IDs so saved edits and active selection still match.
-          id: `example:${sample.category === 'Template' ? `Templates/${sample.sourceFile}` : sample.sourceFile}`,
+          id: sample.documentId,
           label: sample.title,
           relativePath: sample.relativePath,
           presentationState: sample.presentationState,
@@ -708,24 +710,13 @@ export function App() {
       if (abort.signal.aborted) return
       cachedWorkspaceRef.current = cached
       const cachedDocuments = restoreBrowserDocuments(cached)
-      const cachedById = new Map(cachedDocuments.map((document) => [document.id, document]))
-      const restoredExamples = examples.map((document) => {
-        // Edited examples are ordinary browser documents. Their saved source
-        // takes precedence over a freshly fetched template, including its UI state.
-        const edited = cachedById.get(document.id)
-        if (edited) return { ...edited, relativePath: document.relativePath }
-        const state = cached?.templateStates?.[document.filename]
-        return state ? { ...document, mode: state.mode ?? document.mode, presentationState: state.presentationState ?? document.presentationState } : document
-      })
+      const reconciled = reconcileBuiltinDocuments(examples, cachedDocuments, cached)
       const sharedDocument = sharedResult.document
         ? openDocument(sharedResult.document.source, filenameFromPath(sharedResult.document.filename))
         : undefined
-      const exampleIds = new Set(examples.map((document) => document.id))
-      const opened = [...restoredExamples, ...cachedDocuments.filter((document) => !exampleIds.has(document.id)), ...(sharedDocument ? [sharedDocument] : [])]
+      const opened = [...reconciled.documents, ...(sharedDocument ? [sharedDocument] : [])]
       const fallback = opened.length > 0 ? opened : [openDocument(BLANK_JSON, 'untitled.json')]
-      const restoredActive = cached && cached.activeDocumentIndex >= 0
-        ? cachedDocuments[cached.activeDocumentIndex]
-        : restoredExamples.find((document) => document.filename === cached?.activeTemplateFilename)
+      const restoredActive = reconciled.activeDocument
       documentsRef.current = fallback
       browserWorkspaceReady.current = true
       setDocuments(fallback)

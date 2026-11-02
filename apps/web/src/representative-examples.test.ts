@@ -1,11 +1,12 @@
 import { createHash } from 'node:crypto'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { compileJsonViewMetadata, createDefaultTypeRegistry, validateCsvSource } from '@script-it/json-views-core'
 
 interface ManifestEntry {
   id: string
+  documentId: string
   sourceFile: string
   annotationFile?: string
   relativePath?: string
@@ -30,6 +31,8 @@ describe('bundled examples', () => {
     expect(compiled.views[0].display).toBe('adaptive')
     expect(compiled.views[1].value).toEqual(guide.articles)
     expect(guide.articles).toHaveLength(7)
+    expect(new Set(manifest.map(entry => entry.documentId)).size).toBe(manifest.length)
+    expect(manifest.every(entry => !!entry.documentId)).toBe(true)
     for (const entry of manifest) {
       const source = readFileSync(join(examplesDirectory, entry.sourceFile), 'utf8')
       expect(Buffer.byteLength(source)).toBe(entry.bytes)
@@ -42,6 +45,20 @@ describe('bundled examples', () => {
       expect(entry.sourceFile).not.toMatch(/^(Templates|Examples)\//)
     }
     expect(manifest.some((entry) => entry.id === 'array-root' || entry.id === 'llm-messages')).toBe(false)
+  })
+
+  it('ships every guide asset and links only to current bundled documents', () => {
+    const guide = JSON.parse(readFileSync(join(examplesDirectory, manifest[0].sourceFile), 'utf8'))
+    const bodies = guide.articles.map((article: { body: string }) => article.body).join('\n')
+    for (const match of bodies.matchAll(/\.\/landing-assets\/([^"\s)]+)/g)) {
+      expect(existsSync(join(examplesDirectory, '..', 'landing-assets', match[1]))).toBe(true)
+    }
+    for (const match of bodies.matchAll(/#\/files\/([^/"\s)]+)/g)) {
+      const filename = decodeURIComponent(match[1])
+      expect(manifest.some(entry => (entry.relativePath ?? entry.sourceFile) === filename)).toBe(true)
+    }
+    expect(bodies).not.toContain('LLM Messages')
+    expect(bodies).not.toContain('/Templates/')
   })
 
   it.each(exampleIds)('ships a valid, integrity-checked %s document', (id) => {

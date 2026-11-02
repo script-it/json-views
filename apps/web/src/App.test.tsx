@@ -126,8 +126,8 @@ async function mountExampleWorkspace() {
   fetchMock.mockImplementation(async (input) => {
     const url = String(input)
     if (url.endsWith('manifest.json')) return Response.json([
-      { sourceFile: 'about.json', annotationFile: 'about.annotations.json', title: 'About' },
-      { sourceFile: 'tasks.json', annotationFile: 'tasks.annotations.json', title: 'Tasks' },
+      { documentId: 'example:about.json', sourceFile: 'about.json', annotationFile: 'about.annotations.json', title: 'About' },
+      { documentId: 'example:tasks.json', sourceFile: 'tasks.json', annotationFile: 'tasks.annotations.json', title: 'Tasks' },
     ])
     if (url.endsWith('.annotations.json')) return Response.json({
       version: 1,

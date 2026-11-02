@@ -300,7 +300,7 @@ it('restores an edited legacy template once at its flattened path and keeps it a
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
     const url = String(input)
     return url.endsWith('manifest.json')
-      ? Response.json([{ category: 'Template', title: 'Task Management', sourceFile: 'Task Management.json', relativePath: 'Task Management.json' }])
+      ? Response.json([{ documentId: legacyId, title: 'Task Management', sourceFile: 'Task Management.json', relativePath: 'Task Management.json' }])
       : Response.json({ title: 'Unedited built-in workspace' })
   }))
   vi.spyOn(browserWorkspace, 'readBrowserWorkspace').mockResolvedValue({
