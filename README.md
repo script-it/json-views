@@ -1,6 +1,18 @@
 # JSON Views
 
-A JSON viewer and editor for people and agents. It works in the browser, inside React apps, and on local files.
+Today, the formats for structured data leave a gap between people and agents:
+
+- **CSV** is not expressive enough for nested or rich data.
+- **JSON** is expressive and easy for agents to edit, but hard for people to navigate and change.
+- **Excel (XLSX)** is comfortable for people, but cumbersome for agents to read and edit.
+
+JSON Views closes that gap. It keeps the data in plain JSON, which agents already handle well, and shows it to people the way a Notion database would: tables, boards and pages they can browse and edit. What Markdown does for text documents, JSON Views does for structured data: it makes a format machines handle well comfortable for people too.
+
+A small `$jsonviews` property inside the file can hold the column types and saved views, so people jump straight to the useful tables instead of the whole JSON tree. Agents can edit that property too, to set up those views for the people they work with.
+
+## What it is
+
+A JSON viewer and editor for people and agents. It works on [json-views.com](https://json-views.com/), inside React apps, and on local files.
 
 Open a JSON or CSV file and you see tables, records you can drill into, Kanban boards, filters and sorting instead of raw text. Edits change only the values you touch; the rest of the file keeps its exact text. The core and React packages do not depend on Script.it APIs or styling, and you can add your own types and widgets.
 
