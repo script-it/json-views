@@ -1,10 +1,10 @@
 # JSON Views
 
-An extensible JSON viewer and editor for browsers, React apps, local files, humans, and agents.
+A JSON viewer and editor for people and agents. It works in the browser, inside React apps, and on local files.
 
-The viewer supports adaptive tables, record drill-down, source-preserving edits, declared views, filters, sorting, and Kanban. Its core and React packages are independent of Script.it APIs and styling.
+Open a JSON or CSV file and you see tables, records you can drill into, Kanban boards, filters and sorting instead of raw text. Edits change only the values you touch; the rest of the file keeps its exact text. The core and React packages do not depend on Script.it APIs or styling, and you can add your own types and widgets.
 
-**Release status: public beta.** Feedback is welcome in [GitHub Issues](https://github.com/script-it/json-views/issues). For an example of consuming the published packages, see the [installed-package consumer](examples/consumer/README.md).
+**Release status: public beta.** Report problems and ideas in [GitHub Issues](https://github.com/script-it/json-views/issues). For an app that uses the published packages, see the [installed-package consumer](examples/consumer/README.md).
 
 ## Open a local file
 
@@ -12,23 +12,33 @@ The viewer supports adaptive tables, record drill-down, source-preserving edits,
 npx @script-it/json-views ./data.json
 ```
 
-The command binds only to `127.0.0.1`, opens a browser tab, and grants that session access to only the named file. Saves use revisions, serialize requests per file within the process, and atomically replace the file while retaining its permissions. Changes detected before replacement return a conflict. Independent processes do not share a lock; see the [local file and agent API](packages/cli/README.md#local-file-and-agent-api).
+A browser tab opens on the file. That tab can read and save only the file you named, and the server listens only on `127.0.0.1`.
 
-Use `--no-open` when an agent or another tool should consume the printed URL and local API.
+Saving replaces the file in one step and keeps its permissions. If the file changed on disk since you opened or last saved it, the save is refused with a conflict instead of overwriting the other change. Saves are queued per file within one `json-views` process, but two separate processes do not lock each other out; see the [local file and agent API](packages/cli/README.md#local-file-and-agent-api).
 
-## Use the public editor
+Add `--no-open` when an agent or another tool should use the printed URL and local API instead of a browser tab.
 
-The [browser editor](https://json-views.com/) supports upload, paste, download, share links, and a browser-local workspace backed by IndexedDB. Share links gzip the active JSON or CSV document, preserve its exact source and filename, and place the encoded data in the URL fragment so it is not sent to the server. Links longer than 8 KB carry an interoperability warning and links longer than 32 KB are rejected. Treat a share link as public to anyone who receives it.
+## Use the website
 
-The editor restores the last document, selected view, source/view mode, searches, navigation, table widths, transient presentation controls, and scroll positions per document without adding cache data to `$jsonviews`. A synchronous session-storage backup preserves each tab’s latest presentation changes during page unload; it contains no document content or metadata. The standalone static site has no upload backend. Imported text stays exact, including whitespace and large numeric IDs. Source edits require **Apply** (or **Save** for a CLI file); **Format** is an explicit action. Malformed JSON remains available for repair and download. Uploading from a CLI session creates a separate browser document.
+[json-views.com](https://json-views.com/) opens files you upload or paste, lets you download them, and makes share links. Documents stay in the browser. The site has no upload backend.
 
-json-views.com records anonymous usage counts — which interface opened a document and whether the source was JSON or CSV — and never the filename, the document, or any value inside it. There is no persistent identifier and no cookie. Turn it off in Settings. The `@script-it/json-views-core`, `-react`, and CLI packages send no telemetry and make no network requests at all.
+**Share links.** A share link carries the whole document, compressed, in the part of the URL after `#`, so the document is not sent to the server. The link keeps the exact text and the filename. Links over 8 KB show a warning that some apps may not handle them; links over 32 KB are refused. Anyone who receives a share link can read the document, so treat it as public.
 
-Browser tabs on the same origin share versioned documents in IndexedDB. Saves compare each changed document’s revision inside the write transaction, so edits to different files can save independently. BroadcastChannel notifications refresh other tabs, with a focus/visibility refresh when a notification was missed. Conflicting source edits stay in the current tab: choose **Use saved version** (the previous draft remains downloadable) or **Save draft as copy**. Deleting an active file in another tab requires acknowledgment before it closes. View selection, source mode, and presentation controls remain independent per tab. Concurrent changes within one file are not automatically merged.
+**What you get back when you return.** The site reopens your last document with the same view, Table or Source tab, searches, place in the document, column widths and scroll positions. None of this is written into `$jsonviews`.
+
+> Technical note: The workspace is stored in IndexedDB. During page unload, a session-storage backup keeps each tab's latest view changes; it holds no document content or metadata.
+
+**Editing source.** Imported text stays exactly as it was, including whitespace and large numeric IDs. Edits in the Source tab take effect only when you click **Apply** (**Save** for a file opened from the CLI). **Format** reformats only when you click it. Broken JSON stays open so you can fix it or download it. Uploading while connected to a CLI session creates a separate browser document; it does not replace the local file.
+
+**Several tabs.** Tabs on the same site share one workspace. Saving one file does not block saves to another. Other tabs update when a document changes, or when they regain focus if they missed the update. If two tabs edit the same file's source, the second save is refused, and that tab offers **Use saved version** (your draft stays downloadable) or **Save draft as copy**. Changes to one file from two tabs are never merged automatically. Deleting a file that another tab has open asks that tab to acknowledge before it closes. Each tab keeps its own view, Source tab and view settings.
+
+> Technical note: Each save checks the document's revision inside the IndexedDB write transaction. Tabs are notified through BroadcastChannel.
+
+**Usage counts.** json-views.com counts which interface opened a document and whether it was JSON or CSV. It never records the filename, the document or any value in it, and it sets no cookie and no persistent identifier. Turn it off in Settings. The `@script-it/json-views-core`, `-react` and CLI packages send no usage data and make no network requests.
 
 ### Browser console API
 
-The open editor exposes `window.jsonViews` for DevTools, browser extensions, and automation running in the page. Run `jsonViews.help()` for product context, viewer setup, API instructions, and JSON authoring examples. WebMCP exposes the same guide through `json_views_help`. Edit the main [agent skill](skills/json-views/SKILL.md), [nuances reference](skills/json-views/references/jsonviews.md), and [HTML views reference](skills/json-views/references/html-views.md); web development, builds, and tests combine them into `apps/web/src/agent-help.md` and bundle it for use without another network request.
+The website exposes `window.jsonViews` to DevTools, browser extensions and scripts running in the page. `jsonViews.help()` explains the product, the API and how to write JSON with views; WebMCP serves the same guide as `json_views_help`.
 
 ```js
 const documents = jsonViews.list()
@@ -42,29 +52,39 @@ await jsonViews.patch('tasks.json', [
 ])
 ```
 
-Commands update the visible editor and its persistence destination. `patch()` applies standard RFC 6902 operations atomically with RFC 6901 JSON Pointer paths while preserving unrelated source text; failed patches return structured diagnostics and save nothing. Browser documents are cached in IndexedDB; a CLI-backed document is written through its revision-safe local API. Use the stable document id returned by `list()` when filenames are duplicated. `source()` reads exact text and `setSource()` replaces it after validating that it is JSON. Every write returns document info with structured `diagnostics` for source, annotation, view, and value issues; `diagnostics()` provides the same inspection without changing the document. Pass `{ includeDiagnosticCount: true }` to `list()` when counts are useful. `valid` continues to report whether the source itself can be saved.
+Every command updates what is on screen and saves where that document lives: the browser workspace, or the local file for a document opened from the CLI.
+
+- `patch()` applies [RFC 6902](https://www.rfc-editor.org/rfc/rfc6902) operations with [RFC 6901](https://www.rfc-editor.org/rfc/rfc6901) paths, all or nothing. Text it does not touch is kept as it was. A failed patch saves nothing and returns diagnostics.
+- `source()` returns the exact text. `setSource()` replaces it, after checking that it is valid JSON.
+- Every write returns the document's info with `diagnostics` covering the source, annotations, views and values. `diagnostics()` returns the same check without changing anything. `valid` says whether the source itself can be saved.
+- `list({ includeDiagnosticCount: true })` adds issue counts. When two documents share a filename, use the `id` from `list()`.
+
+The guide is built from the [agent skill](skills/json-views/SKILL.md), the [nuances reference](skills/json-views/references/jsonviews.md) and the [HTML views reference](skills/json-views/references/html-views.md). Edit those files, not `apps/web/src/agent-help.md`, which the dev server, builds and tests generate and bundle so the guide needs no extra request.
 
 ### WebMCP
 
-In browsers and agent clients that support [WebMCP](https://webmachinelearning.github.io/webmcp/), the open editor registers tools for listing, reading, inspecting diagnostics, creating, patching, selecting, and deleting documents. Agents can manipulate the visible workspace through those tools without clicking the interface or executing DevTools commands. `json_views_get_diagnostics` inspects existing issues; create, patch, and source-replacement results include the same structured validation diagnostics shown by the website. The tools use the same persistence path as `window.jsonViews`; browsers without WebMCP continue to work normally.
+In browsers and agent clients that support [WebMCP](https://webmachinelearning.github.io/webmcp/), the website registers tools to list, read, check, create, patch, select and delete documents. Agents work on the visible workspace without clicking or running console commands. `json_views_get_diagnostics` reports existing issues; create, patch and source-replacement results include the same diagnostics the website shows. The tools save the same way `window.jsonViews` does. Browsers without WebMCP work as before.
 
 ## Automatic types and views
 
-Ordinary JSON does not need `$jsonviews`. JSON Views predicts useful metadata in memory:
+You don't need `$jsonviews` for ordinary JSON. JSON Views guesses types and views when it opens a file and never changes the file to do so.
 
-- booleans, finite numbers, validated web URLs, email addresses, ISO dates, and long text get matching edit widgets;
-- select fields require a category-like field name and a small set of short values, each repeated at least twice across four or more records; a single observed category is allowed. Mode, platform, and channel fields qualify, including labels containing slashes. Multi-select requires the same repeated evidence in tags, labels, categories, or departments; arbitrary names, IDs, and string arrays remain generic;
-- tables require at least three records and populated, consistently typed comparison columns. Four shared varying scalar columns with at least 60% readable top-level fields allow optional enrichment and nested details; otherwise the stricter 80% shared-field/readable-content rule and two useful columns apply;
-- Kanban additionally requires distinct readable titles and two to six recurring groups in a `status`, `state`, `stage`, or `phase` field, with at least two records per group and recognized workflow values such as Open, In progress, or Done. Health states such as healthy/down do not qualify;
-- uniform scalar records may remain tabular with null or constant fields. Consistent nested objects can supply up to 12 scalar columns through two object levels; arrays never expand into additional rows;
-- collections inside individual dictionary records are not promoted to document tabs; collections inside ordinary response wrappers remain eligible;
-- Table (table icon) and Source (`{ }` icon) are built-in tabs. Table is the structured browser for the document, including property lists and expandable values when a record table is unsuitable. Compact JSON (at most 100 pretty-printed lines and 8,000 characters) opens in Source when at least 60% of scalar values are three or more levels deep and no declared view or natural table applies. Saved selections take precedence; otherwise Table opens by default. Qualifying predictions are optional tabs. The same table check applies inside Table, with unsuitable collections shown as expandable values. Inference never adds a duplicate view for the root itself.
+What you see:
 
-Opening inferred views never changes the source. Saved tab choices and explicit `$jsonviews` views take precedence over prediction; CSV remains tabular regardless of row count. Saving the settings of an inferred view materializes the predicted schema and views into `$jsonviews`, where they can be renamed and customized.
+- **Edit widgets.** Booleans, finite numbers, web URLs, email addresses, ISO dates and long text get matching widgets.
+- **Select fields.** A field becomes a select when its name sounds like a category (mode, platform and channel count, including labels with slashes) and it has a few short values, each used at least twice, across four or more records. One value repeated is enough. Multi-select needs the same repetition in tags, labels, categories or departments. Arbitrary names, IDs and string arrays stay plain text.
+- **Tables.** A collection becomes a table with at least three records and columns worth comparing: filled in and of one type. With four shared, varying, simple columns and at least 60% readable top-level fields, extra and nested fields are allowed. Otherwise 80% of fields must be shared and readable, with at least two useful columns.
+- **Kanban.** A table also gets a board when records have distinct readable titles and a `status`, `state`, `stage` or `phase` field with two to six recurring values, at least two records each, and recognizable workflow values such as Open, In progress or Done. Health states such as healthy or down don't count.
+- **Columns.** Records whose fields are all simple values stay tabular even with null or constant fields. Consistent nested objects can add up to 12 columns, from at most two levels down. Arrays never turn into extra rows.
+- **What gets a tab.** A collection inside one record of a dictionary does not get its own tab. A collection inside a response wrapper, such as `{ "data": [...] }`, can.
+
+**Table and Source.** Every document has a Table tab (table icon) and a Source tab (`{ }` icon). Table browses the whole document; where a record table doesn't fit, it shows a property list with expandable values. Guessed views appear as extra tabs, never as a duplicate of the root. Table opens by default, except for small, deeply nested JSON, which opens in Source: at most 100 lines when pretty-printed and 8,000 characters, with at least 60% of simple values three or more levels deep, and no declared view or natural table. A tab you chose before always wins.
+
+Saved tab choices and views declared in `$jsonviews` take precedence over guesses. CSV is always a table, however few rows it has. Saving a guessed view's settings writes the guessed schema and views into `$jsonviews`, where you can rename and change them.
 
 ## Add views and types to JSON
 
-JSON Views reads optional `$jsonviews` metadata from an object root:
+To declare views and types yourself, add a `$jsonviews` object to an object root:
 
 ```json
 {
@@ -95,15 +115,20 @@ JSON Views reads optional `$jsonviews` metadata from an object root:
 }
 ```
 
-Built-in types are `text`, `markdown`, `html`, `number`, `checkbox`, `select`, `multi-select`, `date`, `url`, and `email`. Markdown renders automatically and edits as source text. Long text stays visible in tables; clicking it opens its record editor. Markdown properties appear at the end of each record. HTML is inferred from complete pages or styled fragments and shown in an isolated preview; Markdown is inferred from recognizable formatting. An explicit text annotation overrides inference. Legacy `body` annotations are accepted as Markdown, with no single-body restriction.
+The built-in types are `text`, `markdown`, `html`, `number`, `checkbox`, `select`, `multi-select`, `date`, `url` and `email`.
 
-`select` and `multi-select` options are suggestions rather than closed enums. People and agents can enter a new text option directly in either widget; values already present in the document become available to every matching field.
+- **Markdown** shows rendered and edits as source text. Markdown fields appear at the end of each record. A field is treated as Markdown when it has recognizable formatting. Old `body` annotations still work as Markdown, and a record can have more than one.
+- **HTML** is detected in complete pages and styled fragments and shows in an isolated preview.
+- **Long text** stays visible in tables; clicking it opens the record's editor.
+- An explicit `text` annotation turns detection off for that field.
 
-Assign stable option colors with `optionColors`, for example `"optionColors": { "New": "blue", "Customer": "green" }`. The built-in palette is `gray`, `blue`, `green`, `yellow`, `orange`, `red`, `purple`, and `pink`. When annotations are writable, the select and multi-select menus expose the same palette beside each option.
+**Select options are suggestions, not a closed list.** People and agents can type a new option into either widget, and any value already in the document is offered to every matching field.
 
-The **New view** flow starts from the current JSON path. A single record becomes an editable page, while a record collection can become a table or Kanban board. Kanban creation also records the selected grouping property; arrays and scalar paths keep their natural JSON layout.
+**Colors.** Give options fixed colors with `optionColors`, for example `"optionColors": { "New": "blue", "Customer": "green" }`. The colors are `gray`, `blue`, `green`, `yellow`, `orange`, `red`, `purple` and `pink`. When annotations can be saved, the select menus show the same colors beside each option.
 
-A root array cannot contain `$jsonviews` metadata directly. Before the first saved view, JSON Views shows a warning and requires an explicit **Wrap and create view** action. This changes the root to `{ "$jsonviews": {...}, "data": [...] }`, rebases inferred paths to `$.data`, and preserves the array items.
+**New view** starts from where you are in the document. A single record becomes an editable page; a collection becomes a table or a Kanban board, and a board remembers the property it groups by. Arrays and simple values keep their normal layout.
+
+**Root arrays.** A root array has nowhere to hold `$jsonviews`. Before you save the first view, JSON Views warns you and asks you to click **Wrap and create view**. That changes the file to `{ "$jsonviews": {...}, "data": [...] }`, moves guessed paths under `$.data`, and keeps every item.
 
 ## Use it in React
 
@@ -129,24 +154,24 @@ export function Viewer({ source, save }: { source: string; save: (next: string) 
 }
 ```
 
-The packages are deliberately separated:
+To keep application JSON free of `$jsonviews`, pass annotations through the `metadata` prop instead. This also works for array and primitive roots.
 
-- `@script-it/json-views-core`: metadata inference and compilation, JSONPath subset, validation, view model, and source-preserving patches.
-- `@script-it/json-views-react`: the extracted viewer UI plus type and widget registries.
-- `@script-it/json-views`: the local file CLI and browser host; it installs the `json-views` executable.
-- `@script-it/json-views-web`: the static upload/paste/download app.
+| Package | What it is |
+| --- | --- |
+| `@script-it/json-views-core` | Type and view guessing, `$jsonviews` compilation, the JSONPath subset, validation, the view model and edits that keep the rest of the source text |
+| `@script-it/json-views-react` | The viewer UI, with type and widget registries |
+| `@script-it/json-views` | The local file CLI and browser host; installs the `json-views` command |
+| `@script-it/json-views-web` | The static website: upload, paste, download |
 
-Annotations can also be supplied separately through `metadata`, including for array and primitive roots. This preserves ordinary application JSON without adding `$jsonviews`.
-
-See [the annotation specification](packages/core/README.md#annotation-specification), [React integration](packages/react/README.md#react-integration), and [the local file and agent API](packages/cli/README.md#local-file-and-agent-api). Each package documents its own contract.
+Each package documents its own contract: [the annotation specification](packages/core/README.md#annotation-specification), [React integration](packages/react/README.md#react-integration) and [the local file and agent API](packages/cli/README.md#local-file-and-agent-api).
 
 ## Agent skill
 
-The repository includes a portable JSON Views skill at [`skills/json-views`](skills/json-views/SKILL.md). It teaches agents how to open local files, use revision-safe API writes, author `$jsonviews` metadata, and verify saved views.
+[`skills/json-views`](skills/json-views/SKILL.md) is a portable skill that teaches agents to open local files, save through the revision-checked API, write `$jsonviews` metadata and check that saved views work.
 
 ## Develop
 
-Requires Node.js 22.13+ in the 22 series, or Node.js 24+. React 18 and 19 are supported. The browser UI uses modern CSS, including nesting and `color-mix`; older browsers require a host-specific compatibility build.
+You need Node.js 22.13 or later in the 22 series, or Node.js 24 or later. React 18 and 19 are supported. The UI uses modern CSS, including nesting and `color-mix`; older browsers need a compatibility build from the host app.
 
 ```bash
 npm ci
@@ -156,10 +181,10 @@ npm run build
 npm run dev
 ```
 
-`npm run check:release` also installs the actual npm tarballs into an independent consumer and checks ESM, React SSR, strict TypeScript, browser bundling, and the installed CLI. CI runs Node 22/24 with React 18/19. Read [Contributing](CONTRIBUTING.md) before changing a public contract.
+`npm run check:release` also installs the real npm tarballs into a separate app and checks ESM, React server rendering, strict TypeScript, browser bundling and the installed CLI. CI runs Node 22 and 24 with React 18 and 19. Read [Contributing](CONTRIBUTING.md) before changing a public contract.
 
 ## License and trademarks
 
-The source in this repository is MIT licensed; see [LICENSE](LICENSE).
+The code in this repository is MIT licensed; see [LICENSE](LICENSE).
 
-The MIT license covers the code. It does not grant rights to the Script.it and JSON Views names, logos, or other brand assets, which remain the property of Script.it. A fork may use the code freely, but should carry its own name and marks rather than presenting itself as Script.it or JSON Views.
+The MIT license covers the code only. The Script.it and JSON Views names, logos and other brand assets remain the property of Script.it. A fork may use the code freely, but should use its own name and marks rather than present itself as Script.it or JSON Views.
