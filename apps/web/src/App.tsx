@@ -881,12 +881,15 @@ export function App() {
     setDocuments(updated)
   }, [documentSession.id])
 
+  const lastAnalyticsView = useRef<{ controller: OpenDocument['controller']; activeView: string } | undefined>(undefined)
   useEffect(() => {
     let activeView = documentSession.presentationState?.activeView
     if (documentSession.mode === 'source') activeView = 'source'
     if (!activeView) {
       try { activeView = routeActiveView(documentSession) } catch { return }
     }
+    if (lastAnalyticsView.current?.controller === documentSession.controller && lastAnalyticsView.current.activeView === activeView) return
+    lastAnalyticsView.current = { controller: documentSession.controller, activeView }
     const properties = builtinViewAnalyticsProperties(documentSession, activeView)
     if (properties) void analytics.track('json_views_view_selected', { ...properties, interface: 'ui' })
   }, [documentSession.controller, documentSession.mode, documentSession.presentationState?.activeView])

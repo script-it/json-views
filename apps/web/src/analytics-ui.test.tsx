@@ -35,8 +35,11 @@ it('reports built-in navigation and agent-guide clicks without custom view label
   cleanup = async () => { await act(async () => root.unmount()); container.remove() }
   await act(async () => root.render(<App />))
   expect(track).toHaveBeenCalledWith('json_views_view_selected', { template_id: 'json-views', view_id: 'welcome', interface: 'ui' })
+  expect(track.mock.calls.filter(([event]) => event === 'json_views_view_selected')).toHaveLength(1)
   track.mockClear()
-  await act(async () => { container.querySelector<HTMLAnchorElement>('.agent-guide-trigger')!.click() })
+  const guide = container.querySelector<HTMLAnchorElement>('.agent-guide-trigger')!
+  guide.addEventListener('click', (event) => event.preventDefault())
+  await act(async () => { guide.click() })
   expect(track).toHaveBeenCalledWith('json_views_link_clicked', { link_id: 'agent-guide', interface: 'ui' })
   await act(async () => {
     history.replaceState(null, '', `/${documentRouteHash({ file: 'About JSON Views.json', view: 'Secret client' })}`)
@@ -44,4 +47,8 @@ it('reports built-in navigation and agent-guide clicks without custom view label
   })
   expect(track.mock.calls.some(([event]) => event === 'json_views_view_selected')).toBe(false)
   expect(JSON.stringify(track.mock.calls)).not.toMatch(/Secret client|private-client|Private content/)
+  await act(async () => { container.querySelector<HTMLButtonElement>('[aria-label="Open About JSON Views.json"]')!.click() })
+  expect(track).toHaveBeenCalledWith('json_views_link_clicked', { template_id: 'json-views', link_id: 'template-navigation', interface: 'ui' })
+  expect(track).toHaveBeenCalledWith('json_views_document_opened', expect.objectContaining({ template_id: 'json-views', method: 'navigation' }))
+  expect(track.mock.calls.filter(([event]) => event === 'json_views_view_selected')).toHaveLength(1)
 })
