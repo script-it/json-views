@@ -402,6 +402,7 @@ export function JsonViewSchemaValueCell({
   return (
     <div ref={displayRef} data-id="jsonView-schema-value" className={cn('h-full min-w-0', invalid && 'ring-1 ring-inset ring-destructive', !invalid && warning && 'ring-1 ring-inset ring-amber-500')} style={stableLayout && editorMinHeight ? { minHeight: editorMinHeight } : undefined} title={invalid ?? warning}>
       <StructuredValueCellFrame
+        highlightOnHover={descriptor.type !== 'markdown' && descriptor.type !== 'body'}
         actions={explicitEditAction || container || textPreview ? actions : undefined}
         overlayActions={(descriptor.type === 'html' || markdownButton) && !compact}
         activationDisabled={!editable || saving || explicitEditAction}

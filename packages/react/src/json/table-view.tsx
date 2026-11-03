@@ -337,6 +337,7 @@ export function ProjectedTableView({
               activationRole="group"
               onActivate={buttonToEdit ? undefined : openRecordEditor}
               overlayActions={buttonToEdit}
+              highlightOnHover={false}
               actions={editing && editing.canReplace?.(resolved.sourcePath) !== false
                 ? <EditValueAction disabled={editing.saving} label={displayColumn.label} onClick={openRecordEditor} />
                 : undefined}

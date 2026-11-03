@@ -142,6 +142,7 @@ export function StructuredValueCellFrame({
   className,
   onActivate,
   overlayActions = false,
+  highlightOnHover = true,
 }: {
   activationDisabled?: boolean
   activationLabel?: string
@@ -153,6 +154,7 @@ export function StructuredValueCellFrame({
   className?: string
   onActivate?: () => void
   overlayActions?: boolean
+  highlightOnHover?: boolean
 }) {
   const fillCell = useContext(StructuredCellFillContext)
   // An editable cell advertises itself with a primary-tinted hover — the
@@ -170,13 +172,13 @@ export function StructuredValueCellFrame({
         // right edge is deliberately flush so clipped content makes the
         // boundary of its column unmistakable.
         fillCell ? 'h-full items-center rounded-none py-2 pl-3 pr-0' : 'rounded-md px-1.5',
-        onActivate && !activationDisabled
+        highlightOnHover && (onActivate && !activationDisabled
           ? fillCell
             ? 'before:pointer-events-none before:absolute before:inset-y-0 before:-left-5 before:right-0 hover:before:bg-primary/10 dark:hover:before:bg-primary/25'
             : 'hover:bg-primary/10 dark:hover:bg-primary/25'
           : fillCell
             ? 'before:pointer-events-none before:absolute before:inset-y-0 before:-left-5 before:right-0 hover:before:bg-accent/70'
-            : 'hover:bg-accent/70',
+            : 'hover:bg-accent/70'),
         fillCell && onActivate && !activationDisabled && 'cursor-text',
         className,
       )}
