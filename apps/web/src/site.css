@@ -152,6 +152,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .json-views-markdown hr { margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border); }
 .json-views-markdown table { width: 100%; margin: 1rem 0; border-collapse: collapse; }
 .json-views-markdown th, .json-views-markdown td { border: 1px solid var(--border); padding: .4rem .55rem; text-align: left; }
+/* Linked image galleries use tables for layout, without a visible data grid. */
+.json-views-markdown table:has(a > picture) :is(th, td) { border: 0; }
 .json-views-markdown img { max-width: 100%; height: auto; }
 .json-views-markdown svg { display: block; width: min(100%, 46rem); height: auto; margin: 0 auto; }
 .site-shell[data-json-views-device="mobile"] {
