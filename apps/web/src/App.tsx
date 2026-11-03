@@ -6,7 +6,7 @@ import {
   CSVContent, InlineFeedbackAction, JSONContent, JsonViewsProvider, useJsonViewsDevice,
   type JsonViewsPresentationState, type ObjectRootConversionRequest,
 } from '@script-it/json-views-react'
-import Markdown, { type Components } from 'react-markdown'
+import Markdown, { defaultUrlTransform, type Components } from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import remarkGfm from 'remark-gfm'
@@ -71,12 +71,18 @@ const NEW_TABLE_JSON = `${JSON.stringify({
   ],
 }, null, 2)}\n`
 
+// Only allow the documented prompt-entry routes, not arbitrary app commands.
+function isAgentPromptLink(url: string): boolean {
+  return /^(?:claude:\/\/code\/new\?q=|codex:\/\/new\?prompt=|cursor:\/\/anysphere\.cursor-deeplink\/prompt\?text=)/.test(url)
+}
+
 const MARKDOWN_COMPONENTS: Components = {
-  a: ({ node: _node, ...props }) => <a {...props} target={props.href?.startsWith('#') ? undefined : '_blank'} rel="noreferrer" />,
+  a: ({ node: _node, ...props }) => <a {...props} target={(props.href?.startsWith('#') || isAgentPromptLink(props.href ?? '')) ? undefined : '_blank'} rel="noreferrer" />,
 }
 
 const HTML_SANITIZE_SCHEMA = {
   ...defaultSchema,
+  protocols: { ...defaultSchema.protocols, href: [...(defaultSchema.protocols?.href ?? []), 'claude', 'codex', 'cursor'] },
   tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text', 'picture', 'source'],
   attributes: {
     ...defaultSchema.attributes,
@@ -94,6 +100,7 @@ function renderMarkdownBody(content: string): ReactNode {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, [rehypeSanitize, HTML_SANITIZE_SCHEMA]]}
         components={MARKDOWN_COMPONENTS}
+        urlTransform={(url, key) => key === 'href' && isAgentPromptLink(url) ? url : defaultUrlTransform(url)}
       >
         {content}
       </Markdown>

@@ -42,7 +42,7 @@ vi.mock('@script-it/json-views-react', async (importOriginal) => ({
       {!sourceVisible && <button type="button" aria-label="Show JSON source" aria-pressed="false" onClick={() => onSourceVisibleChange?.(true)} />}
       <output data-testid="viewer-mounted-source" hidden>{mountedSource}</output>
       <output data-testid="presentation-view">{presentationState?.activeView}</output>
-      {renderMarkdown?.('## Markdown heading\n\n**Bold** and ~~removed~~\n\n<span>Embedded HTML</span>\n\n<svg viewBox="0 0 100 100" role="img" aria-label="Diagram"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2"></circle><text x="50" y="50" text-anchor="middle">Diagram</text></svg>\n\n<a href="javascript:alert(1)">Unsafe link</a><script>alert("unsafe")</script>\n\n[Read more](#/files/About%20JSON%20Views.json/views/Articles)\n\n[External](https://example.com)')}
+      {renderMarkdown?.('## Markdown heading\n\n**Bold** and ~~removed~~\n\n<span>Embedded HTML</span>\n\n<svg viewBox="0 0 100 100" role="img" aria-label="Diagram"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2"></circle><text x="50" y="50" text-anchor="middle">Diagram</text></svg>\n\n<a href="javascript:alert(1)">Unsafe link</a><script>alert("unsafe")</script>\n\n[Read more](#/files/About%20JSON%20Views.json/views/Articles)\n\n[External](https://example.com)\n\n[Claude](claude://code/new?q=Install) [Codex](codex://new?prompt=Install) <a href="cursor://anysphere.cursor-deeplink/prompt?text=Install">Cursor</a> [Blocked](codex://settings)')}
       <button type="button" onClick={() => { void edit.onCommitContent(content.replace('99', '100')).catch(() => undefined) }}>Simulate visual edit</button>
       {onPresentationStateChange && <button type="button" onClick={() => onPresentationStateChange({ version: 1, activeView: 'view:remembered' })}>Simulate view selection</button>}
       {onRequestMetadataPersistence && <button type="button" onClick={() => { void onRequestMetadataPersistence({
@@ -251,6 +251,13 @@ describe('document host', () => {
     expect(container.querySelector('.json-views-markdown script')).toBeNull()
     expect(container.querySelector('a[href^="#/files/"]')?.hasAttribute('target')).toBe(false)
     expect(container.querySelector('a[href="https://example.com"]')?.getAttribute('target')).toBe('_blank')
+    for (const href of ['claude://code/new?q=Install', 'codex://new?prompt=Install', 'cursor://anysphere.cursor-deeplink/prompt?text=Install']) {
+      const link = container.querySelector(`a[href="${href}"]`)
+      expect(link).not.toBeNull()
+      expect(link?.hasAttribute('target')).toBe(false)
+    }
+    expect(container.querySelector('a[href="codex://settings"]')).toBeNull()
+
   })
 
   it('labels the public editor as beta in the product header', async () => {
