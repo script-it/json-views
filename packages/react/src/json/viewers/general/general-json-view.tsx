@@ -261,29 +261,31 @@ export function GeneralJsonView({
           : 'flex-1 overflow-auto overscroll-x-none'}
         onScroll={captureScrollPosition}
       >
-        <GeneralJsonNodeView
-          node={currentNode}
-          navigateTo={navigateTo}
-          filePath={filePath}
-          currentPathKey={currentPathKey}
-          currentJsonPath={effectiveCurrent.path}
-          currentLabel={effectiveCurrent.key}
-          renderAsMarkdown={
-            typeof currentNode === 'string'
-            && schemaForPath?.(effectiveCurrent.path)?.type === 'markdown'
-          }
-          getTableCellPosition={(path) => tableCellPositionsRef.current[path]}
-          setTableCellPosition={(path, cell) => {
-            tableCellPositionsRef.current[path] = cell
-          }}
-          renderMarkdown={renderMarkdown}
-          uiSize={uiSize}
-          fillHeight={fillHeight}
-          atomicEditing={atomicEditing}
-          schemaForPath={schemaForPath}
-          renderExternalWidget={renderExternalWidget}
-          onVisibleSourcePathsChange={reportVisibleSourcePaths}
-        />
+        <div className={currentNode === null || typeof currentNode !== 'object' ? 'mx-auto w-full max-w-2xl px-3 pb-6 sm:px-6' : 'contents'}>
+          <GeneralJsonNodeView
+            node={currentNode}
+            navigateTo={navigateTo}
+            filePath={filePath}
+            currentPathKey={currentPathKey}
+            currentJsonPath={effectiveCurrent.path}
+            currentLabel={effectiveCurrent.key}
+            renderAsMarkdown={
+              typeof currentNode === 'string'
+              && schemaForPath?.(effectiveCurrent.path)?.type === 'markdown'
+            }
+            getTableCellPosition={(path) => tableCellPositionsRef.current[path]}
+            setTableCellPosition={(path, cell) => {
+              tableCellPositionsRef.current[path] = cell
+            }}
+            renderMarkdown={renderMarkdown}
+            uiSize={uiSize}
+            fillHeight={fillHeight}
+            atomicEditing={atomicEditing}
+            schemaForPath={schemaForPath}
+            renderExternalWidget={renderExternalWidget}
+            onVisibleSourcePathsChange={reportVisibleSourcePaths}
+          />
+        </div>
       </div>
     </div>
   )
