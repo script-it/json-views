@@ -72,7 +72,7 @@ const NEW_TABLE_JSON = `${JSON.stringify({
 }, null, 2)}\n`
 
 const MARKDOWN_COMPONENTS: Components = {
-  a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
+  a: ({ node: _node, ...props }) => <a {...props} target={props.href?.startsWith('#') ? undefined : '_blank'} rel="noreferrer" />,
 }
 
 const HTML_SANITIZE_SCHEMA = {
