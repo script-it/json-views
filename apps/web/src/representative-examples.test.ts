@@ -74,6 +74,7 @@ describe('bundled examples', () => {
     expect(createHash('sha256').update(sourceText).digest('hex')).toBe(entry!.sourceSha256)
     if (id === 'task-management') {
       expect(compiled.views[0].display).toBe('kanban')
+      expect((metadata.views as Array<{ id: string }>).map(view => view.id)).toEqual(['task-board', 'project-dashboard', 'all-tasks', 'open-tasks'])
       expect(compiled.views[0].groupOrder).toEqual(['To do', 'In progress', 'Done'])
       const tasks = (source as { tasks: Array<{ status: string; done: boolean }> }).tasks
       expect(tasks).toHaveLength(18)

@@ -93,7 +93,7 @@ const HTML_SANITIZE_SCHEMA = {
   },
 }
 
-function renderMarkdownBody(content: string): ReactNode {
+export function renderMarkdownBody(content: string): ReactNode {
   return (
     <div className="json-views-markdown">
       <Markdown
