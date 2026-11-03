@@ -4,8 +4,8 @@
     "title": "About JSON Views",
     "sourceFile": "About JSON Views.json",
     "description": "A welcome page and a database of seven short articles.",
-    "sourceSha256": "2a98f4bc2c42c1f76ca6eecd2e973b3be44bf4c15523070a1ecd00b70924f258",
-    "bytes": 14884,
+    "sourceSha256": "20dafb1676ea3e973e50f9e931e4d09e2d2f81afa5c3823a5110719f22eeb090",
+    "bytes": 18482,
     "category": "Guide",
     "presentationState": {
       "version": 1,
@@ -20,7 +20,8 @@
           }
         }
       }
-    }
+    },
+    "documentId": "example:About JSON Views.json"
   },
   {
     "id": "task-management",
@@ -28,10 +29,10 @@
     "category": "Template",
     "description": "A ready-to-edit task workspace with an HTML project dashboard, status board, complete task table, open-task queue, due dates, priorities, assignees, tags, and record descriptions.",
     "sourcePath": "Bundled example",
-    "sourceFile": "Templates/Task Management.json",
-    "annotationFile": "Templates/Task Management.jsonviews.json",
+    "sourceFile": "Task Management.json",
+    "annotationFile": "Task Management.jsonviews.json",
     "shape": "Object containing a task array",
-    "records": 6,
+    "records": 18,
     "features": [
       "Editable HTML dashboard",
       "Kanban by status",
@@ -40,35 +41,12 @@
       "Colored priorities",
       "Record descriptions"
     ],
-    "sourceSha256": "72c61c077247c4c4a70d8df7d64a07ac3db545bb29140a04e0a444193753c915",
-    "bytes": 2660,
+    "sourceSha256": "0a28241df3133e39552020cd4add477606f40f0b6bdca25032bb4f8f9cf98121",
+    "bytes": 8282,
     "annotationIssues": 0,
     "dataIssues": 0,
-    "relativePath": "Templates/Task Management.json"
-  },
-  {
-    "id": "llm-messages",
-    "title": "LLM Messages",
-    "category": "Template",
-    "description": "An API-shaped chat payload with nested attachments and tool calls, plus conversation, role-board, prompt-input, and model-output views.",
-    "sourcePath": "Bundled example",
-    "sourceFile": "Templates/LLM Messages.json",
-    "annotationFile": "Templates/LLM Messages.jsonviews.json",
-    "shape": "Object containing model settings and a messages array",
-    "records": 5,
-    "features": [
-      "LLM message roles",
-      "Multiline message editors",
-      "Prompt and output filters",
-      "Kanban by role",
-      "Nested attachment and tool-call tables",
-      "Model settings"
-    ],
-    "sourceSha256": "cc0bbcdea1b88720e75cb0f6097cdf2bc67559cdb224113833e9e00e97ec1bfb",
-    "bytes": 2283,
-    "annotationIssues": 0,
-    "dataIssues": 0,
-    "relativePath": "Templates/LLM Messages.json"
+    "relativePath": "Task Management.json",
+    "documentId": "example:Templates/Task Management.json"
   },
   {
     "id": "research-sprint",
@@ -76,8 +54,8 @@
     "category": "Template",
     "description": "A short-lived evidence workspace for an agent research assignment, with sources, confidence, verification state, and a follow-up queue.",
     "sourcePath": "Bundled example",
-    "sourceFile": "Templates/Research Sprint.json",
-    "annotationFile": "Templates/Research Sprint.jsonviews.json",
+    "sourceFile": "Research Sprint.json",
+    "annotationFile": "Research Sprint.jsonviews.json",
     "shape": "Object containing a research findings array",
     "records": 6,
     "features": [
@@ -91,7 +69,8 @@
     "bytes": 2853,
     "annotationIssues": 0,
     "dataIssues": 0,
-    "relativePath": "Templates/Research Sprint.json"
+    "relativePath": "Research Sprint.json",
+    "documentId": "example:Templates/Research Sprint.json"
   },
   {
     "id": "decision-comparison",
@@ -99,8 +78,8 @@
     "category": "Template",
     "description": "A one-off decision workspace for comparing options, documenting weighted criteria, and turning an agent recommendation into a reviewable choice.",
     "sourcePath": "Bundled example",
-    "sourceFile": "Templates/Decision Comparison.json",
-    "annotationFile": "Templates/Decision Comparison.jsonviews.json",
+    "sourceFile": "Decision Comparison.json",
+    "annotationFile": "Decision Comparison.jsonviews.json",
     "shape": "Object containing criteria and option arrays",
     "records": 4,
     "features": [
@@ -114,60 +93,64 @@
     "bytes": 2344,
     "annotationIssues": 0,
     "dataIssues": 0,
-    "relativePath": "Templates/Decision Comparison.json"
+    "relativePath": "Decision Comparison.json",
+    "documentId": "example:Templates/Decision Comparison.json"
   },
   {
     "id": "app-gmail",
     "title": "Gmail Message",
     "category": "Template",
     "description": "A Gmail message with editable headers and a decoded, editable plain-text MIME body.",
-    "sourceFile": "Templates/App Views/Gmail Message.json",
-    "relativePath": "Templates/App Views/Gmail Message.json",
+    "sourceFile": "App Views/Gmail Message.json",
+    "relativePath": "App Views/Gmail Message.json",
     "sourceSha256": "f4733dda50c7a37c1b09e20727902d5b5bd822997831e5abc01bf5c08bdec436",
     "bytes": 5055,
     "apiReference": [
       "https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages",
       "https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages.attachments"
     ],
-    "apiNotes": "GET /gmail/v1/users/me/messages/{id}?format=full. Headers are a name/value array; this fixture binds its known header order. Locate headers by name before adapting another message. The view decodes this known text/plain body as UTF-8; edits re-encode body.data as base64url and update body.size atomically. Multipart messages require traversing payload.parts and may require attachments.get."
+    "apiNotes": "GET /gmail/v1/users/me/messages/{id}?format=full. Headers are a name/value array; this fixture binds its known header order. Locate headers by name before adapting another message. The view decodes this known text/plain body as UTF-8; edits re-encode body.data as base64url and update body.size atomically. Multipart messages require traversing payload.parts and may require attachments.get.",
+    "documentId": "example:Templates/App Views/Gmail Message.json"
   },
   {
     "id": "app-hubspot",
     "title": "HubSpot Contacts",
     "category": "Template",
     "description": "A CRM v3 contact list with editable names, companies, email addresses, and lead statuses.",
-    "sourceFile": "Templates/App Views/HubSpot Contacts.json",
-    "relativePath": "Templates/App Views/HubSpot Contacts.json",
+    "sourceFile": "App Views/HubSpot Contacts.json",
+    "relativePath": "App Views/HubSpot Contacts.json",
     "sourceSha256": "a3a5222813485859b19c9854a3fd540bc3d3de5f6cc416aa595dd18ca2bdea55",
     "bytes": 6171,
     "apiReference": [
       "https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/contacts/guide",
       "https://developers.hubspot.com/docs/api-reference/legacy/crm/owners/guide"
     ],
-    "apiNotes": "GET /crm/v3/objects/contacts?limit=100&properties=firstname,lastname,email,company,hs_lead_status,hubspot_owner_id,notes_last_updated. Explicitly request these properties. This is a final list page, so paging is omitted; list responses do not include the search API total. Owner values are IDs; resolve names with the Owners API. Notes are separate CRM objects, not a default notes property."
+    "apiNotes": "GET /crm/v3/objects/contacts?limit=100&properties=firstname,lastname,email,company,hs_lead_status,hubspot_owner_id,notes_last_updated. Explicitly request these properties. This is a final list page, so paging is omitted; list responses do not include the search API total. Owner values are IDs; resolve names with the Owners API. Notes are separate CRM objects, not a default notes property.",
+    "documentId": "example:Templates/App Views/HubSpot Contacts.json"
   },
   {
     "id": "app-slack",
     "title": "Slack Channel",
     "category": "Template",
     "description": "Channel history with native user IDs, message timestamps, reactions, and reply counts.",
-    "sourceFile": "Templates/App Views/Slack Channel.json",
-    "relativePath": "Templates/App Views/Slack Channel.json",
+    "sourceFile": "App Views/Slack Channel.json",
+    "relativePath": "App Views/Slack Channel.json",
     "sourceSha256": "2c79136dc6052ccbd0ab7561d5eddc22274d6dbd22b5a4bb9c5ba3146ee2693a",
     "bytes": 6090,
     "apiReference": [
       "https://docs.slack.dev/reference/methods/conversations.history/",
       "https://docs.slack.dev/messaging/retrieving-messages/"
     ],
-    "apiNotes": "GET https://slack.com/api/conversations.history?channel=C08LAUNCH. Messages are newest first; user contains an ID and ts is a Unix-seconds string. Reactions and reply_count are optional and populated in this fixture. Channel names, user names, thread replies, and permalinks require conversations.info, users.info, conversations.replies, and chat.getPermalink respectively; they are not invented history fields. Slack mrkdwn is shown as plain text. The view reverses the newest-first API array without changing source order. The channel title, user-name/initial labels, and emoji lookup are explicit fictional presentation context; a real integration must populate them from the companion APIs. Times use Asia/Jerusalem. The date divider covers this single-day fixture."
+    "apiNotes": "GET https://slack.com/api/conversations.history?channel=C08LAUNCH. Messages are newest first; user contains an ID and ts is a Unix-seconds string. Reactions and reply_count are optional and populated in this fixture. Channel names, user names, thread replies, and permalinks require conversations.info, users.info, conversations.replies, and chat.getPermalink respectively; they are not invented history fields. Slack mrkdwn is shown as plain text. The view reverses the newest-first API array without changing source order. The channel title, user-name/initial labels, and emoji lookup are explicit fictional presentation context; a real integration must populate them from the companion APIs. Times use Asia/Jerusalem. The date divider covers this single-day fixture.",
+    "documentId": "example:Templates/App Views/Slack Channel.json"
   },
   {
     "id": "app-notion",
     "title": "Notion Project",
     "category": "Template",
     "description": "A Notion page with editable title, description, assignee name, and due date.",
-    "sourceFile": "Templates/App Views/Notion Project.json",
-    "relativePath": "Templates/App Views/Notion Project.json",
+    "sourceFile": "App Views/Notion Project.json",
+    "relativePath": "App Views/Notion Project.json",
     "sourceSha256": "cb501c6f479f4e3145643b470e8d3a5e85fdb01b1a0a9c52076fb47a5baddb5e",
     "bytes": 7585,
     "apiReference": [
@@ -175,15 +158,16 @@
       "https://developers.notion.com/reference/parent-object",
       "https://developers.notion.com/reference/rich-text"
     ],
-    "apiNotes": "GET /v1/pages/{page_id}, using the data_source_id parent model introduced in Notion-Version 2025-09-03. Name, Status, Assign, Due Date, Priority, and Description are example data-source properties, not universal page fields. Description is a rich_text property, not page body blocks (those come from blocks.children.list). Text edits update text.content and plain_text together. The assignee name and due date edit directly; status and priority stay read-only to preserve their name/id pairs."
+    "apiNotes": "GET /v1/pages/{page_id}, using the data_source_id parent model introduced in Notion-Version 2025-09-03. Name, Status, Assign, Due Date, Priority, and Description are example data-source properties, not universal page fields. Description is a rich_text property, not page body blocks (those come from blocks.children.list). Text edits update text.content and plain_text together. The assignee name and due date edit directly; status and priority stay read-only to preserve their name/id pairs.",
+    "documentId": "example:Templates/App Views/Notion Project.json"
   },
   {
     "id": "app-stripe",
     "title": "Stripe Payments",
     "category": "Template",
     "description": "A familiar payments table with editable amounts, statuses, descriptions, notes, and billing contacts.",
-    "sourceFile": "Templates/App Views/Stripe Payments.json",
-    "relativePath": "Templates/App Views/Stripe Payments.json",
+    "sourceFile": "App Views/Stripe Payments.json",
+    "relativePath": "App Views/Stripe Payments.json",
     "sourceSha256": "7876554baf597c3182c450119f4ccfb122fa624516df22686a7a36ec6eeb4842",
     "bytes": 10022,
     "apiReference": [
@@ -191,130 +175,22 @@
       "https://docs.stripe.com/api/payment_intents/object",
       "https://docs.stripe.com/api/payment_methods/object"
     ],
-    "apiNotes": "GET /v1/payment_intents?limit=3&expand[]=data.payment_method. This is a shortened response fixture: unused fields, card details, and client_secret are omitted. billing_details belongs to the expanded PaymentMethod, not PaymentIntent. amount remains an integer in minor currency units; the view formats it as currency and created as a date/time in Asia/Jerusalem. Amount edits use major units and update amount_received alongside amount for this fully received fixture; adapt that pairing for other payment states. receipt_note is an example user-defined metadata key. There are no fabricated display_amount, display_date, or summary fields."
+    "apiNotes": "GET /v1/payment_intents?limit=3&expand[]=data.payment_method. This is a shortened response fixture: unused fields, card details, and client_secret are omitted. billing_details belongs to the expanded PaymentMethod, not PaymentIntent. amount remains an integer in minor currency units; the view formats it as currency and created as a date/time in Asia/Jerusalem. Amount edits use major units and update amount_received alongside amount for this fully received fixture; adapt that pairing for other payment states. receipt_note is an example user-defined metadata key. There are no fabricated display_amount, display_date, or summary fields.",
+    "documentId": "example:Templates/App Views/Stripe Payments.json"
   },
   {
     "id": "app-linkedin",
     "title": "LinkedIn Messages (Mock)",
     "category": "Template",
     "description": "An explicitly illustrative messaging mock; not a LinkedIn API response.",
-    "sourceFile": "Templates/App Views/LinkedIn Messages (Mock).json",
-    "relativePath": "Templates/App Views/LinkedIn Messages (Mock).json",
+    "sourceFile": "App Views/LinkedIn Messages (Mock).json",
+    "relativePath": "App Views/LinkedIn Messages (Mock).json",
     "sourceSha256": "a592192e3e6c8dd48041031cd62fe9aee81226c328f72f920ffa78b2cdf9f0e2",
     "bytes": 5990,
     "apiReference": [
       "https://learn.microsoft.com/en-us/linkedin/shared/integrations/communications/messages"
     ],
-    "apiNotes": "The provided conversation is a normalized UI mock, not a documented LinkedIn response. LinkedIn Messages API access is restricted to approved partners; its public documentation does not establish this inbox shape. No API compatibility is claimed. The draft field is local-only."
-  },
-  {
-    "id": "csv",
-    "title": "Tasks CSV",
-    "sourceFile": "Examples/Tasks.csv",
-    "description": "The same tasks as a flat CSV table.",
-    "sourceSha256": "26c7613a76cf895784b0179986f3619efceda056a011d2826ec7429673b1851b",
-    "bytes": 118,
-    "category": "Example",
-    "relativePath": "Examples/Tasks.csv"
-  },
-  {
-    "id": "object-root",
-    "title": "Object root",
-    "sourceFile": "Examples/Object root.json",
-    "description": "An ordinary object with a nested collection; views are inferred.",
-    "sourceSha256": "4865163eb6de8f4785b64bfda3c63657cc30929b23bdab5dc806579661c7fcb1",
-    "bytes": 391,
-    "category": "Example",
-    "relativePath": "Examples/Object root.json"
-  },
-  {
-    "id": "array-root",
-    "title": "Array root",
-    "sourceFile": "Examples/Array root.json",
-    "description": "The same tasks as a plain root array, with no annotations.",
-    "sourceSha256": "af111d4466cd83c18241d7d0af05dc6a5ae718df3402c9705fc9c4bd07ae7b9b",
-    "bytes": 307,
-    "category": "Example",
-    "relativePath": "Examples/Array root.json"
-  },
-  {
-    "id": "single-record",
-    "title": "Single record",
-    "sourceFile": "Examples/Single record.json",
-    "description": "A plain record with long text properties.",
-    "sourceSha256": "53d877b52e0f8e1da54028ed7f45c4ebd00113080b3354b454f22dbe340150d1",
-    "bytes": 193,
-    "category": "Example",
-    "relativePath": "Examples/Single record.json"
-  },
-  {
-    "id": "nested-json",
-    "title": "Nested JSON",
-    "sourceFile": "Examples/Nested JSON.json",
-    "description": "Nested objects and collections to navigate.",
-    "sourceSha256": "95e2b2c3ee7a83619d648bc953f228e702d52c16127096d9fa565df60b9698bd",
-    "bytes": 538,
-    "category": "Example",
-    "relativePath": "Examples/Nested JSON.json"
-  },
-  {
-    "id": "object-map",
-    "title": "Object map",
-    "sourceFile": "Examples/Object map.json",
-    "description": "A dictionary of records keyed by ID.",
-    "sourceSha256": "967c14ed8505b02dd7a8bb81dc05bb3baa495c74f32b55a09af176aa5bd63819",
-    "bytes": 180,
-    "category": "Example",
-    "relativePath": "Examples/Object map.json"
-  },
-  {
-    "id": "mixed-array",
-    "title": "Mixed array",
-    "sourceFile": "Examples/Mixed array.json",
-    "description": "A JSON array can mix strings, numbers, booleans, null, arrays, and objects.",
-    "sourceSha256": "ccf9ef7382aef7cdd1e1554ee4973e26b4f4377e975886c10f9cd51ebbe1e463",
-    "bytes": 106,
-    "category": "Example",
-    "relativePath": "Examples/Mixed array.json"
-  },
-  {
-    "id": "scalar-json",
-    "title": "Scalar JSON",
-    "sourceFile": "Examples/Scalar JSON.json",
-    "description": "A valid JSON file does not have to start with an object or array.",
-    "sourceSha256": "11923a6aa62d7af9c18fec51cfbbaa48d38a8ed809c2e494e26f83df884e1db7",
-    "bytes": 36,
-    "category": "Example",
-    "relativePath": "Examples/Scalar JSON.json"
-  },
-  {
-    "id": "html-launch",
-    "title": "HTML Launch",
-    "category": "Example",
-    "sourceFile": "Examples/HTML Launch.json",
-    "relativePath": "Examples/HTML Launch.json",
-    "description": "A self-contained, editable HTML/CSS view inside JSON.",
-    "sourceSha256": "758fe62022d9e0aaa0e6e978d16241b45fa72d57b2ec719af7a58f1d9f91ac21",
-    "bytes": 4417
-  },
-  {
-    "id": "html-room-plan",
-    "title": "HTML Room Plan",
-    "category": "Example",
-    "sourceFile": "Examples/HTML Room Plan.json",
-    "relativePath": "Examples/HTML Room Plan.json",
-    "description": "A self-contained, editable HTML/CSS view inside JSON.",
-    "sourceSha256": "f926ffc692e3b5cdc0a428dd98adb25b3a78f529d279296a4f52a40c7638e22b",
-    "bytes": 3132
-  },
-  {
-    "id": "html-product-sheet",
-    "title": "HTML Product Sheet",
-    "category": "Example",
-    "sourceFile": "Examples/HTML Product Sheet.json",
-    "relativePath": "Examples/HTML Product Sheet.json",
-    "description": "A self-contained, editable HTML/CSS view inside JSON.",
-    "sourceSha256": "b550e53aa457d7575deaaa90123aa7732285dba9a0ae3d7cfbbc43e634af9a25",
-    "bytes": 3332
+    "apiNotes": "The provided conversation is a normalized UI mock, not a documented LinkedIn response. LinkedIn Messages API access is restricted to approved partners; its public documentation does not establish this inbox shape. No API compatibility is claimed. The draft field is local-only.",
+    "documentId": "example:Templates/App Views/LinkedIn Messages (Mock).json"
   }
 ]

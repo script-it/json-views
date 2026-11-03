@@ -1,3 +1,4 @@
+import { reconcileBuiltinDocuments } from './builtin-documents.js'
 import { documentFormat, embedJsonViewMetadata, filenameFromPath, openDocument, sourceError, untitledFilename, type OpenDocument, type RepresentativeSample } from './document-model.js'
 import { Component, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { Check, Download, Github, Moon, Plus, Settings, Share2, Sun, Upload, X } from 'lucide-react'
@@ -5,7 +6,7 @@ import {
   CSVContent, InlineFeedbackAction, JSONContent, JsonViewsProvider, useJsonViewsDevice,
   type JsonViewsPresentationState, type ObjectRootConversionRequest,
 } from '@script-it/json-views-react'
-import Markdown, { type Components } from 'react-markdown'
+import Markdown, { defaultUrlTransform, type Components } from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import remarkGfm from 'remark-gfm'
@@ -70,28 +71,36 @@ const NEW_TABLE_JSON = `${JSON.stringify({
   ],
 }, null, 2)}\n`
 
+// Only allow the documented prompt-entry routes, not arbitrary app commands.
+function isAgentPromptLink(url: string): boolean {
+  return /^(?:claude:\/\/code\/new\?q=|codex:\/\/new\?prompt=|cursor:\/\/anysphere\.cursor-deeplink\/prompt\?text=)/.test(url)
+}
+
 const MARKDOWN_COMPONENTS: Components = {
-  a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
+  a: ({ node: _node, ...props }) => <a {...props} target={(props.href?.startsWith('#') || isAgentPromptLink(props.href ?? '')) ? undefined : '_blank'} rel="noreferrer" />,
 }
 
 const HTML_SANITIZE_SCHEMA = {
   ...defaultSchema,
-  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text'],
+  protocols: { ...defaultSchema.protocols, href: [...(defaultSchema.protocols?.href ?? []), 'claude', 'codex', 'cursor'] },
+  tagNames: [...(defaultSchema.tagNames ?? []), 'svg', 'circle', 'text', 'picture', 'source'],
   attributes: {
     ...defaultSchema.attributes,
+    source: ['media', 'srcSet', 'type'],
     svg: ['ariaLabel', 'height', 'role', 'viewBox', 'width'],
     circle: ['cx', 'cy', 'fill', 'r', 'stroke', 'strokeLinecap', 'strokeWidth'],
     text: ['dominantBaseline', 'fill', 'fontFamily', 'fontSize', 'fontWeight', 'textAnchor', 'x', 'y'],
   },
 }
 
-function renderMarkdownBody(content: string): ReactNode {
+export function renderMarkdownBody(content: string): ReactNode {
   return (
     <div className="json-views-markdown">
       <Markdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, [rehypeSanitize, HTML_SANITIZE_SCHEMA]]}
         components={MARKDOWN_COMPONENTS}
+        urlTransform={(url, key) => key === 'href' && isAgentPromptLink(url) ? url : defaultUrlTransform(url)}
       >
         {content}
       </Markdown>
@@ -402,13 +411,14 @@ export function App() {
     // Visiting a local file leaves the browser workspace's last selection intact.
     const previousActive = previous?.documents[previous.activeDocumentIndex]
     const activeIndex = cacheableDocuments.findIndex((document) => document.id === (activeDocument?.token ? previousActive?.id : activeDocument?.id))
-    const activeTemplateFilename = activeDocument?.token
-      ? previous?.activeTemplateFilename
-      : activeDocument && !activeDocument.cacheable ? activeDocument.filename : undefined
+    const activeBuiltinId = activeDocument?.token
+      ? previous?.activeBuiltinId
+      : activeDocument && !activeDocument.cacheable ? activeDocument.id : undefined
     const workspace: CachedBrowserWorkspace = {
       version: 1,
       activeDocumentIndex: activeIndex,
-      ...(activeTemplateFilename ? { activeTemplateFilename } : {}),
+      ...(activeBuiltinId ? { activeBuiltinId } : {}),
+      ...(activeDocument?.token && previous?.activeTemplateFilename ? { activeTemplateFilename: previous.activeTemplateFilename } : {}),
       documents: cacheableDocuments.map((document) => ({
         content: document.controller.getSnapshot().content,
         filename: document.filename,
@@ -420,9 +430,9 @@ export function App() {
         mode: document.mode,
         ...(document.presentationState ? { presentationState: document.presentationState } : {}),
       })),
-      templateStates: { ...previous?.templateStates, ...Object.fromEntries(latestDocuments
+      templateStates: { ...(initialToken ? previous?.templateStates : {}), ...Object.fromEntries(latestDocuments
         .filter((document) => !document.cacheable && !document.token)
-        .map((document) => [document.filename, {
+        .map((document) => [document.id, {
           mode: document.mode,
           ...(document.presentationState ? { presentationState: document.presentationState } : {}),
         }])) },
@@ -672,6 +682,7 @@ export function App() {
       const response = await fetch('./representative-examples/manifest.json', { signal: abort.signal })
       if (!response.ok) throw new Error('Could not load representative examples')
       const samples = await response.json() as RepresentativeSample[]
+      if (samples.some(sample => !sample.documentId) || new Set(samples.map(sample => sample.documentId)).size !== samples.length) throw new Error('Built-in document IDs must be present and unique')
       const opened = await Promise.all(samples.map(async (sample) => {
         const [sourceResponse, annotationResponse] = await Promise.all([
           fetch(`./representative-examples/${sample.sourceFile}`, { signal: abort.signal }),
@@ -682,7 +693,7 @@ export function App() {
         if (annotationResponse && (!annotations || typeof annotations !== 'object' || Array.isArray(annotations))) throw new Error(`Invalid annotations for ${sample.title}`)
         return openDocument(annotationResponse ? embedJsonViewMetadata(source, annotations as Record<string, unknown>) : source, filenameFromPath(sample.sourceFile), {
           cacheable: false,
-          id: `example:${sample.sourceFile}`,
+          id: sample.documentId,
           label: sample.title,
           relativePath: sample.relativePath,
           presentationState: sample.presentationState,
@@ -706,24 +717,13 @@ export function App() {
       if (abort.signal.aborted) return
       cachedWorkspaceRef.current = cached
       const cachedDocuments = restoreBrowserDocuments(cached)
-      const cachedById = new Map(cachedDocuments.map((document) => [document.id, document]))
-      const restoredExamples = examples.map((document) => {
-        // Edited examples are ordinary browser documents. Their saved source
-        // takes precedence over a freshly fetched template, including its UI state.
-        const edited = cachedById.get(document.id)
-        if (edited) return edited
-        const state = cached?.templateStates?.[document.filename]
-        return state ? { ...document, mode: state.mode ?? document.mode, presentationState: state.presentationState ?? document.presentationState } : document
-      })
+      const reconciled = reconcileBuiltinDocuments(examples, cachedDocuments, cached)
       const sharedDocument = sharedResult.document
         ? openDocument(sharedResult.document.source, filenameFromPath(sharedResult.document.filename))
         : undefined
-      const exampleIds = new Set(examples.map((document) => document.id))
-      const opened = [...restoredExamples, ...cachedDocuments.filter((document) => !exampleIds.has(document.id)), ...(sharedDocument ? [sharedDocument] : [])]
+      const opened = [...reconciled.documents, ...(sharedDocument ? [sharedDocument] : [])]
       const fallback = opened.length > 0 ? opened : [openDocument(BLANK_JSON, 'untitled.json')]
-      const restoredActive = cached && cached.activeDocumentIndex >= 0
-        ? cachedDocuments[cached.activeDocumentIndex]
-        : restoredExamples.find((document) => document.filename === cached?.activeTemplateFilename)
+      const restoredActive = reconciled.activeDocument
       documentsRef.current = fallback
       browserWorkspaceReady.current = true
       setDocuments(fallback)
@@ -1530,6 +1530,7 @@ export function App() {
               isDirty={snapshot.dirty}
               isSaving={snapshot.saving || (!token && documentSession.cacheable && workspaceSave.saving)}
               saveError={snapshot.error?.message || hostError || (!token && documentSession.cacheable ? storageError || (workspaceConflicts.includes(documentSession.id) ? 'This document has a save conflict.' : undefined) : undefined)}
+              buttonToEdit
               renderMarkdown={renderMarkdownBody}
               fillHeight
               edit={{

@@ -221,3 +221,10 @@ it('compares document data exactly like the serialized form it replaces', () => 
     }
   }
 })
+
+
+it('backs up and restores built-in selection by permanent ID', async () => {
+  vi.stubGlobal('indexedDB', undefined)
+  await expect(writeBrowserWorkspace({ ...stored, activeDocumentIndex: -1, activeBuiltinId: 'permanent-tasks', templateStates: { 'permanent-tasks': { mode: 'source' } } })).rejects.toThrow()
+  expect(await readStoredWorkspace()).toMatchObject({ activeDocumentIndex: -1, activeBuiltinId: 'permanent-tasks', templateStates: { 'permanent-tasks': { mode: 'source' } } })
+})

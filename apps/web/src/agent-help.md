@@ -216,6 +216,6 @@ Edits that began before another accepted source change are refused rather than r
 
 ## App templates
 
-On the website, open **Templates → App Views** for Gmail, HubSpot, Notion, Slack, and Stripe layouts using fictional data shaped like their documented API responses. A separate LinkedIn messaging example is explicitly labeled as a mock. The HTML views section in **About JSON Views → How the Editor Works** links to each example.
+On the website, open **App Views** for Gmail, HubSpot, Notion, Slack, and Stripe layouts using fictional data shaped like their documented API responses. A separate LinkedIn messaging example is explicitly labeled as a mock. The HTML views section in **About JSON Views → How the Editor Works** links to each example.
 
-These are focused fixtures, not universal API renderers or live integrations. `$jsonviews` adds local presentation metadata; edits stay in the JSON file. Read the [API sources and adaptation notes](https://json-views.com/representative-examples/Templates/App%20Views/README.md) for endpoint parameters, optional fields, native units, and the LinkedIn limitation.
+These are focused fixtures, not universal API renderers or live integrations. `$jsonviews` adds local presentation metadata; edits stay in the JSON file. Read the [API sources and adaptation notes](https://json-views.com/representative-examples/App%20Views/README.md) for endpoint parameters, optional fields, native units, and the LinkedIn limitation.
