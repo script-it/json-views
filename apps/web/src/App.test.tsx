@@ -267,6 +267,33 @@ describe('document host', () => {
     expect(container.querySelector('.brand')?.getAttribute('aria-label')).toBe('JSON Views beta home')
   })
 
+  it.each([false, true])('follows the system theme until explicitly changed (dark: %s)', async (dark) => {
+    const media = Object.assign(new EventTarget(), { matches: dark })
+    vi.stubGlobal('matchMedia', () => media)
+    const currentTheme = () => container.querySelector('main')?.getAttribute('data-json-views-theme')
+    await mount()
+    expect(currentTheme()).toBe(dark ? 'dark' : 'light')
+    expect(localStorage.getItem('json-views-theme')).toBeNull()
+
+    await act(async () => {
+      media.matches = !dark
+      media.dispatchEvent(new Event('change'))
+    })
+    expect(currentTheme()).toBe(dark ? 'light' : 'dark')
+    expect(localStorage.getItem('json-views-theme')).toBeNull()
+
+    const chosen = dark ? 'dark' : 'light'
+    await button(`Switch to ${chosen} mode`)
+    expect(currentTheme()).toBe(chosen)
+    expect(localStorage.getItem('json-views-theme')).toBe(chosen)
+    await act(async () => { media.dispatchEvent(new Event('change')) })
+    expect(currentTheme()).toBe(chosen)
+    await act(async () => root.unmount())
+    root = createRoot(container)
+    await mount()
+    expect(currentTheme()).toBe(chosen)
+  })
+
   it('collapses and restores the left sidebar while preserving the preference', async () => {
     await mount()
 

@@ -18,7 +18,7 @@
   <h1 id="title">Set up JSON Views</h1>
   <p id="description">Copy this prompt into your agent:</p>
   <p><a id="launch" hidden>Open desktop app</a></p>
-  <pre>Install the JSON Views skill: npx skills add script-it/json-views</pre>
+  <pre>Install the JSON Views skill: npx skills add script-it/json-views -g</pre>
   <p>The desktop app must be installed. If it doesn't open, copy the prompt above into your agent. Review the prompt before sending it.</p>
   <script>
     const agents = {
@@ -32,7 +32,7 @@
       document.getElementById('title').textContent = 'Open ' + agent.name;
       document.getElementById('description').textContent = 'Open the desktop app with the install prompt ready to review.';
       const launch = document.getElementById('launch');
-      launch.href = agent.url + encodeURIComponent('Install the JSON Views skill: npx skills add script-it/json-views');
+      launch.href = agent.url + encodeURIComponent('Install the JSON Views skill: npx skills add script-it/json-views -g');
       launch.textContent = 'Open ' + agent.name;
       launch.hidden = false;
     }
