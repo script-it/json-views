@@ -79,3 +79,25 @@ export const analytics = createAnalyticsClient({
   dataPlaneUrl: import.meta.env.VITE_RUDDERSTACK_DATA_PLANE_URL || 'https://analytics.script.it',
   writeKey: import.meta.env.VITE_RUDDERSTACK_WRITE_KEY || '',
 })
+
+// Exact campaign vocabulary: arbitrary query values (including personal data) are dropped.
+export const APPROVED_CAMPAIGNS: Record<string, readonly string[]> = {
+  utm_source: ['scriptit', 'github', 'linkedin', 'newsletter', 'chatgpt', 'claude', 'codex'],
+  utm_medium: ['social', 'email', 'referral', 'organic'],
+  utm_campaign: ['launch', 'json-views'],
+  utm_content: ['agent-button', 'example-card', 'read-more'],
+}
+
+export function trafficSourceProperties(referrer: string, search: string): AnalyticsProperties {
+  const properties: AnalyticsProperties = {}
+  try {
+    const url = new URL(referrer)
+    if (url.protocol === 'https:' || url.protocol === 'http:') properties.referrer_domain = url.hostname
+  } catch { /* Direct visits have no referrer. */ }
+  const params = new URLSearchParams(search)
+  for (const [key, values] of Object.entries(APPROVED_CAMPAIGNS)) {
+    const value = params.get(key)
+    if (value && values.includes(value)) properties[key] = value
+  }
+  return properties
+}

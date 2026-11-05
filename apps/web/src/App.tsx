@@ -23,7 +23,8 @@ import {
 } from './console-api.js'
 import { registerJsonViewsWebMcp } from './webmcp.js'
 import { createShareLink, hasShareHash, MAX_SHARE_LINK_LENGTH, readShareHash, type ShareDocument } from './share-link.js'
-import { analytics, isAnalyticsEnabled, setAnalyticsEnabled } from './analytics.js'
+import { analytics, isAnalyticsEnabled, setAnalyticsEnabled, trafficSourceProperties } from './analytics.js'
+import { builtinAnalyticsProperties, builtinViewAnalyticsProperties, registerAnalyticsBuiltin } from './analytics-builtins.js'
 import { AgentGuide } from './AgentGuide.js'
 import { UploadButton } from './UploadButton.js'
 import { DocumentTree } from './DocumentTree.js'
@@ -252,6 +253,7 @@ function cachedDocumentDiagnostics(document: OpenDocument): readonly JsonViewsDi
 
 function documentAnalyticsProperties(document: OpenDocument, analyticsInterface: AnalyticsInterface) {
   return {
+    ...builtinAnalyticsProperties(document),
     format: documentFormat(document.filename),
     interface: analyticsInterface,
     storage: document.token ? 'local-file' : document.cacheable ? 'browser' : 'template',
@@ -629,7 +631,7 @@ export function App() {
   }
 
   useEffect(() => {
-    void analytics.page({ entry: initialToken ? 'local' : initialShareHash ? 'shared' : 'website', interface: 'ui' })
+    void analytics.page({ ...trafficSourceProperties(document.referrer, location.search), entry: initialToken ? 'local' : initialShareHash ? 'shared' : 'website', interface: 'ui' })
   }, [initialShareHash, initialToken])
 
   useEffect(() => {
@@ -712,13 +714,15 @@ export function App() {
         if (!sourceResponse.ok || (annotationResponse && !annotationResponse.ok)) throw new Error(`Could not load ${sample.title}`)
         const [source, annotations] = await Promise.all([sourceResponse.text(), annotationResponse?.json()])
         if (annotationResponse && (!annotations || typeof annotations !== 'object' || Array.isArray(annotations))) throw new Error(`Invalid annotations for ${sample.title}`)
-        return openDocument(annotationResponse ? embedJsonViewMetadata(source, annotations as Record<string, unknown>) : source, filenameFromPath(sample.sourceFile), {
+        const opened = openDocument(annotationResponse ? embedJsonViewMetadata(source, annotations as Record<string, unknown>) : source, filenameFromPath(sample.sourceFile), {
           cacheable: false,
           id: sample.documentId,
           label: sample.title,
           relativePath: sample.relativePath,
           presentationState: sample.presentationState,
         })
+        registerAnalyticsBuiltin(opened, sample.sourceFile)
+        return opened
       }))
       return opened
     }
@@ -897,6 +901,19 @@ export function App() {
     documentsRef.current = updated
     setDocuments(updated)
   }, [documentSession.id])
+
+  const lastAnalyticsView = useRef<{ controller: OpenDocument['controller']; activeView: string } | undefined>(undefined)
+  useEffect(() => {
+    let activeView = documentSession.presentationState?.activeView
+    if (documentSession.mode === 'source') activeView = 'source'
+    if (!activeView) {
+      try { activeView = routeActiveView(documentSession) } catch { return }
+    }
+    if (lastAnalyticsView.current?.controller === documentSession.controller && lastAnalyticsView.current.activeView === activeView) return
+    lastAnalyticsView.current = { controller: documentSession.controller, activeView }
+    const properties = builtinViewAnalyticsProperties(documentSession, activeView)
+    if (properties) void analytics.track('json_views_view_selected', { ...properties, interface: 'ui' })
+  }, [documentSession.controller, documentSession.mode, documentSession.presentationState?.activeView])
 
   const requestMetadataPersistence = useCallback((request: ObjectRootConversionRequest) => (
     new Promise<boolean>((resolve) => setConversion({ request, resolve, document: documentSession, baseSource: documentSession.controller.getSnapshot().content }))
@@ -1358,6 +1375,11 @@ export function App() {
           <nav className="document-list" aria-label="Open documents">
             {!connecting && <DocumentTree documents={documents} activeDocumentId={documentSession.id}
               onOpen={(document) => {
+                const properties = builtinAnalyticsProperties(document)
+                if (properties.template_id) {
+                  void analytics.track('json_views_link_clicked', { ...properties, link_id: 'template-navigation', interface: 'ui' })
+                  void analytics.track('json_views_document_opened', { ...documentAnalyticsProperties(document, 'ui'), method: 'navigation' })
+                }
                 let activeView = 'root'
                 try { activeView = routeActiveView(document) } catch { /* Invalid source stays open for repair. */ }
                 const updated = documentsRef.current.map((entry) => entry.id === document.id ? {
@@ -1425,7 +1447,7 @@ export function App() {
             <label className="settings-option">
               <span>
                 <strong>Allow anonymous analytics</strong>
-                <small>You can change this at any time. This preference is saved only in this browser. Turning it off sends one final anonymous disabled event.</small>
+                <small>You can change this at any time. We collect usage, referring domains, approved campaign tags, and built-in template/view IDs, with no document content, cookies, or persistent visitor IDs. This preference is saved only in this browser. Turning it off sends one final anonymous disabled event.</small>
               </span>
               <input
                 type="checkbox"

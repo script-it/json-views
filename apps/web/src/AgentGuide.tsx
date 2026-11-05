@@ -1,5 +1,6 @@
 import { useId, useRef, useState, type ReactNode } from 'react'
 import { BookOpen, Check, Copy, X } from 'lucide-react'
+import { analytics } from './analytics.js'
 import prompt from '../public/agent-prompt.md?raw'
 
 const description = prompt.trim().replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replaceAll('`', '')
@@ -34,6 +35,7 @@ export function AgentGuide({ copyText, renderMarkdown }: AgentGuideProps) {
       aria-haspopup="dialog"
       aria-controls={id}
       onClick={(event) => {
+        void analytics.track('json_views_link_clicked', { link_id: 'agent-guide', interface: 'ui' })
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey
           || typeof dialog.current?.showModal !== 'function') return
         event.preventDefault()
