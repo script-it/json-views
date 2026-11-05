@@ -27,6 +27,8 @@ export function documentFormat(filename: string): DocumentFormat {
 }
 
 export interface RepresentativeSample {
+  /** Permanent browser identity. Never change this when moving or renaming a file. */
+  documentId: string
   presentationState?: JsonViewsPresentationState
   sourceFile: string
   annotationFile?: string

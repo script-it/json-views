@@ -319,4 +319,6 @@ The frame inherits `--jv-background`, `--jv-foreground`, `--jv-muted`, `--jv-bor
 
 Limits: HTML and CSS 256 KiB each, template 5,000 nodes / depth 64, expansion 10,000 nodes. Large arbitrary layouts are not virtualized. HTML views do not use built-in columns/filter/sort/group configuration; use another ordinary view to browse the same collection as a table or board.
 
-Examples are bundled as `Examples/HTML Launch.json`, `Examples/HTML Room Plan.json`, and `Examples/HTML Product Sheet.json`.
+App-specific HTML views are bundled in the website’s `App Views` folder.
+
+Set `buttonToEdit={true}` on `JSONContent` or `JsonViewer` to edit Markdown/body fields only through the pencil button at the top right (visible on hover, keyboard focus, and touch devices). The default is `false` for click-to-edit compatibility. The website always enables this behavior.

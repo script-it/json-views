@@ -44,6 +44,8 @@ export interface JsonViewerProps {
   sourceVisible?: boolean
   onSourceVisibleChange?: (visible: boolean) => void
   sourceControl?: ReactNode
+  /** Require the hover/focus edit button for Markdown fields instead of clicking their content. Defaults to false. */
+  buttonToEdit?: boolean
   /** Clamps tall table cells and reveals one on selection (default), or lets rows grow to fit. */
   tableCells?: JsonViewsTableCellOptions
   uiSize?: UiSize

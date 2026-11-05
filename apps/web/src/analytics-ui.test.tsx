@@ -27,7 +27,7 @@ it('reports built-in navigation and agent-guide clicks without custom view label
     ] }, rows: [{ name: 'Private content' }],
   })
   vi.stubGlobal('fetch', vi.fn(async (url) => new Response(String(url).endsWith('manifest.json')
-    ? JSON.stringify([{ sourceFile: 'About JSON Views.json', title: 'About JSON Views' }]) : source)))
+    ? JSON.stringify([{ documentId: 'example:About JSON Views.json', sourceFile: 'About JSON Views.json', title: 'About JSON Views' }]) : source)))
   history.replaceState(null, '', `/${documentRouteHash({ file: 'About JSON Views.json', view: 'Welcome' })}`)
   const container = document.createElement('div')
   document.body.append(container)

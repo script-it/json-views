@@ -291,3 +291,34 @@ it('parses a rewritten document a fixed number of times across the viewer, route
   expect(patched).toContain('Patched task')
   expect(parses(patched)).toBe(7)
 })
+
+it('restores an edited legacy template once at its flattened path and keeps it active', async () => {
+  Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
+  history.replaceState(null, '', '/#/')
+  const legacyId = 'example:Templates/Task Management.json'
+  const edited = JSON.stringify({ title: 'My edited task workspace' })
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input)
+    return url.endsWith('manifest.json')
+      ? Response.json([{ documentId: legacyId, title: 'Task Management', sourceFile: 'Task Management.json', relativePath: 'Task Management.json' }])
+      : Response.json({ title: 'Unedited built-in workspace' })
+  }))
+  vi.spyOn(browserWorkspace, 'readBrowserWorkspace').mockResolvedValue({
+    version: 1, activeDocumentIndex: 1,
+    documents: [
+      { id: 'other', filename: 'other.json', content: '{}', initialContent: '{}' },
+      { id: legacyId, filename: 'Task Management.json', relativePath: 'Templates/Task Management.json', content: edited, initialContent: edited },
+    ],
+  })
+  const container = document.createElement('div')
+  document.body.append(container)
+  const root = createRoot(container)
+  cleanup = async () => { await act(async () => root.unmount()); container.remove() }
+  await act(async () => { root.render(<App />) })
+  const documents = window.jsonViews!.list()
+  expect(documents.filter((document) => document.filename === 'Task Management.json')).toHaveLength(1)
+  expect(documents.find((document) => document.active)?.id).toBe(legacyId)
+  expect(window.jsonViews!.source(legacyId)).toBe(edited)
+  expect(window.jsonViews!.link(legacyId)).toContain('#/files/Task%20Management.json')
+  expect(container.querySelector('[aria-label="Open Templates folder"]')).toBeNull()
+})
