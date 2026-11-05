@@ -7,7 +7,7 @@ Open your agent to set up JSON Views:
 <a href="https://json-views.com/install.html?agent=claude"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/claude-code-dark.svg"><img src="docs/readme/claude-code-light.svg" alt="Claude Code" height="38"></picture></a>
 <a href="https://json-views.com/install.html?agent=codex"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/codex-dark.svg"><img src="docs/readme/codex-light.svg" alt="Codex" height="38"></picture></a>
 <a href="https://json-views.com/install.html?agent=cursor"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/cursor-dark.svg"><img src="docs/readme/cursor-light.svg" alt="Cursor" height="38"></picture></a>
-<a href="https://grok.com/?q=Install%20the%20JSON%20Views%20skill%3A%20npx%20skills%20add%20script-it%2Fjson-views"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/grok-bot-dark.svg"><img src="docs/readme/grok-bot-light.svg" alt="Grok" height="38"></picture></a>
+<a href="https://grok.com/?q=Install%20the%20JSON%20Views%20skill%3A%20npx%20skills%20add%20script-it%2Fjson-views%20-g"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/readme/grok-bot-dark.svg"><img src="docs/readme/grok-bot-light.svg" alt="Grok" height="38"></picture></a>
 
 Today, the formats for structured data leave a gap between people and agents:
 

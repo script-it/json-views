@@ -108,11 +108,15 @@ export function renderMarkdownBody(content: string): ReactNode {
   )
 }
 
-function initialTheme(): Theme {
+function initialThemePreference(): Theme | null {
   try {
     const stored = localStorage.getItem(THEME_KEY)
     if (stored === 'light' || stored === 'dark') return stored
   } catch { /* Use the system theme when browser storage is unavailable. */ }
+  return null
+}
+
+function systemTheme(): Theme {
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
@@ -337,7 +341,9 @@ export function App() {
   const [downloaded, setDownloaded] = useState<Record<string, string>>({})
   const [downloadConfirmedDocumentId, setDownloadConfirmedDocumentId] = useState<string>()
   const [recovery, setRecovery] = useState<{ content: string; filename: string }>()
-  const [theme, setTheme] = useState<Theme>(initialTheme)
+  const [themePreference, setThemePreference] = useState(initialThemePreference)
+  const [systemThemeValue, setSystemThemeValue] = useState(systemTheme)
+  const theme = themePreference ?? systemThemeValue
   const [desktopSidebarCollapsed, setDesktopSidebarCollapsed] = useState(initialSidebarCollapsed)
   const mobileBrowser = useJsonViewsDevice() === 'mobile'
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
@@ -604,8 +610,23 @@ export function App() {
 
   useEffect(() => {
     document.documentElement.style.colorScheme = theme
-    try { localStorage.setItem(THEME_KEY, theme) } catch { /* Theme selection remains available without browser storage. */ }
   }, [theme])
+
+  useEffect(() => {
+    if (themePreference !== null) return
+    const media = window.matchMedia?.('(prefers-color-scheme: dark)')
+    if (!media) return
+    const update = () => setSystemThemeValue(media.matches ? 'dark' : 'light')
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [themePreference])
+
+  function toggleTheme() {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setThemePreference(next)
+    try { localStorage.setItem(THEME_KEY, next) } catch { /* Theme selection remains available without browser storage. */ }
+  }
 
   useEffect(() => {
     void analytics.page({ entry: initialToken ? 'local' : initialShareHash ? 'shared' : 'website', interface: 'ui' })
@@ -1551,7 +1572,7 @@ export function App() {
         </a>
         <div className="workspace-actions">
           <a className="icon-link repository-link" href="https://github.com/script-it/json-views" target="_blank" rel="noreferrer" aria-label="GitHub repository"><Github size={18} /></a>
-          <button className="icon-link" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} onClick={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')}>
+          <button className="icon-link" type="button" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} onClick={toggleTheme}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
