@@ -19,6 +19,8 @@ JSON Views closes that gap. It keeps the data in plain JSON, which agents alread
 
 A small `$jsonviews` property inside the file can hold the column types and saved views, so people jump straight to the useful tables instead of the whole JSON tree. Agents can edit that property too, to set up those views for the people they work with.
 
+![json-views — paste JSON, get a table and a board, and edits land back in the JSON](./docs/readme/json-views-demo.gif)
+
 ## What it is
 
 A JSON viewer and editor for people and agents. It works on [json-views.com](https://json-views.com/), inside React apps, and on local files.
