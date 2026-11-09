@@ -473,7 +473,8 @@ export function JsonViewer({
               <div data-id="jsonView-view-controls" className="flex min-w-0 flex-1 items-center">
                 {canAddViews && <JsonViewAddView key="add-view" align="start" root={compiled.root} schema={compiled.schema} currentPath={jsonPathForValuePath(currentPath)} disabled={editing.saving} onAdd={addView} unavailableReason={addViewUnavailableReason} />}
                 {(hasTabs || sourceContent) && (
-                  <TabsList key="view-tabs" data-id="jsonView-json-tabs" className="h-8 min-w-0 flex-initial justify-start gap-0.5 overflow-x-auto overscroll-x-contain rounded-none bg-transparent p-0">
+                  // The strip scrolls without drawing a scrollbar, which at its height would sit over the tabs.
+                  <TabsList key="view-tabs" data-id="jsonView-json-tabs" className="h-8 min-w-0 flex-initial justify-start gap-0.5 overflow-x-auto overscroll-x-contain rounded-none bg-transparent p-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {compiled.views.map((view) => {
                       const Icon = view.display === 'html' ? LayoutGrid : view.display === 'kanban'
                         ? Columns3
