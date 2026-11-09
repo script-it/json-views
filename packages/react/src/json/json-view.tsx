@@ -20,8 +20,8 @@ import { ProjectedTableView } from './table-view.js'
 import { KanbanView } from './kanban-view.js'
 import { useViewerState } from '../viewer-state.js'
 import { TableCellOptionsContext } from '../structured-data/table-cell-options.js'
-import { indexValueMarks, ValueMarksContext } from '../structured-data/value-elements.js'
-import { PickingContext, usePickHandlers } from '../structured-data/picking.js'
+import { indexValueMarks, valueElementAttributes, ValueMarksContext } from '../structured-data/value-elements.js'
+import { declarationElementAttributes, PickingContext, usePickHandlers } from '../structured-data/picking.js'
 import { RevealTablesContext, useBindController } from '../controller.js'
 
 // A tab is the containing block of its `sr-only` label, so the label stays inside the scrolling tab strip
@@ -37,7 +37,8 @@ function slashPath(view: CompiledJsonViewView): string {
   return `/${segments.join('/')}`
 }
 
-function ViewTab({ children, id, path, value }: { children: ReactNode; id: string; path: string; value: string }) {
+/** A view's tab. `declaration` makes it the element of the view's declaration, which a host that picks can pick. */
+function ViewTab({ children, declaration, id, path, value }: { children: ReactNode; declaration?: Record<string, string>; id: string; path: string; value: string }) {
   const [tooltipOpen, setTooltipOpen] = useState(false)
   return (
     <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
@@ -49,7 +50,7 @@ function ViewTab({ children, id, path, value }: { children: ReactNode; id: strin
             if (event.target instanceof HTMLElement && event.target.matches(':focus-visible')) setTooltipOpen(true)
           }}
         >
-          <TabsTrigger value={value} data-id={id} className={VIEW_TAB_CLASS}>{children}</TabsTrigger>
+          <TabsTrigger value={value} data-id={id} className={VIEW_TAB_CLASS} {...declaration}>{children}</TabsTrigger>
         </span>
       </TooltipTrigger>
       <TooltipContent side="bottom" className="max-w-80 break-all font-mono">{path}</TooltipContent>
@@ -223,8 +224,9 @@ export function JsonViewer({
 }: JsonViewerProps) {
   const { types } = useJsonViewsRegistries()
   const viewerState = useViewerState()
-  const contentRef = useRef<HTMLDivElement>(null)
-  const revealTables = useBindController(controller, contentRef)
+  // The viewer's values, and the tabs that stand for its declared views, are all inside its content wrapper.
+  const viewerRef = useRef<HTMLDivElement>(null)
+  const revealTables = useBindController(controller, viewerRef)
   const pickHandlers = usePickHandlers(onPick)
   // Hosts often pass a new array with the same marks; the index changes only with the marks themselves.
   const marksSignature = JSON.stringify(marks?.map((mark) => [mark.path, mark.kind]) ?? [])
@@ -308,6 +310,8 @@ export function JsonViewer({
   const renderedRawView = previewView ? previewRawView : activeRawView
   const query = queries[selectedTab] ?? ''
   const hasTabs = viewsEnabled && compiled.views.length > 0
+  // A view declared in the document's own `$jsonviews` is a value of the document, at its declaration's path.
+  const declaredInDocument = compiled.metadataSource === 'embedded'
   const addViewUnavailableReason = currentPath[0] === '$jsonviews'
     ? '$jsonviews stores internal view configuration, so it cannot be saved as another view.'
     : editing?.canEditViews === false
@@ -418,7 +422,7 @@ export function JsonViewer({
     <ButtonToEditContext.Provider value={buttonToEdit}>
     <TableCellOptionsContext.Provider value={tableCells}>
     <Tabs value={selectedTab} onValueChange={(value) => { if (value !== 'source') setActiveTab(value); onSourceVisibleChange?.(value === 'source') }} className={cn('flex min-h-0 flex-1 flex-col bg-background text-foreground', fillHeight && 'h-full')}>
-      <div data-id="json-viewer-content" className={cn('flex min-h-0 w-full max-w-none flex-1 flex-col px-3 py-4 sm:px-6 sm:py-5', fillHeight && 'h-full')}>
+      <div ref={viewerRef} data-id="json-viewer-content" className={cn('flex min-h-0 w-full max-w-none flex-1 flex-col px-3 py-4 sm:px-6 sm:py-5', fillHeight && 'h-full')} {...pickHandlers}>
         {hasToolbar && (
           <div data-id="json-viewer-toolbar" className="relative flex min-h-8 shrink-0 flex-nowrap items-center gap-x-2">
             <div data-id="jsonView-toolbar-actions" className="ml-auto flex h-8 shrink-0 items-center gap-1">
@@ -494,7 +498,10 @@ export function JsonViewer({
                         : isInferredSingleRecord(view) || (view.value !== null && typeof view.value === 'object' && !Array.isArray(view.value) && !isRecordCollection(view.value))
                           ? FileText
                           : Table2
-                      return <ViewTab key={view.id} id={`jsonView-json-tab-${view.id}`} value={`view:${view.id}`} path={slashPath(view)}><Icon className="h-3.5 w-3.5" />{view.name}</ViewTab>
+                      const declaration = declaredInDocument
+                        ? { ...valueElementAttributes(view.metadataPath, valueMarks), ...declarationElementAttributes(view.name) }
+                        : undefined
+                      return <ViewTab key={view.id} id={`jsonView-json-tab-${view.id}`} value={`view:${view.id}`} path={slashPath(view)} declaration={declaration}><Icon className="h-3.5 w-3.5" />{view.name}</ViewTab>
                     })}
                     <ViewTab id="jsonView-json-tab-root" value="root" path={isInferredSingleRecord(rootView) && !forceTable ? 'Root record' : 'Root table'}>
                       {isInferredSingleRecord(rootView) && !forceTable ? <FileText className="h-3.5 w-3.5" /> : <Table2 className="h-3.5 w-3.5" />}
@@ -507,7 +514,7 @@ export function JsonViewer({
             )}
           </div>
         )}
-        <TabsContent ref={contentRef} value={selectedTab} className={cn('mt-2 min-w-0', fillHeight && 'flex min-h-0 flex-1 flex-col')} {...pickHandlers}>
+        <TabsContent value={selectedTab} className={cn('mt-2 min-w-0', fillHeight && 'flex min-h-0 flex-1 flex-col')}>
           <ValueMarksContext.Provider value={valueMarks}>
           <PickingContext.Provider value={onPick !== undefined}>
           <RevealTablesContext.Provider value={revealTables}>

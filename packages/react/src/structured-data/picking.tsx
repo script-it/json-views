@@ -9,6 +9,9 @@ export interface JsonViewsPick {
   element: HTMLElement
   /** The text selected inside the value, when the pick ends a mouse selection. */
   selection?: { text: string; range: Range }
+  /** The name the element shows for a view or column declared in the document's `$jsonviews`, whose declaration is
+   *  `path`: a view's tab or a column's header. Values carry none. */
+  label?: string
 }
 
 /** Whether presses on values pick them instead of acting on them. */
@@ -22,6 +25,15 @@ const VALUE = '[data-json-views-path]'
 const TEXT_ENTRY = 'input, textarea, select, [contenteditable]:not([contenteditable="false"])'
 /** Marks a row's leading icon: a press there picks the row rather than the cell holding the icon. */
 export const ROW_PICKER_ATTRIBUTE = 'data-json-views-pick-row'
+/** Names the view or column a declaration's element stands for: a view's tab, a column's header. Such an element picks
+ *  as a whole, and while the viewer picks, its own controls (a tab's activation, a header's menu, resize handle and
+ *  drag) do not act. */
+export const DECLARATION_LABEL_ATTRIBUTE = 'data-json-views-label'
+
+/** The attribute naming the view or column a declaration's element stands for; the element's path is the declaration's. */
+export function declarationElementAttributes(label: string): { [DECLARATION_LABEL_ATTRIBUTE]: string } {
+  return { [DECLARATION_LABEL_ATTRIBUTE]: label }
+}
 
 /** The node as an element, also when it sits in an HTML view's frame, whose elements `instanceof Element` does not
  *  recognize. */
@@ -40,17 +52,23 @@ function pickedElement(target: EventTarget | null): HTMLElement | null {
   return start.closest<HTMLElement>(VALUE)
 }
 
-function pathOf(element: HTMLElement): ValuePath {
-  return JSON.parse(element.getAttribute('data-json-views-path') ?? '[]') as ValuePath
+/** The pick of a value's element: its path, and the name it shows when it stands for a declaration. */
+function pickOf(element: HTMLElement): JsonViewsPick {
+  const path = JSON.parse(element.getAttribute('data-json-views-path') ?? '[]') as ValuePath
+  const label = element.getAttribute(DECLARATION_LABEL_ATTRIBUTE)
+  return label === null ? { path, element } : { path, element, label }
 }
 
 /**
- * The content area's handlers while `onPick` is set. A click, Enter or Space
- * inside a value reports the innermost value instead of acting on it; a click
- * that ends a mouse selection reports the value holding all of the selection,
- * and nothing when the selection spans values. Drags out of values do not
- * start, and a press on a bound control neither focuses nor changes it.
- * Presses outside values, such as on tabs, search or column headers, keep
+ * The viewer's handlers while `onPick` is set. A click, Enter or Space inside
+ * a value reports the innermost value instead of acting on it; a click that
+ * ends a mouse selection reports the value holding all of the selection, and
+ * nothing when the selection spans values. Drags out of values do not start,
+ * and a press on a bound control neither focuses nor changes it. A view's tab
+ * and a declared column's header are the values of their declarations in the
+ * document's `$jsonviews`: a press on one picks it whole and neither switches
+ * the view nor opens, resizes or drags the column. Presses outside values, such
+ * as on the root and Source tabs, search or an inferred column's header, keep
  * their own behavior. An HTML view's presses reach these handlers through its
  * portal into its frame.
  */
@@ -70,10 +88,10 @@ export function usePickHandlers(onPick: ((pick: JsonViewsPick) => void) | undefi
       if (range && (page !== content.ownerDocument || content.contains(range.commonAncestorContainer))) {
         const common = range.commonAncestorContainer
         const holder = (asElement(common) ?? common.parentElement)?.closest<HTMLElement>(VALUE)
-        if (holder) onPick({ path: pathOf(holder), element: holder, selection: { text: selection!.toString(), range } })
+        if (holder) onPick({ ...pickOf(holder), selection: { text: selection!.toString(), range } })
         return
       }
-      onPick({ path: pathOf(element), element })
+      onPick(pickOf(element))
     },
     onKeyDownCapture: (event: KeyboardEvent<HTMLElement>) => {
       if (event.key !== 'Enter' && event.key !== ' ') return
@@ -81,14 +99,22 @@ export function usePickHandlers(onPick: ((pick: JsonViewsPick) => void) | undefi
       if (!element) return
       event.preventDefault()
       event.stopPropagation()
-      onPick({ path: pathOf(element), element })
+      onPick(pickOf(element))
     },
     onDragStartCapture: (event: DragEvent<HTMLElement>) => {
       if (pickedElement(event.target)) event.preventDefault()
     },
-    // A bound control would take focus, or change on the press itself as a range does; its click picks it instead.
+    // A bound control would take focus, or change on the press itself as a range does; its click picks it instead. A
+    // tab activates on the press, and a header's resize handle starts on it, so a declaration's element keeps it too.
     onMouseDownCapture: (event: MouseEvent<HTMLElement>) => {
-      if (pickedElement(event.target)?.matches(TEXT_ENTRY)) event.preventDefault()
+      const element = pickedElement(event.target)
+      if (!element) return
+      if (element.hasAttribute(DECLARATION_LABEL_ATTRIBUTE)) {
+        event.preventDefault()
+        event.stopPropagation()
+      } else if (element.matches(TEXT_ENTRY)) {
+        event.preventDefault()
+      }
     },
   }, [onPick])
 }

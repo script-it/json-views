@@ -9,8 +9,8 @@ export interface JsonViewsController {
   /**
    * Scrolls the value at `path` into view and resolves with its element. When
    * the open view does not show the value, it resolves with the nearest
-   * ancestor it shows, such as a field's row. A virtualized table scrolls to
-   * the row first. Resolves null when the view shows none of the path (another
+   * ancestor it shows, such as a field's row, or the tab of the view that
+   * declares a column. A virtualized table scrolls to the row first. Resolves null when the view shows none of the path (another
    * view, or a search or filter hiding the row), or when no viewer is bound
    * within `timeoutMs`.
    */

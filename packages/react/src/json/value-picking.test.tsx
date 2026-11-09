@@ -154,6 +154,92 @@ describe('picking values', () => {
   })
 })
 
+describe('picking declared views and columns', () => {
+  const people = { people: PEOPLE }
+  const VIEWS = [
+    { id: 'contacts', name: 'Contacts', path: '$.people', columns: [{ label: 'Name', path: '$.people[*].name' }, { label: 'Email', path: '$.people[*].email' }] },
+    { id: 'notes', name: 'Notes', path: '$.people' },
+  ]
+  const declared = JSON.stringify({ $jsonviews: { version: 1, views: VIEWS }, ...people })
+  const tab = (id: string) => rendered!.container.querySelector<HTMLElement>(`[data-id="jsonView-json-tab-${id}"]`)
+  const header = (label: string) => Array.from(rendered!.container.querySelectorAll<HTMLElement>('[data-id="tabular-column-header"]'))
+    .find((element) => element.textContent?.includes(label)) ?? null
+
+  async function pressDown(element: HTMLElement | null): Promise<boolean> {
+    let notCancelled = true
+    await act(async () => {
+      notCancelled = element!.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, button: 0 }))
+      await Promise.resolve()
+    })
+    return notCancelled
+  }
+
+  it('picks a view\'s tab, with its name, and stays on the open view', async () => {
+    const picks: JsonViewsPick[] = []
+    await render(<JSONContent content={declared} path="people.json" onSave={async () => undefined} onPick={(pick) => picks.push(pick)} />)
+    expect(tab('notes')?.getAttribute('data-json-views-path')).toBe(JSON.stringify(['$jsonviews', 'views', 1]))
+    expect(await pressDown(tab('notes'))).toBe(false)
+    await press(tab('notes'))
+    expect(picks.map(({ path, label }) => [path, label])).toEqual([[['$jsonviews', 'views', 1], 'Notes']])
+    expect(picks[0].element).toBe(tab('notes'))
+    expect(tab('notes')?.getAttribute('data-state')).toBe('inactive')
+    expect(tab('contacts')?.getAttribute('data-state')).toBe('active')
+  })
+
+  it('picks a declared column\'s header, with its label, without opening its menu or starting a resize', async () => {
+    const picks: JsonViewsPick[] = []
+    await render(<JSONContent content={declared} path="people.json" onSave={async () => undefined} onPick={(pick) => picks.push(pick)} />)
+    const email = header('Email')!
+    expect(await pressDown(email.querySelector('[role="separator"]'))).toBe(false)
+    await press(email.querySelector('[data-id="tabular-column-menu"]'))
+    expect(picks.map(({ path, label }) => [path, label])).toEqual([[['$jsonviews', 'views', 0, 'columns', 1], 'Email']])
+    expect(email.querySelector('[data-id="tabular-column-menu"]')?.getAttribute('aria-expanded')).toBe('false')
+  })
+
+  it('switches views as before without onPick', async () => {
+    await render(<JSONContent content={declared} path="people.json" onSave={async () => undefined} />)
+    await act(async () => {
+      tab('notes')!.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, button: 0 }))
+      await Promise.resolve()
+    })
+    expect(tab('notes')?.getAttribute('data-state')).toBe('active')
+  })
+
+  it('gives no declaration to views kept outside the document', async () => {
+    await render(<JSONContent content={JSON.stringify(people)} path="people.json" metadata={{ version: 1, views: VIEWS }} onPick={() => undefined} />)
+    expect(tab('contacts')).not.toBeNull()
+    expect(tab('contacts')?.hasAttribute('data-json-views-path')).toBe(false)
+    expect(header('Email')).not.toBeNull()
+    expect(header('Email')?.hasAttribute('data-json-views-path')).toBe(false)
+  })
+
+  it('gives no declaration to the columns of a view that declares none', async () => {
+    await render(<JSONContent content={declared} path="people.json" presentationState={{ version: 1, activeView: 'view:notes' }} onPick={() => undefined} />)
+    expect(tab('notes')?.getAttribute('data-state')).toBe('active')
+    expect(header('note')).not.toBeNull()
+    expect(header('note')?.hasAttribute('data-json-views-path')).toBe(false)
+  })
+
+  it('marks a view\'s tab and a column\'s header, and the controller finds them', async () => {
+    const controller = createJsonViewsController()
+    const marks = [{ path: ['$jsonviews', 'views', 1], kind: 'queued' }, { path: ['$jsonviews', 'views', 0, 'columns', 0], kind: 'draft' }]
+    await render(<JSONContent content={declared} path="people.json" controller={controller} marks={marks} />)
+    expect(tab('notes')?.getAttribute('data-json-views-mark')).toBe('queued')
+    expect(header('Name')?.getAttribute('data-json-views-mark')).toBe('draft')
+    expect(controller.elementForPath(['$jsonviews', 'views', 1])).toBe(tab('notes'))
+    expect(controller.elementForPath(['$jsonviews', 'views', 0, 'columns', 0])).toBe(header('Name'))
+  })
+
+  it('reveals a column of a view that is not open by the view\'s tab', async () => {
+    const controller = createJsonViewsController()
+    const views = [VIEWS[1], VIEWS[0]]
+    await render(<JSONContent content={JSON.stringify({ $jsonviews: { version: 1, views }, ...people })} path="people.json" controller={controller} />)
+    let found: HTMLElement | null = null
+    await act(async () => { found = await controller.revealPath(['$jsonviews', 'views', 1, 'columns', 1], { timeoutMs: 200 }) })
+    expect(found).toBe(tab('contacts'))
+  })
+})
+
 describe('marks', () => {
   it('labels marked values with their sorted kinds, picking or not, and follows the marks', async () => {
     const content = JSON.stringify(PEOPLE)

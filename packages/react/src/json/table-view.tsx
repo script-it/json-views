@@ -222,6 +222,15 @@ export function ProjectedTableView({
     return column && resolveJsonViewRowPath(compiled.root, projected.rows[rowIndex], column.path).sourcePath
   }, [columnsById, compiled.root, projected.rows])
   const getRowSourcePath = useCallback((rowIndex: number) => projected.rows[rowIndex]?.sourcePath, [projected.rows])
+  // The projection lists a declared view's columns in their declaration order. Only a document's own `$jsonviews` puts
+  // a declaration at a path of the document, so external views' columns have none.
+  const columnDeclarations = useMemo(() => compiled.metadataSource === 'embedded' && view.declarationIndex >= 0 && view.columns
+    ? new Map(completeProjection.columns.flatMap((column, index) => {
+      const declared = view.columns?.[index]
+      return declared ? [[column.id, declared.metadataPath] as const] : []
+    }))
+    : undefined, [compiled.metadataSource, completeProjection.columns, view.columns, view.declarationIndex])
+  const getColumnDeclarationPath = useCallback((columnId: string) => columnDeclarations?.get(columnId), [columnDeclarations])
   const openRow = rowAtSourcePath(compiled.root, openRowPath)
   const reportedPath = openRow?.sourcePath ?? openCell?.path ?? view.sourcePath
   const reportedPathKey = JSON.stringify(reportedPath)
@@ -273,6 +282,7 @@ export function ProjectedTableView({
       arr={records}
       getCellSourcePath={getCellSourcePath}
       getRowSourcePath={getRowSourcePath}
+      getColumnDeclarationPath={columnDeclarations ? getColumnDeclarationPath : undefined}
       rowKeys={projected.rows.map((row) => JSON.stringify(row.sourcePath))}
       onVisibleRowsChange={reportVisibleRows}
       columns={visibleColumns.map(({ id }) => id)}

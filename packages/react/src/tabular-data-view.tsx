@@ -24,6 +24,7 @@ import { TabularDataCell } from './structured-data/tabular-data-cell.js'
 import { TableCellOptionsContext, resolveTableCellOptions } from './structured-data/table-cell-options.js'
 import { useDismiss } from './lib/use-dismiss.js'
 import { useValueMarks, valueElementAttributes } from './structured-data/value-elements.js'
+import { declarationElementAttributes } from './structured-data/picking.js'
 import { useRevealTable } from './controller.js'
 
 const DEFAULT_COLUMN_WIDTH = 200
@@ -117,6 +118,7 @@ export function TabularObjectArrayView({
   rowKeys,
   getCellSourcePath,
   getRowSourcePath,
+  getColumnDeclarationPath,
   columns,
   columnLabels,
   columnStateKeys,
@@ -607,11 +609,14 @@ export function TabularObjectArrayView({
               <tr>
                 {visibleColumns.map((col, index) => {
                   const width = visibleColumnWidths[index]
+                  // A declared column's header is its declaration's value, which a host that picks can pick and mark.
+                  const declarationPath = getColumnDeclarationPath?.(col)
                   return (
                     <th
                       key={col}
                       data-id="tabular-column-header"
                       data-column={col}
+                      {...(declarationPath ? { ...valueElementAttributes(declarationPath, marks), ...declarationElementAttributes(columnLabel(col)) } : {})}
                       data-pinned={compact && col === controlColumn || undefined}
                       className={`relative sticky z-20 border-r border-b border-border bg-background p-0 text-left font-normal text-muted-foreground whitespace-nowrap last:border-r-0 ${onColumnMove ? 'cursor-grab active:cursor-grabbing' : ''} ${hiddenColumns.length > 0 ? 'border-t border-border' : ''} ${draggedColumn === col ? 'opacity-50' : ''} ${dropTarget?.column === col && dropTarget.position === 'before' ? 'border-l-2 border-l-primary' : ''} ${dropTarget?.column === col && dropTarget.position === 'after' ? 'border-r-2 border-r-primary' : ''}`}
                       style={{
