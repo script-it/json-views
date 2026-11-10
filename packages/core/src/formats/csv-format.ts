@@ -243,21 +243,31 @@ export function inspectCsvSource(source: string): { root: Array<Record<string, u
  * not prevent a lookup.
  */
 export function csvSourceRangeAtPath(source: string, path: ValuePath): { start: number; end: number } {
+  return csvSourceRangesAtPaths(source, [path])[0]
+}
+
+/**
+ * Locates several CSV view paths with one source parse, preserving path order.
+ * Each path resolves, or throws, as it does in `csvSourceRangeAtPath`.
+ */
+export function csvSourceRangesAtPaths(source: string, paths: readonly ValuePath[]): Array<{ start: number; end: number }> {
   const { state } = parseCsv(source)
   const rows = state.records.slice(1)
-  if (path.length === 0) return rows.length ? { start: rows[0].start, end: rows[rows.length - 1].end } : { start: source.length, end: source.length }
-  const [row, key] = path
-  if (path.length > 2 || typeof row !== 'number' || !Number.isSafeInteger(row) || row < 0 || (path.length === 2 && typeof key !== 'string')) {
-    throw new TypeError(`CSV path ${describeValuePath(path)} must identify a row, or a row and column`)
-  }
-  const record = rows[row]
-  if (!record) throw new RangeError(`CSV path ${describeValuePath(path)} does not exist`)
-  if (path.length === 1) return { start: record.start, end: record.end }
-  // Columns sharing a key keep the last one's value in the root.
-  let column = record.cells.length - 1
-  while (column >= 0 && csvColumnKey(state.headers, column) !== key) column -= 1
-  if (column < 0) throw new RangeError(`CSV path ${describeValuePath(path)} does not exist`)
-  return { start: record.cells[column].start, end: record.cells[column].end }
+  return paths.map((path) => {
+    if (path.length === 0) return rows.length ? { start: rows[0].start, end: rows[rows.length - 1].end } : { start: source.length, end: source.length }
+    const [row, key] = path
+    if (path.length > 2 || typeof row !== 'number' || !Number.isSafeInteger(row) || row < 0 || (path.length === 2 && typeof key !== 'string')) {
+      throw new TypeError(`CSV path ${describeValuePath(path)} must identify a row, or a row and column`)
+    }
+    const record = rows[row]
+    if (!record) throw new RangeError(`CSV path ${describeValuePath(path)} does not exist`)
+    if (path.length === 1) return { start: record.start, end: record.end }
+    // Columns sharing a key keep the last one's value in the root.
+    let column = record.cells.length - 1
+    while (column >= 0 && csvColumnKey(state.headers, column) !== key) column -= 1
+    if (column < 0) throw new RangeError(`CSV path ${describeValuePath(path)} does not exist`)
+    return { start: record.cells[column].start, end: record.cells[column].end }
+  })
 }
 
 export function validateCsvSource(source: string): void {

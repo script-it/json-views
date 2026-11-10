@@ -1,10 +1,16 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
-import { csvFormat, csvSourceRangeAtPath, inspectCsvSource, validateCsvSource } from '../src/formats/csv-format.js'
+import { csvFormat, csvSourceRangeAtPath, csvSourceRangesAtPaths, inspectCsvSource, validateCsvSource } from '../src/formats/csv-format.js'
 
 const slice = (source: string, path: Array<string | number>) => {
   const { start, end } = csvSourceRangeAtPath(source, path)
   return source.slice(start, end)
+}
+
+// The error a call throws, to compare how two calls fail.
+const thrown = (run: () => unknown): unknown => {
+  try { run() } catch (error) { return error }
+  throw new Error('Expected the call to throw')
 }
 
 describe('CSV format adapter', () => {
@@ -105,11 +111,14 @@ describe('CSV format adapter', () => {
   it('reads every value of a wide fixture back from its span', () => {
     const source = readFileSync(new URL('../../../examples/view-flow/08-csv-wide-sales-350x24.csv', import.meta.url), 'utf8')
     const { root, state } = inspectCsvSource(source)
-    root.forEach((row, index) => Object.keys(row).forEach((key) => {
-      const raw = slice(source, [index, key])
+    const paths = root.flatMap((row, index) => Object.keys(row).map((key) => [index, key] as const))
+    const ranges = csvSourceRangesAtPaths(source, paths)
+    expect(ranges).toHaveLength(paths.length)
+    paths.forEach(([index, key], position) => {
+      const raw = source.slice(ranges[position].start, ranges[position].end)
       const cell = state.records[index + 1].cells.find((candidate) => candidate.raw === raw)
-      expect(cell?.value, `${index} ${key}`).toBe(String(row[key]))
-    }))
+      expect(cell?.value, `${index} ${key}`).toBe(String(root[index][key]))
+    })
   })
 
   it('throws for paths the root does not have, or that name no row', () => {
@@ -119,5 +128,20 @@ describe('CSV format adapter', () => {
     expect(() => csvSourceRangeAtPath(source, ['0'])).toThrow(TypeError)
     expect(() => csvSourceRangeAtPath(source, [0, 1])).toThrow(TypeError)
     expect(() => csvSourceRangeAtPath(source, [0, 'id', 'more'])).toThrow(TypeError)
+  })
+
+  it('resolves and rejects each path alike, alone or among others', () => {
+    const source = 'id,,id\r\n1,"one\r\ntwo",x\r\n2,,y\r\n'
+    // A quoted multi-line cell under an empty header, a cell under a repeated header, a row, and every row.
+    const paths = [[0, '$column2 [2]'], [1, 'id [3]'], [1], []]
+    const ranges = csvSourceRangesAtPaths(source, paths)
+    expect(ranges).toEqual(paths.map((path) => csvSourceRangeAtPath(source, path)))
+    expect(ranges.map(({ start, end }) => source.slice(start, end))).toEqual(['"one\r\ntwo"', 'y', '2,,y', '1,"one\r\ntwo",x\r\n2,,y'])
+    // A missing row or column, and the header's place before the first row, throw the same, also after a path that resolves.
+    for (const path of [[2], [0, 'missing'], [-1]]) {
+      const alone = thrown(() => csvSourceRangeAtPath(source, path))
+      expect(alone).toBeInstanceOf(path[0] === -1 ? TypeError : RangeError)
+      expect(thrown(() => csvSourceRangesAtPaths(source, [[0], path]))).toStrictEqual(alone)
+    }
   })
 })
