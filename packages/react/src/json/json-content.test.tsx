@@ -1539,6 +1539,12 @@ describe('JSON file view', () => {
     expect(rendered.container.querySelector('[data-id="json-viewer-toolbar"]')?.classList).toContain('flex-nowrap')
     expect(rendered.container.querySelector('[data-id="jsonView-view-controls"]')?.classList).toContain('flex-1')
     expect(rendered.container.querySelector('[data-id="jsonView-json-tabs"]')?.classList).toContain('overflow-x-auto')
+    expect(rendered.container.querySelector('[data-id="jsonView-json-tabs"]')?.classList).toContain('[scrollbar-width:none]')
+    expect(rendered.container.querySelector('[data-id="jsonView-json-tabs"]')?.classList).toContain('[&::-webkit-scrollbar]:hidden')
+    // The strip clips the tabs' absolutely positioned `sr-only` labels only while each label's tab is its containing block.
+    const labels = Array.from(rendered.container.querySelectorAll('[data-id="jsonView-json-tabs"] .sr-only'))
+    expect(labels).toHaveLength(2)
+    for (const label of labels) expect(label.closest('[role="tab"]')?.classList).toContain('relative')
     await hover(tabs[0] ?? null)
     expect(document.querySelector('[role="tooltip"]')?.textContent).toBe('/leads')
     expect(headerTexts(rendered.container)).toEqual(expect.arrayContaining(['Lead', 'Owner email', 'Score']))
