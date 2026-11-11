@@ -3,7 +3,7 @@ import type { ValuePath } from '@script-it/json-views-core'
 
 import { cn } from '../lib/cn.js'
 import { usePicking } from './picking.js'
-import { useValueMarks, valueElementAttributes } from './value-elements.js'
+import { useValueHighlights, valueElementAttributes } from './value-elements.js'
 
 /** Focus on a text control means the cell is being edited. */
 function isTextEntry(target: EventTarget): boolean {
@@ -43,7 +43,7 @@ export function TabularDataCell({
   const contentRef = useRef<HTMLDivElement>(null)
   const [overflowing, setOverflowing] = useState(false)
   const revealed = revealedHeight !== undefined
-  const marks = useValueMarks()
+  const highlights = useValueHighlights()
   // A press on a value picks it rather than revealing it.
   const onReveal = usePicking() ? undefined : revealOnSelect
 
@@ -71,7 +71,7 @@ export function TabularDataCell({
   return (
     <td
       ref={cellRef}
-      {...valueElementAttributes(path, marks)}
+      {...valueElementAttributes(path, highlights)}
       data-pinned={pinned || undefined}
       data-cell-revealed={revealed || undefined}
       className={cn(className, revealed ? 'relative overflow-visible' : 'overflow-hidden')}

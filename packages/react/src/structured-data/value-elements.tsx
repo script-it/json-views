@@ -1,41 +1,42 @@
 import { createContext, useContext } from 'react'
 import { valuePathKey, type ValuePath } from '@script-it/json-views-core'
 
-/** A host's label on one value. `kind` is a token without whitespace. */
-export interface JsonViewsMark {
+/** A value the host highlights: `strong` for what the reader is working on now, `subtle` for what is kept. */
+export interface JsonViewsHighlight {
   path: ValuePath
-  kind: string
+  emphasis: 'strong' | 'subtle'
 }
 
-/** The kinds the host marks on each value, by path key: sorted and space-joined. */
-export type ValueMarks = ReadonlyMap<string, string>
+/** The emphasis on each highlighted value, by path key. */
+export type ValueHighlights = ReadonlyMap<string, JsonViewsHighlight['emphasis']>
 
-const NO_MARKS: ValueMarks = new Map()
+const NO_HIGHLIGHTS: ValueHighlights = new Map()
 
-export const ValueMarksContext = createContext<ValueMarks>(NO_MARKS)
+export const ValueHighlightsContext = createContext<ValueHighlights>(NO_HIGHLIGHTS)
 
-export function useValueMarks(): ValueMarks {
-  return useContext(ValueMarksContext)
+export function useValueHighlights(): ValueHighlights {
+  return useContext(ValueHighlightsContext)
 }
 
-/** Host marks by path key; the same marks in any order index alike. */
-export function indexValueMarks(marks: readonly JsonViewsMark[] | undefined): ValueMarks {
-  if (!marks?.length) return NO_MARKS
-  const kinds = new Map<string, Set<string>>()
-  for (const mark of marks) {
-    const key = valuePathKey(mark.path)
-    kinds.set(key, (kinds.get(key) ?? new Set()).add(mark.kind))
+/** Highlights by path key. A value highlighted both ways is strong. */
+export function indexValueHighlights(highlights: readonly JsonViewsHighlight[] | undefined): ValueHighlights {
+  if (!highlights?.length) return NO_HIGHLIGHTS
+  const index = new Map<string, JsonViewsHighlight['emphasis']>()
+  for (const { path, emphasis } of highlights) {
+    const key = valuePathKey(path)
+    if (index.get(key) !== 'strong') index.set(key, emphasis)
   }
-  return new Map([...kinds].map(([key, set]) => [key, [...set].sort().join(' ')]))
+  return index
 }
 
-/** The attributes of an element that shows the value at `path`: its path key, and the host's marks on that value. */
-export function valueElementAttributes(path: ValuePath | undefined, marks: ValueMarks): {
+/** The attributes of an element that shows the value at `path`: its path key, and its highlight, which the viewer's
+ *  styles draw on the page and in an HTML view's frame. */
+export function valueElementAttributes(path: ValuePath | undefined, highlights: ValueHighlights): {
   'data-json-views-path'?: string
-  'data-json-views-mark'?: string
+  'data-json-views-highlight'?: JsonViewsHighlight['emphasis']
 } {
   if (!path) return {}
   const key = valuePathKey(path)
-  const mark = marks.get(key)
-  return mark ? { 'data-json-views-path': key, 'data-json-views-mark': mark } : { 'data-json-views-path': key }
+  const emphasis = highlights.get(key)
+  return emphasis ? { 'data-json-views-path': key, 'data-json-views-highlight': emphasis } : { 'data-json-views-path': key }
 }

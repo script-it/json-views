@@ -5,7 +5,8 @@ import type { ValuePath } from '@script-it/json-views-core'
 export interface JsonViewsPick {
   /** The value's source path, as its element's `data-json-views-path` names it. */
   path: ValuePath
-  /** The element showing the value. A virtualized row can unmount it; `JsonViewsController.elementForPath` finds it again. */
+  /** The element showing the value. A virtualized row can unmount it. In an HTML view it sits in the view's frame, so
+   *  measure it with the viewer handle's `rectOf(path)` for a box on the host's page. */
   element: HTMLElement
   /** The text selected inside the value, when the pick ends a mouse selection. */
   selection?: { text: string; range: Range }

@@ -17,7 +17,7 @@ import { GeneralRecordView, RecordView } from './record-view.js'
 import { useKanbanColumnDrag } from './use-kanban-column-drag.js'
 import { useKanbanCardDrag } from './use-kanban-card-drag.js'
 import { usePicking } from '../structured-data/picking.js'
-import { useValueMarks, valueElementAttributes } from '../structured-data/value-elements.js'
+import { useValueHighlights, valueElementAttributes } from '../structured-data/value-elements.js'
 
 interface KanbanGroup {
   key: string
@@ -162,7 +162,7 @@ export function KanbanView({
   const sourceLiteral = useJsonSourceLiterals()
   // While values are picked, cards hold still so their text can be selected.
   const picking = usePicking()
-  const marks = useValueMarks()
+  const highlights = useValueHighlights()
   const rowTitle = (row: JsonViewViewRow) => sourceLiteral(titleFieldForRow(compiled.root, view, row)?.path) ?? titleForRow(compiled.root, view, row)
   const [openRowPath, setOpenRowPath] = useState<ValuePath>()
   const [pendingGroups, setPendingGroups] = useState<KanbanGroup[]>()
@@ -394,7 +394,7 @@ export function KanbanView({
                     return (
                       <article
                         key={JSON.stringify(row.sourcePath)}
-                        {...valueElementAttributes(row.sourcePath, marks)}
+                        {...valueElementAttributes(row.sourcePath, highlights)}
                         data-id="jsonView-kanban-card"
                         data-row-id={rowId}
                         draggable={canMove && !editing.saving}
@@ -428,7 +428,7 @@ export function KanbanView({
                             const schema = schemaForJsonViewPath(compiled.schema, resolved.sourcePath)
                             const descriptor = schema?.descriptor ?? inferredDescriptor(resolved.value)
                             return (
-                              <div key={column.id} {...valueElementAttributes(resolved.sourcePath, marks)} className="min-w-0">
+                              <div key={column.id} {...valueElementAttributes(resolved.sourcePath, highlights)} className="min-w-0">
                                 <JsonViewSchemaValueCell
                                   sourcePath={resolved.sourcePath}
                                   compact

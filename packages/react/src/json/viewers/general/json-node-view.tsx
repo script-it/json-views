@@ -19,7 +19,7 @@ import {
   StructuredValueCellFrame,
 } from '../../../structured-data/atomic-value-editor.js'
 import { isEditableAtomicValue } from '../../../structured-data/atomic-value.js'
-import { useValueMarks, valueElementAttributes } from '../../../structured-data/value-elements.js'
+import { useValueHighlights, valueElementAttributes } from '../../../structured-data/value-elements.js'
 import { inferJsonViewRecordTitleKey, isJsonViewTableCandidate, type ValuePath } from '@script-it/json-views-core'
 import type { JsonViewSchemaDescriptor } from '@script-it/json-views-core'
 import {
@@ -726,7 +726,7 @@ interface ObjectViewProps extends ViewSeams {
 }
 
 function ObjectView({ obj, navigateTo, currentJsonPath, atomicEditing, renderMarkdown, renderExternalWidget, schemaForPath }: ObjectViewProps) {
-  const marks = useValueMarks()
+  const highlights = useValueHighlights()
   return (
     // `shrink-0`: when the viewer fills a bounded viewport its scroller is a
     // flex column, and this frame is a scroll container, so its `min-height:
@@ -742,7 +742,7 @@ function ObjectView({ obj, navigateTo, currentJsonPath, atomicEditing, renderMar
         <table className="mb-0 w-full table-fixed border-separate border-spacing-0 text-sm">
           <tbody>
             {Object.entries(obj).map(([k, v], i, arr) => (
-              <tr key={k} {...valueElementAttributes([...currentJsonPath, k], marks)}>
+              <tr key={k} {...valueElementAttributes([...currentJsonPath, k], highlights)}>
                 {/* The key column shares the table's width instead of
                     reserving a fixed slice of it. `table-fixed` means content
                     cannot influence a column, so one hardcoded width squeezes

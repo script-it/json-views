@@ -10,17 +10,30 @@ import { useJsonSourceLiterals } from './source-literals.js'
 import { parseHtmlTemplate, type HtmlTemplateNode } from './html-view/template.js'
 import { NativeHtmlControl } from './html-view/native-control.js'
 import { formatHtmlValue, htmlValueForEditing, htmlValueFromEditing } from './html-view/format-value.js'
-import { useValueMarks, valueElementAttributes } from '../structured-data/value-elements.js'
+import { useValueHighlights, valueElementAttributes } from '../structured-data/value-elements.js'
 import { usePicking } from '../structured-data/picking.js'
 import type { JsonViewJsonEditing } from './view-types.js'
 
-const skeleton = `<!doctype html><html><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src data:; font-src 'none'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><style>body{margin:0;font:14px system-ui;background:var(--jv-background);color:var(--jv-foreground)}*{box-sizing:border-box}jv-field,jv-value{display:inline}button.jv-field{font:inherit;color:inherit;background:transparent;border:0;padding:0;text-align:inherit;cursor:pointer}button.jv-field:hover{outline:1px dashed currentColor}button.jv-field:focus-visible{outline:2px solid currentColor}[data-json-views-picking] button.jv-field:hover{outline:0}</style></head><body><div id="mount"></div></body></html>`
-export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathChange, htmlViewCss }: { compiled: CompiledJsonViewMetadata; view: CompiledJsonViewView; editing?: JsonViewJsonEditing; fillHeight?: boolean; onCurrentPathChange?: (path: ValuePath) => void; htmlViewCss?: string }) {
+// The viewer's highlights, flash and picking outline, as `styles.css` draws them on the page. The frame's stylesheet is
+// not built with the page's, so it names the scoped variables and animation the build gives the page's (`--jv-*`).
+const frameHighlights = [
+  '[data-json-views-highlight][data-json-views-highlight="strong"]{background-color:var(--jv-highlight-surface);box-shadow:inset 0 0 0 2px var(--jv-highlight-border)}',
+  '[data-json-views-highlight][data-json-views-highlight="subtle"]{background-color:color-mix(in srgb,var(--jv-highlight-surface) 55%,transparent);box-shadow:inset 0 0 0 1px var(--jv-highlight-border)}',
+  '[data-json-views-flash]{animation:jv-highlight-flash 1.6s ease-out}',
+  '@keyframes jv-highlight-flash{0%,35%{background-color:var(--jv-highlight-surface);box-shadow:0 0 0 3px var(--jv-highlight-border)}100%{box-shadow:0 0 0 0 transparent}}',
+  '@media (prefers-reduced-motion:reduce){[data-json-views-flash]{animation:none}}',
+  '[data-json-views-picking] [data-json-views-path]:hover:not(:has([data-json-views-path]:hover)){outline:1px solid var(--jv-highlight-border);outline-offset:-1px}',
+].join('')
+// The theme's variables the frame takes from its iframe element, which the page's theme reaches.
+const frameTokens = ['background', 'foreground', 'muted', 'border', 'accent', 'highlight-surface', 'highlight-border']
+
+const skeleton = `<!doctype html><html><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; style-src 'unsafe-inline'; img-src data:; font-src 'none'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><style>body{margin:0;font:14px system-ui;background:var(--jv-background);color:var(--jv-foreground)}*{box-sizing:border-box}jv-field,jv-value{display:inline}button.jv-field{font:inherit;color:inherit;background:transparent;border:0;padding:0;text-align:inherit;cursor:pointer}button.jv-field:hover{outline:1px dashed currentColor}button.jv-field:focus-visible{outline:2px solid currentColor}[data-json-views-picking] button.jv-field:hover{outline:0}${frameHighlights}</style></head><body><div id="mount"></div></body></html>`
+export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathChange }: { compiled: CompiledJsonViewMetadata; view: CompiledJsonViewView; editing?: JsonViewJsonEditing; fillHeight?: boolean; onCurrentPathChange?: (path: ValuePath) => void }) {
   const frame = useRef<HTMLIFrameElement>(null), editorRef = useRef<HTMLDivElement>(null)
   const [doc, setDoc] = useState<Document>(), [error, setError] = useState(''), [height, setHeight] = useState(500)
   const [selected, setSelected] = useState<{ path: ValuePath; anchor: HTMLElement; base?: string; attrs: Record<string, string>; resolve: (binding: string) => unknown; syncPath?: ValuePath; byteLengthPath?: ValuePath }>()
   const base = useContext(EditBaseContext), literals = useJsonSourceLiterals(), portal = useJsonViewsPortalContainer()
-  const marks = useValueMarks(), picking = usePicking()
+  const highlights = useValueHighlights(), picking = usePicking()
   const anchorRef = useRef<HTMLElement | null>(null); anchorRef.current = selected?.anchor ?? null
   // A bound field is laid out by the template, not by a column, so the popup
   // takes its width from the text it covers instead of a fixed card width.
@@ -33,25 +46,22 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
   useEffect(() => { setSelected(undefined); setError('') }, [view.html, view.id])
   useEffect(() => {
     if (!doc) return
-    // The host's CSS follows the view's own: the frame is a document the host's stylesheets do not reach.
-    const styles = [view.css ?? '', htmlViewCss ?? ''].map(css => { const style = doc.createElement('style'); style.textContent = css; doc.head.appendChild(style); return style })
-    return () => styles.forEach(style => style.remove())
-  }, [doc, view.css, htmlViewCss])
+    const style = doc.createElement('style'); style.textContent = view.css ?? ''; doc.head.appendChild(style)
+    return () => style.remove()
+  }, [doc, view.css])
   useEffect(() => { doc?.documentElement.toggleAttribute('data-json-views-picking', picking) }, [doc, picking])
   useEffect(() => {
     if (!doc || !frame.current) return
     const update = () => {
       const computed = getComputedStyle(frame.current!)
-      for (const name of ['background', 'foreground', 'muted', 'border', 'accent']) doc.documentElement.style.setProperty('--jv-' + name, computed.getPropertyValue('--jv-' + name))
-      // The custom properties the host's CSS reads take their values from the host's page, as the theme's do.
-      for (const [, name] of (htmlViewCss ?? '').matchAll(/var\(\s*(--[\w-]+)/g)) doc.documentElement.style.setProperty(name, computed.getPropertyValue(name))
+      for (const name of frameTokens) doc.documentElement.style.setProperty('--jv-' + name, computed.getPropertyValue('--jv-' + name))
       doc.documentElement.style.colorScheme = frame.current!.closest('[data-json-views-theme]')?.getAttribute('data-json-views-theme') ?? 'light'
       if (!fillHeight) setHeight(Math.min(2000, Math.max(200, doc.body.scrollHeight)))
     }
     update(); const observer = typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(update); observer?.observe(doc.body)
     const themeObserver = new MutationObserver(update); const host = frame.current.closest('[data-json-views-theme]'); if (host) themeObserver.observe(host, { attributes: true })
     return () => { observer?.disconnect(); themeObserver.disconnect() }
-  }, [doc, fillHeight, htmlViewCss])
+  }, [doc, fillHeight])
   useEffect(() => {
     if (!selected || !doc) return
     const close = (event: Event) => {
@@ -106,20 +116,20 @@ export function HtmlView({ compiled, view, editing, fillHeight, onCurrentPathCha
         if (sync && sync.value !== null && typeof sync.value === 'object') throw new Error('sync-bind must address a scalar')
         if (byteLength && (node.attrs.format !== 'base64url' || typeof byteLength.value !== 'number')) throw new Error('byte-length-bind requires base64url and a numeric size field')
         const canEdit = node.tag === 'jv-field' && editing && [resolved, sync, byteLength].every(target => !target || editing.canReplace?.(target.sourcePath) !== false)
-        return <span key={node.id} {...valueElementAttributes(resolved.sourcePath, marks)}>{canEdit ? <button className="jv-field" aria-label={node.attrs['aria-label'] ?? `Edit ${node.attrs.bind}`} onClick={event => setSelected({ path: resolved.sourcePath, anchor: event.currentTarget, base, attrs: node.attrs, resolve: resolveValue, syncPath: sync?.sourcePath, byteLengthPath: byteLength?.sourcePath })}>{text}</button> : text}</span>
+        return <span key={node.id} {...valueElementAttributes(resolved.sourcePath, highlights)}>{canEdit ? <button className="jv-field" aria-label={node.attrs['aria-label'] ?? `Edit ${node.attrs.bind}`} onClick={event => setSelected({ path: resolved.sourcePath, anchor: event.currentTarget, base, attrs: node.attrs, resolve: resolveValue, syncPath: sync?.sourcePath, byteLengthPath: byteLength?.sourcePath })}>{text}</button> : text}</span>
       }
       if (node.attrs['jv-bind']) {
         if (node.tag !== 'input' && node.tag !== 'textarea') throw new Error('jv-bind requires input or textarea')
         const resolved = resolve(node.attrs['jv-bind'], aliases)
-        return <NativeHtmlControl key={node.id} tag={node.tag} props={{ ...props, ...valueElementAttributes(resolved.sourcePath, marks) }} path={resolved.sourcePath} value={resolved.value} editing={editing} report={setError} />
+        return <NativeHtmlControl key={node.id} tag={node.tag} props={{ ...props, ...valueElementAttributes(resolved.sourcePath, highlights) }} path={resolved.sourcePath} value={resolved.value} editing={editing} report={setError} />
       }
       if (node.attrs['jv-value']) {
         if (!['progress', 'meter'].includes(node.tag)) throw new Error('jv-value attribute requires progress or meter')
         const resolved = resolve(node.attrs['jv-value'], aliases)
         props.value = resolved.value
-        Object.assign(props, valueElementAttributes(resolved.sourcePath, marks))
+        Object.assign(props, valueElementAttributes(resolved.sourcePath, highlights))
       }
-      else if (item) Object.assign(props, valueElementAttributes(item, marks))
+      else if (item) Object.assign(props, valueElementAttributes(item, highlights))
       return createElement(node.tag, props, ...render(node.children, aliases))
     } catch (cause) { if (cause instanceof Error && cause.message.includes('10,000 expanded nodes')) throw cause; const message = `${view.name}, node ${node.id}: ${cause instanceof Error ? cause.message : 'Invalid binding'}`; warnings.push(message); return <span key={node.id}>[Binding unavailable]</span> }
   })

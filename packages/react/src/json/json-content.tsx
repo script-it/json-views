@@ -1,5 +1,5 @@
 /** Format-neutral structured document orchestration with JSON-compatible wrappers. */
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { forwardRef, useCallback, useEffect, useMemo, useState, type ForwardedRef, type ReactNode } from 'react'
 import {
   compileJsonViewMetadata, projectJsonViewCollection, convertToJsonViewsDocument, rebaseJsonViewsMetadata, csvFormat, formatJsonSource, getValueAtPath,
   inspectJsonSource, jsonFormatForSource, jsonObjectFormat, setJsonValueAtPath, schemaForJsonViewPath,
@@ -15,6 +15,7 @@ import type { JsonViewsTableCellOptions } from '../structured-data/table-cell-op
 import { JsonViewer } from './json-view.js'
 import type { JsonViewSchemaExternalWidgetRenderer } from './schema-value.js'
 import type { JsonViewerProps } from './view-types.js'
+import type { JsonViewsHandle } from '../viewer-handle.js'
 import { useJsonViewsRegistries } from '../widget-registry.js'
 import { assertSourceReplacementSafe, assertUnambiguousSourcePath, replacementIssue } from './source-edit-capabilities.js'
 import { JsonSourceLiteralsProvider } from './source-literals.js'
@@ -108,12 +109,8 @@ export interface StructuredDataContentProps {
   renderExternalWidget?: JsonViewSchemaExternalWidgetRenderer
   /** Presses on values pick them, reported here, instead of acting on them; see the README. */
   onPick?: JsonViewerProps['onPick']
-  /** Labels on values, rendered into their elements' `data-json-views-mark`. */
-  marks?: JsonViewerProps['marks']
-  /** Bound to the viewer while it is mounted, to find and scroll to its values. */
-  controller?: JsonViewerProps['controller']
-  /** CSS for each HTML view's frame, which the host's stylesheets do not reach; see the README. */
-  htmlViewCss?: JsonViewerProps['htmlViewCss']
+  /** Values the viewer highlights, in HTML views too, whether or not picking is on; see the README. */
+  highlights?: JsonViewerProps['highlights']
   /** @deprecated Use onRequestMetadataPersistence. */
   allowRootArrayWrapping?: boolean
 }
@@ -121,14 +118,15 @@ export interface StructuredDataContentProps {
 export interface JSONContentProps extends Omit<StructuredDataContentProps, 'adapter'> {}
 export interface CSVContentProps extends Omit<StructuredDataContentProps, 'adapter'> {}
 
-export function StructuredDataContent(props: StructuredDataContentProps) {
+/** The ref holds the viewer's handle while it is mounted, to find and scroll to its values; see the README. */
+export const StructuredDataContent = forwardRef<JsonViewsHandle, StructuredDataContentProps>(function StructuredDataContent(props, ref) {
   return <JsonViewsSurface key={props.documentId ?? props.path ?? 'document'} theme={props.theme} portalContainer={props.portalContainer}
     presentationState={props.presentationState} onPresentationStateChange={props.onPresentationStateChange}>
-    <StructuredDataContentSession key={`${props.documentId ?? props.path ?? 'document'}:${props.adapter.format}`} {...props} />
+    <StructuredDataContentSession key={`${props.documentId ?? props.path ?? 'document'}:${props.adapter.format}`} {...props} viewerRef={ref} />
   </JsonViewsSurface>
-}
+})
 
-export function JSONContent(props: JSONContentProps) {
+export const JSONContent = forwardRef<JsonViewsHandle, JSONContentProps>(function JSONContent(props, ref) {
   // The editable draft is the current document while the source editor is open.
   // Hosts may keep `content` at the last persisted revision until a save finishes,
   // so choosing the adapter from it would incorrectly reject a valid root-shape
@@ -139,19 +137,19 @@ export function JSONContent(props: JSONContentProps) {
     try { return jsonFormatForSource(source) as StructuredDocumentAdapter<unknown> } catch { /* Recovery handles invalid JSON. */ }
     return jsonObjectFormat as StructuredDocumentAdapter<unknown>
   }, [source])
-  return <StructuredDataContent {...props} adapter={adapter} />
-}
+  return <StructuredDataContent {...props} adapter={adapter} ref={ref} />
+})
 
-export function CSVContent(props: CSVContentProps) {
-  return <StructuredDataContent {...props} adapter={csvFormat as StructuredDocumentAdapter<unknown>} />
-}
+export const CSVContent = forwardRef<JsonViewsHandle, CSVContentProps>(function CSVContent(props, ref) {
+  return <StructuredDataContent {...props} adapter={csvFormat as StructuredDocumentAdapter<unknown>} ref={ref} />
+})
 
 function StructuredDataContentSession({
   content, adapter, documentId, revision, metadata, metadataPersistence, presentationState,
   onMetadataChange, onRequestMetadataPersistence, metadataConversionConfirmation = 'viewer', allowRootArrayWrapping = true,
   path, uiSize, fillHeight = false, edit, onSave, isSaving, isDirty, saveError, sourceVisible, onSourceVisibleChange, clearBehavior = 'null',
-  buttonToEdit, tableCells, onDraftRowsChange, renderExternalWidget, renderMarkdown, onPick, marks, controller, htmlViewCss,
-}: StructuredDataContentProps) {
+  buttonToEdit, tableCells, onDraftRowsChange, renderExternalWidget, renderMarkdown, onPick, highlights, viewerRef,
+}: StructuredDataContentProps & { viewerRef: ForwardedRef<JsonViewsHandle> }) {
   const { types } = useJsonViewsRegistries()
   const [editorGeneration, setEditorGeneration] = useState(0)
   const [draftRows, setDraftRows] = useState<ValuePath[]>([])
@@ -521,7 +519,7 @@ function StructuredDataContentSession({
         sourceContent={sourceEditor} sourceVisible={showingSource} onSourceVisibleChange={setShowingSource}
         tabularRoot={adapter.format === 'csv'}
         editing={editing} onCurrentPathChange={rememberSourcePaths} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} sourceControl={sourceControl} buttonToEdit={buttonToEdit} tableCells={tableCells} uiSize={uiSize} fillHeight={fillHeight}
-        onPick={onPick} marks={marks} controller={controller} htmlViewCss={htmlViewCss} />
+        onPick={onPick} highlights={highlights} ref={viewerRef} />
       </EditBaseContext.Provider>
       </JsonSourceLiteralsProvider>
       </JsonRendererBoundary>

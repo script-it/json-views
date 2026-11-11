@@ -23,9 +23,9 @@ import { StructuredValueCellFrame } from './structured-data/atomic-value-editor.
 import { TabularDataCell } from './structured-data/tabular-data-cell.js'
 import { TableCellOptionsContext, resolveTableCellOptions } from './structured-data/table-cell-options.js'
 import { useDismiss } from './lib/use-dismiss.js'
-import { useValueMarks, valueElementAttributes } from './structured-data/value-elements.js'
+import { useValueHighlights, valueElementAttributes } from './structured-data/value-elements.js'
 import { declarationElementAttributes } from './structured-data/picking.js'
-import { useRevealTable } from './controller.js'
+import { useRevealTable } from './viewer-handle.js'
 
 const DEFAULT_COLUMN_WIDTH = 200
 const MIN_COLUMN_WIDTH = 80
@@ -446,7 +446,7 @@ export function TabularObjectArrayView({
     rowVirtualizer.measure()
   }, [rowHeight, rowVirtualizer])
 
-  const marks = useValueMarks()
+  const highlights = useValueHighlights()
   // Rows by source path key, built when the viewer's controller first asks after the rows change.
   const rowsByKey = useRef<{ arr: typeof arr; getRowSourcePath: typeof getRowSourcePath; index: Map<string, number> } | undefined>(undefined)
   const displayIndexOf = (key: string) => {
@@ -616,7 +616,7 @@ export function TabularObjectArrayView({
                       key={col}
                       data-id="tabular-column-header"
                       data-column={col}
-                      {...(declarationPath ? { ...valueElementAttributes(declarationPath, marks), ...declarationElementAttributes(columnLabel(col)) } : {})}
+                      {...(declarationPath ? { ...valueElementAttributes(declarationPath, highlights), ...declarationElementAttributes(columnLabel(col)) } : {})}
                       data-pinned={compact && col === controlColumn || undefined}
                       className={`relative sticky z-20 border-r border-b border-border bg-background p-0 text-left font-normal text-muted-foreground whitespace-nowrap last:border-r-0 ${onColumnMove ? 'cursor-grab active:cursor-grabbing' : ''} ${hiddenColumns.length > 0 ? 'border-t border-border' : ''} ${draggedColumn === col ? 'opacity-50' : ''} ${dropTarget?.column === col && dropTarget.position === 'before' ? 'border-l-2 border-l-primary' : ''} ${dropTarget?.column === col && dropTarget.position === 'after' ? 'border-r-2 border-r-primary' : ''}`}
                       style={{
@@ -754,7 +754,7 @@ export function TabularObjectArrayView({
                       <tr
                         key={virtualRow.key}
                         ref={rowVirtualizer.measureElement}
-                        {...valueElementAttributes(getRowSourcePath?.(originalIndex), marks)}
+                        {...valueElementAttributes(getRowSourcePath?.(originalIndex), highlights)}
                         data-index={virtualRow.index}
                         aria-rowindex={virtualRow.index + (hiddenColumns.length > 0 ? 3 : 2)}
                         aria-selected={selectable ? selectedRows.has(originalIndex) : undefined}

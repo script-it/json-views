@@ -1,5 +1,5 @@
 import { HtmlView } from './html-view.js'
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Braces, LayoutGrid, Columns3, FileText, Search, Table2 } from 'lucide-react'
 import { ButtonToEditContext } from './edit-interaction.js'
 import { useJsonViewsRegistries } from '../widget-registry.js'
@@ -20,9 +20,9 @@ import { ProjectedTableView } from './table-view.js'
 import { KanbanView } from './kanban-view.js'
 import { useViewerState } from '../viewer-state.js'
 import { TableCellOptionsContext } from '../structured-data/table-cell-options.js'
-import { indexValueMarks, valueElementAttributes, ValueMarksContext } from '../structured-data/value-elements.js'
+import { indexValueHighlights, valueElementAttributes, ValueHighlightsContext } from '../structured-data/value-elements.js'
 import { declarationElementAttributes, PickingContext, usePickHandlers } from '../structured-data/picking.js'
-import { RevealTablesContext, useBindController } from '../controller.js'
+import { RevealTablesContext, useViewerHandle, type JsonViewsHandle } from '../viewer-handle.js'
 
 // A tab is the containing block of its `sr-only` label, so the label stays inside the scrolling tab strip
 // instead of widening the toolbar and the host's page.
@@ -189,8 +189,8 @@ function PageView({
   return <RecordView compiled={compiled} copyFileName={copyFileName} editing={editing} filePath={filePath} fillHeight={fillHeight} onCurrentPathChange={onCurrentPathChange} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} row={row} uiSize={uiSize} view={view} />
 }
 
-function ConfiguredView({ htmlViewCss, ...props }: Omit<Parameters<typeof AdaptiveView>[0], 'view'> & { view: CompiledJsonViewView; htmlViewCss?: string }) {
-  if (props.view.display === 'html') return <HtmlView {...props} htmlViewCss={htmlViewCss} />
+function ConfiguredView(props: Omit<Parameters<typeof AdaptiveView>[0], 'view'> & { view: CompiledJsonViewView }) {
+  if (props.view.display === 'html') return <HtmlView {...props} />
   if (props.view.display === 'kanban') return <KanbanView {...props} />
   if (props.view.declarationIndex >= 0
     && props.view.value !== null
@@ -202,7 +202,7 @@ function ConfiguredView({ htmlViewCss, ...props }: Omit<Parameters<typeof Adapti
   return <AdaptiveView {...props} />
 }
 
-export function JsonViewer({
+export const JsonViewer = forwardRef<JsonViewsHandle, JsonViewerProps>(function JsonViewer({
   compiled,
   defaultKey,
   editing,
@@ -218,19 +218,17 @@ export function JsonViewer({
   viewsEnabled = true,
   tabularRoot = false,
   onPick,
-  marks,
-  controller,
-  htmlViewCss,
-}: JsonViewerProps) {
+  highlights,
+}, ref) {
   const { types } = useJsonViewsRegistries()
   const viewerState = useViewerState()
   // The viewer's values, and the tabs that stand for its declared views, are all inside its content wrapper.
   const viewerRef = useRef<HTMLDivElement>(null)
-  const revealTables = useBindController(controller, viewerRef)
+  const revealTables = useViewerHandle(ref, viewerRef)
   const pickHandlers = usePickHandlers(onPick)
-  // Hosts often pass a new array with the same marks; the index changes only with the marks themselves.
-  const marksSignature = JSON.stringify(marks?.map((mark) => [mark.path, mark.kind]) ?? [])
-  const valueMarks = useMemo(() => indexValueMarks(marks), [marksSignature])
+  // Hosts often pass a new array with the same highlights; the index changes only with the highlights themselves.
+  const highlightsSignature = JSON.stringify(highlights?.map((highlight) => [highlight.path, highlight.emphasis]) ?? [])
+  const valueHighlights = useMemo(() => indexValueHighlights(highlights), [highlightsSignature])
   const firstViewTab = viewsEnabled && compiled.views[0] ? `view:${compiled.views[0].id}` : 'root'
   const initialActiveTab = viewerState.activeView ?? firstViewTab
   const [activeTab, setActiveTab] = useState(initialActiveTab)
@@ -499,7 +497,7 @@ export function JsonViewer({
                           ? FileText
                           : Table2
                       const declaration = declaredInDocument
-                        ? { ...valueElementAttributes(view.metadataPath, valueMarks), ...declarationElementAttributes(view.name) }
+                        ? { ...valueElementAttributes(view.metadataPath, valueHighlights), ...declarationElementAttributes(view.name) }
                         : undefined
                       return <ViewTab key={view.id} id={`jsonView-json-tab-${view.id}`} value={`view:${view.id}`} path={slashPath(view)} declaration={declaration}><Icon className="h-3.5 w-3.5" />{view.name}</ViewTab>
                     })}
@@ -515,19 +513,19 @@ export function JsonViewer({
           </div>
         )}
         <TabsContent value={selectedTab} className={cn('mt-2 min-w-0', fillHeight && 'flex min-h-0 flex-1 flex-col')}>
-          <ValueMarksContext.Provider value={valueMarks}>
+          <ValueHighlightsContext.Provider value={valueHighlights}>
           <PickingContext.Provider value={onPick !== undefined}>
           <RevealTablesContext.Provider value={revealTables}>
-          {selectedTab === 'source' ? sourceContent : <ConfiguredView key={selectedTab} forceTable={forceTable} compiled={compiled} copyFileName={defaultKey === 'root' ? 'document.json' : defaultKey} editing={editing} filePath={filePath} fillHeight={fillHeight} onCurrentPathChange={rememberCurrentPath} onSaveView={saveColumnView} query={query} rawView={columnRawView} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} uiSize={uiSize} view={renderedView} htmlViewCss={htmlViewCss} />}
+          {selectedTab === 'source' ? sourceContent : <ConfiguredView key={selectedTab} forceTable={forceTable} compiled={compiled} copyFileName={defaultKey === 'root' ? 'document.json' : defaultKey} editing={editing} filePath={filePath} fillHeight={fillHeight} onCurrentPathChange={rememberCurrentPath} onSaveView={saveColumnView} query={query} rawView={columnRawView} renderExternalWidget={renderExternalWidget} renderMarkdown={renderMarkdown} uiSize={uiSize} view={renderedView} />}
           </RevealTablesContext.Provider>
           </PickingContext.Provider>
-          </ValueMarksContext.Provider>
+          </ValueHighlightsContext.Provider>
         </TabsContent>
       </div>
     </Tabs>
     </TableCellOptionsContext.Provider>
     </ButtonToEditContext.Provider>
   )
-}
+})
 
 export type { JsonViewJsonEditing } from './view-types.js'

@@ -1,13 +1,14 @@
 // @vitest-environment jsdom
 
-import { act, type ReactElement } from 'react'
+import { act, createRef, type ReactElement, type Ref } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import type { ValuePath } from '@script-it/json-views-core'
 
 import { renderComponent, type RenderResult } from '../test/render.js'
-import { createJsonViewsController } from '../controller.js'
+import type { JsonViewsHandle } from '../viewer-handle.js'
 import type { JsonViewsPick } from '../structured-data/picking.js'
 import { TooltipProvider } from '../primitives/tooltip.js'
-import { JSONContent, type JSONContentProps } from './json-content.js'
+import { CSVContent, JSONContent, type JSONContentProps } from './json-content.js'
 
 let rendered: RenderResult | null = null
 
@@ -63,6 +64,9 @@ function select(node: Node, start: number, endNode: Node, end: number): void {
   selection.removeAllRanges()
   selection.addRange(range)
 }
+
+// A rect's numbers, which a matcher compares, rather than the DOMRect, whose numbers are getters.
+const box = (rect: DOMRect | null | undefined) => rect && { x: rect.x, y: rect.y, width: rect.width, height: rect.height }
 
 const textIn = (element: Element | null, text: string): Text => {
   const walker = document.createTreeWalker(element!, NodeFilter.SHOW_TEXT)
@@ -220,71 +224,107 @@ describe('picking declared views and columns', () => {
     expect(header('note')?.hasAttribute('data-json-views-path')).toBe(false)
   })
 
-  it('marks a view\'s tab and a column\'s header, and the controller finds them', async () => {
-    const controller = createJsonViewsController()
-    const marks = [{ path: ['$jsonviews', 'views', 1], kind: 'queued' }, { path: ['$jsonviews', 'views', 0, 'columns', 0], kind: 'draft' }]
-    await render(<JSONContent content={declared} path="people.json" controller={controller} marks={marks} />)
-    expect(tab('notes')?.getAttribute('data-json-views-mark')).toBe('queued')
-    expect(header('Name')?.getAttribute('data-json-views-mark')).toBe('draft')
-    expect(controller.elementForPath(['$jsonviews', 'views', 1])).toBe(tab('notes'))
-    expect(controller.elementForPath(['$jsonviews', 'views', 0, 'columns', 0])).toBe(header('Name'))
+  it('highlights a view\'s tab and a column\'s header, and the handle measures them', async () => {
+    const viewer = createRef<JsonViewsHandle>()
+    const highlights = [{ path: ['$jsonviews', 'views', 1], emphasis: 'subtle' as const }, { path: ['$jsonviews', 'views', 0, 'columns', 0], emphasis: 'strong' as const }]
+    await render(<JSONContent ref={viewer} content={declared} path="people.json" highlights={highlights} />)
+    expect(tab('notes')?.getAttribute('data-json-views-highlight')).toBe('subtle')
+    expect(header('Name')?.getAttribute('data-json-views-highlight')).toBe('strong')
+    expect(box(viewer.current!.rectOf(['$jsonviews', 'views', 1]))).toEqual({ x: 0, y: 0, width: 800, height: 40 })
+    expect(viewer.current!.rectOf(['$jsonviews', 'views', 0, 'columns', 0])).not.toBeNull()
+    expect(viewer.current!.rectOf(['$jsonviews', 'views', 5])).toBeNull()
   })
 
   it('reveals a column of a view that is not open by the view\'s tab', async () => {
-    const controller = createJsonViewsController()
+    const viewer = createRef<JsonViewsHandle>()
     const views = [VIEWS[1], VIEWS[0]]
-    await render(<JSONContent content={JSON.stringify({ $jsonviews: { version: 1, views }, ...people })} path="people.json" controller={controller} />)
-    let found: HTMLElement | null = null
-    await act(async () => { found = await controller.revealPath(['$jsonviews', 'views', 1, 'columns', 1], { timeoutMs: 200 }) })
-    expect(found).toBe(tab('contacts'))
+    await render(<JSONContent ref={viewer} content={JSON.stringify({ $jsonviews: { version: 1, views }, ...people })} path="people.json" />)
+    let found: ValuePath | null = null
+    await act(async () => { found = await viewer.current!.reveal(['$jsonviews', 'views', 1, 'columns', 1], { timeoutMs: 200 }) })
+    expect(found).toEqual(['$jsonviews', 'views', 1])
   })
 })
 
-describe('marks', () => {
-  it('labels marked values with their sorted kinds, picking or not, and follows the marks', async () => {
+describe('highlights', () => {
+  it('highlights values, picking or not, strong over subtle, and follows the highlights', async () => {
     const content = JSON.stringify(PEOPLE)
-    await render(<JSONContent content={content} path="people.json" marks={[{ path: [1, 'email'], kind: 'queued' }, { path: [1, 'email'], kind: 'draft' }, { path: [0], kind: 'queued' }]} />)
-    expect(valueElement([1, 'email'])?.getAttribute('data-json-views-mark')).toBe('draft queued')
-    expect(valueElement([0])?.getAttribute('data-json-views-mark')).toBe('queued')
+    await render(<JSONContent content={content} path="people.json" highlights={[{ path: [1, 'email'], emphasis: 'subtle' }, { path: [1, 'email'], emphasis: 'strong' }, { path: [0], emphasis: 'subtle' }]} />)
+    expect(valueElement([1, 'email'])?.getAttribute('data-json-views-highlight')).toBe('strong')
+    expect(valueElement([0])?.getAttribute('data-json-views-highlight')).toBe('subtle')
     await act(async () => {
-      rendered!.root.render(<JSONContent content={content} path="people.json" marks={[{ path: [0, 'name'], kind: 'focus' }]} />)
+      rendered!.root.render(<JSONContent content={content} path="people.json" highlights={[{ path: [0, 'name'], emphasis: 'strong' }]} />)
       await Promise.resolve()
     })
-    expect(valueElement([1, 'email'])?.hasAttribute('data-json-views-mark')).toBe(false)
-    expect(valueElement([0, 'name'])?.getAttribute('data-json-views-mark')).toBe('focus')
+    expect(valueElement([1, 'email'])?.hasAttribute('data-json-views-highlight')).toBe(false)
+    expect(valueElement([0, 'name'])?.getAttribute('data-json-views-highlight')).toBe('strong')
   })
 })
 
-describe('the controller', () => {
+describe('the handle', () => {
   const many = Array.from({ length: 1000 }, (_value, index) => ({ name: `Person ${index}`, email: `p${index}@example.com` }))
 
-  it('finds a shown value, and scrolls a far row of a long table in', async () => {
-    const controller = createJsonViewsController()
-    await render(<JSONContent content={JSON.stringify(many)} path="many.json" controller={controller} marks={[{ path: [900, 'email'], kind: 'queued' }]} />)
-    expect(controller.elementForPath([0, 'email'])).toBe(valueElement([0, 'email']))
+  it('measures a shown value, and scrolls a far row of a long table in', async () => {
+    const viewer = createRef<JsonViewsHandle>()
+    await render(<JSONContent ref={viewer} content={JSON.stringify(many)} path="many.json" highlights={[{ path: [900, 'email'], emphasis: 'subtle' }]} />)
+    expect(box(viewer.current!.rectOf([0, 'email']))).toEqual({ x: 0, y: 0, width: 800, height: 40 })
     expect(valueElement([900])).toBeNull()
-    let revealed: HTMLElement | null = null
-    await act(async () => { revealed = await controller.revealPath([900, 'email']) })
-    expect(revealed).toBe(valueElement([900, 'email']))
-    expect(revealed!.getAttribute('data-json-views-mark')).toBe('queued')
+    expect(viewer.current!.rectOf([900, 'email'])).toBeNull()
+    let revealed: ValuePath | null = null
+    await act(async () => { revealed = await viewer.current!.reveal([900, 'email']) })
+    expect(revealed).toEqual([900, 'email'])
+    expect(valueElement([900, 'email'])?.getAttribute('data-json-views-highlight')).toBe('subtle')
+  })
+
+  it('flashes what it showed once, again on another reveal', async () => {
+    const viewer = createRef<JsonViewsHandle>()
+    await render(<JSONContent ref={viewer} content={JSON.stringify(PEOPLE)} path="people.json" />)
+    const flashing = () => valueElement([1, 'email'])?.hasAttribute('data-json-views-flash')
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+    try {
+      await act(async () => { await viewer.current!.reveal([1, 'email']) })
+      expect(flashing()).toBe(false)
+      await act(async () => { await viewer.current!.reveal([1, 'email'], { flash: true }) })
+      expect(flashing()).toBe(true)
+      vi.advanceTimersByTime(1000)
+      await act(async () => { await viewer.current!.reveal([1, 'email'], { flash: true }) })
+      vi.advanceTimersByTime(1000)
+      expect(flashing()).toBe(true)
+      vi.advanceTimersByTime(600)
+      expect(flashing()).toBe(false)
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('resolves a value its view does not show to the nearest shown ancestor, and nothing to null', async () => {
-    const controller = createJsonViewsController()
+    const viewer = createRef<JsonViewsHandle>()
     const people = [...PEOPLE.slice(0, 1), { ...PEOPLE[1], notes: { met: 1843 } }]
-    await render(<JSONContent content={JSON.stringify(people)} path="people.json" controller={controller} presentationState={{ version: 1, queries: { root: 'Grace' } }} />)
-    let found: HTMLElement | null = null
-    await act(async () => { found = await controller.revealPath([1, 'notes', 'met']) })
-    expect(found).toBe(valueElement([1, 'notes']) ?? valueElement([1]))
+    await render(<JSONContent ref={viewer} content={JSON.stringify(people)} path="people.json" presentationState={{ version: 1, queries: { root: 'Grace' } }} />)
+    let found: ValuePath | null = null
+    await act(async () => { found = await viewer.current!.reveal([1, 'notes', 'met']) })
+    expect(found).toEqual(valueElement([1, 'notes']) ? [1, 'notes'] : [1])
     // Ada's row is searched away; a missing path is shown nowhere.
-    await act(async () => { found = await controller.revealPath([0, 'email'], { timeoutMs: 200 }) })
+    await act(async () => { found = await viewer.current!.reveal([0, 'email'], { timeoutMs: 200 }) })
     expect(found).toBeNull()
-    await act(async () => { found = await controller.revealPath([7, 'email'], { timeoutMs: 200 }) })
+    await act(async () => { found = await viewer.current!.reveal([7, 'email'], { timeoutMs: 200 }) })
     expect(found).toBeNull()
   })
 
-  it('resolves null when no viewer is bound', async () => {
-    expect(await createJsonViewsController().revealPath([0], { timeoutMs: 50 })).toBeNull()
+  it('reveals the root value', async () => {
+    const viewer = createRef<JsonViewsHandle>()
+    await render(<JSONContent ref={viewer} content={JSON.stringify({ name: 'Ada', email: 'ada@example.com' })} path="ada.json" />)
+    let found: ValuePath | null = null
+    await act(async () => { found = await viewer.current!.reveal([]) })
+    expect(found).toEqual([])
+  })
+
+  it('is held only while the viewer is mounted, through CSVContent too', async () => {
+    const viewer = createRef<JsonViewsHandle>()
+    await render(<CSVContent ref={viewer} content={'name,email\nAda,ada@example.com\n'} path="people.csv" />)
+    expect(viewer.current!.rectOf([0, 'email'])).not.toBeNull()
+    await rendered!.cleanup()
+    rendered = null
+    expect(viewer.current).toBeNull()
   })
 })
 
@@ -295,7 +335,7 @@ describe('an HTML view', () => {
   }, null, 2)
 
   // jsdom does not load srcdoc: the view mounts into the trusted skeleton's mount once its frame reports the load.
-  async function renderFrame(props: Partial<JSONContentProps> = {}): Promise<Document> {
+  async function renderFrame(props: Partial<JSONContentProps> & { ref?: Ref<JsonViewsHandle> } = {}): Promise<Document> {
     await render(<JSONContent content={source} path="planes.json" {...props} />)
     const frame = rendered!.container.querySelector('iframe')!
     await act(async () => { await new Promise((resolve) => setTimeout(resolve, 20)) })
@@ -318,11 +358,11 @@ describe('an HTML view', () => {
     return notCancelled
   }
 
-  it('names each bound value, bound control and repeated item by its source path, and marks them', async () => {
-    const doc = await renderFrame({ onSave: async () => undefined, marks: [{ path: ['planes', 1, 'name'], kind: 'draft' }] })
+  it('names each bound value, bound control and repeated item by its source path, and highlights them', async () => {
+    const doc = await renderFrame({ onSave: async () => undefined, highlights: [{ path: ['planes', 1, 'name'], emphasis: 'strong' }] })
     expect(inFrame(doc, ['planes', 1])?.tagName).toBe('ARTICLE')
     expect(inFrame(doc, ['planes', 1, 'name'])?.textContent).toBe('Glider')
-    expect(inFrame(doc, ['planes', 1, 'name'])?.getAttribute('data-json-views-mark')).toBe('draft')
+    expect(inFrame(doc, ['planes', 1, 'name'])?.getAttribute('data-json-views-highlight')).toBe('strong')
     expect(inFrame(doc, ['planes', 0, 'design'])?.textContent).toBe('Dart')
     expect(inFrame(doc, ['planes', 0, 'built'])?.tagName).toBe('INPUT')
   })
@@ -357,25 +397,29 @@ describe('an HTML view', () => {
     expect(picks[0]).toMatchObject({ path: ['planes', 1, 'name'], selection: { text: 'Gli' } })
   })
 
-  it('finds and reveals a value in the frame, and a value it does not show by its item', async () => {
-    const controller = createJsonViewsController()
-    const doc = await renderFrame({ controller })
-    expect(controller.elementForPath(['planes', 1, 'design'])).toBe(inFrame(doc, ['planes', 1, 'design']))
-    let found: HTMLElement | null = null
-    await act(async () => { found = await controller.revealPath(['planes', 1, 'id']) })
-    expect(found).toBe(inFrame(doc, ['planes', 1]))
+  it('measures a value in the frame on the host page, and reveals a value it does not show by its item', async () => {
+    const viewer = createRef<JsonViewsHandle>()
+    const doc = await renderFrame({ ref: viewer })
+    vi.spyOn(rendered!.container.querySelector('iframe')!, 'getBoundingClientRect').mockReturnValue(new DOMRect(10, 20, 300, 300))
+    vi.spyOn(inFrame(doc, ['planes', 1, 'design'])!, 'getBoundingClientRect').mockReturnValue(new DOMRect(5, 6, 7, 8))
+    expect(box(viewer.current!.rectOf(['planes', 1, 'design']))).toEqual({ x: 15, y: 26, width: 7, height: 8 })
+    let found: ValuePath | null = null
+    await act(async () => { found = await viewer.current!.reveal(['planes', 1, 'id'], { flash: true }) })
+    expect(found).toEqual(['planes', 1])
+    expect(inFrame(doc, ['planes', 1])?.hasAttribute('data-json-views-flash')).toBe(true)
   })
 
-  it('adds the host CSS to the frame, with the host values of what it reads, and marks the frame while picking', async () => {
-    const htmlViewCss = '[data-json-views-mark~="draft"] { background: var(--host-mark); }'
+  it('draws its highlights in the frame with the page\'s highlight colours, and marks the frame while picking', async () => {
     // The frame takes the value the host's page gives its iframe element.
-    document.body.style.setProperty('--host-mark', 'rgb(1, 2, 3)')
-    const doc = await renderFrame({ htmlViewCss, onPick: () => undefined })
-    document.body.style.removeProperty('--host-mark')
-    expect(doc.head.textContent).toContain(htmlViewCss)
-    expect(doc.documentElement.style.getPropertyValue('--host-mark')).toBe('rgb(1, 2, 3)')
+    document.body.style.setProperty('--jv-highlight-surface', 'rgb(1, 2, 3)')
+    const doc = await renderFrame({ onPick: () => undefined })
+    document.body.style.removeProperty('--jv-highlight-surface')
+    const skeleton = rendered!.container.querySelector('iframe')!.getAttribute('srcdoc')
+    expect(skeleton).toContain('[data-json-views-highlight="strong"]')
+    expect(skeleton).toContain('[data-json-views-flash]')
+    expect(doc.documentElement.style.getPropertyValue('--jv-highlight-surface')).toBe('rgb(1, 2, 3)')
     expect(doc.documentElement.hasAttribute('data-json-views-picking')).toBe(true)
-    await act(async () => { rendered!.root.render(<TooltipProvider><JSONContent content={source} path="planes.json" revision="one" htmlViewCss={htmlViewCss} /></TooltipProvider>) })
+    await act(async () => { rendered!.root.render(<TooltipProvider><JSONContent content={source} path="planes.json" revision="one" /></TooltipProvider>) })
     expect(doc.documentElement.hasAttribute('data-json-views-picking')).toBe(false)
   })
 })

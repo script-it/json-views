@@ -16,7 +16,7 @@ import { nestedRecordView, titleFieldForRow, titleForRow } from './view-model.js
 import { jsonPathReference, jsonRecordCopyText } from './copy-json.js'
 import { CopyJsonAction } from '../structured-data/copy-json-action.js'
 import { useViewerState } from '../viewer-state.js'
-import { useValueMarks, valueElementAttributes } from '../structured-data/value-elements.js'
+import { useValueHighlights, valueElementAttributes } from '../structured-data/value-elements.js'
 
 interface GeneralRecordViewProps extends GeneralJsonRecordTarget {
   compiled: CompiledJsonViewMetadata
@@ -72,7 +72,7 @@ export function RecordView({
 }) {
   const sourceLiteral = useJsonSourceLiterals()
   const { navigation } = useViewerState()
-  const marks = useValueMarks()
+  const highlights = useValueHighlights()
   const suppressRequiredValidation = editing?.isDraftRow?.(row.sourcePath) === true
   const nestedStateKey = `${filePath ?? 'json'}#record:${JSON.stringify(row.sourcePath)}`
   const [nestedPath, setNestedPath] = useState<ValuePath | undefined>(() => {
@@ -146,12 +146,12 @@ export function RecordView({
   return (
     <div data-id="jsonView-record-view" className={cn('flex min-h-0 flex-1 flex-col', fillHeight && 'overflow-y-auto')}>
       <NavigationBreadcrumb labels={breadcrumbLabels ?? row.sourcePath.map(String)} onBack={onBack} backLabel={backLabel} />
-      <article {...valueElementAttributes(row.sourcePath, marks)} className="mx-auto w-full max-w-2xl px-3 pb-6 sm:px-6">
+      <article {...valueElementAttributes(row.sourcePath, highlights)} className="mx-auto w-full max-w-2xl px-3 pb-6 sm:px-6">
         {titleField && <div data-id="jsonView-record-title-label" title={String(titleField.path[titleField.path.length - 1])} className="mb-1 text-xs text-muted-foreground">
           {titleDescriptor?.title ?? titleField.label.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[_-]+/g, ' ').replace(/^./, (letter) => letter.toUpperCase())}
         </div>}
         <div className="-mx-1.5 flex min-w-0 items-start justify-end gap-1.5">
-          {titleField && <div {...valueElementAttributes(titleField.path, marks)} data-id="jsonView-record-title" role="heading" aria-level={2} className="min-w-0 max-w-full flex-1 text-xl font-semibold tracking-tight">
+          {titleField && <div {...valueElementAttributes(titleField.path, highlights)} data-id="jsonView-record-title" role="heading" aria-level={2} className="min-w-0 max-w-full flex-1 text-xl font-semibold tracking-tight">
             {titleField && titleDescriptor ? (
             <JsonViewSchemaValueCell
               sourcePath={titleField.path}
@@ -200,7 +200,7 @@ export function RecordView({
             const descriptor = schema?.descriptor
             const focusedNested = editPath && editPath.length > path.length && path.every((part, index) => editPath[index] === part)
               ? nestedRecordView(compiled.root, path, undefined, key) : undefined
-            if (focusedNested) return <div key={key} {...valueElementAttributes(path, marks)} className="col-span-2 min-w-0 py-3">
+            if (focusedNested) return <div key={key} {...valueElementAttributes(path, highlights)} className="col-span-2 min-w-0 py-3">
               <dt className="mb-2 text-muted-foreground">{descriptor?.title ?? key}</dt>
               <dd><RecordView compiled={compiled} row={focusedNested.row} view={focusedNested.view} editPath={editPath} editing={editing} filePath={filePath} copyFileName={copyFileName} fillHeight={false} renderMarkdown={renderMarkdown} renderExternalWidget={renderExternalWidget} uiSize={uiSize} /></dd>
             </div>
@@ -210,7 +210,7 @@ export function RecordView({
             }
             // A field is one row of the list's two columns, with a box of its own to pick and mark.
             return (
-              <div key={key} {...valueElementAttributes(path, marks)} className="col-span-2 grid grid-cols-subgrid">
+              <div key={key} {...valueElementAttributes(path, highlights)} className="col-span-2 grid grid-cols-subgrid">
                 <dt className="min-w-0 break-words py-3 text-muted-foreground">{descriptor?.title ?? key}</dt>
                 <dd className="min-w-0 overflow-hidden py-1.5">
                   {descriptor ? (
@@ -256,8 +256,8 @@ function RecordTextProperty({ value, descriptor, path, label, editing, initially
   renderMarkdown?: (content: string) => ReactNode
   wide: boolean
 }) {
-  const marks = useValueMarks()
-  return <div {...valueElementAttributes(path, marks)} className={wide ? 'col-span-2 min-w-0 py-3' : 'col-span-2 grid grid-cols-subgrid'}>
+  const highlights = useValueHighlights()
+  return <div {...valueElementAttributes(path, highlights)} className={wide ? 'col-span-2 min-w-0 py-3' : 'col-span-2 grid grid-cols-subgrid'}>
     <dt className={cn('min-w-0 text-muted-foreground', wide ? 'mb-2 flex items-center justify-between gap-2' : 'py-3')}>
       <span className="break-words">{label}</span>
 
