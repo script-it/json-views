@@ -11,7 +11,7 @@ export function useJsonViewsPortalContainer(): HTMLElement | undefined {
 }
 
 const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
-const tokens = ['background', 'foreground', 'card', 'card-foreground', 'muted', 'muted-foreground', 'accent', 'accent-foreground', 'primary', 'primary-foreground', 'border', 'input', 'ring', 'link', 'warning', 'destructive', 'destructive-border', 'destructive-surface', 'destructive-foreground']
+const tokens = ['background', 'foreground', 'card', 'card-foreground', 'muted', 'muted-foreground', 'accent', 'accent-foreground', 'primary', 'primary-foreground', 'border', 'input', 'ring', 'link', 'warning', 'destructive', 'destructive-border', 'destructive-surface', 'destructive-foreground', 'highlight-surface', 'highlight-border']
 
 /** Scoped theme and portal destination for one independently themed viewer. */
 export function JsonViewsSurface({

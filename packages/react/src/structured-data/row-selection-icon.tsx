@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Checkbox } from '../primitives/checkbox.js'
+import { ROW_PICKER_ATTRIBUTE } from './picking.js'
 
 /** Both faces share a fixed slot; an invisible checkbox stays in tab order. */
 export function RowSelectionIcon({ icon, checked, disabled, label, onToggle }: {
@@ -9,7 +10,7 @@ export function RowSelectionIcon({ icon, checked, disabled, label, onToggle }: {
   label: string
   onToggle?: () => void
 }) {
-  return <span className="tabular-row-icon relative grid h-3.5 w-3.5 shrink-0 place-items-center" data-id={onToggle ? 'tabular-row-select' : undefined}>
+  return <span className="tabular-row-icon relative grid h-3.5 w-3.5 shrink-0 place-items-center" data-id={onToggle ? 'tabular-row-select' : undefined} {...{ [ROW_PICKER_ATTRIBUTE]: '' }}>
     <span aria-hidden className={onToggle ? 'tabular-selection-icon flex' : 'flex'}>{icon}</span>
     {onToggle && <Checkbox
       aria-label={label}

@@ -25,6 +25,11 @@ export interface TabularObjectArrayViewProps {
   rowKeys?: readonly string[]
   /** Exact source identity for comparison of numeric literals, including nested values. */
   getCellSourcePath?: (rowIndex: number, column: string) => ValuePath | undefined
+  /** The source path of each row, which its element names in `data-json-views-path`. */
+  getRowSourcePath?: (rowIndex: number) => ValuePath | undefined
+  /** Where a column is declared in the document's `$jsonviews`, which its header names in `data-json-views-path`, so a
+   *  host that picks values can pick the column; none for a column the document does not declare. */
+  getColumnDeclarationPath?: (column: string) => ValuePath | undefined
   columns: string[]
   /** Optional display labels let projected views keep stable internal column
    *  keys even when two declared labels are identical. */

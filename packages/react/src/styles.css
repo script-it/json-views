@@ -22,6 +22,8 @@
   --destructive-border: var(--json-views-destructive-border, oklch(0.86 0.055 25));
   --destructive-surface: var(--json-views-destructive-surface, oklch(0.965 0.015 25));
   --destructive-foreground: var(--json-views-destructive-foreground, oklch(0.43 0.12 25));
+  --highlight-surface: var(--json-views-highlight-surface, oklch(0.95 0.03 250));
+  --highlight-border: var(--json-views-highlight-border, oklch(0.8 0.08 250));
   --source-key: var(--json-views-source-key, oklch(0.46 0.11 250));
   --source-string: var(--json-views-source-string, oklch(0.43 0.09 165));
   --source-number: var(--json-views-source-number, oklch(0.46 0.13 295));
@@ -53,6 +55,8 @@
   --destructive-border: var(--json-views-destructive-border, oklch(0.46 0.08 25));
   --destructive-surface: var(--json-views-destructive-surface, oklch(0.28 0.03 25));
   --destructive-foreground: var(--json-views-destructive-foreground, oklch(0.86 0.07 25));
+  --highlight-surface: var(--json-views-highlight-surface, oklch(0.3 0.045 250));
+  --highlight-border: var(--json-views-highlight-border, oklch(0.5 0.09 250));
   --source-key: var(--json-views-source-key, oklch(0.81 0.09 250));
   --source-string: var(--json-views-source-string, oklch(0.81 0.09 165));
   --source-number: var(--json-views-source-number, oklch(0.81 0.09 295));
@@ -322,6 +326,7 @@
   [data-id="jsonView-record-back"] { min-height: 44px; margin: 0 0 8px; font-size: 14px; }
   [data-id="jsonView-record-view"] article { padding-inline: 0; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   [data-id="jsonView-record-view"] dl { grid-template-columns: minmax(5rem, 30%) minmax(0, 1fr); gap: 0 12px; align-items: center; font-size: 14px; }
+  [data-id="jsonView-record-view"] dl > div { align-items: center; }
   [data-id="jsonView-record-view"] dt { padding: 8px 0; font-size: 12px; }
   [data-id="jsonView-record-view"] dd { padding-block: 4px; }
   [data-id="jsonView-record-view"] [data-id="atomic-edit-value"], [data-id="jsonView-record-view"] button { min-height: 44px; }
@@ -345,4 +350,37 @@
 /* Paint the whole header, including its selection control, as one hit area. */
 .json-views-root [data-id="tabular-column-header"]:is(:hover, :has([data-id="tabular-column-menu"][aria-expanded="true"])) {
   background: var(--accent);
+}
+
+/* While values are picked, a drag from a link or image inside one selects text rather than carrying the link away. */
+.json-views-root [data-json-views-picking] [data-json-views-path] :is(a, img) {
+  -webkit-user-drag: none;
+}
+
+/* A host's highlights on values (`highlights`): strong for what the reader is working on now, subtle for what is kept.
+   Keyed on the attribute twice, they outrank a row's or cell's own background. `html-view.tsx` draws the same in an
+   HTML view's frame, with the flash and picking outline below. */
+[data-json-views-highlight][data-json-views-highlight="strong"] {
+  background-color: var(--highlight-surface);
+  box-shadow: inset 0 0 0 2px var(--highlight-border);
+}
+[data-json-views-highlight][data-json-views-highlight="subtle"] {
+  background-color: color-mix(in srgb, var(--highlight-surface) 55%, transparent);
+  box-shadow: inset 0 0 0 1px var(--highlight-border);
+}
+/* A value the handle reveals with `flash` swells in place, then settles. */
+[data-json-views-flash] {
+  animation: highlight-flash 1.6s ease-out;
+}
+@keyframes highlight-flash {
+  0%, 35% { background-color: var(--highlight-surface); box-shadow: 0 0 0 3px var(--highlight-border); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-json-views-flash] { animation: none; }
+}
+/* While values are picked, the value a press would pick is outlined. */
+[data-json-views-picking] [data-json-views-path]:hover:not(:has([data-json-views-path]:hover)) {
+  outline: 1px solid var(--highlight-border);
+  outline-offset: -1px;
 }

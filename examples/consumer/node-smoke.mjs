@@ -16,6 +16,8 @@ assert.equal(session.getSnapshot().dirty, false)
 const html = renderToString(createElement(JSONContent, { content: updated, documentId: 'ssr-consumer', theme: 'light' }))
 assert.match(html, /Packed consumer/)
 assert.match(html, /json-views-root/)
+const highlighted = renderToString(createElement(JSONContent, { content: updated, documentId: 'ssr-highlights', theme: 'light', highlights: [{ path: ['value'], emphasis: 'subtle' }] }))
+assert.match(highlighted, /data-json-views-path="\[&quot;value&quot;\]" data-json-views-highlight="subtle"/)
 console.log('Native ESM imports, source editing, document controller, and React SSR passed.')
 
 for (const theme of ['light', 'dark']) {

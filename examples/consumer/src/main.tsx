@@ -1,10 +1,11 @@
-import { useState, useSyncExternalStore } from 'react'
+import { useRef, useState, useSyncExternalStore } from 'react'
 import { createRoot } from 'react-dom/client'
 import { JsonDocumentSession } from '@script-it/json-views-core'
 import {
   createDefaultWidgetRegistry,
   JSONContent,
   JsonViewsProvider,
+  type JsonViewsHandle,
   type JsonViewDisplayWidgetProps,
   type JsonViewEditWidgetProps,
 } from '@script-it/json-views-react'
@@ -48,6 +49,9 @@ function EmbeddedDocument({ theme }: { theme: 'light' | 'dark' }) {
   const session = sessions[theme]
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot, session.getSnapshot)
   const [editingEnabled, setEditingEnabled] = useState(true)
+  const [pickingEnabled, setPickingEnabled] = useState(false)
+  const [picked, setPicked] = useState<readonly (string | number)[]>()
+  const viewer = useRef<JsonViewsHandle>(null)
   const commit = (content: string) => session.commit(() => content, async (accepted) => ({
     content: accepted,
     revision: `${theme}-${++acceptedRevisions[theme]}`,
@@ -57,14 +61,19 @@ function EmbeddedDocument({ theme }: { theme: 'light' | 'dark' }) {
     <header className="fixture-card-header">
       <div><h2>{theme === 'light' ? 'Light viewer' : 'Dark viewer'}</h2><p>Session: {snapshot.documentId} · Revision: {snapshot.revision}</p></div>
       <label className="fixture-edit-toggle"><input type="checkbox" checked={editingEnabled} onChange={(event) => setEditingEnabled(event.target.checked)} /> Editing enabled</label>
+      <label className="fixture-edit-toggle"><input type="checkbox" checked={pickingEnabled} onChange={(event) => setPickingEnabled(event.target.checked)} /> Pick values</label>
+      {picked && <button className="fixture-widget-button" type="button" onClick={() => void viewer.current?.reveal(picked, { flash: true })}>Show picked value</button>}
     </header>
     <div className="fixture-viewer-frame">
       <JSONContent
+        ref={viewer}
         documentId={snapshot.documentId}
         revision={snapshot.revision}
         content={snapshot.content}
         theme={theme}
         onSave={editingEnabled ? commit : undefined}
+        onPick={pickingEnabled ? (pick) => setPicked(pick.path) : undefined}
+        highlights={picked ? [{ path: picked, emphasis: 'strong' }] : undefined}
       />
     </div>
     <details className="fixture-source" open>

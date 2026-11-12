@@ -1,5 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { csvFormat, inspectCsvSource, validateCsvSource } from '../src/formats/csv-format.js'
+import { readFileSync } from 'node:fs'
+import { csvFormat, csvSourceRangeAtPath, csvSourceRangesAtPaths, inspectCsvSource, validateCsvSource } from '../src/formats/csv-format.js'
+
+const slice = (source: string, path: Array<string | number>) => {
+  const { start, end } = csvSourceRangeAtPath(source, path)
+  return source.slice(start, end)
+}
+
+// The error a call throws, to compare how two calls fail.
+const thrown = (run: () => unknown): unknown => {
+  try { run() } catch (error) { return error }
+  throw new Error('Expected the call to throw')
+}
 
 describe('CSV format adapter', () => {
   it('never treats the header or fractional indices as a data row', () => {
@@ -73,5 +85,63 @@ describe('CSV format adapter', () => {
   it('rejects malformed CSV validation and nested cell values', () => {
     expect(() => validateCsvSource('a\n"unterminated')).toThrow(/Unterminated/)
     expect(csvFormat.canRepresent({ nested: true })).toMatchObject({ representable: false })
+  })
+
+  it('spans each row and cell of the root in the source, as written', () => {
+    const source = '﻿id,name,note\r\n1,"García, Ana","one\r\ntwo"\r\n2,Bo,""\r\n'
+    expect(slice(source, [0])).toBe('1,"García, Ana","one\r\ntwo"')
+    expect(slice(source, [0, 'name'])).toBe('"García, Ana"')
+    expect(slice(source, [0, 'note'])).toBe('"one\r\ntwo"')
+    expect(slice(source, [1, 'note'])).toBe('""')
+    expect(slice(source, [])).toBe('1,"García, Ana","one\r\ntwo"\r\n2,Bo,""')
+    expect(csvSourceRangeAtPath('id\n', [])).toEqual({ start: 3, end: 3 })
+  })
+
+  it('finds cells under synthesized keys, in CSVs that cannot be edited', () => {
+    const source = 'name,,name\nAda,x,Lovelace,extra\n'
+    expect(Object.keys(inspectCsvSource(source).root[0])).toEqual(['name', '$column2 [2]', 'name [3]', '$column4 [4]'])
+    expect(slice(source, [0, 'name'])).toBe('Ada')
+    expect(slice(source, [0, '$column2 [2]'])).toBe('x')
+    expect(slice(source, [0, 'name [3]'])).toBe('Lovelace')
+    expect(slice(source, [0, '$column4 [4]'])).toBe('extra')
+    // A stray quote makes the CSV invalid, but its rows are still there to find.
+    expect(slice('a,b\n1,x"y\n', [0, 'b'])).toBe('x"y')
+  })
+
+  it('reads every value of a wide fixture back from its span', () => {
+    const source = readFileSync(new URL('../../../examples/view-flow/08-csv-wide-sales-350x24.csv', import.meta.url), 'utf8')
+    const { root, state } = inspectCsvSource(source)
+    const paths = root.flatMap((row, index) => Object.keys(row).map((key) => [index, key] as const))
+    const ranges = csvSourceRangesAtPaths(source, paths)
+    expect(ranges).toHaveLength(paths.length)
+    paths.forEach(([index, key], position) => {
+      const raw = source.slice(ranges[position].start, ranges[position].end)
+      const cell = state.records[index + 1].cells.find((candidate) => candidate.raw === raw)
+      expect(cell?.value, `${index} ${key}`).toBe(String(root[index][key]))
+    })
+  })
+
+  it('throws for paths the root does not have, or that name no row', () => {
+    const source = 'id,name\n1,Ada\n'
+    expect(() => csvSourceRangeAtPath(source, [1])).toThrow(RangeError)
+    expect(() => csvSourceRangeAtPath(source, [0, 'missing'])).toThrow(RangeError)
+    expect(() => csvSourceRangeAtPath(source, ['0'])).toThrow(TypeError)
+    expect(() => csvSourceRangeAtPath(source, [0, 1])).toThrow(TypeError)
+    expect(() => csvSourceRangeAtPath(source, [0, 'id', 'more'])).toThrow(TypeError)
+  })
+
+  it('resolves and rejects each path alike, alone or among others', () => {
+    const source = 'id,,id\r\n1,"one\r\ntwo",x\r\n2,,y\r\n'
+    // A quoted multi-line cell under an empty header, a cell under a repeated header, a row, and every row.
+    const paths = [[0, '$column2 [2]'], [1, 'id [3]'], [1], []]
+    const ranges = csvSourceRangesAtPaths(source, paths)
+    expect(ranges).toEqual(paths.map((path) => csvSourceRangeAtPath(source, path)))
+    expect(ranges.map(({ start, end }) => source.slice(start, end))).toEqual(['"one\r\ntwo"', 'y', '2,,y', '1,"one\r\ntwo",x\r\n2,,y'])
+    // A missing row or column, and the header's place before the first row, throw the same, also after a path that resolves.
+    for (const path of [[2], [0, 'missing'], [-1]]) {
+      const alone = thrown(() => csvSourceRangeAtPath(source, path))
+      expect(alone).toBeInstanceOf(path[0] === -1 ? TypeError : RangeError)
+      expect(thrown(() => csvSourceRangesAtPaths(source, [[0], path]))).toStrictEqual(alone)
+    }
   })
 })

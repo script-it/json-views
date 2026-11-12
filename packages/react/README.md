@@ -190,6 +190,34 @@ Built-in `select` and `multi-select` widgets are creatable. Descriptor `options`
 
 Use descriptor `optionColors` to assign a palette color per option. With writable annotations, the menu shows a palette button beside each option and persists the selected color through the annotation host callback.
 
+### Picking, highlighting, and revealing values
+
+Every value the viewer renders carries `data-json-views-path`, set to `valuePathKey(path)` (the `JSON.stringify` of its core `ValuePath`): table rows and cells, a record with its title and fields, general-view object rows, and Kanban cards and their fields. A cell without a source value of its own, such as an absent property or a map's key column, belongs to its row and carries no path. In an HTML view, each `jv-field` and `jv-value`, each control bound with `jv-bind` or `jv-value`, and the outermost elements of each `jv-repeat` item carry the path of what they show. Source carries none.
+
+A view or column declared in the document's own `$jsonviews` is a value of the document too, so its element carries its declaration's path: a declared view's tab carries `["$jsonviews","views",i]`, and the header of a column the view declares carries `["$jsonviews","views",i,"columns",j]`. Each also carries `data-json-views-label`, the name it shows. Views and columns kept outside the document (`metadata`, CSV views), inferred columns, and the root and Source tabs carry neither.
+
+Pass `onPick` to pick values. While it is set, a click, Enter or Space inside a value calls `onPick({ path, element })` instead of the value's own action: nothing enters editing, toggles, drills in, opens a record or cell, follows a link, selects a row, copies, reveals a clipped cell, or starts a card drag, and a press on an HTML view's bound control neither focuses nor changes it. The innermost value wins, and a row's leading icon picks the row. A click that ends a mouse selection inside one value also reports `selection: { text, range }`; a selection across a row's cells picks the row. A press on a declared view's tab or a declared column's header picks the declaration, with `label` set to its name, instead of switching the view or opening, resizing or dragging the column. The root and Source tabs, search, breadcrumbs, the menus, resizing and reordering of columns that are not declared, the table footer, and Kanban column headers keep working. A pick stops its click from propagating, so detect presses outside the viewer with `pointerdown`. While picking, the viewer outlines the value a press would pick, in an HTML view too. An HTML view's `element` sits in the view's frame; measure it on the page with the handle's `rectOf(path)`. The viewer's content wrapper (`json-viewer-content`, which holds the tabs) carries `data-json-views-picking`, which a host can use for its own cursor on the page:
+
+```css
+[data-json-views-picking] [data-json-views-path],
+[data-json-views-picking] [data-json-views-path] * { cursor: crosshair !important; }
+```
+
+Pass `highlights={[{ path, emphasis }]}` to highlight values, whether or not picking is on: `'strong'` for what the reader is working on now, `'subtle'` for what is kept. A value highlighted both ways is strong. The viewer draws them on the page and in HTML views' frames, on values, declared views' tabs and declared columns' headers alike, and on virtualized rows as they mount. Their colours are `--json-views-highlight-surface` and `--json-views-highlight-border`.
+
+The viewer's `ref` holds a `JsonViewsHandle` while it is mounted:
+
+```tsx
+const viewer = useRef<JsonViewsHandle>(null)
+
+<JSONContent ref={viewer} content={content} onPick={picking ? handlePick : undefined} highlights={[{ path, emphasis: 'strong' }]} />
+
+await viewer.current?.reveal(path, { flash: true })
+viewer.current?.rectOf(path)
+```
+
+`rectOf(path)` returns the box of the mounted element showing a value, a declared view's tab or a declared column's header included, relative to the host page's viewport as `getBoundingClientRect()` is, for a value in an HTML view's frame too; `null` when none is mounted. `await reveal(path)` scrolls the value into view, a virtualized table to its row first, and returns the path it showed. When the open view does not show the value, it shows the nearest ancestor the view shows, such as the row of a field that has no column, and returns that ancestor's path; a column of a view that is not open resolves to that view's tab. It returns `null` when the view shows none of the path (another view, or a search or filter hiding the row). `timeoutMs` (default 3000) bounds the wait for a row it scrolled to to render. With `flash: true`, what it showed pulses once, unless the reader prefers reduced motion. It does not switch views or open records. These props and the `ref` work on `JSONContent`, `CSVContent`, `StructuredDataContent`, and `JsonViewer`.
+
 ### External annotations
 
 Pass `metadata={{ version: 1, schema: ..., views: ... }}` to annotate any JSON root without inserting `$jsonviews`. This overrides embedded annotations and inference. Supply `onMetadataChange` to persist view settings separately; otherwise the external annotations are read-only. The host must return the accepted metadata through props. Removing `metadata` restores embedded annotations or inference. These saves do not request conversion or change the source. For transient annotations owned by the viewer, set `metadataPersistence="session"`; their lifetime is the mounted document session. Creating or deleting a property together with its annotation is offered for embedded object-root documents, where both can be committed atomically. Hosts using external annotations should coordinate such schema/data changes in their own storage transaction. Malformed and future versions produce visible diagnostics and cannot be silently replaced by version 1 settings.
@@ -200,7 +228,7 @@ JSON Views descriptors are not JSON Schema. The packaged `@script-it/json-views-
 
 `JSONContent` includes `JsonViewsSurface` and scopes its styles and presentation state to that instance. State is in-memory unless the host supplies the presentation-state callbacks above. Navigation and hidden columns are never stored in a module-global cache. Each `JsonViewsProvider` also owns independent default registries. No host Tailwind installation is required. Use `theme="light"` or `theme="dark"` for explicit sibling themes; `inherit` reads the nearest host `data-json-views-theme`, `.light`, or `.dark`, falling back to light. It does not independently choose an OS theme.
 
-Override semantic tokens on a containing element with `--json-views-background`, `--json-views-foreground`, `--json-views-card`, `--json-views-border`, `--json-views-muted`, `--json-views-accent`, `--json-views-primary`, `--json-views-ring`, their foreground companions, `--json-views-font-family`, and `--json-views-table-cell-max-height`. Popups receive the same theme and tokens in a per-instance portal root. Use `portalContainer` for a host modal/overlay boundary; the supplied element should belong to the same document. `JsonViewsSurface` is exported for compositions using lower-level components.
+Override semantic tokens on a containing element with `--json-views-background`, `--json-views-foreground`, `--json-views-card`, `--json-views-border`, `--json-views-muted`, `--json-views-accent`, `--json-views-primary`, `--json-views-ring`, `--json-views-highlight-surface`, `--json-views-highlight-border`, their foreground companions, `--json-views-font-family`, and `--json-views-table-cell-max-height`. Popups receive the same theme and tokens in a per-instance portal root. Use `portalContainer` for a host modal/overlay boundary; the supplied element should belong to the same document. `JsonViewsSurface` is exported for compositions using lower-level components.
 
 ```css
 .product-json-viewer {

@@ -11,6 +11,9 @@ export {
   type StructuredDataContentProps,
 } from './json/json-content.js'
 export { JsonViewer, type JsonViewJsonEditing } from './json/json-view.js'
+export type { JsonViewsPick } from './structured-data/picking.js'
+export type { JsonViewsHighlight } from './structured-data/value-elements.js'
+export type { JsonViewsHandle } from './viewer-handle.js'
 export type { JsonViewsTableCellOptions } from './structured-data/table-cell-options.js'
 export {
   JsonViewsProvider,
